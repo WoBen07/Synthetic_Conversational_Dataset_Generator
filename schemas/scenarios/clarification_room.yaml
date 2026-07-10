@@ -5,4 +5,7 @@ entities:
   patient:
     type: patient
 
+  appointment:
+    type: appointment
+
 language_schema: clarification_by_room

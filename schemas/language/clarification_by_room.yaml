@@ -6,7 +6,7 @@ variables:
     - "Please remind {{patient.first_name}} about {{patient.possessive_pronoun}} appointment today."
     - "Could you remind {{patient.first_name}} that {{patient.pronoun}} has a doctor's appointment?"
     - "Please go tell {{patient.first_name}} {{patient.pronoun}} has an appointment."
-    - "Can you please remind {{patient.first_name}} about {{patient.appointment_type}}?"
+    - "Can you please remind {{patient.first_name}} about {{appointment.appointment_type}}?"
     - "Please let {{patient.first_name}} know about {{patient.pronoun}} appointment."
     - "Could you inform {{patient.first_name}} that {{patient.pronoun}} appointment is coming up?"
     - "Would you remind {{patient.first_name}} about {{patient.pronoun}} appointment?"
