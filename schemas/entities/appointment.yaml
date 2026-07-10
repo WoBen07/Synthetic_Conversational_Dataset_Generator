@@ -1,0 +1,24 @@
+entity: appointment
+
+
+fields:
+
+  appointment_id:
+    type: string
+    generator: appointment_id
+    unique: true
+
+
+  day:
+    type: enum
+    generator: weekday
+
+
+  appointment_type:
+    type: semantic_string
+    generator: appointment_type
+
+
+  location:
+    type: string
+    generator: room_number

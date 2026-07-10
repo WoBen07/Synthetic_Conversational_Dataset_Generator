@@ -1,0 +1,94 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{remind_user_phrase}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}",
+          "{{alternative_patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{multiple_patient_confirmation_request}}"
+    },
+    {
+      "role": "user",
+      "content": "{{patient_confirmation}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}"
+        }
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "navigate_to",
+        "arguments": {
+          "room": "{{patient.room_number}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "navigate_to",
+      "content": {
+        "status": "arrived",
+        "location": "{{patient.room_number}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "remind_patient",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "message": "{{reminder_phrase}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "remind_patient",
+      "content": {
+        "status": "success"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation_phrase_task_fullfillment}}"
+    }
+  ]
+}

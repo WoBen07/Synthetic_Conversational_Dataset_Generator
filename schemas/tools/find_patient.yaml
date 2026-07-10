@@ -1,0 +1,17 @@
+tool: find_patient
+
+
+output:
+
+
+  matches:
+
+    type: list
+
+
+    constraints:
+
+      minimum_items: 2
+
+
+      item_type: patient

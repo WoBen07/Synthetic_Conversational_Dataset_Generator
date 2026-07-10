@@ -1,0 +1,31 @@
+entity: patient
+
+
+fields:
+
+  patient_id:
+    type: string
+    generator: patient_id
+
+
+  first_name:
+    type: string
+    generator: first_name
+
+
+  last_name:
+    type: string
+    generator: last_name
+
+
+  room_number:
+    type: string
+    generator: room_number
+
+  
+
+
+computed:
+
+  full_name:
+    template: "{{first_name}} {{last_name}}"

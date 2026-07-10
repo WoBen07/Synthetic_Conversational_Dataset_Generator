@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{user_request}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{clarification_request}}"
+    },
+    {
+      "role": "user",
+      "content": "{{user_clarification}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{acknowledgement}}"
+    }
+  ]
+}

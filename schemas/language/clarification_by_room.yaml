@@ -1,0 +1,81 @@
+variables:
+
+  user_request:
+
+    # Direct reminder requests
+    - "Please remind {{patient.first_name}} about {{patient.possessive_pronoun}} appointment today."
+    - "Could you remind {{patient.first_name}} that {{patient.pronoun}} has a doctor's appointment?"
+    - "Please go tell {{patient.first_name}} {{patient.pronoun}} has an appointment."
+    - "Can you please remind {{patient.first_name}} about {{patient.appointment_type}}?"
+    - "Please let {{patient.first_name}} know about {{patient.pronoun}} appointment."
+    - "Could you inform {{patient.first_name}} that {{patient.pronoun}} appointment is coming up?"
+    - "Would you remind {{patient.first_name}} about {{patient.pronoun}} appointment?"
+    - "Can you go and tell {{patient.first_name}} that {{patient.pronoun}} appointment is scheduled for today?"
+    - "Please make sure {{patient.first_name}} knows about {{patient.pronoun}} appointment."
+    - "I need you to remind {{patient.first_name}} about {{patient.pronoun}} visit today."
+    - "Could you notify {{patient.first_name}} about {{patient.pronoun}} upcoming appointment?"
+    - "Please find {{patient.first_name}} and let {{patient.pronoun}} know about the appointment."
+    - "Can you bring {{patient.first_name}} to {{patient.pronoun}} appointment?"
+    - "Please tell {{patient.first_name}} it is time for {{patient.pronoun}} appointment."
+    - "Could you ask {{patient.first_name}} to get ready for {{patient.pronoun}} appointment?"
+
+
+  clarification_request:
+
+    # Asking for more information
+    - "Could you please give me some additional information about {{patient.first_name}}?"
+    - "There are multiple patients with that first name. Could you specify which one?"
+    - "Can you tell me which {{patient.first_name}} you mean?"
+    - "I found several patients named {{patient.first_name}}. Could you provide more details?"
+    - "Which patient named {{patient.first_name}} should I remind?"
+    - "Could you provide the patient's full name?"
+    - "Do you know the patient's room number?"
+    - "Can you tell me the patient's room or last name?"
+    - "I need some more information to identify the correct patient."
+    - "There are multiple people with this name. Who should I look for?"
+    - "Could you clarify which patient you are referring to?"
+    - "Please provide another identifier for the patient."
+    - "I need either the room number or the patient's full name."
+    - "Can you confirm which {{patient.first_name}} you mean?"
+
+
+  user_clarification:
+
+    # Full name
+    - "I mean {{patient.full_name}} in room {{patient.room_number}}."
+    - "{{patient.full_name}}, room {{patient.room_number}}."
+    - "The patient in room {{patient.room_number}}."
+    - "I'm talking about {{patient.full_name}}."
+    - "The {{patient.first_name}} with the last name {{patient.last_name}}."
+    - "{{patient.full_name}} is the one I mean."
+    - "Please remind {{patient.full_name}}."
+
+    # Room-based identification
+    - "The patient in room {{patient.room_number}}."
+    - "The person staying in room {{patient.room_number}}."
+    - "The patient from room {{patient.room_number}}."
+    - "Room {{patient.room_number}}, that's the one."
+    - "I mean the patient located in {{patient.room_number}}."
+
+    # Mixed identifiers
+    - "{{patient.first_name}}, the patient in room {{patient.room_number}}."
+    - "{{patient.full_name}}, they are staying in room {{patient.room_number}}."
+    - "The {{patient.first_name}} {{patient.last_name}} in room {{patient.room_number}}."
+    - "The patient named {{patient.full_name}} who is in room {{patient.room_number}}."
+
+
+  acknowledgement:
+
+    # Confirmation
+    - "I will go and remind {{patient.full_name}} in room {{patient.room_number}}."
+    - "Understood. I'll remind {{patient.full_name}} in room {{patient.room_number}}."
+    - "Okay, I will inform {{patient.full_name}} about {{patient.pronoun}} appointment."
+    - "Got it. I'll let {{patient.full_name}} know about the appointment."
+    - "I will find {{patient.full_name}} in room {{patient.room_number}} and remind {{patient.pronoun}}."
+    - "Understood. I am going to remind {{patient.full_name}} now."
+    - "I'll take care of it and remind {{patient.full_name}}."
+    - "Alright, I will notify {{patient.full_name}} about {{patient.pronoun}} appointment."
+    - "Confirmed. I will go to room {{patient.room_number}} and remind {{patient.full_name}}."
+    - "I have the information. I'll remind {{patient.full_name}}."
+    - "Thank you for clarifying. I'll remind {{patient.full_name}} in room {{patient.room_number}}."
+    - "I know which patient you mean now. I'll go remind {{patient.full_name}}."

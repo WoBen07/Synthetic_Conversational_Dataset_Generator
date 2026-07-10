@@ -1,0 +1,8 @@
+name: clarification_by_room
+
+entities:
+
+  patient:
+    type: patient
+
+language_schema: clarification_by_room

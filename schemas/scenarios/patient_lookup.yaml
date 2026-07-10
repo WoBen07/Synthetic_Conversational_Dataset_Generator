@@ -1,0 +1,41 @@
+scenario: ambiguous_patient_lookup
+
+
+entities:
+
+  target_patient:
+    type: patient
+
+
+  alternative_patient:
+    type: patient
+
+
+
+constraints:
+
+
+  - type: equal
+
+    fields:
+
+      - target_patient.last_name
+      - alternative_patient.last_name
+
+
+
+  - type: different
+
+    fields:
+
+      - target_patient.patient_id
+      - alternative_patient.patient_id
+
+
+
+  - type: different
+
+    fields:
+
+      - target_patient.room_number
+      - alternative_patient.room_number

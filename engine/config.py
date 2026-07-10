@@ -1,0 +1,7 @@
+NUM_DATASETS = 20
+
+OUTPUT_DIR = "generated_data"
+
+GENERATOR_VERSION = "0.2.0"
+
+RANDOM_SEED = 42
