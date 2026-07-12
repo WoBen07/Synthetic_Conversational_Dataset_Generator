@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 from datetime import datetime
+import random
 
 from synthetic_data_generator.engine.metadata import MetadataWriter
 from synthetic_data_generator.engine.config import GENERATOR_VERSION, RANDOM_SEED
@@ -16,7 +17,12 @@ from synthetic_data_generator.engine.validators.validator import Validator
 class DatasetGenerator:
 
 
-    def __init__(self):
+    def __init__(self, random_seed):
+
+        self.random_seed = random_seed
+
+        if random_seed is not None:
+            random.seed(random_seed)
 
         self.template_loader = TemplateLoader()
 

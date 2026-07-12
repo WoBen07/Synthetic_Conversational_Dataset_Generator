@@ -1,11 +1,19 @@
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-from synthetic_data_generator.engine.config import NUM_DATASETS, OUTPUT_DIR
 
 
+yamls = "unable_to_assist"
+
+NUM_DATASETS = 50
+
+OUTPUT_DIR = f"Synthetic_Data/{yamls}"
+
+GENERATOR_VERSION = "0.2.0"
+
+RANDOM_SEED = 42
 
 generator = DatasetGenerator()
 
-yamls = "patient_toolcall3"
+
 
 generator.generate_many(
 
