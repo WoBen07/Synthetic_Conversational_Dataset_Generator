@@ -108,52 +108,79 @@ class DatasetGenerator:
 
 
         index = 0
-        attempts = 0
-        max_attempts = max(amount * 100, 1)
+        skipped = 0
+
+        max_attempts_per_datapoint = 50
 
 
         while index < amount:
 
-            attempts += 1
+            attempts = 0
+            datapoint = None
 
-            if attempts > max_attempts:
 
-                raise RuntimeError(
-                    "Failed to generate a valid datapoint after "
-                    f"{attempts - 1} attempts"
+            while attempts < max_attempts_per_datapoint:
+
+                attempts += 1
+
+                try:
+
+                    datapoint = self.generate_one(
+                        scenario,
+                        template,
+                        language_schema
+                    )
+
+
+                except ValueError as error:
+
+                    print(
+                        f"Regenerating datapoint after generation error: {error}"
+                    )
+
+                    continue
+
+
+
+                errors = self.validator.validate(
+                    datapoint
                 )
 
 
-            try:
+                if errors:
 
-                datapoint = self.generate_one(
-                    scenario,
-                    template,
-                    language_schema
-                )
+                    print(errors)
+                    print(
+                        "Regenerating datapoint after validation error."
+                    )
 
-            except ValueError as error:
+                    continue
+
+
+                # Valid datapoint found
+                break
+
+
+
+            #
+            # Failed after max attempts
+            #
+
+            if datapoint is None or errors:
+
+                skipped += 1
 
                 print(
-                    f"Regenerating datapoint after generation error: {error}"
+                    f"Skipping datapoint after {max_attempts_per_datapoint} failed attempts."
                 )
 
                 continue
 
 
-            errors = self.validator.validate(
-                datapoint
-            )
 
-            if errors:
-
-                print(errors)
-                print(
-                    "Regenerating datapoint after validation error."
-                )
-
-                continue
-
+            #
+            # Save valid datapoint
+            #
 
             filename = (
                 output_path /
@@ -179,6 +206,7 @@ class DatasetGenerator:
                 f"Generated {filename}"
             )
 
+
             index += 1
         metadata = {
 
@@ -192,8 +220,11 @@ class DatasetGenerator:
 
             "amount": amount,
 
-            "random_seed": RANDOM_SEED
+            "generated": index,
 
+            "skipped": skipped,
+
+            "random_seed": RANDOM_SEED
         }
 
 

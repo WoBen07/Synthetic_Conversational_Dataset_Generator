@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{reminder_request}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{additional_information_request}}"
+    },
+    {
+        "role": "user",
+        "content": "{{unable_to_give_information_phrase}}"
+    },
+    {
+        "role": "assistant",
+        "content": "{{unable_to_assist_phrase}}"
+    }
+  ]
+}

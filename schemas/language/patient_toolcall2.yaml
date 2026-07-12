@@ -1,0 +1,50 @@
+variables:
+
+  appointment_information_request:
+    - "Hello. I have a doctor's appointment today. Can you tell me what I need to know?"
+    - "Could you tell me about my appointment today?"
+    - "I'd like some information about my appointment."
+    - "Can you tell me where my appointment is?"
+    - "Do I have an appointment today?"
+    - "Could you check my appointment for me?"
+    - "I'd like to know when my appointment is."
+    - "Can you tell me the details of my appointment?"
+    - "I have an appointment today. Can you give me the details?"
+    - "Please tell me about my scheduled appointment."
+    - "What do I need to know about my appointment?"
+    - "Can you look up my appointment?"
+    - "I'd like to check my appointment information."
+    - "Can you tell me today's appointment details?"
+    - "What appointment do I have today?"
+
+  patient_name_request:
+    - "Yes, of course. Could you please tell me your name?"
+    - "Certainly. May I have your name first?"
+    - "I'd be happy to help. What is your name?"
+    - "Could you please provide your full name?"
+    - "Before I can look that up, may I know your name?"
+    - "Please tell me your full name so I can check."
+    - "Who should I look up?"
+    - "Can you tell me your name, please?"
+    - "May I ask for your name?"
+    - "Please provide your name."
+
+  patient_name_response:
+    - "I am {{patient.full_name}}."
+    - "My name is {{patient.full_name}}."
+    - "It's {{patient.full_name}}."
+    - "I'm {{patient.full_name}}."
+    - "{{patient.full_name}}."
+    - "You can find me under {{patient.full_name}}."
+
+  appointment_information_response:
+    - "Your {{appointment.appointment_type}} is scheduled for {{appointment.day}}. It will take place in {{appointment.location}}."
+    - "You have a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "Your next appointment is a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "Your appointment is on {{appointment.day}} and will take place in {{appointment.location}}."
+    - "You are scheduled for a {{appointment.appointment_type}} on {{appointment.day}}. The location is {{appointment.location}}."
+    - "I found your appointment. It's a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "According to your schedule, your {{appointment.appointment_type}} is on {{appointment.day}} in {{appointment.location}}."
+    - "Your appointment details are as follows: {{appointment.appointment_type}}, {{appointment.day}} located in {{appointment.location}}."
+    - "You have an upcoming {{appointment.appointment_type}} scheduled for {{appointment.day}} in {{appointment.location}}."
+    - "Your {{appointment.appointment_type}} will take place on {{appointment.day}} in {{appointment.location}}."

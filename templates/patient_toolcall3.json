@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{weather_request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_weather",
+        "arguments": {
+          "location": "hospital area"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_weather",
+      "content": {
+        "temperature": "{{weather.temperature}}",
+        "condition": "{{weather.condition}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{recommendation_phrase}}"
+    }
+  ]
+}

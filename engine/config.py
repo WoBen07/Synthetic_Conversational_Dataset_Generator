@@ -1,4 +1,4 @@
-NUM_DATASETS = 100
+NUM_DATASETS = 50
 
 OUTPUT_DIR = "generated_data"
 

@@ -1,0 +1,11 @@
+name: able_to_assist_with_more_information
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: able_to_assist_with_more_information

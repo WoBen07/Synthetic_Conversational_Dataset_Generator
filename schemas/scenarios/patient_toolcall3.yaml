@@ -1,0 +1,14 @@
+name: patient_toolcall3
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+  weather:
+    type: weather
+
+language_schema: patient_toolcall3

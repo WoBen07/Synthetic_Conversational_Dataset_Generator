@@ -1,0 +1,11 @@
+entity: weather
+
+fields:
+
+  condition:
+    type: string
+    generator: condition
+
+  temperature:
+    tpye: string
+    generator: temperature

@@ -1,0 +1,11 @@
+name: patient_toolcall2
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: patient_toolcall2

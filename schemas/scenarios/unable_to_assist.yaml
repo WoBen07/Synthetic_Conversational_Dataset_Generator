@@ -1,0 +1,11 @@
+name: unable_to_assist
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: unable_to_assist

@@ -2,6 +2,7 @@ from .names import *
 from .ids import *
 from .rooms import *
 from .appointments import *
+from .weather import *
 
 
 
@@ -17,4 +18,8 @@ REGISTRY = {
 
     "appointment_type": appointment_type,
     "weekday": weekday,
+
+    "temperature": temperature,
+    "condition": condition
+    
 }

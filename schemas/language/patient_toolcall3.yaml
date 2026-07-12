@@ -1,0 +1,53 @@
+variables:
+
+  weather_request:
+
+    - "Do I need anything special before walking to my appointment?"
+    - "Should I prepare anything before going to my appointment?"
+    - "Is there anything I should take with me for my walk to the appointment?"
+    - "Do I need to bring anything before heading to the hospital?"
+    - "Should I dress differently because I have to walk outside?"
+    - "Is there anything I should know before walking there?"
+    - "Do I need to prepare for the weather before leaving?"
+    - "Will I need anything special for my way to the appointment?"
+    - "What should I bring when walking to my appointment?"
+    - "Should I take anything with me because of the weather?"
+    - "Is there anything I should consider before walking outside?"
+    - "Can you tell me if I need any special preparation before leaving?"
+    - "Do I need an umbrella or anything else for the walk?"
+    - "Should I wear something specific for my walk?"
+    - "Is the weather something I should prepare for before my appointment?"
+
+
+  recommendation_phrase:
+
+    - "It is {{weather.condition}} outside and around {{weather.temperature}}. I recommend dressing appropriately for the weather."
+    - "The weather is {{weather.condition}} with temperatures around {{weather.temperature}}. Please make sure you are prepared before leaving."
+    - "It is currently {{weather.condition}}. I suggest taking suitable precautions before walking outside."
+    - "The conditions outside are {{weather.condition}}. I recommend preparing accordingly for your walk."
+    
+    # Cold weather
+    - "It is cold outside. I recommend wearing warm clothing before leaving."
+    - "The temperature is low, so please wear a warm jacket and suitable clothes."
+    - "It may feel chilly outside, so dress warmly for your walk."
+    - "Make sure to wear enough layers to stay comfortable in the cold weather."
+    
+    # Rain
+    - "There is rain expected. I recommend taking an umbrella or wearing waterproof clothing."
+    - "It is rainy outside, so consider bringing an umbrella for your walk."
+    - "The weather is wet, so proper protection from rain would be useful."
+    - "I recommend wearing waterproof shoes and bringing an umbrella."
+    
+    # Snow / ice
+    - "There is a chance of snow. I recommend wearing proper shoes and warm clothing."
+    - "It is snowy outside, so please wear warm clothes and shoes with good grip."
+    - "Because of the snow, be careful while walking and wear suitable footwear."
+    - "The conditions may be icy, so I recommend wearing sturdy shoes."
+    
+    # Wind
+    - "It is windy outside. I recommend wearing a jacket to protect yourself from the cold wind."
+    - "There are strong winds, so make sure you are dressed appropriately."
+    
+    # Warm weather
+    - "It is warm outside. I recommend wearing light clothing and bringing water if needed."
+    - "The temperatures are high, so make sure to stay hydrated during your walk."

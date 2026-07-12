@@ -1,0 +1,11 @@
+name: task_confirmation
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: task_confirmation

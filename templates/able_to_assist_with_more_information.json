@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{task_command}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{more_information_request}}"
+    },
+    {
+        "role": "user",
+        "content": "{{more_information_phrase}}"
+    },
+    {
+        "role": "assistant",
+        "content": "{{acknowledgement_phrase}}"
+    }
+  ]
+}
