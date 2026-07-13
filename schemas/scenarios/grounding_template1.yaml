@@ -1,0 +1,7 @@
+scenario: grounding_with_help_acceptance
+
+entities:
+  patient:
+    type: patient
+
+language_schema: grounding_template1

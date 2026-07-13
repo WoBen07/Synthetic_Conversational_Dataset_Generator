@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{patient_robot_greeting_phrase}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{robot_grounding_response}}"
+    },
+    {
+        "role": "user",
+        "content": "{{user_uncertainty_location_expression}}"
+    },
+
+    {
+        "role": "assistant",
+        "content": "{{robot_reassurance}}"
+    },
+    {
+        "role": "user",
+        "content": "{{patient_help_phrase}}"
+    },
+    {
+        "role": "assistant",
+        "content": "{{robot_grounding_help_acceptance}}"
+    }
+  ]
+}
