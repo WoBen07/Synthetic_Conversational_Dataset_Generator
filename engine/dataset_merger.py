@@ -15,7 +15,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 INPUT_FOLDER = PROJECT_ROOT / "Synthetic_Data"
-OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_2"
+OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_3"
 TRAIN_OUTPUT = "train.jsonl"
 VALIDATION_OUTPUT = "validation.jsonl"
 

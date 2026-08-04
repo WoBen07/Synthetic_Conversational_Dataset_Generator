@@ -22,6 +22,10 @@ fields:
     type: string
     generator: room_number
 
+  birthday:
+    type: date
+    generator: birthday
+
   
 
 

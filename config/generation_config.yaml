@@ -1,14 +1,14 @@
-default_amount: 400
+default_amount: 1000
 
 important_templates:
   patient_reminder:
-    amount: 1000
+    amount: 2000
 
   patient_toolcall2:
-    amount: 500
+    amount: 1500
 
   patient_toolcall3:
-    amount: 750
+    amount: 1250
 
 random_seed_range:
   min: 1

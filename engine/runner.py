@@ -1,7 +1,7 @@
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
 
 
-yamls = "unable_to_assist"
+yamls = "similar_patients_tool"
 
 NUM_DATASETS = 50
 
@@ -11,7 +11,7 @@ GENERATOR_VERSION = "0.2.0"
 
 RANDOM_SEED = 42
 
-generator = DatasetGenerator()
+generator = DatasetGenerator(RANDOM_SEED)
 
 
 

@@ -1,0 +1,61 @@
+variables:
+
+  find_patient_request:
+    - "Please find the appointment of {{patient.last_name}}"
+    - "What's {{patient.first_name}}'s appointment today?"
+    - "Can you give me information about {{patient.full_name}}?"
+    - "I need the appointment details for {{patient.full_name}}"
+    - "Can you look up {{patient.full_name}}'s appointment?"
+    - "Please find the appointment for patient {{patient.full_name}}"
+    - "Can you tell me when {{patient.first_name}} {{patient.last_name}} has an appointment?"
+    - "I would like to know the appointment time of {{patient.full_name}}"
+    - "Could you check the schedule for {{patient.full_name}}?"
+    - "What appointment does {{patient.first_name}} have today?"
+    - "Can you find the next appointment for {{patient.full_name}}?"
+    - "Please show me the appointment information for {{patient.full_name}}"
+    - "Look up the patient {{patient.full_name}}"
+    - "I need information about {{patient.first_name}} {{patient.last_name}}"
+    - "Can you check if {{patient.full_name}} has an appointment today?"
+
+
+  multiple_patient_confirmation_request:
+    - "I've found multiple patients with that name, can you please specify?"
+    - "I have found {{patient.full_name}}, {{alternative_patient.full_name}} and {{other_alternative_patient.full_name}}, who do you mean?"
+    - "There are multiple patients with this name. Could you provide more details?"
+    - "I found several patients matching that name. Which one are you looking for?"
+    - "I need more information because multiple patients have the same name."
+    - "Several patients match this name. Can you confirm which patient you mean?"
+    - "I found more than one patient with that name. Please specify the correct one."
+    - "There are multiple matches for this patient name. Who should I search for?"
+    - "I found {{patient.full_name}} and another patient with the same name. Which one do you mean?"
+    - "Could you provide the patient's first name or another identifier?"
+    - "I need clarification. Which of these patients are you referring to?"
+    - "The name matches multiple patients. Can you tell me which patient you mean?"
+
+
+  patient_confirmation:
+    - "Ah yes, I mean {{patient.full_name}}"
+    - "{{patient.full_name}}"
+    - "Yes, I mean {{patient.full_name}}"
+    - "Correct, it is {{patient.full_name}}"
+    - "I am looking for {{patient.full_name}}"
+    - "The patient is {{patient.full_name}}"
+    - "Yes, that's {{patient.full_name}}"
+    - "I mean the patient named {{patient.full_name}}"
+    - "{{patient.full_name}} is the correct patient"
+    - "Please use {{patient.full_name}}"
+    - "That's right, {{patient.full_name}}"
+    - "The one named {{patient.full_name}}"
+
+
+  confirmation_patient_information:
+    - "{{patient.full_name}} has {{patient.possessive_pronoun}} appointment on {{appointment.day}}. It is a {{appointment.appointment_type}}"
+    - "{{patient.full_name}} has an appointment on {{appointment.day}}. The appointment type is {{appointment.appointment_type}}"
+    - "{{patient.full_name}}'s appointment is on {{appointment.day}} and it is a {{appointment.appointment_type}}"
+    - "The appointment for {{patient.full_name}} is scheduled for {{appointment.day}}. It is a {{appointment.appointment_type}}"
+    - "{{patient.full_name}} is scheduled for a {{appointment.appointment_type}} on {{appointment.day}}"
+    - "I found an appointment for {{patient.full_name}} on {{appointment.day}}. It is a {{appointment.appointment_type}}"
+    - "{{patient.full_name}} has a {{appointment.appointment_type}} appointment on {{appointment.day}}"
+    - "The {{appointment.appointment_type}} for {{patient.full_name}} takes place on {{appointment.day}}"
+    - "{{patient.full_name}}'s next appointment is on {{appointment.day}} and is a {{appointment.appointment_type}}"
+    - "According to the schedule, {{patient.full_name}} has a {{appointment.appointment_type}} appointment on {{appointment.day}}"
