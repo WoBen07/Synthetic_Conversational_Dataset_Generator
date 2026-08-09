@@ -1,7 +1,7 @@
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
 
 
-yamls = "similar_patients_tool"
+yamls = "identical_patients"
 
 NUM_DATASETS = 50
 

@@ -1,0 +1,36 @@
+scenario: identical_patients
+
+entities:
+
+  patient:
+    type: patient
+
+  alternative_patient:
+    type: patient
+
+  other_alternative_patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+constraints:
+
+  - type: equal
+    fields:
+      - patient.last_name
+      - alternative_patient.last_name
+      - other_alternative_patient.last_name
+
+
+  - type: different
+    fields:
+      - patient.patient_id
+      - alternative_patient.patient_id
+      - other_alternative_patient.patient_id
+
+  - type: equal
+    fields:
+      - patient.first_name
+      - alternative_patient.first_name
+      - other_alternative_patient.first_name
