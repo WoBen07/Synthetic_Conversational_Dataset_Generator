@@ -1,0 +1,7 @@
+name: reminiscing_about_the_past
+
+entities:
+  patient:
+    type: patient
+
+language_schema: reminiscing_about_the_past

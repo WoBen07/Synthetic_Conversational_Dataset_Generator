@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I was just thinking about the house I grew up in, we had the biggest garden."
+    - "You know, I used to work at the old shipyard downtown, back before it closed."
+    - "I was remembering my wedding day, it feels like just yesterday."
+    - "I keep thinking about the summers we spent at my grandparents' farm."
+    - "I used to travel a lot for work, saw so many places."
+    - "I was just thinking about my first car, a real old thing."
+    - "I remember when this whole area was just fields, nothing built up at all."
+    - "I was thinking about my school days, we had such strict teachers back then."
+    - "I used to dance a lot when I was younger, my husband and I loved it."
+    - "I was remembering the year we moved into our first apartment."
+
+  engaged_response:
+    - "That sounds like such a special place, what do you remember most about it?"
+    - "That's fascinating, what was the work like there?"
+    - "That's such a beautiful memory, what do you remember most about that day?"
+    - "That sounds wonderful, what did you get up to out there?"
+    - "That sounds exciting, was there a place that stuck with you the most?"
+    - "That's a great memory, what was it like to drive?"
+    - "That's amazing how much things change, what was it like back then?"
+    - "That sounds like quite the experience, what stands out most?"
+    - "That sounds lovely, did you have a favorite place to go dancing?"
+    - "That's a big milestone, what do you remember about moving in?"
+
+  elaboration:
+    - "We grew everything, vegetables, flowers, even had a few fruit trees."
+    - "It was hard work, but I made some lifelong friends there."
+    - "It was a small ceremony, just family, but it was perfect."
+    - "We used to help with the animals and play in the fields all day."
+    - "I think the mountains stuck with me the most, breathtaking views."
+    - "It was slow and loud, but I loved every minute of it."
+    - "It was quiet, mostly farmland, you'd barely recognize it now."
+    - "They were strict, but fair, I learned a lot from them."
+    - "There was a little hall downtown, we went almost every weekend."
+    - "It was small, but it felt like the whole world to us."
+
+  follow_up:
+    - "That sounds like it was a wonderful place to grow up."
+    - "It sounds like those friendships really meant a lot to you."
+    - "That really does sound perfect, simple and meaningful."
+    - "That sounds like such a happy childhood memory."
+    - "That sounds breathtaking, I can see why it stayed with you."
+    - "I bet that car holds a lot of memories."
+    - "It's amazing to think how much a place can change over time."
+    - "It sounds like they really shaped who you became."
+    - "That sounds like such a joyful way to spend a weekend."
+    - "That sounds like such an exciting new chapter for you both."
+
+  closing_remark:
+    - "It really was, I miss it sometimes."
+    - "They did, some of them I still think about."
+    - "It was, thank you for listening."
+    - "It really was, best days of my life."
+    - "It really was, I'll never forget it."
+    - "It does, I wish I still had it."
+    - "It really is, hard to believe sometimes."
+    - "They really did, I'm grateful for that."
+    - "It really was, good times."
+    - "It really was, exciting times."
+
+  warm_closing:
+    - "Thank you for sharing that memory with me, it sounds like a wonderful place."
+    - "I really enjoyed hearing about that, thank you for sharing."
+    - "Thank you for telling me about that, it sounds like a beautiful day."
+    - "That was lovely to hear about, thank you for sharing."
+    - "Thank you for sharing that with me, it sounds like a beautiful memory."
+    - "I enjoyed hearing about that, thanks for sharing."
+    - "Thank you for sharing that with me, it's interesting to hear how things change."
+    - "That was really nice to hear about, thank you for sharing."
+    - "Thank you for sharing that, it sounds like such a happy memory."
+    - "I loved hearing about that, thank you for sharing."

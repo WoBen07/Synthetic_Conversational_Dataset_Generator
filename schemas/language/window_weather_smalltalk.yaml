@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "It looks so sunny outside today, isn't it lovely?"
+    - "It's raining quite heavily out there right now."
+    - "Look at that sky, it's so cloudy today."
+    - "It looks really windy outside this morning."
+    - "The snow outside looks so pretty from here."
+    - "It's such a gray day out there today."
+    - "The sun is really shining today, isn't it nice?"
+    - "It looks quite foggy outside this morning."
+    - "There's a lovely breeze coming through the window."
+    - "It looks like a storm is rolling in out there."
+
+  engaged_response:
+    - "It really is, days like this always lift my mood."
+    - "It really is, sounds so calming against the window."
+    - "It really is, though it does make the room feel cozy."
+    - "It does look blustery, I hope it doesn't knock anything over out there."
+    - "It really does, everything looks so peaceful covered in white."
+    - "It is, though gray days have their own kind of charm."
+    - "It really is, it's a beautiful day for it."
+    - "It really is, everything looks so mysterious out there."
+    - "It does, must feel refreshing coming through like that."
+    - "It does, hopefully it passes quickly."
+
+  elaboration:
+    - "It reminds me of days spent outside as a kid."
+    - "I always found the sound of rain so relaxing."
+    - "I don't mind it much, it's nice for reading."
+    - "I remember days like this when I was younger too."
+    - "It always makes me think of winters growing up."
+    - "I actually quite like these quiet, gray days."
+    - "It makes me want to sit outside for a while."
+    - "It's a bit eerie, but kind of beautiful too."
+    - "It reminds me of evenings on the porch."
+    - "I hope it's not too bad later on."
+
+  follow_up:
+    - "That sounds like a lovely memory to have."
+    - "That's a nice way to think about it."
+    - "That sounds like a peaceful way to spend the day."
+    - "I imagine days like this bring back a lot of memories."
+    - "That sounds like a cozy memory."
+    - "I like that outlook, there's beauty in every kind of day."
+    - "That does sound nice, fresh air is always good."
+    - "I can see why, there's something magical about fog."
+    - "That sounds like such a peaceful memory."
+    - "I hope so too, for everyone's sake."
+
+  closing_remark:
+    - "It really is a nice memory, thank you for listening."
+    - "It really is, thank you for chatting with me about it."
+    - "It really is peaceful, thank you."
+    - "They really do, thank you for asking."
+    - "It really is cozy, thank you."
+    - "There really is, thank you for saying that."
+    - "It really is good for you, thank you."
+    - "It really is magical, thank you."
+    - "It really was peaceful, thank you."
+    - "Me too, thank you for chatting."
+
+  warm_closing:
+    - "Thanks for chatting with me about the weather, I enjoyed it."
+    - "I enjoyed talking about that with you, thank you."
+    - "Thank you for sharing that with me, it was a nice chat."
+    - "Thank you for chatting, I hope the wind calms down soon."
+    - "Thank you for sharing that memory, it sounds lovely."
+    - "Thank you for chatting with me, I enjoyed hearing your perspective."
+    - "Thank you for sharing, I hope you get to enjoy the sunshine."
+    - "Thank you for chatting, I enjoyed hearing about that."
+    - "Thank you for sharing that memory, it sounds so peaceful."
+    - "Thank you for chatting with me, I hope it clears up soon."

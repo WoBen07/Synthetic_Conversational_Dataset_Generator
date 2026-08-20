@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I've been reading a really good mystery novel lately."
+    - "I watched an old film last night, one of my favorites."
+    - "I've been listening to a lot of jazz records lately."
+    - "There's a show I've been watching, it's really gotten me hooked."
+    - "I just finished a book about the history of the railways."
+    - "I've been rewatching some old musicals lately."
+    - "I heard a new song on the radio that I really liked."
+    - "I've been reading a biography about an old actor I liked."
+    - "I watched a documentary about the ocean last night."
+    - "I've been listening to an audiobook, easier on my eyes these days."
+
+  engaged_response:
+    - "That sounds intriguing, what's the story about?"
+    - "That's great, what made it one of your favorites?"
+    - "That sounds lovely, do you have a favorite musician?"
+    - "That's exciting, what's it about?"
+    - "That sounds fascinating, what did you learn?"
+    - "That sounds like fun, do you have a favorite one?"
+    - "That's nice, what kind of song was it?"
+    - "That sounds interesting, what was he like?"
+    - "That sounds fascinating, what surprised you most?"
+    - "That's a good idea, what's the story about?"
+
+  elaboration:
+    - "It's about a detective solving an old unsolved case, very clever plot."
+    - "It had such a great story, and the acting was wonderful."
+    - "Miles Davis, I could listen to him for hours."
+    - "It's about a family running a small restaurant, lots of drama."
+    - "I learned so much about how the tracks were originally built."
+    - "Singin' in the Rain, I must have seen it a dozen times."
+    - "It was a slower song, really relaxing to listen to."
+    - "He had quite the interesting life, lots of ups and downs."
+    - "How deep some parts of the ocean really are, quite amazing."
+    - "It's a story about a family traveling across the country."
+
+  follow_up:
+    - "That sounds like a great read, I hope you enjoy how it ends."
+    - "That's wonderful, good films really do stay with you."
+    - "He really was a legend, great taste in music."
+    - "That sounds like a fun show to get invested in."
+    - "That sounds like a fascinating bit of history."
+    - "That's a classic for a reason, wonderful choice."
+    - "That sounds like a nice way to relax."
+    - "That does sound like an interesting life to read about."
+    - "The ocean really is full of surprises."
+    - "That sounds like a lovely story to get lost in."
+
+  closing_remark:
+    - "I'm almost done, I'll let you know how it ends."
+    - "It really does, I could watch it again right now."
+    - "He really is, thank you for listening."
+    - "I'll probably watch another episode later."
+    - "It really was, thank you for asking."
+    - "It never gets old, thank you."
+    - "It really was, thank you."
+    - "It really was, thank you for listening."
+    - "It really is, thank you for asking."
+    - "Thank you, I'm enjoying it a lot."
+
+  warm_closing:
+    - "Thank you for sharing that, I hope you enjoy the rest of it."
+    - "I enjoyed hearing about that, thank you for sharing."
+    - "Thank you for sharing that, sounds like wonderful taste in music."
+    - "That sounds like a great show, thank you for telling me about it."
+    - "Thank you for sharing that, sounds fascinating."
+    - "Thank you for telling me, that sounds like such a classic."
+    - "Thank you for sharing, that sounds lovely."
+    - "Thank you for sharing that, sounds like an interesting read."
+    - "Thank you for telling me about that, sounds fascinating."
+    - "Thank you for sharing that, sounds like a lovely story."

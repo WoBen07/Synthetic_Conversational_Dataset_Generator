@@ -1,0 +1,7 @@
+name: curiosity_about_the_assistant
+
+entities:
+  patient:
+    type: patient
+
+language_schema: curiosity_about_the_assistant

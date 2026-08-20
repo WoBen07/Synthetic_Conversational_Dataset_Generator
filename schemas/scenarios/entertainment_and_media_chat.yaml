@@ -1,0 +1,7 @@
+name: entertainment_and_media_chat
+
+entities:
+  patient:
+    type: patient
+
+language_schema: entertainment_and_media_chat

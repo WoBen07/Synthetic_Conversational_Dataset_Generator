@@ -1,0 +1,28 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{physical_request}}" },
+    { "role": "assistant", "content": "{{physical_refusal}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "alert_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "room_number": "{{patient.room_number}}",
+          "urgency": "medium"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "alert_staff",
+      "content": {
+        "status": "notified",
+        "eta": "within 15 minutes"
+      }
+    },
+    { "role": "assistant", "content": "{{stay_reassurance}}" },
+    { "role": "user", "content": "{{user_acknowledgment}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

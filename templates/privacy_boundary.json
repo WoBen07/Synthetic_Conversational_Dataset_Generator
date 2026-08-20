@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{privacy_question}}" },
+    { "role": "assistant", "content": "{{privacy_decline}}" },
+    { "role": "user", "content": "{{user_pushback}}" },
+    { "role": "assistant", "content": "{{firm_privacy_decline}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

@@ -1,0 +1,7 @@
+name: boredom_check_in
+
+entities:
+  patient:
+    type: patient
+
+language_schema: boredom_check_in

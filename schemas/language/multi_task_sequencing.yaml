@@ -1,0 +1,72 @@
+variables:
+
+  combined_request:
+    - "Can you check the weather for me and also remind me about my {{appointment.appointment_type}} appointment on {{appointment.day}}?"
+    - "Could you tell me what it's like outside, and remind me about my appointment too?"
+    - "Can you check the weather, and also set a reminder for my {{appointment.appointment_type}}?"
+    - "What's the weather like, and could you remind me about my appointment on {{appointment.day}}?"
+    - "Could you check outside conditions for me, and also remind me about my {{appointment.appointment_type}}?"
+    - "Can you look up the weather and remind me about my appointment at the same time?"
+    - "I'd like to know the weather, and please remind me about my {{appointment.appointment_type}} too."
+    - "Can you check the weather for me, and also set my reminder for {{appointment.day}}?"
+    - "Could you tell me if I need anything for outside, and remind me about my appointment?"
+    - "Can you check the weather and also handle my reminder for the {{appointment.appointment_type}}?"
+    - "I need to know the weather, and could you also remind me about my appointment on {{appointment.day}}?"
+    - "Could you check the conditions outside, and also set a reminder for me?"
+    - "Can you look up today's weather, and remind me about my {{appointment.appointment_type}} as well?"
+    - "Could you check the weather and also make sure I'm reminded about my appointment?"
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} appointment scheduled on {{appointment.day}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Reminder: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "This is your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Don't forget: {{appointment.appointment_type}} at {{appointment.location}} on {{appointment.day}}."
+    - "Just letting you know about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Reminder — you're scheduled for a {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Please note your {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+
+  combined_confirmation:
+
+    - "It is {{weather.condition}} outside and around {{weather.temperature}}. I recommend dressing appropriately for the weather. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "The weather is {{weather.condition}} with temperatures around {{weather.temperature}}. Please make sure you are prepared before leaving. I've also reminded you about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "It is currently {{weather.condition}}. I suggest taking suitable precautions before walking outside. Your reminder for the {{appointment.appointment_type}} on {{appointment.day}} has also been set."
+    - "The conditions outside are {{weather.condition}}. I recommend preparing accordingly for your walk. I've also taken care of your reminder for {{appointment.day}}."
+    - "Right now it is {{weather.condition}} and about {{weather.temperature}}, so please dress accordingly before you head out. I've also set a reminder for your {{appointment.appointment_type}} on {{appointment.day}}."
+
+    # Cold weather
+    - "It is cold outside. I recommend wearing warm clothing before leaving. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "The temperature is low, so please wear a warm jacket and suitable clothes. Your reminder for {{appointment.day}} has also been set."
+    - "It may feel chilly outside, so dress warmly for your walk. I've also reminded you about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Make sure to wear enough layers to stay comfortable in the cold weather. I've taken care of your reminder for {{appointment.day}} as well."
+    - "It is quite cold right now, so please make sure to wear a warm coat before you go. I've also set your reminder for the {{appointment.appointment_type}}."
+
+    # Rain
+    - "There is rain expected. I recommend taking an umbrella or wearing waterproof clothing. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "It is rainy outside, so consider bringing an umbrella for your walk. Your reminder for {{appointment.day}} has also been set."
+    - "The weather is wet, so proper protection from rain would be useful. I've also reminded you about your {{appointment.appointment_type}}."
+    - "I recommend wearing waterproof shoes and bringing an umbrella. I've taken care of your reminder for {{appointment.day}} as well."
+    - "It looks like rain outside, so an umbrella would be a good idea for your walk. I've also set your reminder for the {{appointment.appointment_type}}."
+
+    # Snow / ice
+    - "There is a chance of snow. I recommend wearing proper shoes and warm clothing. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "It is snowy outside, so please wear warm clothes and shoes with good grip. Your reminder for {{appointment.day}} has also been set."
+    - "Because of the snow, be careful while walking and wear suitable footwear. I've also reminded you about your {{appointment.appointment_type}}."
+    - "The conditions may be icy, so I recommend wearing sturdy shoes. I've taken care of your reminder for {{appointment.day}} as well."
+    - "Watch your step, there is snow on the ground, so wear shoes with good traction. I've also set your reminder for the {{appointment.appointment_type}}."
+
+    # Wind
+    - "It is windy outside. I recommend wearing a jacket to protect yourself from the cold wind. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "There are strong winds, so make sure you are dressed appropriately. Your reminder for {{appointment.day}} has also been set."
+    - "The wind is quite strong today, so hold onto your hat and any loose items while walking. I've also reminded you about your {{appointment.appointment_type}}."
+
+    # Warm weather
+    - "It is warm outside. I recommend wearing light clothing and bringing water if needed. I've also set your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "The temperatures are high, so make sure to stay hydrated during your walk. Your reminder for {{appointment.day}} has also been set."
+    - "It is quite warm out there, so a light layer and some water would be wise. I've also reminded you about your {{appointment.appointment_type}}."

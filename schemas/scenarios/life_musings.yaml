@@ -1,0 +1,7 @@
+name: life_musings
+
+entities:
+  patient:
+    type: patient
+
+language_schema: life_musings

@@ -1,0 +1,7 @@
+name: hobby_and_interests
+
+entities:
+  patient:
+    type: patient
+
+language_schema: hobby_and_interests

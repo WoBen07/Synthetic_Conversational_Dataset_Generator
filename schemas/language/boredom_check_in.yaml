@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I'm so bored today, nothing much to do."
+    - "I don't know, today just feels really slow."
+    - "I've been staring at the ceiling for an hour, so bored."
+    - "There's nothing on TV and I've read everything twice."
+    - "I wish there was something to do around here."
+    - "Today's dragging on forever, I'm restless."
+    - "I'm so tired of just sitting here with nothing to do."
+    - "I could really use something to occupy my mind."
+    - "I've run out of things to keep me entertained today."
+    - "I'm feeling a bit restless, not sure what to do with myself."
+
+  engaged_response:
+    - "I hear you — want to chat for a bit, or I can think of something fun to pass the time?"
+    - "That sounds tough, would some conversation help pass the time?"
+    - "I'm happy to keep you company for a while, if that would help."
+    - "Would you like to chat, or maybe I can suggest something to do?"
+    - "I can definitely help fill some time, want to talk for a while?"
+    - "I understand, want to chat about something to take your mind off it?"
+    - "That sounds frustrating, I'm here if you'd like some company."
+    - "I'd be happy to chat, or we could think of something together."
+    - "I can keep you company for a bit, would that help?"
+    - "Let's see if we can find something to do together, want to chat?"
+
+  elaboration:
+    - "Yeah, that would actually be nice, thank you."
+    - "Sure, I wouldn't mind some company."
+    - "That would help, honestly."
+    - "Maybe just talking would be nice, yeah."
+    - "Sure, I could use the distraction."
+    - "Yeah, that sounds good actually."
+    - "I'd appreciate that, thank you."
+    - "Sure, let's see what we can come up with."
+    - "That would be nice, thank you."
+    - "Yeah, let's chat for a bit."
+
+  follow_up:
+    - "Great, is there anything in particular you'd like to talk about?"
+    - "Wonderful, what's something you've enjoyed doing in the past that we could talk about?"
+    - "I'm glad to hear that, what's on your mind today?"
+    - "Perfect, is there a topic you'd enjoy chatting about?"
+    - "Good, let's find something interesting to talk about."
+    - "Great, what usually helps you pass the time when you're bored?"
+    - "I'm happy to help, what would be nice to talk about?"
+    - "Let's think of something together, any ideas?"
+    - "Great, is there something specific on your mind?"
+    - "Wonderful, what would make the day feel a bit better?"
+
+  closing_remark:
+    - "Not really, but this is already helping."
+    - "Maybe we could just talk about anything really."
+    - "Just talking like this is nice, thank you."
+    - "I'm not sure, but this already helps a bit."
+    - "Just chatting is enough for now, thanks."
+    - "Honestly, just having someone to talk to helps."
+    - "I'm not sure, but I appreciate you asking."
+    - "Not sure yet, but I'm glad we're talking."
+    - "Nothing specific, just glad for the company."
+    - "This is already making the day better, thank you."
+
+  warm_closing:
+    - "I'm glad I could help make the day a little better, I'm here whenever you need company."
+    - "I'm happy to chat anytime, the day should pass a bit easier now."
+    - "I'm glad this helped, feel free to talk to me anytime you're bored."
+    - "I'm here whenever you need a chat, glad I could help a little."
+    - "I'm happy to be here, hope the rest of your day goes a bit smoother."
+    - "I'm glad we got to talk, I'm always around if you need company."
+    - "I'm happy I could help, don't hesitate to chat with me anytime."
+    - "I'm glad this helped a little, I'm here whenever you're bored."
+    - "I'm happy to keep you company anytime, glad this helped a bit."
+    - "I'm glad we chatted, hope the day feels a little shorter now."

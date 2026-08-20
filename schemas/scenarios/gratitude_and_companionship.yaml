@@ -1,0 +1,7 @@
+name: gratitude_and_companionship
+
+entities:
+  patient:
+    type: patient
+
+language_schema: gratitude_and_companionship

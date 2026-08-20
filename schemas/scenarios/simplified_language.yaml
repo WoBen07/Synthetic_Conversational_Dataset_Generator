@@ -1,0 +1,9 @@
+name: simplified_language
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: simplified_language

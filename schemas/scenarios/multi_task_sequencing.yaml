@@ -1,0 +1,11 @@
+name: multi_task_sequencing
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+  weather:
+    type: weather
+
+language_schema: multi_task_sequencing

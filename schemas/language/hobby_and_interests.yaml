@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I used to grow tomatoes every summer, best hobby I ever had."
+    - "I've always loved painting, though I haven't picked up a brush in a while."
+    - "Chess was my thing for years, still love a good game."
+    - "I used to knit all the time, made scarves for the whole family."
+    - "Fishing was my favorite way to spend a weekend."
+    - "I was really into woodworking back in the day."
+    - "Bird watching has always been a passion of mine."
+    - "I loved baking, used to make bread from scratch every week."
+    - "Photography was my hobby for decades."
+    - "Gardening has always been my favorite way to relax."
+
+  engaged_response:
+    - "That sounds lovely — did you have a favorite variety, or did you experiment with different ones each year?"
+    - "That's wonderful, what kind of things did you like to paint most?"
+    - "That's great, did you play competitively or just for fun?"
+    - "That sounds so thoughtful, did you have a favorite pattern you liked to make?"
+    - "That sounds relaxing, did you have a favorite spot you liked to go?"
+    - "That's impressive, what kind of things did you like to build?"
+    - "That's a peaceful hobby, did you have a favorite bird you liked spotting?"
+    - "That sounds wonderful, what was your favorite thing to bake?"
+    - "That's a great hobby, what did you like to photograph most?"
+    - "That sounds so nice, what did you like to grow the most?"
+
+  elaboration:
+    - "Mostly beefsteak, but I tried some heirloom ones a few times."
+    - "Mostly landscapes, I loved capturing the countryside."
+    - "Just for fun mostly, though I did join a club once."
+    - "Scarves mostly, but I made a few sweaters too."
+    - "There was a lake near our house, I went there every Sunday."
+    - "Furniture mostly, tables and chairs, that sort of thing."
+    - "Robins were always my favorite to spot."
+    - "Sourdough was my specialty, took me years to get it right."
+    - "Mostly nature, sunsets and old buildings."
+    - "Tomatoes and peppers were always my best crops."
+
+  follow_up:
+    - "That's wonderful — do you ever think about picking it up again?"
+    - "That's beautiful, I bet those still bring back good memories."
+    - "That sounds like a lot of fun, do you miss playing?"
+    - "That's so thoughtful, I bet your family treasures those."
+    - "That sounds peaceful, do you miss those quiet mornings?"
+    - "That's impressive skill, do you still have any of the pieces you made?"
+    - "That's lovely, I bet it was calming just watching them."
+    - "That sounds delicious, I bet the whole house smelled wonderful."
+    - "That's a beautiful subject to capture, do you still have any of the photos?"
+    - "That sounds rewarding, was there ever a bad growing year?"
+
+  closing_remark:
+    - "Yeah, maybe one day, we'll see."
+    - "I think about it sometimes, who knows."
+    - "A little, but I have good memories of it."
+    - "They do, it makes me happy thinking about it."
+    - "I do miss it, but I have good memories."
+    - "A couple of pieces, actually, they're still around."
+    - "It really was, very calming."
+    - "It really did, good memories."
+    - "I do, somewhere in a box probably."
+    - "A few, but mostly good ones."
+
+  warm_closing:
+    - "Thanks for sharing that with me, it was nice hearing about it."
+    - "I really enjoyed hearing about that, thank you for sharing."
+    - "That was lovely to hear, thanks for telling me."
+    - "Thank you for sharing that, it sounds like a wonderful memory."
+    - "I loved hearing about that, thank you for sharing."
+    - "That was really nice to hear about, thanks for telling me."
+    - "Thanks for sharing, I enjoyed learning about that."
+    - "That was a joy to hear about, thank you."
+    - "Thank you for sharing that with me, it sounds wonderful."
+    - "I really enjoyed that story, thank you for sharing."

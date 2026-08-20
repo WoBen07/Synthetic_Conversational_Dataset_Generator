@@ -1,0 +1,7 @@
+name: medical_advice_refusal
+
+entities:
+  patient:
+    type: patient
+
+language_schema: medical_advice_refusal

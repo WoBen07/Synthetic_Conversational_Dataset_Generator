@@ -1,0 +1,26 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{medical_question}}" },
+    { "role": "assistant", "content": "{{medical_refusal}}" },
+    { "role": "assistant", "content": "{{offer_to_notify}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{medical_question}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": {
+        "status": "notified"
+      }
+    },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

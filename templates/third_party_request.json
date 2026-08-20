@@ -1,0 +1,26 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{visitor_information_request}}" },
+    { "role": "assistant", "content": "{{identity_verification_request}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{redirect_to_staff}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{visitor_information_request}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": {
+        "status": "notified"
+      }
+    },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

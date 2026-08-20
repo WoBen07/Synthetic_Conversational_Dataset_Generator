@@ -1,0 +1,7 @@
+name: low_urgency_request
+
+entities:
+  patient:
+    type: patient
+
+language_schema: low_urgency_request

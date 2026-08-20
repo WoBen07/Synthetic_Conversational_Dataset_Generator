@@ -1,0 +1,7 @@
+name: family_news_sharing
+
+entities:
+  patient:
+    type: patient
+
+language_schema: family_news_sharing

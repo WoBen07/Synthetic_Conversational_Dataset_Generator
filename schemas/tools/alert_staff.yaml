@@ -1,6 +1,18 @@
 tool: alert_staff
 
 
+description: >
+  Notifies staff that a patient needs attention, at a severity set by
+  urgency. Use "high" for life-threatening or rapidly worsening
+  situations (falls, chest pain, breathing trouble) needing an
+  immediate response. Use "medium" for situations needing prompt but
+  non-life-threatening attention, such as a patient needing physical
+  assistance to move safely. Use "low" for minor, non-urgent requests,
+  or to flag a retracted concern out of caution. For non-physical
+  concerns such as complaints or capability questions, use
+  notify_staff instead.
+
+
 input:
 
   patient_id:
@@ -25,3 +37,7 @@ output:
 
   eta:
     type: string
+    description: >
+      A human-readable time estimate consistent with the urgency level,
+      e.g. "immediate" for high urgency, "within 15 minutes" for
+      medium urgency, "within the hour" for low urgency.

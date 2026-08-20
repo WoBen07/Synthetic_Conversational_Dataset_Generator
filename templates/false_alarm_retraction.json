@@ -1,0 +1,28 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{initial_concern}}" },
+    { "role": "assistant", "content": "{{check_in_response}}" },
+    { "role": "user", "content": "{{retraction_statement}}" },
+    { "role": "assistant", "content": "{{cautious_acknowledgment}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "alert_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "room_number": "{{patient.room_number}}",
+          "urgency": "low"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "alert_staff",
+      "content": {
+        "status": "notified",
+        "eta": "within the hour"
+      }
+    },
+    { "role": "assistant", "content": "{{reassurance_closing}}" }
+  ]
+}

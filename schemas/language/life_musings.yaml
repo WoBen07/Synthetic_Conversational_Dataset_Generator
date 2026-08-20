@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "It's strange getting older, you start seeing things differently."
+    - "I've been thinking a lot about how fast life goes by."
+    - "You know, I'm grateful for the life I've had, even the hard parts."
+    - "I've been reflecting lately on all the people I've known over the years."
+    - "It's funny how the things that used to worry me don't matter much now."
+    - "I've been thinking about what really matters in life these days."
+    - "Getting older makes you appreciate the small things more."
+    - "I've had a lot of time to think lately, about everything really."
+    - "Sometimes I wonder if I lived my life the way I wanted to."
+    - "I've been feeling reflective lately, thinking about all the years gone by."
+
+  engaged_response:
+    - "That's a really thoughtful way to see things, thank you for sharing that with me."
+    - "That's such an honest thing to say, I appreciate you sharing it."
+    - "That's a beautiful way to look at your life, thank you for telling me."
+    - "That sounds like it's been on your mind a lot, I'm glad you shared that."
+    - "That's an interesting perspective, thank you for opening up about it."
+    - "That sounds like meaningful reflection, I'm glad you told me."
+    - "That's a lovely thought, thank you for sharing it with me."
+    - "That sounds like a lot to think about, I'm here to listen."
+    - "That's a very human thing to wonder about, thank you for sharing."
+    - "That sounds like a lot of years to reflect on, I'm glad you're sharing this with me."
+
+  elaboration:
+    - "It's odd, the things I worried about most feel so small now."
+    - "I just want to make the most of whatever time is left."
+    - "There were hard years, but I wouldn't trade any of it."
+    - "So many faces, so many stories, I've been lucky really."
+    - "I used to worry so much about things that didn't matter."
+    - "I think it's the people, really, more than anything else."
+    - "Even a cup of tea in the morning feels special now."
+    - "It helps to just sit and think sometimes, you know?"
+    - "I think I did, mostly, even with the mistakes."
+    - "It's a lot, but it feels good to look back on it all."
+
+  follow_up:
+    - "That's a wise way to look at things, thank you for sharing that perspective."
+    - "That sounds like a meaningful way to spend the time you have."
+    - "That's a beautiful outlook, even the hard years shaped who you are."
+    - "It sounds like you've had a rich and full life."
+    - "That's a valuable thing to realize, and it's never too late to feel that way."
+    - "That's a lovely thought, people really do make the biggest difference."
+    - "That's a wonderful way to find joy in the little things."
+    - "That sounds like a healthy way to process things."
+    - "It sounds like you have a lot to be proud of."
+    - "That sounds like a really meaningful reflection to have."
+
+  closing_remark:
+    - "Thank you for listening, it helps to say it out loud."
+    - "Thank you, it means a lot to have someone to share this with."
+    - "Thank you for hearing me out, really."
+    - "I appreciate you listening, truly."
+    - "Thank you, it's nice to be able to talk about it."
+    - "Thank you for listening, I mean that."
+    - "It really does, thank you for listening."
+    - "Thank you, this conversation helped."
+    - "I think so too, thank you for listening."
+    - "Thank you, it feels good to reflect like this."
+
+  warm_closing:
+    - "Thank you for trusting me with your thoughts, I really enjoyed listening."
+    - "I'm glad I could listen, thank you for sharing something so meaningful."
+    - "Thank you for opening up, it was an honor to listen."
+    - "I'm grateful you shared that with me, thank you."
+    - "Thank you for talking with me about this, I really valued it."
+    - "I'm glad we could talk about this, thank you for sharing."
+    - "Thank you for sharing that with me, it meant a lot to hear."
+    - "I'm glad this helped, thank you for opening up to me."
+    - "Thank you for sharing your reflections with me, I really enjoyed this conversation."
+    - "I'm grateful you shared this with me, thank you for the conversation."

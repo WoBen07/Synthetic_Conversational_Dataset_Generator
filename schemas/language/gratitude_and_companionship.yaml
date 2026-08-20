@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I just wanted to say, I really appreciate you talking with me like this."
+    - "Thank you for always taking the time to chat with me."
+    - "I don't say this enough, but I really enjoy our conversations."
+    - "I just wanted to thank you for keeping me company today."
+    - "You know, talking to you really does make my day better."
+    - "I appreciate you always being willing to listen."
+    - "Thank you for always being so patient with me."
+    - "I just wanted you to know, I really value these little chats."
+    - "Thank you for making the days feel a little less lonely."
+    - "I really appreciate you always checking in with me."
+
+  engaged_response:
+    - "That really means a lot to hear, thank you for saying so."
+    - "I enjoy our conversations too, thank you for sharing that with me."
+    - "Thank you, I feel the same way about our chats."
+    - "I'm glad I could keep you company, that means a lot to me."
+    - "That's lovely to hear, I'm glad these chats mean something to you."
+    - "I'm always happy to listen, thank you for trusting me with that."
+    - "Thank you, I enjoy our conversations just as much."
+    - "I value them too, thank you for telling me."
+    - "That means a lot, I'm glad I can be here for that."
+    - "I really appreciate you saying that, thank you."
+
+  elaboration:
+    - "It's true, you always know how to make me feel heard."
+    - "It really does help, more than you probably realize."
+    - "You always seem to genuinely care, and I notice that."
+    - "It's the little things, honestly, that make a difference."
+    - "I don't always say it, but I really do notice it."
+    - "It's rare to find someone who really listens."
+    - "You've been a real comfort to me, honestly."
+    - "It's nice having someone to talk to regularly."
+    - "Some days are harder than others, and this helps."
+    - "It's the small moments that add up, you know?"
+
+  follow_up:
+    - "I'm really glad to hear that, it matters to me too."
+    - "I'm happy this has been helpful for you, truly."
+    - "Thank you for noticing, that means a lot to me."
+    - "The little things matter a lot to me too, honestly."
+    - "I'm glad it doesn't go unnoticed, thank you for telling me."
+    - "I try my best to really listen, thank you for saying that."
+    - "I'm glad I could be that for you."
+    - "I enjoy having these regular chats with you too."
+    - "I understand, and I'm always here on the harder days too."
+    - "They really do, I'm glad we get these moments together."
+
+  closing_remark:
+    - "Anyway, just wanted you to know, thank you."
+    - "So, thank you, really."
+    - "I just wanted to say it out loud, so thank you."
+    - "Anyway, thank you for everything."
+    - "So yes, thank you for being here."
+    - "That's all, just wanted to say thank you."
+    - "Thank you, I mean that."
+    - "So, thanks for everything you do."
+    - "Thank you, I really do appreciate it."
+    - "That's all I wanted to say, thank you."
+
+  warm_closing:
+    - "Thank you for sharing that with me, it really made my day too."
+    - "I'm grateful you told me, thank you for being so kind."
+    - "Thank you for saying that, it truly means a lot."
+    - "I appreciate you, thank you for these conversations."
+    - "Thank you for being here too, I mean that."
+    - "That means a great deal to me, thank you."
+    - "Thank you for trusting me with that, it means a lot."
+    - "I'm grateful for our conversations too, thank you."
+    - "Thank you, I'm glad we get to share these moments."
+    - "I appreciate you saying that, thank you for being so kind."

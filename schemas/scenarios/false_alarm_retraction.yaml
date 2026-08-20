@@ -1,0 +1,7 @@
+name: false_alarm_retraction
+
+entities:
+  patient:
+    type: patient
+
+language_schema: false_alarm_retraction

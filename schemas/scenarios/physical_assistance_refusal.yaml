@@ -1,0 +1,7 @@
+name: physical_assistance_refusal
+
+entities:
+  patient:
+    type: patient
+
+language_schema: physical_assistance_refusal

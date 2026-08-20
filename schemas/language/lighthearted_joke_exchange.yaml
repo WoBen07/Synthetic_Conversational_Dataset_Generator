@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "Go on then, tell me a joke, cheer me up a bit."
+    - "Do you know any good jokes?"
+    - "Tell me something funny, I could use a laugh."
+    - "Got any jokes for me today?"
+    - "I could really use a laugh right now, know any good ones?"
+    - "Come on, make me laugh, I dare you."
+    - "Do robots even have a sense of humor?"
+    - "Alright, hit me with your best joke."
+    - "I bet you don't know any good jokes."
+    - "Cheer me up with a joke, would you?"
+
+  engaged_response:
+    - "Alright — why don't skeletons fight each other? They don't have the guts."
+    - "Here's one — why did the scarecrow win an award? Because he was outstanding in his field."
+    - "Sure — what do you call a bear with no teeth? A gummy bear."
+    - "Here you go — why don't scientists trust atoms? Because they make up everything."
+    - "Alright — why did the bicycle fall over? Because it was two tired."
+    - "Challenge accepted — what do you call cheese that isn't yours? Nacho cheese."
+    - "I'd like to think so — why don't eggs tell jokes? They'd crack each other up."
+    - "Here's my best one — why did the golfer bring two pairs of pants? In case he got a hole in one."
+    - "Try this one — what do you call a fish with no eyes? A fsh."
+    - "Alright, here goes — why did the coffee file a police report? It got mugged."
+
+  elaboration:
+    - "Ha, that's a good one, I'll admit."
+    - "That's actually pretty funny."
+    - "Ha, that's a classic, I like it."
+    - "That got a laugh out of me, not bad."
+    - "Okay, that one was pretty clever."
+    - "Alright, I'll give you that one."
+    - "Ha, that's a good pun."
+    - "That's terrible, but I laughed anyway."
+    - "Okay, that one actually got me."
+    - "That's a groaner, but I like it."
+
+  follow_up:
+    - "Glad I could make you smile — that's what matters most."
+    - "I'll take that as a win, glad it worked."
+    - "Happy to hear it, laughter's always a good thing."
+    - "Mission accomplished, I'd say."
+    - "I have a few more if you're up for it later."
+    - "I'll take the credit for that one."
+    - "I do try to keep a few good ones in reserve."
+    - "The bad ones are sometimes the best kind, honestly."
+    - "I'm glad it landed, that's always a gamble."
+    - "I appreciate the honesty, glad you enjoyed it anyway."
+
+  closing_remark:
+    - "Thanks, that actually helped."
+    - "Alright, you've earned some respect from me."
+    - "Maybe later, keep a few in reserve."
+    - "Thanks for that, needed the laugh."
+    - "Alright, I'll hold you to that."
+    - "Fine, you win this round."
+    - "Thanks, that was a nice break."
+    - "I'll allow it, that time."
+    - "Alright, not bad at all."
+    - "Thanks, that lightened the mood."
+
+  warm_closing:
+    - "Anytime you need a laugh, I'm happy to help."
+    - "I'm glad I could brighten your day a little."
+    - "I'll keep a few more ready for next time."
+    - "Glad I could help, even just a little."
+    - "I'm always happy to share a joke or two."
+    - "I'm glad that worked, thanks for playing along."
+    - "Happy to keep the jokes coming whenever you need them."
+    - "I'm glad it made you smile, that's what counts."
+    - "Anytime, I enjoy a good laugh as much as you do."
+    - "Glad I could help, feel free to ask anytime."

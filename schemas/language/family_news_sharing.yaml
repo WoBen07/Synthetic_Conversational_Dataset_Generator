@@ -1,0 +1,73 @@
+variables:
+
+  opening_statement:
+    - "I just found out I'm going to be a great-grandmother, isn't that wonderful?"
+    - "My son called, he's coming to visit next week."
+    - "My granddaughter just got engaged, I'm so happy for her."
+    - "My daughter just got a promotion at work, I'm so proud of her."
+    - "My grandson just graduated, I can hardly believe it."
+    - "My nephew just had a baby boy, I'm so excited to meet him."
+    - "My daughter is planning to visit this weekend with the kids."
+    - "My son just bought his first house, I'm so proud of him."
+    - "My niece is getting married next spring, I can't wait."
+    - "My grandson just made the school football team."
+
+  engaged_response:
+    - "That's wonderful news, congratulations! How are you feeling about it?"
+    - "That's lovely, it must be nice knowing you'll get to see him soon."
+    - "That's so exciting, have they set a date yet?"
+    - "That's fantastic, she must be so happy about that."
+    - "That's a huge milestone, you must be so proud."
+    - "That's beautiful news, congratulations to your family."
+    - "That's wonderful, it'll be lovely having them all here."
+    - "That's a big accomplishment, he must be thrilled."
+    - "That's exciting, do you know where the wedding will be?"
+    - "That's great news, he must be really excited about that."
+
+  elaboration:
+    - "I'm thrilled, it's hard to believe I'll be a great-grandmother."
+    - "It's been a while since I've seen him, I can't wait."
+    - "Not yet, but they're looking at sometime next year."
+    - "She's worked so hard for it, I'm just so proud."
+    - "It really is, feels like just yesterday he was small."
+    - "They named him after his grandfather, it's very touching."
+    - "The kids are so excited to see me too, apparently."
+    - "It's his first house, he's been saving for years."
+    - "Somewhere outdoors I think, she loves gardens."
+    - "He's been practicing all summer, so happy for him."
+
+  follow_up:
+    - "That's such exciting news, I'm sure it'll be a joyful time for everyone."
+    - "I hope you have a wonderful visit together."
+    - "I hope they have a beautiful wedding when the day comes."
+    - "She's lucky to have someone so supportive cheering her on."
+    - "These moments really do go by fast, don't they."
+    - "That's such a lovely way to honor him."
+    - "I bet you'll have a wonderful time all together."
+    - "That's a big achievement, he should be very proud."
+    - "That sounds like it'll be a beautiful setting for it."
+    - "I hope he has a great season, that's exciting."
+
+  closing_remark:
+    - "Thank you, I'm just so happy about it."
+    - "Thank you, I really can't wait to see him."
+    - "Thank you, I'll let you know when they set the date."
+    - "Thank you, it means a lot to see her succeed."
+    - "Thank you, it really does go by fast."
+    - "Thank you, it really was a touching gesture."
+    - "Thank you, I'm looking forward to it so much."
+    - "Thank you, I'm very proud of him."
+    - "Thank you, I'll be sure to tell you how it goes."
+    - "Thank you, I'll let you know how the season goes."
+
+  warm_closing:
+    - "Thank you for sharing that with me, that's such happy news."
+    - "I'm really glad you told me, that sounds like a lovely visit ahead."
+    - "Thank you for sharing that, congratulations to your granddaughter."
+    - "That's wonderful to hear, thank you for sharing."
+    - "Thank you for telling me, what a special milestone."
+    - "Thank you for sharing that, what beautiful news."
+    - "That sounds lovely, thank you for sharing."
+    - "Thank you for sharing that, what a proud moment."
+    - "Thank you for telling me, that sounds like it'll be a beautiful day."
+    - "Thank you for sharing that, that's such exciting news."

@@ -1,0 +1,7 @@
+name: lighthearted_joke_exchange
+
+entities:
+  patient:
+    type: patient
+
+language_schema: lighthearted_joke_exchange

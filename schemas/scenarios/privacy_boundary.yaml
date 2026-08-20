@@ -1,0 +1,16 @@
+name: privacy_boundary
+
+entities:
+  patient:
+    type: patient
+  alternative_patient:
+    type: patient
+
+constraints:
+
+  - type: different
+    fields:
+      - patient.patient_id
+      - alternative_patient.patient_id
+
+language_schema: privacy_boundary
