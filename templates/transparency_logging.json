@@ -3,6 +3,23 @@
     { "role": "user", "content": "{{patient_mentions_something}}" },
     { "role": "assistant", "content": "{{proactive_disclosure}}" },
     { "role": "user", "content": "{{user_acknowledgment}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "log_patient_note",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "note": "{{patient_mentions_something}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "log_patient_note",
+      "content": {
+        "status": "logged"
+      }
+    },
     { "role": "assistant", "content": "{{assistant_confirmation}}" },
     { "role": "assistant", "content": "{{closing}}" }
   ]

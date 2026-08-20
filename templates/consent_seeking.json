@@ -3,6 +3,23 @@
     { "role": "user", "content": "{{patient_shares_concern}}" },
     { "role": "assistant", "content": "{{consent_ask}}" },
     { "role": "user", "content": "{{user_response_yes}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{patient_shares_concern}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": {
+        "status": "notified"
+      }
+    },
     { "role": "assistant", "content": "{{consent_confirmation}}" },
     { "role": "assistant", "content": "{{closing}}" }
   ]

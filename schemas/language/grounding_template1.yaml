@@ -16,6 +16,12 @@ variables:
     - "Hi, you're SereMate, right?"
     - "Excuse me, are you the service robot?"
     - "You're here to help patients, aren't you?"
+    - "Are you the one who's supposed to take me to my appointment?"
+    - "Wait, you're SereMate, the assistant robot?"
+    - "Is that you, SereMate?"
+    - "Are you the robot everyone's been telling me about?"
+    - "Oh good, you're the helper robot, right?"
+    - "So you're SereMate, the one who helps with appointments?"
 
   robot_grounding_response:
     - "Yes, I am SereMate. I am here to bring you to your appointment."
@@ -28,6 +34,12 @@ variables:
     - "Yes, I'm SereMate. I'll guide you to your appointment."
     - "Correct. I'm here to help you get to your scheduled appointment."
     - "Yes. I'm SereMate, and I'll accompany you there."
+    - "Indeed, I'm SereMate. I'll walk you over to your appointment."
+    - "That's me. I'm SereMate, here to help you today."
+    - "Yes, that's correct. I'm SereMate, ready to assist you."
+    - "You've got it right, I'm SereMate, and I'll get you there."
+    - "Correct, I'm SereMate. Let's get you to your appointment."
+    - "Yes, I am. I'm SereMate, and I'll make sure you arrive safely."
 
   user_uncertainty_location_expression:
     - "Ah yes, it is in another building, I think."
@@ -45,6 +57,12 @@ variables:
     - "It's somewhere outside this building, isn't it?"
     - "I think I need to go to another part of the hospital."
     - "The appointment isn't here, is it?"
+    - "I have a feeling it's over in the other building."
+    - "Hmm, I think I might need to walk over to another building."
+    - "I'm honestly not sure which building I'm supposed to be in."
+    - "Wasn't it somewhere across the hospital, not here?"
+    - "I have a vague memory that it's in a different building."
+    - "I think I might be in the wrong building right now."
 
   robot_reassurance:
     - "Yes, the appointment is in another building."
@@ -57,6 +75,12 @@ variables:
     - "Yes, your destination is another building."
     - "Correct. I'll guide you to the other building."
     - "Yes. Don't worry, I'll take you there."
+    - "That's right, it's not in this building. I'll get you where you need to go."
+    - "Correct, you'll need to head to a different building for this one."
+    - "Yes, indeed — it's in another part of the hospital entirely."
+    - "You're right to think that. It's in a separate building."
+    - "That's accurate. I'll make sure we get to the right building together."
+    - "Yes, confirmed. It's across the way in another building."
 
   patient_help_phrase:
     - "Can you help me get there?"
@@ -74,6 +98,12 @@ variables:
     - "Would you help me find the building?"
     - "Can you escort me to my appointment?"
     - "Could you lead the way?"
+    - "Would you mind walking me over there?"
+    - "Could you point me in the right direction, or better, come with me?"
+    - "I'd really appreciate it if you could take me there."
+    - "Can you make sure I don't get lost on the way?"
+    - "Would you be able to walk with me to the other building?"
+    - "Could you help me find my way there, please?"
 
   robot_grounding_help_acceptance:
     - "Yes, I will help you get to your appointment in the other building."
@@ -91,3 +121,9 @@ variables:
     - "Certainly. I'll escort you to your destination."
     - "Of course. I'll help you find the right location."
     - "Please follow me. I'll take you to your appointment."
+    - "Sure thing. I'll walk with you the whole way there."
+    - "Happily. Just stay close and I'll guide you over."
+    - "Of course, let's head to the other building together."
+    - "I'll make sure you don't get lost — follow me, please."
+    - "Sure, I'll take care of getting you there safely."
+    - "Gladly. I'll accompany you every step of the way."

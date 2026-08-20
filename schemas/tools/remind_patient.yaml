@@ -1,0 +1,19 @@
+tool: remind_patient
+
+
+input:
+
+  patient_id:
+    type: string
+    required: true
+
+  message:
+    type: string
+    required: true
+
+
+output:
+
+  status:
+    type: enum
+    values: [success, failed]

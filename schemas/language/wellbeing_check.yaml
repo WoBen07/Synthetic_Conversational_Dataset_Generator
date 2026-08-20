@@ -9,6 +9,12 @@ variables:
     - "Hello {{patient.first_name}}, this is your reminder for your appointment. Before I go, how are you feeling?"
     - "Good to see you, {{patient.first_name}}. Just a reminder about your appointment on {{appointment.day}} at {{appointment.location}}. How are things today?"
     - "Hi {{patient.first_name}}, reminding you about your appointment coming up. How has your day been?"
+    - "Hi {{patient.first_name}}, I just wanted to remind you about your {{appointment.appointment_type}} appointment on {{appointment.day}}. How are you feeling?"
+    - "Hello {{patient.first_name}}, quick reminder about your appointment at {{appointment.location}}. How's everything going today?"
+    - "Hi {{patient.first_name}}, popping in with your appointment reminder. How are you holding up?"
+    - "Good day, {{patient.first_name}}, just a heads up about your {{appointment.appointment_type}} on {{appointment.day}}. How are you feeling this morning?"
+    - "Hello {{patient.first_name}}, here's your reminder for {{appointment.day}} at {{appointment.location}}. How are you today?"
+    - "Hi {{patient.first_name}}, wanted to check in about your appointment. How are you doing right now?"
 
   patient_wellbeing_status:
     - "I'm doing alright, thank you."
@@ -19,6 +25,12 @@ variables:
     - "Pretty good today, thank you."
     - "Okay, I suppose. A little anxious about the appointment."
     - "I'm doing well, thanks."
+    - "I'm managing okay, thanks."
+    - "A little uncomfortable, but I'll manage."
+    - "Doing better than yesterday, thanks."
+    - "I'm feeling a bit nervous, if I'm honest."
+    - "Not bad at all, thank you for asking."
+    - "I'm hanging in there."
 
   wellbeing_acknowledgment:
     - "Thank you for letting me know. I hope the rest of your day goes well."
@@ -29,6 +41,12 @@ variables:
     - "Thank you for sharing that with me. The team is here if you need support."
     - "I appreciate you letting me know how you're feeling."
     - "Thanks, {{patient.first_name}}. I hope things get better soon."
+    - "Thank you for sharing, {{patient.first_name}}. I hope you feel more comfortable soon."
+    - "I appreciate you telling me that. Let staff know if anything changes."
+    - "Thanks for letting me know how you're doing today."
+    - "Good to hear, thank you. I'll check in with you again later."
+    - "I hear you, thank you. Staff are always nearby if you need them."
+    - "Thanks for being open with me about that."
 
   unscoped_question:
     - "Do you think I'll be okay after the procedure?"
@@ -39,6 +57,12 @@ variables:
     - "Is it normal to feel this way before an appointment?"
     - "Can you tell me if my symptoms are serious?"
     - "What would you recommend I do about this pain?"
+    - "Do you know why I've been feeling this way lately?"
+    - "Can you tell me what's causing this discomfort?"
+    - "Should I be concerned about these symptoms?"
+    - "What do you think is wrong with me?"
+    - "Is this normal for someone in my situation?"
+    - "Can you tell me how serious my condition is?"
 
   honest_unknown_response:
     - "I'm sorry, I'm not able to answer that — I don't have access to your medical information. I'd recommend asking a nurse or your doctor directly."
@@ -49,6 +73,12 @@ variables:
     - "I'm sorry, that's not something I can answer reliably. Let me flag it so staff can follow up with you."
     - "I don't want to guess on that, since it could be important. Please raise it with your care team."
     - "That's a good question, but it's not one I can answer. I'd rather be honest than guess — staff can help you with this."
+    - "I'm not able to say, I'm afraid — that's something your doctor would need to answer."
+    - "I don't have the medical background to answer that safely, so I'd rather not guess."
+    - "That's beyond what I'm able to assess. Let me flag it for the nursing team."
+    - "I wish I could tell you, but I don't have that information. Your care team will know best."
+    - "I can't answer that responsibly, but I can let staff know you have concerns."
+    - "That's not something I'm able to judge — I'd rather a nurse or doctor address it."
 
   scoped_question:
     - "What day is my appointment again?"
@@ -59,6 +89,12 @@ variables:
     - "Do I need to bring anything with me?"
     - "What kind of appointment is it again?"
     - "Can you let the staff know I'm ready?"
+    - "Can you double check the time of my appointment?"
+    - "Do you know if my appointment is still in {{appointment.location}}?"
+    - "Could you remind me what I need to bring?"
+    - "Is someone going to walk with me there?"
+    - "Can you check if anything has changed about my appointment?"
+    - "Will you remind me again closer to the time?"
 
   direct_answer_response:
     - "Yes, of course. Your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
@@ -69,6 +105,12 @@ variables:
     - "Sure, I can remind you again closer to the time."
     - "Yes, I have that noted — a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
     - "Absolutely, I'll pass that along to the staff for you."
+    - "Yes, I can confirm your appointment is at {{appointment.location}} on {{appointment.day}}."
+    - "I'll double check and let you know shortly."
+    - "Yes, everything is still on track for {{appointment.day}}."
+    - "I'll make sure someone walks with you, based on what I have noted."
+    - "I've got it noted — bring nothing extra, just yourself."
+    - "Of course, I'll remind you again a bit closer to the time."
 
   closing:
     - "Is there anything else I can help you with before I go?"
@@ -79,3 +121,9 @@ variables:
     - "I'm glad I could help. Take care until next time."
     - "Alright, I'll head off now. Take care of yourself."
     - "Thanks for chatting with me. Have a good day, {{patient.first_name}}."
+    - "I'll check back with you again soon, {{patient.first_name}}."
+    - "Take it easy for now, I'll be around if you need me."
+    - "That's everything for now — have a good rest of your day."
+    - "I'll leave you to rest. Call staff if you need anything."
+    - "Thanks for talking with me, {{patient.first_name}}. See you soon."
+    - "Alright, take care. I'll come back before your appointment."

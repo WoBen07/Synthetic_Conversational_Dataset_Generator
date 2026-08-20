@@ -9,6 +9,12 @@ variables:
     - "I'm in a lot of pain and it's getting worse fast."
     - "I feel like I can't catch my breath at all."
     - "I think I'm going to be sick and my vision is going blurry."
+    - "My heart is pounding really fast and I don't know why."
+    - "I can't feel my left leg and it's scaring me."
+    - "There's a sharp pain shooting down my arm and it won't stop."
+    - "I'm sweating all over and I feel cold and shaky at the same time."
+    - "I tried to stand up and everything went black for a second."
+    - "I'm having trouble speaking clearly, my words keep coming out wrong."
 
   calm_acknowledgment:
     - "Okay, I hear you — I'm getting help for you right now. Please try to stay as still as you can."
@@ -19,6 +25,12 @@ variables:
     - "Okay, help is being alerted right now. I'm staying here with you until they arrive."
     - "I hear you, this is important — staff are being notified this second."
     - "Okay, please try to stay as calm as you can — help is on the way right now."
+    - "I've got you — sending an alert now, please try not to move too much."
+    - "This is serious, and I'm acting on it immediately. Stay with me, help is coming."
+    - "I hear you loud and clear. Staff are being alerted this very moment."
+    - "Okay, I'm on it — try to breathe slowly while I get someone to you."
+    - "I understand, and I'm not wasting any time. Someone will be there very soon."
+    - "Alright, I'm sending the alert right now — please stay as still as possible."
 
   escalation_confirmation:
     - "Staff have been notified and are on their way to {{patient.room_number}} now."
@@ -29,6 +41,12 @@ variables:
     - "Notification sent — someone will be with you in {{patient.room_number}} very shortly."
     - "Staff are aware and on their way to {{patient.room_number}} right now."
     - "I've made sure this is marked urgent — help is coming to {{patient.room_number}}."
+    - "This has been sent as a priority alert — staff are already moving toward {{patient.room_number}}."
+    - "I've contacted the care team directly — they're on route to {{patient.room_number}} as we speak."
+    - "Your alert has gone through — a nurse is already heading to {{patient.room_number}}."
+    - "The emergency notification is confirmed — help is en route to {{patient.room_number}}."
+    - "I've escalated this immediately — someone is coming to {{patient.room_number}} without delay."
+    - "This has been flagged top priority — staff are rushing to {{patient.room_number}} now."
 
   reassurance_no_advice:
     - "I'm not able to tell you what's causing this, but I'll stay right here with you until someone arrives."
@@ -39,3 +57,9 @@ variables:
     - "I don't have a medical answer for you, but I'm staying with you until staff get here."
     - "I'm not able to tell you what it is, but you're being taken care of — help is close."
     - "I won't guess what's going on, but I'm here with you until someone arrives."
+    - "It's not something I can assess myself, but you won't be dealing with this alone."
+    - "I'm not able to say what's happening, but trained help is only moments away."
+    - "I can't offer a medical opinion, but I'm not going anywhere until someone gets here."
+    - "I don't know the cause, but please stay with me — help is almost at your side."
+    - "That's beyond what I can judge, but you are being looked after right now."
+    - "I can't tell you what's wrong, but I'm staying right here until it's sorted out."

@@ -1,6 +1,17 @@
 tool: find_patient
 
 
+input:
+
+  name:
+    type: string
+    required: false
+
+  room_number:
+    type: string
+    required: false
+
+
 output:
 
 
@@ -11,7 +22,7 @@ output:
 
     constraints:
 
-      minimum_items: 2
+      minimum_items: 0
 
 
       item_type: patient

@@ -9,6 +9,12 @@ variables:
     - "This is a waste of time, you don't really help."
     - "I don't like talking to a robot about this stuff."
     - "You're kind of useless, to be honest."
+    - "I feel like nobody here is really listening to me."
+    - "You just repeat the same things over and over."
+    - "This isn't working, I need actual help."
+    - "I don't feel like you get what I'm going through."
+    - "Talking to a machine about this feels wrong."
+    - "You're not giving me what I actually need."
 
   assistant_acknowledgment:
     - "I'm sorry to hear that, thank you for telling me."
@@ -19,6 +25,12 @@ variables:
     - "I understand, and I appreciate you telling me rather than just staying frustrated."
     - "That's fair feedback, and I'm sorry it's felt that way."
     - "Thank you for being upfront, I don't want to waste your time."
+    - "I'm really sorry to hear that, and I take what you're saying seriously."
+    - "Thank you for telling me, that matters to me."
+    - "I hear you, and I'm sorry this has been frustrating."
+    - "That's valid, and I appreciate you sharing it with me."
+    - "I'm sorry this hasn't felt right, thank you for speaking up."
+    - "I take that to heart, thank you for being honest."
 
   assistant_constructive_followup:
     - "Can you tell me what would actually be more helpful right now? I'd like to try to fix that."
@@ -29,6 +41,12 @@ variables:
     - "I can also flag this for staff if you'd rather deal with a person directly."
     - "Let me know what's not working, I'd genuinely like to improve it."
     - "Would it help if I got someone from the team to step in here?"
+    - "What would help you feel more listened to right now?"
+    - "Would it help to have staff check in with you directly?"
+    - "Is there something in particular I should be doing differently?"
+    - "Would you like me to bring someone else into this conversation?"
+    - "Tell me what's not working and I'll try to make it better."
+    - "Would speaking with a nurse feel more helpful right now?"
 
   user_response:
     - "I guess I just want someone to actually check on me."
@@ -39,6 +57,12 @@ variables:
     - "I think I'd rather talk to a nurse about this."
     - "It's fine, I'm just venting I think."
     - "Yeah, getting someone from staff might help."
+    - "I think I just need someone to actually listen."
+    - "Maybe talking to a real person would help more."
+    - "I'm not sure, just having a rough time I guess."
+    - "It's not really about you, I'm just stressed."
+    - "Try to be a bit more clear next time, maybe."
+    - "Yeah, having staff check in would be good."
 
   closing:
     - "That's completely fair — I'll let staff know, and I'm still here if you need anything else."
@@ -49,3 +73,9 @@ variables:
     - "Thank you for your patience with me, I'll flag this for the team."
     - "That's okay, I'm glad you told me — I'll let staff know too."
     - "I appreciate you sharing that, I'll make sure it's passed along."
+    - "That's fair, I'll make sure staff hear about this too."
+    - "Thank you for telling me, someone will check in soon."
+    - "I understand, and I hope it gets better — I'm here if you need anything."
+    - "That makes sense, thanks for being open with me."
+    - "I'll flag this for the team, thank you for your patience."
+    - "I appreciate you talking this through with me."

@@ -4,6 +4,23 @@
     { "role": "assistant", "content": "{{assistant_acknowledgment}}" },
     { "role": "assistant", "content": "{{assistant_constructive_followup}}" },
     { "role": "user", "content": "{{user_response}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{user_complaint}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": {
+        "status": "notified"
+      }
+    },
     { "role": "assistant", "content": "{{closing}}" }
   ]
 }

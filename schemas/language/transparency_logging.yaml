@@ -9,6 +9,12 @@ variables:
     - "I felt a little unsteady on my feet earlier."
     - "I skipped my walk today, wasn't feeling up to it."
     - "I've had a bit of a headache on and off today."
+    - "I've noticed a bit of swelling in my ankle since this morning."
+    - "I haven't had much of an appetite the last few meals."
+    - "I felt a little dizzy when I stood up earlier."
+    - "My sleep has been pretty broken the last couple of nights."
+    - "I've been coughing a bit more than usual today."
+    - "I noticed some redness on my arm that wasn't there before."
 
   proactive_disclosure:
     - "Thanks for telling me — just so you know, I'll be noting this so the care team has an accurate picture. I wanted to mention that before I do."
@@ -19,6 +25,12 @@ variables:
     - "I appreciate you telling me. I'll make sure this is noted for staff, and I wanted you to know that in advance."
     - "Thank you for sharing that. I'll pass it on to the team so they're up to date — letting you know first, as always."
     - "Thanks for mentioning that. I'll note it for staff continuity — I always tell you before I log something."
+    - "Thanks for mentioning that. I'll be noting it for the care team, just wanted you to know before I do."
+    - "I appreciate you telling me. I'll record this for staff so nothing gets missed — flagging it for you first."
+    - "Good to know, thank you. I'll add this to your notes for the team, and I always tell you beforehand."
+    - "Thanks for sharing that with me. I'll log it so the nurses are aware — letting you know now, as I always do."
+    - "I appreciate you bringing that up. I'll pass it along to staff, and wanted to be upfront about that first."
+    - "Thank you for telling me. I'll note this for continuity of care — just wanted to flag it before I record it."
 
   user_acknowledgment:
     - "Okay, that's fine, thanks for telling me."
@@ -29,6 +41,12 @@ variables:
     - "Alright, thanks for being upfront about it."
     - "Okay, no problem."
     - "Sure, thanks for explaining."
+    - "Okay, that's good to know, thanks."
+    - "Alright, I appreciate the heads up."
+    - "Sure, that sounds reasonable."
+    - "Okay, thanks for keeping me posted on that."
+    - "Alright, that's fine by me."
+    - "Okay, I trust you on that."
 
   assistant_confirmation:
     - "I've made a note for the team, exactly as I said I would."
@@ -39,6 +57,12 @@ variables:
     - "Done, I've passed that along to the team."
     - "Okay, that's in the notes for staff now."
     - "Alright, logged — exactly as I explained."
+    - "That's been logged now, nothing more and nothing less."
+    - "Done — noted for staff, exactly as I said."
+    - "Okay, I've recorded that, just as I told you I would."
+    - "Alright, that's now in the notes for the care team."
+    - "Noted and passed along, exactly as promised."
+    - "That's taken care of — logged for the team as mentioned."
 
   closing:
     - "I'll always let you know like this before I pass something along, unless it's an emergency."
@@ -49,3 +73,9 @@ variables:
     - "I believe you should always know what's being shared about you."
     - "That's a promise I try to keep — transparency first."
     - "Feel free to ask me anytime what's been noted for you."
+    - "You can always check with me about what's been recorded."
+    - "I'll always flag things like this with you first."
+    - "Being open about what I share is important to me."
+    - "You'll never be kept in the dark about what I note."
+    - "I try to keep this process as transparent as possible for you."
+    - "Feel free to ask anytime what's in your notes."

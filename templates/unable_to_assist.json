@@ -6,7 +6,26 @@
     },
     {
       "role": "assistant",
-      "content": "{{additional_information_request}}"
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}",
+          "{{alternative_patient}}"
+        ]
+      }
+    },
+    {
+        "role": "assistant",
+        "content": "{{additional_information_request}}"
     },
     {
         "role": "user",

@@ -9,6 +9,12 @@ variables:
     - "Could you draw my blood for the test?"
     - "Can you adjust my IV drip?"
     - "Can you tell my doctor to come see me right now?"
+    - "Can you help me change into my clothes?"
+    - "Could you check if my medication is due?"
+    - "Can you remove my catheter?"
+    - "Could you help me walk to the bathroom?"
+    - "Can you tell me my test results?"
+    - "Could you give me a shot for the pain?"
 
   capability_clarification:
     - "I'm not able to do that — I don't have the equipment or training to take vitals. A nurse can help with that."
@@ -19,6 +25,12 @@ variables:
     - "I'm not able to do anything with your IV or medical equipment — that needs a trained member of staff."
     - "I can't adjust any medical equipment myself, I'm afraid — that's outside what I'm able to do."
     - "I'm not able to summon your doctor directly, but I can pass the message along to staff right away."
+    - "I'm not able to assist with personal care like dressing — a nurse would need to help with that."
+    - "I don't have access to medication schedules directly — staff can check that for you."
+    - "I'm not able to remove or handle any medical devices — that has to be a trained professional."
+    - "I'm not able to physically support you while walking — I'd rather get someone qualified to help."
+    - "I don't have access to test results — your doctor will need to go over those with you."
+    - "I'm not able to administer injections — that needs to be done by a nurse."
 
   capability_offer:
     - "What I can do is let the nursing team know you'd like your blood pressure checked."
@@ -29,6 +41,12 @@ variables:
     - "I can flag this for the phlebotomy team so they know you're ready."
     - "I can notify staff that your IV needs attention."
     - "I can pass along that you'd like to speak with your doctor as soon as possible."
+    - "I can let a nurse know you need help getting dressed."
+    - "I can check with staff about your medication schedule."
+    - "I can notify a nurse that your catheter needs attention."
+    - "I can call for someone to help you walk safely."
+    - "I can let your doctor know you'd like to go over your results."
+    - "I can flag this so a nurse can bring your pain medication."
 
   user_response:
     - "Okay, that would be great, thanks."
@@ -39,6 +57,12 @@ variables:
     - "That's fine, thanks for passing it on."
     - "Okay, I appreciate it."
     - "Sure, thanks for helping with that."
+    - "Okay, that sounds good, thank you."
+    - "Alright, please let them know."
+    - "Sure, I'd appreciate that."
+    - "Okay, thanks for checking on that."
+    - "That works, thank you."
+    - "Yes, please, thanks for helping."
 
   closing:
     - "I've made a note of it — someone should be with you shortly."
@@ -49,3 +73,9 @@ variables:
     - "I'll take care of letting them know now."
     - "Noted — thank you for your patience."
     - "I've flagged it for staff, they'll be with you soon."
+    - "I've let them know, someone will be with you soon."
+    - "That's taken care of, thank you for your patience."
+    - "I'll make sure this gets to the right person."
+    - "Noted, staff should be along shortly."
+    - "I've passed it along, they'll be in touch."
+    - "Done — I'll keep an eye out and follow up if needed."

@@ -1,0 +1,26 @@
+tool: notify_staff
+
+
+description: >
+  Flags a non-urgent request, complaint, or concern for hospital staff
+  follow-up. Used whenever the assistant tells a patient it will "let
+  staff know" or "pass this along" outside of a medical emergency.
+  For urgent/medical situations use alert_staff instead.
+
+
+input:
+
+  patient_id:
+    type: string
+    required: true
+
+  reason:
+    type: string
+    required: true
+
+
+output:
+
+  status:
+    type: enum
+    values: [notified]

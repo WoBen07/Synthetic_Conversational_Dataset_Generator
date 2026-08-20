@@ -18,6 +18,12 @@ variables:
     - "Can you bring {{patient.first_name}} to {{patient.pronoun}} appointment?"
     - "Please tell {{patient.first_name}} it is time for {{patient.pronoun}} appointment."
     - "Could you ask {{patient.first_name}} to get ready for {{patient.pronoun}} appointment?"
+    - "Could you go remind {{patient.first_name}} that {{patient.pronoun}} appointment starts soon?"
+    - "Please check on {{patient.first_name}} and mention {{patient.pronoun}} appointment."
+    - "Can you let {{patient.first_name}} know {{patient.pronoun}} has {{appointment.appointment_type}} coming up?"
+    - "Would you mind telling {{patient.first_name}} about {{patient.pronoun}} appointment today?"
+    - "Please head over and remind {{patient.first_name}} about the appointment."
+    - "Can you make sure {{patient.first_name}} doesn't forget {{patient.pronoun}} appointment?"
 
 
   clarification_request:
@@ -37,6 +43,12 @@ variables:
     - "Please provide another identifier for the patient."
     - "I need either the room number or the patient's full name."
     - "Can you confirm which {{patient.first_name}} you mean?"
+    - "I found more than one patient with that name, can you narrow it down?"
+    - "Could you give me a room number to be sure?"
+    - "Sorry, which {{patient.first_name}} are you referring to exactly?"
+    - "Can you tell me more to help me find the right patient?"
+    - "I want to make sure I remind the correct person, can you clarify?"
+    - "Is there a last name or room number you can give me?"
 
 
   user_clarification:
@@ -49,6 +61,8 @@ variables:
     - "The {{patient.first_name}} with the last name {{patient.last_name}}."
     - "{{patient.full_name}} is the one I mean."
     - "Please remind {{patient.full_name}}."
+    - "It's {{patient.full_name}}, that's who I mean."
+    - "{{patient.first_name}} {{patient.last_name}} is the patient."
 
     # Room-based identification
     - "The patient in room {{patient.room_number}}."
@@ -56,12 +70,16 @@ variables:
     - "The patient from room {{patient.room_number}}."
     - "Room {{patient.room_number}}, that's the one."
     - "I mean the patient located in {{patient.room_number}}."
+    - "It's the patient staying in room {{patient.room_number}}."
+    - "Whoever is in room {{patient.room_number}}."
 
     # Mixed identifiers
     - "{{patient.first_name}}, the patient in room {{patient.room_number}}."
     - "{{patient.full_name}}, they are staying in room {{patient.room_number}}."
     - "The {{patient.first_name}} {{patient.last_name}} in room {{patient.room_number}}."
     - "The patient named {{patient.full_name}} who is in room {{patient.room_number}}."
+    - "{{patient.last_name}}, in room {{patient.room_number}}."
+    - "The patient known as {{patient.full_name}}, room {{patient.room_number}}."
 
 
   acknowledgement:
@@ -79,3 +97,9 @@ variables:
     - "I have the information. I'll remind {{patient.full_name}}."
     - "Thank you for clarifying. I'll remind {{patient.full_name}} in room {{patient.room_number}}."
     - "I know which patient you mean now. I'll go remind {{patient.full_name}}."
+    - "Noted, I'll head to room {{patient.room_number}} and remind {{patient.full_name}}."
+    - "Got it, I'm on my way to remind {{patient.full_name}} now."
+    - "Thanks for clarifying, I'll let {{patient.full_name}} know right away."
+    - "I'll go find {{patient.full_name}} in room {{patient.room_number}} now."
+    - "Understood, heading to remind {{patient.full_name}} about {{patient.pronoun}} appointment."
+    - "Alright, I'll take care of reminding {{patient.full_name}}."

@@ -22,6 +22,12 @@ variables:
     - "Go to {{patient.full_name}}'s room and bring them to the appointment."
     - "Please accompany {{patient.full_name}} to the clinic."
     - "Could you remind and escort {{patient.full_name}} to their appointment?"
+    - "Would you go collect {{patient.full_name}} and walk them to their appointment?"
+    - "Please head over and bring {{patient.full_name}} to their appointment now."
+    - "Can you go find {{patient.full_name}} and take them to the doctor?"
+    - "Please walk {{patient.full_name}} down to their appointment."
+    - "Could you go get {{patient.full_name}} ready and bring them along?"
+    - "Please notify {{patient.full_name}} and escort them to the appointment room."
 
 
   multiple_patient_confirmation_request:
@@ -46,6 +52,12 @@ variables:
     - "I found multiple records under that name. Could you specify the patient?"
     - "There is more than one patient with that name. Can you clarify?"
     - "Could you identify the correct patient from the matching records?"
+    - "I've got several entries under that name — which one is correct?"
+    - "This name isn't unique in our records. Could you clarify which patient?"
+    - "Multiple patients share that name — can you tell me which one you mean?"
+    - "I need to narrow this down, there's more than one match for that name."
+    - "Can you confirm which of these matching patients you're referring to?"
+    - "There's more than one record for that name — could you specify further?"
 
 
   patient_confirmation:
@@ -70,6 +82,12 @@ variables:
     - "{{patient.full_name}}, please."
     - "Please proceed with {{patient.full_name}}."
     - "That would be {{patient.full_name}}."
+    - "It's definitely {{patient.full_name}}."
+    - "Please go with {{patient.full_name}}."
+    - "The one I need is {{patient.full_name}}."
+    - "Correct, {{patient.full_name}} is who I mean."
+    - "{{patient.full_name}} — that's the right patient."
+    - "Go ahead with {{patient.full_name}}."
 
 
   reminder_phrase:
@@ -94,6 +112,12 @@ variables:
     - "It's time to go to your {{appointment.appointment_type}}."
     - "I'll accompany you to your appointment."
     - "Everything is ready for your appointment. Please come with me."
+    - "Time to go — your {{appointment.appointment_type}} is starting soon."
+    - "Let's get moving, your appointment won't wait much longer."
+    - "I'm here to walk you over to your {{appointment.appointment_type}} now."
+    - "Your appointment time has arrived. Shall we head over together?"
+    - "It's time now, please come along with me to your appointment."
+    - "I'll walk with you to your {{appointment.appointment_type}} whenever you're ready."
 
 
   confirmation_phrase_task_fullfillment:
@@ -118,3 +142,9 @@ variables:
     - "Reminder completed successfully."
     - "The patient has been contacted and informed."
     - "Task completed. {{patient.full_name}} has been reminded about the appointment."
+    - "{{patient.full_name}} was reached and confirmed the reminder."
+    - "I've completed the task — {{patient.full_name}} knows about the appointment now."
+    - "Reminder successfully delivered to {{patient.full_name}}."
+    - "{{patient.full_name}} has been made aware and is getting ready."
+    - "The task is done — I informed {{patient.full_name}} directly."
+    - "I found and reminded {{patient.full_name}} without any issues."

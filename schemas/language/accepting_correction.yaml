@@ -9,6 +9,12 @@ variables:
     - "Hello {{patient.first_name}}, just letting you know your appointment is set for {{appointment.day}}."
     - "Hi {{patient.first_name}}, I wanted to remind you your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
     - "Hello {{patient.first_name}}, your appointment details show {{appointment.day}} at {{appointment.location}}."
+    - "Hi {{patient.first_name}}, quick note — your {{appointment.appointment_type}} appointment is set for {{appointment.day}}."
+    - "Hello {{patient.first_name}}, I just want to confirm your appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Hi {{patient.first_name}}, my notes say {{appointment.day}} at {{appointment.location}} for your appointment."
+    - "Hello {{patient.first_name}}, checking in — your appointment is listed for {{appointment.day}}."
+    - "Hi {{patient.first_name}}, just flagging that your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Hello {{patient.first_name}}, I see your appointment scheduled at {{appointment.location}} on {{appointment.day}}."
 
   user_correction:
     - "That's not right, I don't think that's my appointment day."
@@ -19,6 +25,12 @@ variables:
     - "I think you've got that mixed up, that's not what I remember."
     - "Are you sure? That's not what I was told."
     - "That doesn't seem right to me, can you double-check?"
+    - "No, that's not what I remember at all."
+    - "Hold on, I don't think that's accurate."
+    - "That can't be right, someone told me something different."
+    - "I'm fairly sure that's incorrect."
+    - "That's news to me, are you certain?"
+    - "Something's off, that's not what I was expecting."
 
   verification_response:
     - "Let me double-check that for you right now."
@@ -29,6 +41,12 @@ variables:
     - "Let's make sure — I'll check the record again."
     - "Alright, let me look into that for you."
     - "Okay, let me verify rather than assume."
+    - "Understood, give me a second to look that up."
+    - "You're right to ask, let me confirm it now."
+    - "Fair point, let me pull up the record again."
+    - "Okay, I'll double-check that right away."
+    - "Let me take a closer look before we continue."
+    - "Good idea, let me verify that for certain."
 
   confirmed_response:
     - "I've checked again — the record shows your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}. If that doesn't match what you were told, it might be worth confirming with the front desk, just to be safe."
@@ -39,6 +57,12 @@ variables:
     - "After checking again, the record still says {{appointment.day}} at {{appointment.location}}. It's always fine to confirm with the front desk too, just to be sure."
     - "I've verified it again and it still shows {{appointment.day}} at {{appointment.location}}. If something feels off, staff can look into it further."
     - "Checked again — same result: {{appointment.day}} at {{appointment.location}}. Let me know if you'd like this confirmed by staff as well."
+    - "I've gone through it again — {{appointment.day}} at {{appointment.location}} is what's on file for your {{appointment.appointment_type}} appointment. Staff can confirm further if needed."
+    - "Just re-checked — the system still lists {{appointment.day}} at {{appointment.location}}. Happy to have someone confirm it in person."
+    - "I looked once more, and {{appointment.day}} at {{appointment.location}} still comes up. Let staff know if it still seems off."
+    - "Second check complete — it's {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, same as before."
+    - "I've confirmed it again: {{appointment.day}}, {{appointment.location}}. I can ask staff to double-check if you'd like."
+    - "Verified once more — the record hasn't changed, still {{appointment.day}} at {{appointment.location}}."
 
   user_reply:
     - "Oh okay, maybe I misremembered. Thanks for checking."
@@ -49,6 +73,12 @@ variables:
     - "Okay, thanks for verifying that for me."
     - "Fair enough, thanks for looking into it."
     - "Okay, I trust that then. Thanks."
+    - "Oh, good to know, thanks for clearing that up."
+    - "Okay, I must have had it wrong. Thanks."
+    - "Alright, that makes sense now, thank you."
+    - "Got it, thanks for checking that twice."
+    - "Okay, I see, thanks for confirming."
+    - "Ah, that explains it, thanks for looking."
 
   closing:
     - "No problem at all — better to double-check than to have the wrong information."
@@ -59,3 +89,9 @@ variables:
     - "Always glad to double-check, just let me know if anything still seems off."
     - "That's what I'm here for — accuracy matters."
     - "Of course, feel free to ask me to check again anytime."
+    - "Not a problem, I'd rather double-check than leave you guessing."
+    - "It's no trouble, getting it right matters more than being quick."
+    - "Glad to help clear that up, just ask anytime."
+    - "I'm happy to verify things whenever you need me to."
+    - "That's what I'm here for, don't hesitate to ask again."
+    - "No worries at all, checking twice never hurts."

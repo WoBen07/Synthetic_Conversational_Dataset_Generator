@@ -9,6 +9,12 @@ variables:
     - "I remember you telling me {{appointment.location}} before, is that still correct?"
     - "You mentioned {{appointment.day}} last time, is that still the case?"
     - "Didn't you already tell me it was a {{appointment.appointment_type}} appointment?"
+    - "Hold on, wasn't it {{appointment.day}} that you told me before?"
+    - "I thought you said {{appointment.location}} earlier, is that still right?"
+    - "Weren't you saying it's a {{appointment.appointment_type}} appointment before?"
+    - "You mentioned {{appointment.location}} a moment ago, has that changed?"
+    - "Just to confirm, is it still {{appointment.day}} like before?"
+    - "Earlier you said {{appointment.appointment_type}}, is that still accurate?"
 
   assistant_confirm_consistency:
     - "Yes, that's right — your {{appointment.appointment_type}} appointment is still in {{appointment.location}} on {{appointment.day}}. Nothing has changed since we last spoke."
@@ -19,6 +25,12 @@ variables:
     - "Yes, {{appointment.location}} is still correct, I haven't seen any updates."
     - "Correct, {{appointment.day}} still stands — nothing has changed."
     - "Yes, that's still accurate — it's a {{appointment.appointment_type}} appointment, unchanged."
+    - "Yes, still the same — {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "That's still correct, nothing has changed on my end."
+    - "Confirmed, {{appointment.location}} is still accurate."
+    - "Yes, {{appointment.appointment_type}} on {{appointment.day}} remains the same."
+    - "That's right, no updates since we last spoke."
+    - "Correct, {{appointment.day}} at {{appointment.location}} is unchanged."
 
   user_followup:
     - "Okay good, just wanted to make sure I heard you right."
@@ -29,6 +41,12 @@ variables:
     - "Alright, good to know it's still the same."
     - "Okay, thank you for confirming that again."
     - "Good, just making sure I remembered correctly."
+    - "Perfect, thanks for double-checking that."
+    - "Great, just wanted to be sure it's the same."
+    - "Okay, appreciate you confirming again."
+    - "Good to hear, thanks."
+    - "Alright, that's reassuring, thank you."
+    - "Okay, glad nothing changed."
 
   assistant_closing:
     - "Absolutely, happy to confirm anytime you're not sure."
@@ -39,3 +57,9 @@ variables:
     - "Of course, always feel free to ask me again."
     - "No trouble at all, I'll always give you the same answer unless something changes."
     - "Glad to confirm — I'll let you know right away if anything ever changes."
+    - "Of course, always happy to confirm details for you."
+    - "No problem, ask me anytime you want to double-check."
+    - "Glad to help, feel free to check in again."
+    - "Anytime, I'm always here to confirm the details."
+    - "Sure thing, I'll always let you know if anything changes."
+    - "Happy to keep confirming this for you whenever needed."

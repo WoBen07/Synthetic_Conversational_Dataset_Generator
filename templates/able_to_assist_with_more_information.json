@@ -13,6 +13,24 @@
         "content": "{{more_information_phrase}}"
     },
     {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
         "role": "assistant",
         "content": "{{acknowledgement_phrase}}"
     }

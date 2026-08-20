@@ -1,0 +1,27 @@
+tool: alert_staff
+
+
+input:
+
+  patient_id:
+    type: string
+    required: true
+
+  room_number:
+    type: string
+    required: true
+
+  urgency:
+    type: enum
+    values: [low, medium, high]
+    required: true
+
+
+output:
+
+  status:
+    type: enum
+    values: [notified]
+
+  eta:
+    type: string

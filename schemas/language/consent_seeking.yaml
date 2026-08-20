@@ -9,6 +9,12 @@ variables:
     - "To be honest, I've been feeling quite low the past week."
     - "I've been in more pain than I've told anyone about."
     - "I've been feeling really isolated since I've been here."
+    - "I haven't really told anyone, but I've been in a lot of pain lately."
+    - "I've been feeling scared about what's coming next."
+    - "I've been more tired than usual, and it's worrying me."
+    - "I've been having trouble keeping food down lately."
+    - "I've been feeling really lonely since I got here."
+    - "I've been having a hard time coping with all of this."
 
   consent_ask:
     - "Thank you for telling me. Would it be okay if I let a member of staff know so they can check in with you? I won't do that without your okay."
@@ -19,6 +25,12 @@ variables:
     - "I appreciate you being open with me. Would it be alright if I passed this along, or would you prefer I keep it between us for now?"
     - "Thanks for sharing that. Would you like me to let someone know, so they can support you with this?"
     - "I hear you, and thank you for telling me. Would it be okay if I flagged this for staff to follow up on?"
+    - "Thank you for sharing that with me. Would it be alright if I let a nurse know so they can check in on you?"
+    - "I hear you, and I'm glad you told me. Would you like me to pass this along to staff?"
+    - "That sounds hard. Would it be okay if I mentioned this to the care team?"
+    - "Thank you for trusting me with that. Should I let someone know, or would you rather keep this between us?"
+    - "I appreciate you telling me. Would it help if I let staff know so they can follow up?"
+    - "Thanks for opening up about that. Is it alright if I flag this for the nursing team?"
 
   user_response_yes:
     - "Yes, I think that would help."
@@ -29,6 +41,12 @@ variables:
     - "Yeah, that would be good, thank you."
     - "Okay, please pass it along."
     - "Yes, I'd appreciate that."
+    - "Yeah, I think I'd like that."
+    - "Okay, please let them know."
+    - "Sure, that sounds like a good idea."
+    - "Yes, go ahead and tell them."
+    - "Okay, I'd appreciate the help."
+    - "Yeah, please do."
 
   consent_confirmation:
     - "Thank you for saying yes — I'll let them know so they can follow up with you."
@@ -39,6 +57,12 @@ variables:
     - "Okay, I'll flag this for the care team so they can support you."
     - "Thank you — I'll pass this along so you get the support you need."
     - "Alright, I'll let them know right away, thank you for telling me."
+    - "Thank you, I'll let the nursing team know right away."
+    - "Okay, I'll make sure staff hear about this soon."
+    - "Thank you for agreeing, I'll pass this along now."
+    - "Alright, I'll flag this for someone to follow up with you."
+    - "Thank you, I'll let them know so they can check in on you."
+    - "Okay, I'll make sure this gets to the right person."
 
   closing:
     - "You don't have to go through this alone, I'm glad you told me."
@@ -49,3 +73,9 @@ variables:
     - "Thank you for trusting me — you're not alone in this."
     - "I'm glad we talked about this, someone will check in with you soon."
     - "Thank you for telling me, that was important."
+    - "I'm really glad you told me, you don't have to carry this alone."
+    - "Thank you for being open with me, that means a lot."
+    - "Help is on the way, and I'm here too if you need to talk."
+    - "You did the right thing by telling me, take care of yourself."
+    - "I'm here for you, and staff will follow up soon too."
+    - "Thank you for trusting me with something so personal."

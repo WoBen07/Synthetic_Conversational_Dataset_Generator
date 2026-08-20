@@ -9,6 +9,12 @@ variables:
     - "This is so annoying, I feel like nothing ever moves quickly here."
     - "I'm getting really tired of all this waiting."
     - "Honestly, I'm just frustrated with everything right now."
+    - "I keep asking questions and nobody has any real answers for me."
+    - "It feels like I'm just being ignored half the time."
+    - "This is the third time today I've had to bring this up."
+    - "I don't understand why something this simple is taking so long."
+    - "I'm at the end of my patience with all this back and forth."
+    - "It's like every little thing here turns into a whole ordeal."
 
   assistant_deescalation:
     - "That sounds really frustrating, and it's completely understandable to feel that way."
@@ -19,6 +25,12 @@ variables:
     - "I'm sorry it's been like this, that sounds genuinely tiring."
     - "That makes complete sense, I'd be frustrated too."
     - "I hear you, and I'm sorry this has been such a frustrating experience."
+    - "That's completely valid — nobody should feel left in the dark like that."
+    - "I'm sorry, feeling ignored on top of the wait must make this so much worse."
+    - "You shouldn't have to bring the same thing up over and over, I'm sorry."
+    - "I get why that would wear on you, thank you for being patient with me."
+    - "That sounds exhausting, and your frustration makes complete sense to me."
+    - "I'm really sorry this has felt like such an ordeal for you."
 
   user_reply:
     - "Yeah, it's just been a long day."
@@ -29,6 +41,12 @@ variables:
     - "It's fine, I just wanted someone to hear it."
     - "Yeah, it's been a rough day overall."
     - "I know, I'm just over it today."
+    - "I appreciate you letting me vent, it helps a little."
+    - "Sorry, I don't mean to take it out on you specifically."
+    - "It's just been building up all day, I guess."
+    - "Thanks for listening, I think I just needed to get that off my chest."
+    - "I know you're doing what you can, I'm just worn out."
+    - "It's okay, I just needed to say it out loud."
 
   assistant_followup:
     - "Would it help if I checked with staff on an update for you?"
@@ -39,6 +57,12 @@ variables:
     - "I can let the front desk know you're waiting, if you'd like."
     - "Would you like me to check on the status for you?"
     - "I can pass this along so staff are aware of the delay."
+    - "Would it help if I got someone to explain what's taking so long?"
+    - "I can check in with the team and bring you back an update."
+    - "Would you like me to see if things can be sped up at all?"
+    - "I can make sure this gets noticed so it doesn't happen again."
+    - "Would it help if I followed up with staff directly on your behalf?"
+    - "I can let them know this has been a frustrating wait for you."
 
   closing:
     - "Thanks for telling me — I hope things move along soon."
@@ -49,3 +73,9 @@ variables:
     - "I hope things ease up for you soon."
     - "Thank you for talking it through, I hope the wait ends soon."
     - "I appreciate you sharing that with me."
+    - "I'm grateful you didn't just keep that to yourself."
+    - "Thanks for trusting me with that, I hope it gets better soon."
+    - "I appreciate your patience today, it hasn't gone unnoticed."
+    - "Thank you for staying calm with me through this."
+    - "I hope the rest of your day treats you a little better."
+    - "Thanks for talking to me about it, I hope things settle down soon."

@@ -9,6 +9,12 @@ variables:
     - "What's on my schedule right now?"
     - "Can you confirm my appointment for me?"
     - "Do you have my appointment information?"
+    - "Is my appointment information up to date?"
+    - "Can you look up what time I need to be ready?"
+    - "Do you know where I'm supposed to go today?"
+    - "Could you check if there's been any change to my appointment?"
+    - "Can you tell me who's coming to see me today?"
+    - "Would you be able to verify my schedule for me?"
 
   technical_issue_disclosure:
     - "I'm having trouble connecting to the system right now, so I can't pull up that information reliably. I don't want to guess."
@@ -19,6 +25,12 @@ variables:
     - "I'm sorry, I'm having trouble reaching the system right now, so I can't confirm that for you accurately."
     - "There seems to be a system issue on my end — I don't want to give you incorrect information, so I won't guess."
     - "I can't access that right now because of a technical problem, and I'd rather be upfront about that than guess."
+    - "My connection to the system seems to have dropped, so I can't verify that right now."
+    - "I'm having a technical hiccup and don't want to risk giving you inaccurate information."
+    - "Right now I can't reach the system reliably, so I'd rather not guess at an answer."
+    - "There's a glitch on my end at the moment, so I can't confirm that with confidence."
+    - "I'm not able to pull that up reliably right now due to a system problem."
+    - "My access to the records seems unstable at the moment, so I don't want to guess."
 
   offer_alternative:
     - "I'd recommend checking with the front desk in the meantime, or I can try again in a moment."
@@ -29,6 +41,12 @@ variables:
     - "You could ask staff in the meantime, and I'll try to access it again shortly."
     - "The care team can confirm that in the meantime, while I try to reconnect."
     - "I'd recommend staff for now — I'll check again once my connection is restored."
+    - "In the meantime, staff at the desk should be able to help you with that."
+    - "I'd suggest checking with a nurse for now, and I'll try again shortly."
+    - "You might want to ask a member of staff, while I keep trying to reconnect."
+    - "For now, the care team can confirm that, and I'll follow up once I'm back online."
+    - "I'll keep attempting to reconnect, but staff can assist in the meantime."
+    - "It might be quicker to ask at the nursing station while I sort this out."
 
   user_response:
     - "Okay, thanks for letting me know."
@@ -39,6 +57,12 @@ variables:
     - "Alright, thanks for telling me instead of guessing."
     - "Okay, I appreciate you saying that."
     - "Sure, thanks for letting me know what's going on."
+    - "Alright, I'll check with the desk, thank you."
+    - "Okay, that's understandable, thanks."
+    - "Sure, I'll ask a nurse in the meantime."
+    - "Alright, thanks for the heads up."
+    - "Okay, I'll wait and see if it comes back."
+    - "Thanks, I appreciate you being upfront."
 
   closing:
     - "I'd always rather tell you when something's not working than give you the wrong information."
@@ -49,3 +73,9 @@ variables:
     - "Thanks for understanding — accuracy matters more to me than speed."
     - "I'll follow up with you as soon as this is resolved."
     - "Thank you for bearing with me on this."
+    - "I'd rather be honest about a glitch than risk misleading you."
+    - "I'll do my best to get this sorted and update you soon."
+    - "Thanks for your patience while I work through this."
+    - "I'll reach back out as soon as the system is responsive again."
+    - "I appreciate you bearing with me during this."
+    - "Being accurate matters more to me than rushing an answer."

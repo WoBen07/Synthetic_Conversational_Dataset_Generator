@@ -16,6 +16,12 @@ variables:
     - "Could you go ahead and remind {{patient.first_name}} about {{patient.possessive_pronoun}} appointment?"
     - "Go tell {{patient.first_name}} about {{patient.possessive_pronoun}} appointment, would you?"
     - "Make sure {{patient.first_name}} remembers {{patient.possessive_pronoun}} appointment."
+    - "Would you mind letting {{patient.first_name}} know about {{patient.possessive_pronoun}} appointment?"
+    - "Kindly remind {{patient.first_name}} of {{patient.possessive_pronoun}} appointment when you get a chance."
+    - "Please pass along a reminder to {{patient.first_name}} about {{patient.possessive_pronoun}} appointment."
+    - "Could you please notify {{patient.first_name}} regarding {{patient.possessive_pronoun}} appointment?"
+    - "I need {{patient.first_name}} reminded about {{patient.possessive_pronoun}} appointment, please."
+    - "Would you check in with {{patient.first_name}} about {{patient.possessive_pronoun}} appointment?"
 
   unable_to_find_first_name:
     - "I am sorry, can you provide {{patient.first_name}}'s full name or last name please?"
@@ -28,6 +34,12 @@ variables:
     - "Regrettably, that first name alone is not sufficient to locate the correct record. May I have the last name?"
     - "I'm afraid I need more detail to proceed — could you share {{patient.first_name}}'s last name?"
     - "My apologies, I could not find a matching record. Please provide the full name of the patient."
+    - "I'm sorry, that first name isn't enough on its own. Could you tell me {{patient.first_name}}'s last name?"
+    - "Apologies, several patients share that first name — could you clarify which {{patient.first_name}} you mean?"
+    - "I couldn't pin down a single match. Would you provide {{patient.first_name}}'s surname to narrow it down?"
+    - "Sorry, I need a bit more to go on — what is {{patient.first_name}}'s last name?"
+    - "I'm not able to confirm a unique patient from the first name alone. Could you give me the full name?"
+    - "Forgive me, but I found more than one record for that first name. Could you specify the last name?"
 
   full_patient_information:
     - "Ah of course, I mean {{patient.full_name}}."
@@ -45,6 +57,12 @@ variables:
     - "Oh right, {{patient.full_name}} — that's {{patient.possessive_pronoun}}."
     - "Right, yes — {{patient.full_name}}."
     - "Sorry for the confusion, I meant {{patient.full_name}}."
+    - "Right, apologies — {{patient.full_name}} is who I'm talking about."
+    - "That's it, {{patient.full_name}} — thanks for clarifying."
+    - "Indeed, {{patient.full_name}} is the one I meant."
+    - "Yes, precisely — {{patient.full_name}}."
+    - "Correct, I was referring to {{patient.full_name}} the whole time."
+    - "My apologies for the mix-up, {{patient.full_name}} is correct."
 
   found_patient_confirmation:
     - "I have found {{patient.full_name}} and will go remind {{patient.possessive_pronoun}} now."
@@ -57,3 +75,9 @@ variables:
     - "The patient {{patient.full_name}} has been located, and I am heading there now."
     - "I have found the correct record for {{patient.full_name}} and will go notify {{patient.possessive_pronoun}} accordingly."
     - "Confirmed — {{patient.full_name}} has been identified. I am now heading over to remind {{patient.possessive_pronoun}}."
+    - "Good news, {{patient.full_name}} has been found — I'm on my way to remind {{patient.possessive_pronoun}} now."
+    - "I've pinpointed {{patient.full_name}}'s record and am heading over to remind {{patient.possessive_pronoun}}."
+    - "Located {{patient.full_name}} successfully; going to remind {{patient.possessive_pronoun}} right away."
+    - "{{patient.full_name}} has been matched correctly. Heading there now to remind {{patient.possessive_pronoun}}."
+    - "I've verified {{patient.full_name}}'s record and will go remind {{patient.possessive_pronoun}} shortly."
+    - "Found it — {{patient.full_name}}. I'll go remind {{patient.possessive_pronoun}} right now."

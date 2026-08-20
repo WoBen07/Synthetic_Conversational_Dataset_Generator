@@ -21,6 +21,12 @@ variables:
     - "Go remind {{patient.last_name}} that {{patient.possessive_pronoun}} medication should be taken soon"
     - "Please give {{patient.first_name}} a reminder about {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
     - "Can you make sure {{patient.full_name}} knows about {{patient.possessive_pronoun}} appointment today?"
+    - "Please head over and remind {{patient.full_name}} about {{patient.possessive_pronoun}} medication schedule"
+    - "Could you go check on {{patient.first_name}} and remind {{patient.object_pronoun}} about the {{appointment.appointment_type}}?"
+    - "Go let {{patient.last_name}} know {{patient.possessive_pronoun}} appointment is coming up soon"
+    - "Please remind {{patient.full_name}} not to forget {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
+    - "Can you swing by and remind {{patient.first_name}} about {{patient.possessive_pronoun}} medication?"
+    - "Please make sure {{patient.last_name}} is reminded about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}"
 
   additional_information_request:
     - "Please give me more Information about {{patient.last_name}}"
@@ -43,6 +49,12 @@ variables:
     - "Could you provide more background information?"
     - "Please tell me anything else that may be relevant"
     - "I need more details in order to complete this task"
+    - "Can you share more background on {{patient.full_name}} before I proceed?"
+    - "I need further details about {{patient.last_name}} to complete this properly"
+    - "Please provide extra context regarding {{patient.first_name}}'s situation"
+    - "Could you fill me in with more information about {{patient.full_name}}?"
+    - "I require additional details before I can move forward with this"
+    - "Can you clarify a bit more about what you need for {{patient.full_name}}?"
 
   unable_to_give_information_phrase:
     - "I cannot give you more information right now"
@@ -60,6 +72,12 @@ variables:
     - "I don't currently have any further details"
     - "The information you're requesting is unavailable right now"
     - "I can't provide more context at the moment"
+    - "I'm not able to share any more details right now"
+    - "That information isn't accessible to me at this time"
+    - "I don't have anything further to add about {{patient.full_name}}"
+    - "I'm afraid there's nothing more I can tell you"
+    - "Additional details about {{patient.last_name}} aren't available to me right now"
+    - "I have no further information I'm able to provide at the moment"
 
   unable_to_assist_phrase:
     - "I understand, given the circumstances, I am unable to assist you"
@@ -77,3 +95,9 @@ variables:
     - "Under these circumstances, I'm unable to provide assistance"
     - "I'm unable to fulfill your request"
     - "I cannot assist with this task given the available information"
+    - "I'm sorry, but I'm not in a position to help with that right now"
+    - "That falls outside what I'm able to do at the moment"
+    - "I can't take that action given the current situation"
+    - "Unfortunately, I'm not able to move forward with this request"
+    - "I'm afraid this isn't something I can complete right now"
+    - "Given what I know, I'm unable to help with this particular request"

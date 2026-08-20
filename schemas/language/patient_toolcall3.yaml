@@ -17,6 +17,12 @@ variables:
     - "Do I need an umbrella or anything else for the walk?"
     - "Should I wear something specific for my walk?"
     - "Is the weather something I should prepare for before my appointment?"
+    - "Is there anything special I should do before heading outside?"
+    - "What should I know about the weather before I leave for my appointment?"
+    - "Do I need extra clothing for my trip outside?"
+    - "Should I check the weather before going to my appointment?"
+    - "Is there something I need to prepare for outside conditions?"
+    - "Will the weather affect how I should get ready to leave?"
 
 
   recommendation_phrase:
@@ -25,29 +31,35 @@ variables:
     - "The weather is {{weather.condition}} with temperatures around {{weather.temperature}}. Please make sure you are prepared before leaving."
     - "It is currently {{weather.condition}}. I suggest taking suitable precautions before walking outside."
     - "The conditions outside are {{weather.condition}}. I recommend preparing accordingly for your walk."
-    
+    - "Right now it is {{weather.condition}} and about {{weather.temperature}}, so please dress accordingly before you head out."
+
     # Cold weather
     - "It is cold outside. I recommend wearing warm clothing before leaving."
     - "The temperature is low, so please wear a warm jacket and suitable clothes."
     - "It may feel chilly outside, so dress warmly for your walk."
     - "Make sure to wear enough layers to stay comfortable in the cold weather."
-    
+    - "It is quite cold right now, so please make sure to wear a warm coat before you go."
+
     # Rain
     - "There is rain expected. I recommend taking an umbrella or wearing waterproof clothing."
     - "It is rainy outside, so consider bringing an umbrella for your walk."
     - "The weather is wet, so proper protection from rain would be useful."
     - "I recommend wearing waterproof shoes and bringing an umbrella."
-    
+    - "It looks like rain outside, so an umbrella would be a good idea for your walk."
+
     # Snow / ice
     - "There is a chance of snow. I recommend wearing proper shoes and warm clothing."
     - "It is snowy outside, so please wear warm clothes and shoes with good grip."
     - "Because of the snow, be careful while walking and wear suitable footwear."
     - "The conditions may be icy, so I recommend wearing sturdy shoes."
-    
+    - "Watch your step, there is snow on the ground, so wear shoes with good traction."
+
     # Wind
     - "It is windy outside. I recommend wearing a jacket to protect yourself from the cold wind."
     - "There are strong winds, so make sure you are dressed appropriately."
-    
+    - "The wind is quite strong today, so hold onto your hat and any loose items while walking."
+
     # Warm weather
     - "It is warm outside. I recommend wearing light clothing and bringing water if needed."
     - "The temperatures are high, so make sure to stay hydrated during your walk."
+    - "It is quite warm out there, so a light layer and some water would be wise."

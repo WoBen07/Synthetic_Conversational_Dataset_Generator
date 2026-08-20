@@ -1,6 +1,23 @@
 {
   "messages": [
     { "role": "user", "content": "{{user_question}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "status": "error",
+        "error": "connection_timeout"
+      }
+    },
     { "role": "assistant", "content": "{{technical_issue_disclosure}}" },
     { "role": "assistant", "content": "{{offer_alternative}}" },
     { "role": "user", "content": "{{user_response}}" },

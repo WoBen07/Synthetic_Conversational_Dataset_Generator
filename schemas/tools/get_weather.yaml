@@ -1,0 +1,19 @@
+tool: get_weather
+
+
+input:
+
+  location:
+    type: string
+    required: true
+
+
+output:
+
+  condition:
+    type: string
+    item_type: weather
+
+  temperature:
+    type: string
+    item_type: weather

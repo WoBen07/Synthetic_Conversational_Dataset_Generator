@@ -16,6 +16,12 @@ variables:
     - "Look up the patient {{patient.full_name}}"
     - "I need information about {{patient.first_name}} {{patient.last_name}}"
     - "Can you check if {{patient.full_name}} has an appointment today?"
+    - "Could you find the appointment details for {{patient.full_name}}?"
+    - "I'm trying to locate {{patient.full_name}}'s appointment, can you help?"
+    - "Do you have any appointment information for {{patient.last_name}}?"
+    - "Can you search for {{patient.full_name}} in the system?"
+    - "When is {{patient.full_name}} scheduled to come in?"
+    - "Please pull up the record for {{patient.first_name}} {{patient.last_name}}"
 
 
   multiple_patient_confirmation_request:
@@ -31,6 +37,12 @@ variables:
     - "Could you provide the patient's first name or another identifier?"
     - "I need clarification. Which of these patients are you referring to?"
     - "The name matches multiple patients. Can you tell me which patient you mean?"
+    - "I've located a few patients under that name — {{patient.full_name}}, {{alternative_patient.full_name}}, and {{other_alternative_patient.full_name}}. Which one did you mean?"
+    - "That name matches more than one patient in the system. Could you narrow it down?"
+    - "I see multiple entries for that name, including {{patient.full_name}} and {{alternative_patient.full_name}}. Who are you referring to?"
+    - "More than one patient shares this name. Do you have a room number or date of birth to confirm?"
+    - "I need to narrow this down — several patients have that same name."
+    - "Could you double check the spelling? I found more than one possible match."
 
 
   patient_confirmation:
@@ -46,6 +58,12 @@ variables:
     - "Please use {{patient.full_name}}"
     - "That's right, {{patient.full_name}}"
     - "The one named {{patient.full_name}}"
+    - "Right, {{patient.full_name}}"
+    - "Exactly, I mean {{patient.full_name}}"
+    - "That's the one, {{patient.full_name}}"
+    - "Confirmed, {{patient.full_name}}"
+    - "Yes, {{patient.full_name}} is correct"
+    - "It's {{patient.full_name}} I'm asking about"
 
 
   confirmation_patient_information:
@@ -59,3 +77,9 @@ variables:
     - "The {{appointment.appointment_type}} for {{patient.full_name}} takes place on {{appointment.day}}"
     - "{{patient.full_name}}'s next appointment is on {{appointment.day}} and is a {{appointment.appointment_type}}"
     - "According to the schedule, {{patient.full_name}} has a {{appointment.appointment_type}} appointment on {{appointment.day}}"
+    - "{{patient.full_name}} is booked for a {{appointment.appointment_type}} on {{appointment.day}}"
+    - "I can confirm {{patient.possessive_pronoun}} appointment for {{patient.full_name}} falls on {{appointment.day}}"
+    - "On {{appointment.day}}, {{patient.full_name}} has a {{appointment.appointment_type}} appointment scheduled"
+    - "{{patient.full_name}}'s upcoming appointment is a {{appointment.appointment_type}}, set for {{appointment.day}}"
+    - "The record shows {{patient.full_name}} with a {{appointment.appointment_type}} on {{appointment.day}}"
+    - "{{patient.full_name}} has {{patient.possessive_pronoun}} next {{appointment.appointment_type}} appointment on {{appointment.day}}"

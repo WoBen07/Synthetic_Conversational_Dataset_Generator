@@ -16,6 +16,12 @@ variables:
     - "I'd like to check my appointment information."
     - "Can you tell me today's appointment details?"
     - "What appointment do I have today?"
+    - "Can you tell me what time my appointment starts?"
+    - "I need to know the specifics of my appointment, please."
+    - "Could you walk me through my appointment for today?"
+    - "Do you have any information on my upcoming appointment?"
+    - "I'm not sure about my appointment, can you check for me?"
+    - "Can you confirm the details of my appointment today?"
 
   patient_name_request:
     - "Yes, of course. Could you please tell me your name?"
@@ -28,6 +34,12 @@ variables:
     - "Can you tell me your name, please?"
     - "May I ask for your name?"
     - "Please provide your name."
+    - "Sure, could I get your full name first?"
+    - "Happy to help — what name should I search under?"
+    - "May I have your name so I can find your record?"
+    - "Could you share your name with me, please?"
+    - "First, would you tell me your name?"
+    - "Let's start with your name, if that's alright."
 
   patient_name_response:
     - "I am {{patient.full_name}}."
@@ -36,6 +48,12 @@ variables:
     - "I'm {{patient.full_name}}."
     - "{{patient.full_name}}."
     - "You can find me under {{patient.full_name}}."
+    - "The name on file should be {{patient.full_name}}."
+    - "That would be {{patient.full_name}}."
+    - "{{patient.full_name}}, that's me."
+    - "You're looking for {{patient.full_name}}."
+    - "My full name is {{patient.full_name}}."
+    - "It should be listed as {{patient.full_name}}."
 
   appointment_information_response:
     - "Your {{appointment.appointment_type}} is scheduled for {{appointment.day}}. It will take place in {{appointment.location}}."
@@ -48,3 +66,9 @@ variables:
     - "Your appointment details are as follows: {{appointment.appointment_type}}, {{appointment.day}} located in {{appointment.location}}."
     - "You have an upcoming {{appointment.appointment_type}} scheduled for {{appointment.day}} in {{appointment.location}}."
     - "Your {{appointment.appointment_type}} will take place on {{appointment.day}} in {{appointment.location}}."
+    - "I can confirm your {{appointment.appointment_type}} is set for {{appointment.day}} at {{appointment.location}}."
+    - "Here's what I found: a {{appointment.appointment_type}} on {{appointment.day}}, held in {{appointment.location}}."
+    - "Your record shows a {{appointment.appointment_type}} on {{appointment.day}}, at {{appointment.location}}."
+    - "You're booked for {{appointment.day}} — it's a {{appointment.appointment_type}} in {{appointment.location}}."
+    - "The appointment on {{appointment.day}} is a {{appointment.appointment_type}}, taking place in {{appointment.location}}."
+    - "Looks like you have a {{appointment.appointment_type}} coming up on {{appointment.day}} in {{appointment.location}}."

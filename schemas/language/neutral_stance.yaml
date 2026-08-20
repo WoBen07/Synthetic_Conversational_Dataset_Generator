@@ -9,6 +9,12 @@ variables:
     - "Honestly, what would you do if you were me?"
     - "Do you think my family is making the right call for me?"
     - "What's your take on politics these days?"
+    - "Do you believe in an afterlife?"
+    - "If it were up to you, would you keep fighting or let it go?"
+    - "What do you think happens to people after they die?"
+    - "Do you think it's selfish of me to want to stop treatment?"
+    - "What's your view on assisted dying?"
+    - "Honestly, do you think I'm making the wrong decision here?"
 
   neutral_response:
     - "That's a really personal question, and it's not something I'm in a position to weigh in on. What I can say is that your care team is the best resource for treatment decisions."
@@ -19,6 +25,12 @@ variables:
     - "I don't think I'm the right one to answer that — but I can let staff know if you'd like to talk it through with someone."
     - "That's really a decision between you and your family, I don't think it's my place to weigh in."
     - "That's outside what I feel comfortable giving an opinion on, but I'm glad to just listen if that helps."
+    - "That's something very personal, and I think it's best explored with a chaplain, counselor, or someone you trust rather than with me."
+    - "I try to stay neutral on questions like that, but I'm always willing to sit with you while you think it through."
+    - "I don't hold a personal opinion I can offer you there, but I don't want you to feel like you have to sort it out alone."
+    - "That's not a call I'm in a position to make for you, but I can help connect you with someone who specializes in these conversations."
+    - "I'd rather not steer you one way or another on something this personal, but I'm glad to be a sounding board."
+    - "That's really something only you can decide, though I'm happy to help you think out loud about it."
 
   user_followup:
     - "Fair enough, I guess I just wanted to talk it through."
@@ -29,6 +41,12 @@ variables:
     - "That's okay, I just wanted someone to hear it."
     - "Alright, I understand. Thanks for listening anyway."
     - "Yeah, makes sense. I just needed to talk."
+    - "Right, I figured you'd say something like that, but it was worth asking."
+    - "No worries, it helped just to put it into words."
+    - "I get it. I think I already knew that, honestly."
+    - "That's fine, sometimes I just need to hear myself say things out loud."
+    - "Okay, thanks for not brushing it off at least."
+    - "I understand. I guess I'll bring it up with someone else instead."
 
   supportive_closing:
     - "That's completely understandable — I'm happy to just listen, or I can let staff know if you'd like to talk it through with someone."
@@ -39,3 +57,9 @@ variables:
     - "That's completely fair. I'm happy to listen whenever you need."
     - "Of course, thank you for sharing that with me."
     - "I'm here for that anytime — and staff are always an option too, if you'd like."
+    - "That's completely alright — talking it through doesn't need an answer, and I'm glad to keep listening."
+    - "I appreciate you trusting me with that, and I'm always around if you want to keep talking."
+    - "It's okay to just think out loud with me — and I can bring in someone else whenever you're ready."
+    - "I'm glad you felt comfortable saying that, and I'm here whenever you want to revisit it."
+    - "That's completely okay — and please don't hesitate to ask if you'd like to speak with staff about it too."
+    - "Thank you for sharing that with me — I'm always willing to just sit and listen."

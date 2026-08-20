@@ -16,6 +16,12 @@ variables:
     - "Please ensure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}"
     - "Go and let {{patient.first_name}} know about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}"
     - "Please remind {{patient.last_name}} that {{patient.possessive_pronoun}} {{appointment.appointment_type}} is scheduled for {{appointment.day}}"
+    - "Please make sure to remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}"
+    - "Could you go tell {{patient.first_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}?"
+    - "Would you mind reminding {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}?"
+    - "Please pass along a reminder to {{patient.last_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}"
+    - "Go update {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} scheduled for {{appointment.day}}"
+    - "Please check that {{patient.first_name}} knows about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}"
 
   acknowledgement_phrase:
     - "I will remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}"
@@ -33,3 +39,9 @@ variables:
     - "I'll go remind {{patient.last_name}} about {{patient.possessive_pronoun}} appointment."
     - "No problem. I'll deliver the reminder to {{patient.full_name}}."
     - "I'll ensure {{patient.full_name}} is aware of {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Sure thing, I'll remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Will do — {{patient.full_name}} will be reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "I'll take care of it and let {{patient.first_name}} know about {{patient.possessive_pronoun}} appointment."
+    - "Got it, I'll pass the reminder to {{patient.last_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "I'll head over now and remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Understood, {{patient.first_name}} will be informed about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}."

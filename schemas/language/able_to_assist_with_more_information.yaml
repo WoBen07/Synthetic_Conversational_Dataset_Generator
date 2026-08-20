@@ -21,6 +21,12 @@ variables:
     - "Go and notify {{patient.last_name}} about {{patient.possessive_pronoun}} appointment"
     - "Please let {{patient.full_name}} know that {{appointment.appointment_type}} is on {{appointment.day}}"
     - "Can you check in with {{patient.first_name}} and remind {{patient.object_pronoun}} about {{appointment.appointment_type}}?"
+    - "Would you mind reminding {{patient.full_name}} about {{appointment.appointment_type}}?"
+    - "Please head over and remind {{patient.first_name}} about {{patient.possessive_pronoun}} appointment."
+    - "Can you let {{patient.last_name}} know {{patient.possessive_pronoun}} appointment is on {{appointment.day}}?"
+    - "I'd like you to remind {{patient.full_name}} about {{appointment.appointment_type}} before {{appointment.day}}."
+    - "Go find {{patient.first_name}} and remind {{patient.object_pronoun}} about the appointment."
+    - "Please give {{patient.full_name}} a heads-up about {{appointment.appointment_type}} on {{appointment.day}}."
 
   more_information_request:
     - "Please provide more information about the patient"
@@ -43,6 +49,12 @@ variables:
     - "Please tell me which patient this request is for."
     - "Who exactly should I remind?"
     - "Could you be a little more specific?"
+    - "Sorry, who exactly are we talking about?"
+    - "I don't have enough details yet — can you help me out?"
+    - "Could you narrow that down for me a bit?"
+    - "I'm not sure who you mean — could you clarify?"
+    - "Can you give me a name to work with?"
+    - "What's the patient's name, please?"
 
   more_information_phrase:
     - "Of course, I mean {{patient.full_name}}"
@@ -65,6 +77,12 @@ variables:
     - "The patient I mean is {{patient.full_name}}."
     - "I'm talking about {{patient.full_name}} and {{patient.possessive_pronoun}} appointment."
     - "Yes, that's {{patient.full_name}}."
+    - "Sorry, I mean {{patient.first_name}} {{patient.last_name}}."
+    - "{{patient.full_name}} is who I'm referring to."
+    - "It's {{patient.first_name}}, for {{appointment.appointment_type}}."
+    - "I'm talking about {{patient.full_name}}'s appointment on {{appointment.day}}."
+    - "The one I mean is {{patient.last_name}}."
+    - "Sorry for the confusion, it's {{patient.full_name}}."
 
   acknowledgement_phrase:
     - "I will go and remind {{patient.full_name}} about {{appointment.appointment_type}} on {{appointment.day}}"
@@ -87,3 +105,9 @@ variables:
     - "Certainly, I'll deliver the reminder."
     - "I'll go inform {{patient.full_name}} now."
     - "No problem. I'll remind {{patient.full_name}} as requested."
+    - "Right away, I'll remind {{patient.full_name}} about {{appointment.appointment_type}}."
+    - "Got it, I'll head over and remind {{patient.first_name}} now."
+    - "I'll take care of reminding {{patient.full_name}} before {{appointment.day}}."
+    - "Sure thing, I'll let {{patient.full_name}} know about {{appointment.appointment_type}}."
+    - "I'll go find {{patient.first_name}} and pass along the reminder."
+    - "Noted, I'll make sure {{patient.full_name}} is reminded about {{appointment.day}}."

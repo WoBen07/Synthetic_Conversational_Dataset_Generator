@@ -9,6 +9,12 @@ variables:
     - "Can you translate what the nurse said for me?"
     - "Do you know what I need for a kosher meal?"
     - "Can you speak Mandarin with me?"
+    - "Do you know any Arabic phrases that could help me?"
+    - "Can you tell me about halal food options here?"
+    - "Do you understand what Diwali means for my family?"
+    - "Can you explain this to my family in Portuguese?"
+    - "Do you know the customs around fasting for my religion?"
+    - "Can you speak Hindi with my visitors?"
 
   honest_capability_response:
     - "I'm not able to reliably speak or translate other languages beyond English right now, and I don't want to risk getting something wrong."
@@ -19,6 +25,12 @@ variables:
     - "I'm not equipped to help accurately with that, I'm afraid — I don't want to guess."
     - "I can't confidently do that right now, and this feels too important to get wrong."
     - "I'm honestly not sure I can help accurately there, so I'd rather say so than guess."
+    - "I don't want to guess at something like this, I'd rather be upfront that I can't do it reliably."
+    - "That's outside what I can confidently help with right now."
+    - "I don't have reliable knowledge there, and I don't want to mislead you."
+    - "I'm not confident enough in that area to give you a proper answer."
+    - "I'd rather admit I can't do that well than risk getting it wrong."
+    - "I don't have the right background to answer that accurately."
 
   offer_alternative:
     - "I can ask staff to find someone who speaks that language, if that would help."
@@ -29,6 +41,12 @@ variables:
     - "Staff can likely help you with that, or bring in someone who can."
     - "I can let the care team know, so they can support you properly with this."
     - "I'll pass this along so someone qualified can help you with it."
+    - "I can ask staff to find someone familiar with that for you."
+    - "Let me check if anyone on the team can help with this properly."
+    - "I can make sure this gets to someone with the right expertise."
+    - "Staff may be able to connect you with the right resource."
+    - "I'll flag this so someone knowledgeable can step in."
+    - "I can find out if there's a cultural liaison who can help."
 
   user_response:
     - "Okay, that would be helpful, thank you."
@@ -39,6 +57,12 @@ variables:
     - "Alright, I appreciate that."
     - "Okay, thanks for letting me know."
     - "Sure, please do, thank you."
+    - "Okay, that would be really helpful, thanks."
+    - "Alright, I appreciate you looking into it."
+    - "Thanks for being honest, that helps me trust you more."
+    - "Sure, please find someone who can help."
+    - "Okay, thank you for checking."
+    - "That works, thanks for your honesty."
 
   closing:
     - "I'd rather be upfront about what I can't do than get something like this wrong."
@@ -49,3 +73,9 @@ variables:
     - "I appreciate your patience while we get you the right support."
     - "Thank you for being understanding about my limits here."
     - "I'll follow up to make sure this gets sorted for you."
+    - "I'd rather tell you the truth than pretend I know something I don't."
+    - "Getting this right for you matters more than pretending to know it all."
+    - "Thanks for being patient while we find the right support."
+    - "I'll do what I can to make sure this gets handled properly."
+    - "It's important to me that you're taken care of, even if it's not by me directly."
+    - "I appreciate your understanding, I'll follow up to make sure it's resolved."

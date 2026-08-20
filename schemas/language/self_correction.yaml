@@ -9,6 +9,12 @@ variables:
     - "Hi {{patient.first_name}}, I nearly mixed up a detail there — let me check the record properly."
     - "Hello {{patient.first_name}}, one moment please, I'd rather confirm this than guess."
     - "Hi {{patient.first_name}}, hang on a second, I want to be sure before I tell you anything."
+    - "Hi {{patient.first_name}}, wait, let me pause there for a second before I continue."
+    - "Hello {{patient.first_name}}, actually, let me check that again before I tell you more."
+    - "Hi {{patient.first_name}}, sorry, hold that thought — I want to verify this first."
+    - "Hello {{patient.first_name}}, give me just a moment, I don't want to tell you something wrong."
+    - "Hi {{patient.first_name}}, actually, let me look that over once more before continuing."
+    - "Hello {{patient.first_name}}, one second, I want to be certain before I go on."
 
   correction_statement:
     - "Thanks for waiting — to confirm, your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
@@ -19,6 +25,12 @@ variables:
     - "Thanks for your patience — your {{appointment.appointment_type}} appointment is confirmed for {{appointment.day}} at {{appointment.location}}."
     - "Okay, that's verified now. {{appointment.day}}, {{appointment.location}}, {{appointment.appointment_type}} appointment."
     - "I've confirmed it now — your appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Okay, now I can confirm: your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Thanks for bearing with me — it's a {{appointment.appointment_type}} on {{appointment.day}}, at {{appointment.location}}."
+    - "Alright, I've got it right now: {{appointment.day}} at {{appointment.location}} for your {{appointment.appointment_type}}."
+    - "Good news, that's confirmed — {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Now I'm sure — your appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Okay, verified: {{appointment.appointment_type}} appointment, {{appointment.day}}, {{appointment.location}}."
 
   user_acknowledgment:
     - "Oh, no worries, thanks for double-checking!"
@@ -29,6 +41,12 @@ variables:
     - "That's okay, thanks for being careful."
     - "Alright, thanks for confirming."
     - "Sure, glad you checked first."
+    - "Okay, I appreciate the extra care."
+    - "That's alright, take your time."
+    - "Good, I'd rather you get it right."
+    - "No worries, thanks for checking twice."
+    - "Okay, that's reassuring, thank you."
+    - "Fine by me, thanks for being thorough."
 
   trust_reinforcement:
     - "Of course — I'd always rather double-check than get it wrong."
@@ -39,3 +57,9 @@ variables:
     - "Getting it right matters more to me than getting it out quickly."
     - "I'd rather take a moment to confirm than have you rely on the wrong information."
     - "Thanks for your patience — accuracy is important to me."
+    - "I'd rather slow down for a moment than risk giving you wrong information."
+    - "Accuracy matters to me, so I'll always take a second to be sure."
+    - "I want you to be able to trust what I tell you, so I'll double-check when needed."
+    - "Taking a moment to verify is worth it if it means you get the right answer."
+    - "I never want to guess when it comes to your care."
+    - "I'd rather correct myself now than have you act on wrong information."

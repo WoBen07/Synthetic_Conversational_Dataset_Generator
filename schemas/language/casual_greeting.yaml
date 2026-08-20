@@ -9,6 +9,12 @@ variables:
     - "Hi there, {{patient.first_name}}."
     - "Hey, good to see you again."
     - "Hello! Hope you're doing well today."
+    - "Hey {{patient.first_name}}, what's up?"
+    - "Morning {{patient.first_name}}, sleep okay?"
+    - "Hiya {{patient.first_name}}, how are things?"
+    - "Afternoon, {{patient.first_name}}."
+    - "Oh hi {{patient.first_name}}, good timing."
+    - "Hey, how's it going today?"
 
   casual_greeting_response:
     - "Hey, I'm good, thanks!"
@@ -19,6 +25,12 @@ variables:
     - "Hello! Good, thank you."
     - "Hey there, doing well."
     - "I'm alright, thanks."
+    - "Doing just fine, thanks!"
+    - "All good here, thanks for asking."
+    - "Pretty good actually, thanks."
+    - "Can't complain, thanks for asking."
+    - "Great, thanks!"
+    - "I'm okay, thanks for checking."
 
   small_talk_question:
     - "Busy day so far?"
@@ -29,6 +41,12 @@ variables:
     - "Long day already?"
     - "Everything going smoothly so far?"
     - "How was your week so far?"
+    - "You keeping busy today?"
+    - "Anything exciting happening later?"
+    - "How's everyone treating you here?"
+    - "You holding up okay?"
+    - "Anything new going on?"
+    - "Getting enough rest?"
 
   small_talk_reply:
     - "Pretty busy, yeah."
@@ -39,6 +57,12 @@ variables:
     - "Yeah, decent so far."
     - "Nothing special, just getting through it."
     - "Honestly, pretty quiet so far."
+    - "Keeping busy, but it's fine."
+    - "Nothing too exciting, just taking it easy."
+    - "Everyone's been kind, can't complain."
+    - "I'm doing okay, thanks for checking."
+    - "Nothing new really, same as usual."
+    - "Pretty relaxed, actually."
 
   casual_closing:
     - "Alright, take care!"
@@ -49,3 +73,9 @@ variables:
     - "Nice chatting with you — see you soon."
     - "Have a good one!"
     - "Take care, talk soon."
+    - "Bye for now, {{patient.first_name}}."
+    - "Catch you later!"
+    - "Thanks, see you soon."
+    - "Alright, talk to you later."
+    - "Cheers, take care!"
+    - "See you around!"

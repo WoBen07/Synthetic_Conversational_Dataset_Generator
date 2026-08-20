@@ -1,0 +1,25 @@
+tool: log_patient_note
+
+
+description: >
+  Records a note in the patient's chart for care-team continuity. Used
+  whenever the assistant discloses that it is noting or logging
+  something a patient said.
+
+
+input:
+
+  patient_id:
+    type: string
+    required: true
+
+  note:
+    type: string
+    required: true
+
+
+output:
+
+  status:
+    type: enum
+    values: [logged]

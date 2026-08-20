@@ -1,0 +1,18 @@
+tool: navigate_to
+
+
+input:
+
+  room:
+    type: string
+    required: true
+
+
+output:
+
+  status:
+    type: enum
+    values: [arrived, unreachable]
+
+  location:
+    type: string

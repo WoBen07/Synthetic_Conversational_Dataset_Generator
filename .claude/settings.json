@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import yaml; yaml.safe_load\\(open\\('/home/wohlgebe/Uni/Sem6/BA/Dataset/Preprocessing_Scripts/synthetic_data_generator/schemas/language/patience_repetition.yaml'\\)\\)\")"
+    ]
+  }
+}

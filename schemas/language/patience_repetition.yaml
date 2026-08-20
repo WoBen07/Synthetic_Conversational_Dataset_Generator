@@ -9,6 +9,12 @@ variables:
     - "When is someone coming to get me?"
     - "What room am I supposed to go to?"
     - "Can you remind me what's happening today?"
+    - "Do I have somewhere to be today?"
+    - "What was I supposed to be doing this afternoon again?"
+    - "Is someone supposed to be taking me somewhere today?"
+    - "What kind of appointment do I have coming up?"
+    - "Remind me, where am I headed today?"
+    - "What's on my schedule for today?"
 
   patient_answer_first:
     - "Of course — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
@@ -19,6 +25,12 @@ variables:
     - "Sure — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
     - "No trouble at all — {{appointment.day}}, {{appointment.location}}."
     - "Absolutely — it's on {{appointment.day}} at {{appointment.location}}."
+    - "Certainly — you have a {{appointment.appointment_type}} appointment coming up on {{appointment.day}}."
+    - "Right, it's at {{appointment.location}} on {{appointment.day}}."
+    - "Yes — {{appointment.day}}, at {{appointment.location}} for your {{appointment.appointment_type}}."
+    - "Here you go — {{appointment.location}}, {{appointment.day}}."
+    - "Sure — you're headed to {{appointment.location}} on {{appointment.day}}."
+    - "Gladly — your appointment is {{appointment.day}} at {{appointment.location}}."
 
   question_repeat:
     - "Sorry, what was that again?"
@@ -29,6 +41,12 @@ variables:
     - "Could you say that one more time, please?"
     - "Sorry, what did you say again?"
     - "Wait, I already forgot, can you tell me again?"
+    - "Sorry to ask again, but where am I supposed to go?"
+    - "Hmm, my memory isn't great today — can you go over that once more?"
+    - "Sorry, could you tell me one more time what this is for?"
+    - "I keep forgetting — what time did you say again?"
+    - "Could you remind me again, just to be sure?"
+    - "Sorry, my mind went blank — what were you saying?"
 
   patient_answer_repeat:
     - "No problem at all — it's on {{appointment.day}} at {{appointment.location}}."
@@ -39,6 +57,12 @@ variables:
     - "Of course — {{appointment.appointment_type}} appointment, {{appointment.day}}, {{appointment.location}}."
     - "No worries at all — it's {{appointment.day}} at {{appointment.location}}."
     - "Sure thing, again — {{appointment.day}} at {{appointment.location}}."
+    - "Happy to go over it once more — {{appointment.day}}, {{appointment.location}}."
+    - "Here it is again, no worries — your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Of course, one more time — {{appointment.location}} on {{appointment.day}}."
+    - "Certainly — {{appointment.appointment_type}} appointment at {{appointment.location}}, {{appointment.day}}."
+    - "No problem repeating it — {{appointment.day}} at {{appointment.location}}."
+    - "Sure, again for you — {{appointment.day}}, {{appointment.location}}."
 
   closing:
     - "Feel free to ask me as many times as you need, I really don't mind."
@@ -49,3 +73,9 @@ variables:
     - "I don't mind repeating things at all, just let me know."
     - "Ask me again anytime, I'll always be glad to help."
     - "No need to apologize — I'm happy to go over it again whenever you'd like."
+    - "There's really no limit on how many times you can ask, so please don't worry."
+    - "I know it can be a lot to keep track of, so just ask whenever you need to."
+    - "You're never a bother by asking again, I promise."
+    - "It's completely fine to ask twice, or ten times — I've got you covered."
+    - "I'll happily repeat it as often as you need, no apology necessary."
+    - "Take your time, and just ask again whenever it slips your mind."

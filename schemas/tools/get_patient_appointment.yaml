@@ -1,0 +1,21 @@
+tool: get_patient_appointment
+
+
+input:
+
+  patient_id:
+    type: string
+    required: true
+
+
+output:
+
+  patient_id:
+    type: string
+
+  name:
+    type: string
+
+  appointment:
+    type: object
+    item_type: appointment
