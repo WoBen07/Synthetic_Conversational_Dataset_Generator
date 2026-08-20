@@ -1,0 +1,7 @@
+name: firstname_request
+
+entities:
+  patient:
+    type: patient
+
+language_schema: firstname_request

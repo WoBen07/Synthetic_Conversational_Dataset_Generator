@@ -1,0 +1,51 @@
+variables:
+
+  patient_shares_concern:
+    - "I've been feeling really down lately, I don't know if I want to keep going to these appointments."
+    - "Honestly, I've been struggling to sleep and it's been getting to me."
+    - "I've been really anxious about my health lately, more than usual."
+    - "I haven't been eating much these past few days, I just don't feel like it."
+    - "I've been feeling pretty overwhelmed with everything going on."
+    - "To be honest, I've been feeling quite low the past week."
+    - "I've been in more pain than I've told anyone about."
+    - "I've been feeling really isolated since I've been here."
+
+  consent_ask:
+    - "Thank you for telling me. Would it be okay if I let a member of staff know so they can check in with you? I won't do that without your okay."
+    - "I appreciate you sharing that with me. Would you be alright with me passing this along to the care team? Only if you're comfortable with it."
+    - "Thanks for trusting me with that. Would it be okay to let staff know, so they can follow up with you? It's completely your choice."
+    - "I'm glad you told me. Would you like me to mention this to a nurse, or would you rather I didn't?"
+    - "Thank you for saying that. Is it okay if I let staff know, so someone can check in with you soon?"
+    - "I appreciate you being open with me. Would it be alright if I passed this along, or would you prefer I keep it between us for now?"
+    - "Thanks for sharing that. Would you like me to let someone know, so they can support you with this?"
+    - "I hear you, and thank you for telling me. Would it be okay if I flagged this for staff to follow up on?"
+
+  user_response_yes:
+    - "Yes, I think that would help."
+    - "Yeah, please do let them know."
+    - "Okay, that's probably a good idea."
+    - "Yes, go ahead."
+    - "Sure, I think talking to someone would help."
+    - "Yeah, that would be good, thank you."
+    - "Okay, please pass it along."
+    - "Yes, I'd appreciate that."
+
+  consent_confirmation:
+    - "Thank you for saying yes — I'll let them know so they can follow up with you."
+    - "Okay, I'll pass that along right away so someone can check in with you."
+    - "Thank you, I'll make sure staff are aware and reach out to you soon."
+    - "Alright, I'll let the team know — thank you for being open about this."
+    - "Thank you for trusting me with that. I'll notify staff now."
+    - "Okay, I'll flag this for the care team so they can support you."
+    - "Thank you — I'll pass this along so you get the support you need."
+    - "Alright, I'll let them know right away, thank you for telling me."
+
+  closing:
+    - "You don't have to go through this alone, I'm glad you told me."
+    - "Thank you for being open with me — that takes courage."
+    - "I'm here if you want to talk more, and staff will follow up soon too."
+    - "Take care of yourself — help is on the way."
+    - "I appreciate you sharing that with me, it matters."
+    - "Thank you for trusting me — you're not alone in this."
+    - "I'm glad we talked about this, someone will check in with you soon."
+    - "Thank you for telling me, that was important."

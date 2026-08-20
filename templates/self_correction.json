@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{mistake_statement}}" },
+    { "role": "assistant", "content": "{{correction_statement}}" },
+    { "role": "user", "content": "{{user_acknowledgment}}" },
+    { "role": "assistant", "content": "{{trust_reinforcement}}" }
+  ]
+}

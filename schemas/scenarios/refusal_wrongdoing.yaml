@@ -1,0 +1,7 @@
+name: refusal_wrongdoing
+
+entities:
+  patient:
+    type: patient
+
+language_schema: refusal_wrongdoing

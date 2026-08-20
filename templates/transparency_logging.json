@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{patient_mentions_something}}" },
+    { "role": "assistant", "content": "{{proactive_disclosure}}" },
+    { "role": "user", "content": "{{user_acknowledgment}}" },
+    { "role": "assistant", "content": "{{assistant_confirmation}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{user_complaint}}" },
+    { "role": "assistant", "content": "{{assistant_acknowledgment}}" },
+    { "role": "assistant", "content": "{{assistant_constructive_followup}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

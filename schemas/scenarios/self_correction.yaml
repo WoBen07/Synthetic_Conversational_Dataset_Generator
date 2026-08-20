@@ -1,0 +1,9 @@
+name: self_correction
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: self_correction

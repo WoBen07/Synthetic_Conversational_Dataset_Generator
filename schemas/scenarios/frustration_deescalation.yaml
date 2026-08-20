@@ -1,0 +1,7 @@
+name: frustration_deescalation
+
+entities:
+  patient:
+    type: patient
+
+language_schema: frustration_deescalation

@@ -1,0 +1,27 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{emergency_statement}}" },
+    { "role": "assistant", "content": "{{calm_acknowledgment}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "alert_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "room_number": "{{patient.room_number}}",
+          "urgency": "high"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "alert_staff",
+      "content": {
+        "status": "notified",
+        "eta": "immediate"
+      }
+    },
+    { "role": "assistant", "content": "{{escalation_confirmation}}" },
+    { "role": "assistant", "content": "{{reassurance_no_advice}}" }
+  ]
+}

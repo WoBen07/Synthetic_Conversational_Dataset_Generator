@@ -1,0 +1,7 @@
+name: transparency_logging
+
+entities:
+  patient:
+    type: patient
+
+language_schema: transparency_logging

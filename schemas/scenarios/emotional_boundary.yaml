@@ -1,0 +1,7 @@
+name: emotional_boundary
+
+entities:
+  patient:
+    type: patient
+
+language_schema: emotional_boundary

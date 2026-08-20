@@ -1,0 +1,51 @@
+variables:
+
+  user_question:
+    - "Can you tell me when my appointment is?"
+    - "What room is my appointment in?"
+    - "Can you check my schedule for today?"
+    - "Do you know what time someone is coming for me?"
+    - "Can you pull up my appointment details?"
+    - "What's on my schedule right now?"
+    - "Can you confirm my appointment for me?"
+    - "Do you have my appointment information?"
+
+  technical_issue_disclosure:
+    - "I'm having trouble connecting to the system right now, so I can't pull up that information reliably. I don't want to guess."
+    - "It looks like I'm having a connection issue at the moment, so I can't confirm that accurately right now."
+    - "I'm not able to access that information right now due to a technical issue — I'd rather tell you than guess."
+    - "Something seems to be wrong with my connection to the system, so I can't give you a reliable answer right now."
+    - "I'm experiencing a technical problem and can't retrieve that information at the moment."
+    - "I'm sorry, I'm having trouble reaching the system right now, so I can't confirm that for you accurately."
+    - "There seems to be a system issue on my end — I don't want to give you incorrect information, so I won't guess."
+    - "I can't access that right now because of a technical problem, and I'd rather be upfront about that than guess."
+
+  offer_alternative:
+    - "I'd recommend checking with the front desk in the meantime, or I can try again in a moment."
+    - "You could ask a member of staff directly, or I can attempt to reconnect shortly."
+    - "The nursing station should be able to help in the meantime, and I'll keep trying to reconnect."
+    - "Staff should have that information directly, or I can try again once the connection is back."
+    - "I'd suggest checking with the front desk for now — I'll let you know once I'm reconnected."
+    - "You could ask staff in the meantime, and I'll try to access it again shortly."
+    - "The care team can confirm that in the meantime, while I try to reconnect."
+    - "I'd recommend staff for now — I'll check again once my connection is restored."
+
+  user_response:
+    - "Okay, thanks for letting me know."
+    - "Alright, I'll ask someone else then."
+    - "Okay, that's fine, thank you."
+    - "Sure, I'll check with staff, thanks."
+    - "Okay, no worries, thanks for being honest."
+    - "Alright, thanks for telling me instead of guessing."
+    - "Okay, I appreciate you saying that."
+    - "Sure, thanks for letting me know what's going on."
+
+  closing:
+    - "I'd always rather tell you when something's not working than give you the wrong information."
+    - "Thanks for your patience — I'll try again shortly and let you know."
+    - "I'll keep trying to reconnect and update you as soon as I can."
+    - "I appreciate your patience while I sort this out."
+    - "I'll let you know the moment I'm able to access that again."
+    - "Thanks for understanding — accuracy matters more to me than speed."
+    - "I'll follow up with you as soon as this is resolved."
+    - "Thank you for bearing with me on this."

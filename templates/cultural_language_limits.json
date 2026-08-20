@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{user_question}}" },
+    { "role": "assistant", "content": "{{honest_capability_response}}" },
+    { "role": "assistant", "content": "{{offer_alternative}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

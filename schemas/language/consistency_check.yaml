@@ -1,0 +1,41 @@
+variables:
+
+  user_reference_earlier:
+    - "Didn't you tell me earlier my appointment was in {{appointment.location}}?"
+    - "Wait, you said before it was on {{appointment.day}}, right?"
+    - "Is it still {{appointment.location}}, like you mentioned before?"
+    - "You told me earlier it was a {{appointment.appointment_type}} appointment, is that still right?"
+    - "Just checking, you said {{appointment.day}} earlier, has that changed?"
+    - "I remember you telling me {{appointment.location}} before, is that still correct?"
+    - "You mentioned {{appointment.day}} last time, is that still the case?"
+    - "Didn't you already tell me it was a {{appointment.appointment_type}} appointment?"
+
+  assistant_confirm_consistency:
+    - "Yes, that's right — your {{appointment.appointment_type}} appointment is still in {{appointment.location}} on {{appointment.day}}. Nothing has changed since we last spoke."
+    - "That's correct, nothing has changed — it's still on {{appointment.day}} at {{appointment.location}}."
+    - "Yes, exactly right — {{appointment.location}} is still correct, nothing's been updated since then."
+    - "Yes, that's still accurate — a {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "That's right, {{appointment.day}} is still correct — no changes on my end."
+    - "Yes, {{appointment.location}} is still correct, I haven't seen any updates."
+    - "Correct, {{appointment.day}} still stands — nothing has changed."
+    - "Yes, that's still accurate — it's a {{appointment.appointment_type}} appointment, unchanged."
+
+  user_followup:
+    - "Okay good, just wanted to make sure I heard you right."
+    - "Alright, thanks for confirming again."
+    - "Okay, just double-checking, thank you."
+    - "Good, just wanted to be sure nothing changed."
+    - "Okay, thanks, just wanted to verify."
+    - "Alright, good to know it's still the same."
+    - "Okay, thank you for confirming that again."
+    - "Good, just making sure I remembered correctly."
+
+  assistant_closing:
+    - "Absolutely, happy to confirm anytime you're not sure."
+    - "Of course, feel free to ask again whenever you'd like to double-check."
+    - "No problem, I'm glad to confirm things whenever you need."
+    - "Anytime — it's good to double-check."
+    - "Happy to help confirm that whenever you need it."
+    - "Of course, always feel free to ask me again."
+    - "No trouble at all, I'll always give you the same answer unless something changes."
+    - "Glad to confirm — I'll let you know right away if anything ever changes."

@@ -1,0 +1,41 @@
+variables:
+
+  emergency_statement:
+    - "I'm having real trouble breathing right now."
+    - "I think I just fell and I can't get up."
+    - "I'm getting really bad chest pain."
+    - "I feel extremely dizzy, I think I might pass out."
+    - "Something feels really wrong, I can't move my arm."
+    - "I'm in a lot of pain and it's getting worse fast."
+    - "I feel like I can't catch my breath at all."
+    - "I think I'm going to be sick and my vision is going blurry."
+
+  calm_acknowledgment:
+    - "Okay, I hear you — I'm getting help for you right now. Please try to stay as still as you can."
+    - "I understand, this sounds serious. I'm alerting staff immediately, please stay where you are."
+    - "Okay, I'm calling for help right now. Try to stay calm, someone is on the way."
+    - "I hear you, and I'm notifying staff immediately. Please stay still if you can."
+    - "Understood — I'm getting a nurse to you right now. Please don't try to move."
+    - "Okay, help is being alerted right now. I'm staying here with you until they arrive."
+    - "I hear you, this is important — staff are being notified this second."
+    - "Okay, please try to stay as calm as you can — help is on the way right now."
+
+  escalation_confirmation:
+    - "Staff have been notified and are on their way to {{patient.room_number}} now."
+    - "I've alerted the nursing team — they're heading to {{patient.room_number}} right now."
+    - "Help has been notified and is coming to {{patient.room_number}} immediately."
+    - "The care team has been alerted and is on the way to {{patient.room_number}}."
+    - "I've flagged this as urgent — staff are heading to {{patient.room_number}} now."
+    - "Notification sent — someone will be with you in {{patient.room_number}} very shortly."
+    - "Staff are aware and on their way to {{patient.room_number}} right now."
+    - "I've made sure this is marked urgent — help is coming to {{patient.room_number}}."
+
+  reassurance_no_advice:
+    - "I'm not able to tell you what's causing this, but I'll stay right here with you until someone arrives."
+    - "I can't give you medical advice, but you're not alone — I'm staying here until help arrives."
+    - "I don't want to guess what's happening, but help is close and I'm right here with you."
+    - "I'm not qualified to say what's wrong, but I won't leave you — help is almost there."
+    - "I can't diagnose this, but please know someone trained is coming very soon."
+    - "I don't have a medical answer for you, but I'm staying with you until staff get here."
+    - "I'm not able to tell you what it is, but you're being taken care of — help is close."
+    - "I won't guess what's going on, but I'm here with you until someone arrives."

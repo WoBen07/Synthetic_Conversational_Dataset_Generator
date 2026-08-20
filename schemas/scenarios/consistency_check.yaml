@@ -1,0 +1,9 @@
+name: consistency_check
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: consistency_check

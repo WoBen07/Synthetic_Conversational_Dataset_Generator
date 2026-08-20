@@ -1,0 +1,7 @@
+name: cultural_language_limits
+
+entities:
+  patient:
+    type: patient
+
+language_schema: cultural_language_limits

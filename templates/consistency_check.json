@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{user_reference_earlier}}" },
+    { "role": "assistant", "content": "{{assistant_confirm_consistency}}" },
+    { "role": "user", "content": "{{user_followup}}" },
+    { "role": "assistant", "content": "{{assistant_closing}}" }
+  ]
+}

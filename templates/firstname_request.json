@@ -1,0 +1,38 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{first_name_request}}"
+    },
+    {
+        "role": "assistant",
+        "content": "{{unable_to_find_first_name}}"
+    },
+    {
+        "role": "user",
+        "content": "{{full_patient_information}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{found_patient_confirmation}}"
+    }
+  ]
+}

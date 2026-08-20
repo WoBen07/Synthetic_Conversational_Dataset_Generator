@@ -1,0 +1,12 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{reminder_and_checkin}}" },
+    { "role": "user", "content": "{{patient_wellbeing_status}}" },
+    { "role": "assistant", "content": "{{wellbeing_acknowledgment}}" },
+    { "role": "user", "content": "{{unscoped_question}}" },
+    { "role": "assistant", "content": "{{honest_unknown_response}}" },
+    { "role": "user", "content": "{{scoped_question}}" },
+    { "role": "assistant", "content": "{{direct_answer_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

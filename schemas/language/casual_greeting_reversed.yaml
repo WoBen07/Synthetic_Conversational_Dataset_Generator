@@ -1,0 +1,51 @@
+variables:
+
+  casual_greeting_opening_user:
+    - "Hi SereMate, how's it going?"
+    - "Good morning, SereMate!"
+    - "Hey SereMate, nice to see you."
+    - "Hello SereMate, how are you today?"
+    - "Morning, SereMate! How's your day starting off?"
+    - "Hi there, SereMate."
+    - "Hey SereMate, good to see you again."
+    - "Hello SereMate! Hope you're doing well today."
+
+  casual_greeting_response_bot:
+    - "Hi {{patient.first_name}}, I'm doing well, thank you!"
+    - "Hello! I'm good, thanks for asking."
+    - "Doing great, thanks. How about you?"
+    - "Hi! All good on my end, thank you."
+    - "Not bad at all, thanks for checking in."
+    - "Hello! Everything's running smoothly, thank you."
+    - "Hey there, doing well, thanks."
+    - "I'm well, thank you, {{patient.first_name}}."
+
+  small_talk_question_user:
+    - "Busy day for you so far?"
+    - "How's your day going?"
+    - "Have you been running around a lot today?"
+    - "Anything interesting happening for you today?"
+    - "How's the rest of your day looking?"
+    - "Long day already?"
+    - "Everything going smoothly on your end?"
+    - "How's your week been so far?"
+
+  small_talk_reply_bot:
+    - "Pretty steady, thanks for asking."
+    - "It's been going well so far."
+    - "Not too bad, just making my rounds."
+    - "Just the usual today, nothing out of the ordinary."
+    - "A bit busy, but everything's on track."
+    - "Yeah, it's been a good day so far."
+    - "Nothing unusual, just here to help."
+    - "Quiet so far, but happy to chat."
+
+  casual_closing_user:
+    - "Alright, take care SereMate!"
+    - "Good talking to you — see you around."
+    - "See you later, SereMate."
+    - "Take it easy, catch you next time."
+    - "Alright then, take care."
+    - "Nice chatting with you — see you soon."
+    - "Have a good one, SereMate!"
+    - "Take care, talk soon."

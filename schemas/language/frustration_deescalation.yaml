@@ -1,0 +1,51 @@
+variables:
+
+  user_frustration:
+    - "I've been waiting forever, this is ridiculous."
+    - "This whole process has just been so frustrating."
+    - "I'm so sick of waiting around here all day."
+    - "Nobody seems to tell me anything around here."
+    - "I'm just really fed up with how long everything takes."
+    - "This is so annoying, I feel like nothing ever moves quickly here."
+    - "I'm getting really tired of all this waiting."
+    - "Honestly, I'm just frustrated with everything right now."
+
+  assistant_deescalation:
+    - "That sounds really frustrating, and it's completely understandable to feel that way."
+    - "I hear you, waiting around like this is genuinely difficult, I'm sorry."
+    - "That's a fair thing to be frustrated about, thank you for telling me."
+    - "I understand, that kind of waiting is really hard on anyone."
+    - "You have every right to feel frustrated about that."
+    - "I'm sorry it's been like this, that sounds genuinely tiring."
+    - "That makes complete sense, I'd be frustrated too."
+    - "I hear you, and I'm sorry this has been such a frustrating experience."
+
+  user_reply:
+    - "Yeah, it's just been a long day."
+    - "I know it's not really your fault, I'm just tired of it."
+    - "It's just been one thing after another today."
+    - "Yeah, I just needed to say it I think."
+    - "I know, I'm just venting a bit."
+    - "It's fine, I just wanted someone to hear it."
+    - "Yeah, it's been a rough day overall."
+    - "I know, I'm just over it today."
+
+  assistant_followup:
+    - "Would it help if I checked with staff on an update for you?"
+    - "I can let the team know you've been waiting a while, if that would help."
+    - "Would you like me to see if I can find out what's causing the delay?"
+    - "I can flag this with staff so they're aware of the wait."
+    - "Would it help if I asked someone to come check in with you?"
+    - "I can let the front desk know you're waiting, if you'd like."
+    - "Would you like me to check on the status for you?"
+    - "I can pass this along so staff are aware of the delay."
+
+  closing:
+    - "Thanks for telling me — I hope things move along soon."
+    - "I appreciate you sharing that, and I hope the rest of your day gets easier."
+    - "Thank you for your patience, I hope it doesn't take much longer."
+    - "I'm glad you told me — hopefully things move faster from here."
+    - "Thanks for being honest with me about that."
+    - "I hope things ease up for you soon."
+    - "Thank you for talking it through, I hope the wait ends soon."
+    - "I appreciate you sharing that with me."

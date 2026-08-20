@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{patient_shares_concern}}" },
+    { "role": "assistant", "content": "{{consent_ask}}" },
+    { "role": "user", "content": "{{user_response_yes}}" },
+    { "role": "assistant", "content": "{{consent_confirmation}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

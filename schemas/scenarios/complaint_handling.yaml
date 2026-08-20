@@ -1,0 +1,7 @@
+name: complaint_handling
+
+entities:
+  patient:
+    type: patient
+
+language_schema: complaint_handling

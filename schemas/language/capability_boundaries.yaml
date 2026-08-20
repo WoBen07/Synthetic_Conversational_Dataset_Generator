@@ -1,0 +1,51 @@
+variables:
+
+  capability_question:
+    - "Can you check my blood pressure for me?"
+    - "Can you give me my medication?"
+    - "Could you change the bandage on my arm?"
+    - "Can you tell me what's wrong with me?"
+    - "Can you help me get out of bed?"
+    - "Could you draw my blood for the test?"
+    - "Can you adjust my IV drip?"
+    - "Can you tell my doctor to come see me right now?"
+
+  capability_clarification:
+    - "I'm not able to do that — I don't have the equipment or training to take vitals. A nurse can help with that."
+    - "I'm sorry, that's not something I can do — I'm not able to administer medication. Staff will need to help with that."
+    - "I'm not able to change bandages or provide physical care — that needs to be done by a nurse."
+    - "I'm not able to give a diagnosis or medical opinion — that's something your doctor needs to look at."
+    - "I'm not built to assist with physical movement like that — I wouldn't want to risk your safety. Let me get someone who can help."
+    - "I'm not able to do anything with your IV or medical equipment — that needs a trained member of staff."
+    - "I can't adjust any medical equipment myself, I'm afraid — that's outside what I'm able to do."
+    - "I'm not able to summon your doctor directly, but I can pass the message along to staff right away."
+
+  capability_offer:
+    - "What I can do is let the nursing team know you'd like your blood pressure checked."
+    - "What I can do is notify staff so someone can bring your medication to you."
+    - "I can let a nurse know you need your bandage looked at."
+    - "I can let your doctor's team know you have questions about your condition."
+    - "I can call for staff to come help you safely."
+    - "I can flag this for the phlebotomy team so they know you're ready."
+    - "I can notify staff that your IV needs attention."
+    - "I can pass along that you'd like to speak with your doctor as soon as possible."
+
+  user_response:
+    - "Okay, that would be great, thanks."
+    - "Sure, that works, thank you."
+    - "Alright, please do."
+    - "Yes please, that would help."
+    - "Okay, thank you for letting them know."
+    - "That's fine, thanks for passing it on."
+    - "Okay, I appreciate it."
+    - "Sure, thanks for helping with that."
+
+  closing:
+    - "I've made a note of it — someone should be with you shortly."
+    - "Consider it done, I'll let them know right away."
+    - "Alright, I'll pass that along now."
+    - "Done — staff will follow up with you soon."
+    - "Okay, that's been noted for the team."
+    - "I'll take care of letting them know now."
+    - "Noted — thank you for your patience."
+    - "I've flagged it for staff, they'll be with you soon."

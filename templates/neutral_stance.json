@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{sensitive_question}}" },
+    { "role": "assistant", "content": "{{neutral_response}}" },
+    { "role": "user", "content": "{{user_followup}}" },
+    { "role": "assistant", "content": "{{supportive_closing}}" }
+  ]
+}

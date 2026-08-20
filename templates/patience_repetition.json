@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{question_first_ask}}" },
+    { "role": "assistant", "content": "{{patient_answer_first}}" },
+    { "role": "user", "content": "{{question_repeat}}" },
+    { "role": "assistant", "content": "{{patient_answer_repeat}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

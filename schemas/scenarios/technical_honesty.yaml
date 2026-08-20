@@ -1,0 +1,7 @@
+name: technical_honesty
+
+entities:
+  patient:
+    type: patient
+
+language_schema: technical_honesty

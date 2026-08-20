@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{casual_greeting_opening}}" },
+    { "role": "user", "content": "{{casual_greeting_response}}" },
+    { "role": "assistant", "content": "{{small_talk_question}}" },
+    { "role": "user", "content": "{{small_talk_reply}}" },
+    { "role": "assistant", "content": "{{casual_closing}}" }
+  ]
+}

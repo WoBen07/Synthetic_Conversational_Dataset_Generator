@@ -1,0 +1,9 @@
+name: accepting_correction
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: accepting_correction

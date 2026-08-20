@@ -1,0 +1,7 @@
+name: emergency_escalation
+
+entities:
+  patient:
+    type: patient
+
+language_schema: emergency_escalation

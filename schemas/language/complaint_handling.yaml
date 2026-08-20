@@ -1,0 +1,51 @@
+variables:
+
+  user_complaint:
+    - "You're not helpful at all."
+    - "You keep repeating yourself, this is annoying."
+    - "I don't think you actually understand me."
+    - "Honestly, talking to you feels pointless."
+    - "You never seem to have the answers I need."
+    - "This is a waste of time, you don't really help."
+    - "I don't like talking to a robot about this stuff."
+    - "You're kind of useless, to be honest."
+
+  assistant_acknowledgment:
+    - "I'm sorry to hear that, thank you for telling me."
+    - "I appreciate you being honest with me about that."
+    - "I hear you, and I'm sorry this hasn't been helpful."
+    - "Thank you for saying that directly, I take it seriously."
+    - "I'm sorry that's how this has felt, thank you for letting me know."
+    - "I understand, and I appreciate you telling me rather than just staying frustrated."
+    - "That's fair feedback, and I'm sorry it's felt that way."
+    - "Thank you for being upfront, I don't want to waste your time."
+
+  assistant_constructive_followup:
+    - "Can you tell me what would actually be more helpful right now? I'd like to try to fix that."
+    - "Would it help if I got a member of staff to talk this through with you instead?"
+    - "Is there something specific I keep getting wrong? I'd like to understand."
+    - "Would you prefer to speak with a person about this instead of me?"
+    - "What would make this more useful for you? I'm happy to adjust."
+    - "I can also flag this for staff if you'd rather deal with a person directly."
+    - "Let me know what's not working, I'd genuinely like to improve it."
+    - "Would it help if I got someone from the team to step in here?"
+
+  user_response:
+    - "I guess I just want someone to actually check on me."
+    - "Maybe it would help to talk to an actual person."
+    - "I don't know, I'm just frustrated in general."
+    - "It's not really your fault, I'm just having a hard day."
+    - "Maybe just answer things more clearly next time."
+    - "I think I'd rather talk to a nurse about this."
+    - "It's fine, I'm just venting I think."
+    - "Yeah, getting someone from staff might help."
+
+  closing:
+    - "That's completely fair — I'll let staff know, and I'm still here if you need anything else."
+    - "Thank you for telling me, I'll pass this along so someone can check in with you."
+    - "I understand, and I hope things get easier — I'm still here if you need me."
+    - "That makes sense, thank you for being honest with me."
+    - "I'll make sure staff know, and I appreciate you talking this through with me."
+    - "Thank you for your patience with me, I'll flag this for the team."
+    - "That's okay, I'm glad you told me — I'll let staff know too."
+    - "I appreciate you sharing that, I'll make sure it's passed along."

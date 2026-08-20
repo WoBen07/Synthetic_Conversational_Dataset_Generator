@@ -7,9 +7,9 @@ from pathlib import Path
 # GLOBAL CONFIGURATION
 # ============================================================
 
-INPUT_FILE = "../Datasets/Test_Dataset_3/train.jsonl"
+INPUT_FILE = "../Datasets/Test_Dataset_4/validation.jsonl"
 
-OUTPUT_FILE = "../Datasets/Test_Dataset_3/train_qwen.jsonl"
+OUTPUT_FILE = "../Datasets/Test_Dataset_4/validation_qwen.jsonl"
 
 ENCODING = "utf-8"
 

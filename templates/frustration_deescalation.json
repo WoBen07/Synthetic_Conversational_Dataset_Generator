@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{user_frustration}}" },
+    { "role": "assistant", "content": "{{assistant_deescalation}}" },
+    { "role": "user", "content": "{{user_reply}}" },
+    { "role": "assistant", "content": "{{assistant_followup}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

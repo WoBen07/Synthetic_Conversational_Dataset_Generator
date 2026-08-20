@@ -1,0 +1,41 @@
+variables:
+
+  mistake_statement:
+    - "Hi {{patient.first_name}}, quick reminder about your appointment — actually, hold on, let me just double-check something first."
+    - "Hi {{patient.first_name}}, one moment — I want to make sure I'm giving you the right details before I say anything."
+    - "Hello {{patient.first_name}}, I almost said something there without double-checking it first. Give me just a second."
+    - "Hi {{patient.first_name}}, before I continue, let me just verify your appointment details to be safe."
+    - "Hello {{patient.first_name}}, I want to pause for a second and confirm I have the right information for you."
+    - "Hi {{patient.first_name}}, I nearly mixed up a detail there — let me check the record properly."
+    - "Hello {{patient.first_name}}, one moment please, I'd rather confirm this than guess."
+    - "Hi {{patient.first_name}}, hang on a second, I want to be sure before I tell you anything."
+
+  correction_statement:
+    - "Thanks for waiting — to confirm, your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Okay, I've checked — your appointment is a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
+    - "Sorry about the pause — I can now confirm your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Alright, that's confirmed now: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Good, I've double-checked — your appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Thanks for your patience — your {{appointment.appointment_type}} appointment is confirmed for {{appointment.day}} at {{appointment.location}}."
+    - "Okay, that's verified now. {{appointment.day}}, {{appointment.location}}, {{appointment.appointment_type}} appointment."
+    - "I've confirmed it now — your appointment is on {{appointment.day}} at {{appointment.location}}."
+
+  user_acknowledgment:
+    - "Oh, no worries, thanks for double-checking!"
+    - "That's fine, better safe than sorry."
+    - "Okay, thanks for making sure."
+    - "No problem at all, I appreciate that."
+    - "Good thing you checked, thanks."
+    - "That's okay, thanks for being careful."
+    - "Alright, thanks for confirming."
+    - "Sure, glad you checked first."
+
+  trust_reinforcement:
+    - "Of course — I'd always rather double-check than get it wrong."
+    - "Absolutely, I want to make sure you always get accurate information from me."
+    - "That's important to me — I'd rather pause than tell you something incorrect."
+    - "I always try to double-check before I say something I'm not fully sure of."
+    - "It matters to me that what I tell you is correct, so I'll always take that extra moment."
+    - "Getting it right matters more to me than getting it out quickly."
+    - "I'd rather take a moment to confirm than have you rely on the wrong information."
+    - "Thanks for your patience — accuracy is important to me."

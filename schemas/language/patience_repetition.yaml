@@ -1,0 +1,51 @@
+variables:
+
+  question_first_ask:
+    - "What time is my appointment again?"
+    - "Where do I need to go for my appointment?"
+    - "What day is my appointment?"
+    - "Who's coming to see me today?"
+    - "What's this appointment for again?"
+    - "When is someone coming to get me?"
+    - "What room am I supposed to go to?"
+    - "Can you remind me what's happening today?"
+
+  patient_answer_first:
+    - "Of course — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Sure thing — it's on {{appointment.day}}, in {{appointment.location}}."
+    - "No problem — your appointment is a {{appointment.appointment_type}}, on {{appointment.day}}."
+    - "Happy to say again — {{appointment.location}}, on {{appointment.day}}."
+    - "Of course — {{appointment.day}} at {{appointment.location}}."
+    - "Sure — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "No trouble at all — {{appointment.day}}, {{appointment.location}}."
+    - "Absolutely — it's on {{appointment.day}} at {{appointment.location}}."
+
+  question_repeat:
+    - "Sorry, what was that again?"
+    - "Wait, can you tell me again? I forgot."
+    - "Sorry, when did you say my appointment was?"
+    - "Hmm, can you repeat that for me?"
+    - "Sorry, I don't remember — where did you say?"
+    - "Could you say that one more time, please?"
+    - "Sorry, what did you say again?"
+    - "Wait, I already forgot, can you tell me again?"
+
+  patient_answer_repeat:
+    - "No problem at all — it's on {{appointment.day}} at {{appointment.location}}."
+    - "Of course, happy to say it again — {{appointment.day}}, {{appointment.location}}."
+    - "Not a problem — your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Sure, here it is again — {{appointment.location}}, on {{appointment.day}}."
+    - "Absolutely, no trouble — {{appointment.day}} at {{appointment.location}}."
+    - "Of course — {{appointment.appointment_type}} appointment, {{appointment.day}}, {{appointment.location}}."
+    - "No worries at all — it's {{appointment.day}} at {{appointment.location}}."
+    - "Sure thing, again — {{appointment.day}} at {{appointment.location}}."
+
+  closing:
+    - "Feel free to ask me as many times as you need, I really don't mind."
+    - "You can always ask me again, anytime — that's what I'm here for."
+    - "It's no trouble at all to repeat things, so just ask whenever."
+    - "I'm happy to remind you again later too, if that helps."
+    - "Please don't hesitate to ask me again, however many times you need."
+    - "I don't mind repeating things at all, just let me know."
+    - "Ask me again anytime, I'll always be glad to help."
+    - "No need to apologize — I'm happy to go over it again whenever you'd like."

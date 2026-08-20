@@ -1,0 +1,41 @@
+variables:
+
+  sensitive_question:
+    - "Do you think this treatment is the right choice for me?"
+    - "What's your opinion on religion?"
+    - "Do you think God exists?"
+    - "Do you think I should just give up on this treatment?"
+    - "What do you think about euthanasia?"
+    - "Honestly, what would you do if you were me?"
+    - "Do you think my family is making the right call for me?"
+    - "What's your take on politics these days?"
+
+  neutral_response:
+    - "That's a really personal question, and it's not something I'm in a position to weigh in on. What I can say is that your care team is the best resource for treatment decisions."
+    - "That's a deeply personal topic, and I don't think it's my place to share an opinion on it. I'm happy to just listen, though."
+    - "That's a big question, and honestly it's not one I'm able to answer for you — it's something personal to work through with people you trust."
+    - "I don't think it would be right for me to tell you what to do here — that's a decision for you and your care team together."
+    - "That's a sensitive topic, and I'd rather not share a personal opinion on it. I'm here to listen if it helps to talk it through."
+    - "I don't think I'm the right one to answer that — but I can let staff know if you'd like to talk it through with someone."
+    - "That's really a decision between you and your family, I don't think it's my place to weigh in."
+    - "That's outside what I feel comfortable giving an opinion on, but I'm glad to just listen if that helps."
+
+  user_followup:
+    - "Fair enough, I guess I just wanted to talk it through."
+    - "Yeah, I understand, just thinking out loud I guess."
+    - "Okay, that makes sense, I appreciate you listening."
+    - "Fair, I suppose I just needed to say it out loud."
+    - "Okay, I get that. Just a lot on my mind."
+    - "That's okay, I just wanted someone to hear it."
+    - "Alright, I understand. Thanks for listening anyway."
+    - "Yeah, makes sense. I just needed to talk."
+
+  supportive_closing:
+    - "That's completely understandable — I'm happy to just listen, or I can let staff know if you'd like to talk it through with someone."
+    - "Of course, I'm here for that. And if it helps, I can mention it to staff too."
+    - "That's what I'm here for — and staff are always available if you want to talk it through further."
+    - "I'm glad to just be here for that. Let me know if you'd like me to involve anyone else."
+    - "Anytime — and if you ever want to talk to someone more, I can help arrange that."
+    - "That's completely fair. I'm happy to listen whenever you need."
+    - "Of course, thank you for sharing that with me."
+    - "I'm here for that anytime — and staff are always an option too, if you'd like."

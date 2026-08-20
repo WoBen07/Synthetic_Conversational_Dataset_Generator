@@ -1,0 +1,9 @@
+name: wellbeing_check
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: wellbeing_check

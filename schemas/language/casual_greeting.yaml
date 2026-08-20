@@ -1,0 +1,51 @@
+variables:
+
+  casual_greeting_opening:
+    - "Hi {{patient.first_name}}, how's it going?"
+    - "Good morning, {{patient.first_name}}!"
+    - "Hey {{patient.first_name}}, nice to see you."
+    - "Hello {{patient.first_name}}, how are you today?"
+    - "Morning! How's your day starting off?"
+    - "Hi there, {{patient.first_name}}."
+    - "Hey, good to see you again."
+    - "Hello! Hope you're doing well today."
+
+  casual_greeting_response:
+    - "Hey, I'm good, thanks!"
+    - "Pretty good, thanks for asking."
+    - "Doing okay, how about you?"
+    - "Hi! I'm fine, thanks."
+    - "Not bad at all, thanks."
+    - "Hello! Good, thank you."
+    - "Hey there, doing well."
+    - "I'm alright, thanks."
+
+  small_talk_question:
+    - "Busy day so far?"
+    - "How's the weather treating you today?"
+    - "Did you find your way here okay?"
+    - "Anything fun planned for later?"
+    - "How's the rest of your day looking?"
+    - "Long day already?"
+    - "Everything going smoothly so far?"
+    - "How was your week so far?"
+
+  small_talk_reply:
+    - "Pretty busy, yeah."
+    - "It's been alright, can't complain."
+    - "Not too bad, thanks for asking."
+    - "Just the usual, nothing exciting."
+    - "A bit hectic, but okay."
+    - "Yeah, decent so far."
+    - "Nothing special, just getting through it."
+    - "Honestly, pretty quiet so far."
+
+  casual_closing:
+    - "Alright, take care!"
+    - "Good talking to you — have a great day."
+    - "See you around, {{patient.first_name}}."
+    - "Take it easy, catch you later."
+    - "Alright then, take care of yourself."
+    - "Nice chatting with you — see you soon."
+    - "Have a good one!"
+    - "Take care, talk soon."

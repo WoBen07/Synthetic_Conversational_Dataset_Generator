@@ -1,0 +1,7 @@
+name: capability_boundaries
+
+entities:
+  patient:
+    type: patient
+
+language_schema: capability_boundaries

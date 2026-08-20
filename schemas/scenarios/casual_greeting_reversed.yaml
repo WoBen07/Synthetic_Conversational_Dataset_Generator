@@ -1,0 +1,7 @@
+name: casual_greeting_reversed
+
+entities:
+  patient:
+    type: patient
+
+language_schema: casual_greeting_reversed

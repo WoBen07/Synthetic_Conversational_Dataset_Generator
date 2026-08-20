@@ -1,0 +1,61 @@
+variables:
+
+  initial_statement:
+    - "Hi {{patient.first_name}}, just a reminder — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Hello {{patient.first_name}}, your {{appointment.appointment_type}} appointment is scheduled for {{appointment.day}} at {{appointment.location}}."
+    - "Hi {{patient.first_name}}, this is a reminder that your appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Hello {{patient.first_name}}, I have your {{appointment.appointment_type}} appointment noted for {{appointment.day}}."
+    - "Hi {{patient.first_name}}, according to my records, your appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Hello {{patient.first_name}}, just letting you know your appointment is set for {{appointment.day}}."
+    - "Hi {{patient.first_name}}, I wanted to remind you your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Hello {{patient.first_name}}, your appointment details show {{appointment.day}} at {{appointment.location}}."
+
+  user_correction:
+    - "That's not right, I don't think that's my appointment day."
+    - "Hmm, I'm pretty sure that's wrong — that doesn't sound right to me."
+    - "Wait, that doesn't match what I was told earlier."
+    - "I don't think that's correct, are you sure about that?"
+    - "That doesn't sound right, can you check again?"
+    - "I think you've got that mixed up, that's not what I remember."
+    - "Are you sure? That's not what I was told."
+    - "That doesn't seem right to me, can you double-check?"
+
+  verification_response:
+    - "Let me double-check that for you right now."
+    - "Okay, let me take another look at the record to be sure."
+    - "Good catch, let me verify that before we go further."
+    - "Sure, let me check that again just to be safe."
+    - "Okay, one moment — let me confirm this properly."
+    - "Let's make sure — I'll check the record again."
+    - "Alright, let me look into that for you."
+    - "Okay, let me verify rather than assume."
+
+  confirmed_response:
+    - "I've checked again — the record shows your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}. If that doesn't match what you were told, it might be worth confirming with the front desk, just to be safe."
+    - "Alright, I've verified it — it's still showing {{appointment.day}} at {{appointment.location}} in the system. It may be worth double-checking with staff if that still doesn't sound right to you."
+    - "I've looked again, and the record still shows {{appointment.day}} at {{appointment.location}}. If you'd like, I can flag it for staff to confirm with you directly."
+    - "Okay, I checked twice now — it's on {{appointment.day}} at {{appointment.location}} according to my records. Staff can double-check this with you if you'd still like."
+    - "I've re-checked — this is what the system currently shows: {{appointment.day}}, {{appointment.location}}. I'm happy to have staff confirm it with you as well."
+    - "After checking again, the record still says {{appointment.day}} at {{appointment.location}}. It's always fine to confirm with the front desk too, just to be sure."
+    - "I've verified it again and it still shows {{appointment.day}} at {{appointment.location}}. If something feels off, staff can look into it further."
+    - "Checked again — same result: {{appointment.day}} at {{appointment.location}}. Let me know if you'd like this confirmed by staff as well."
+
+  user_reply:
+    - "Oh okay, maybe I misremembered. Thanks for checking."
+    - "Alright, my mistake then. Thanks for looking again."
+    - "Okay, that's fine, thanks for double-checking for me."
+    - "Ah okay, I must have gotten confused. Thanks."
+    - "Alright, I appreciate you checking twice."
+    - "Okay, thanks for verifying that for me."
+    - "Fair enough, thanks for looking into it."
+    - "Okay, I trust that then. Thanks."
+
+  closing:
+    - "No problem at all — better to double-check than to have the wrong information."
+    - "Of course, I'd always rather verify than leave you unsure."
+    - "Anytime — it's important to me that you have the right information."
+    - "Happy to check again whenever you're unsure about something."
+    - "No trouble at all, that's exactly what I'm here for."
+    - "Always glad to double-check, just let me know if anything still seems off."
+    - "That's what I'm here for — accuracy matters."
+    - "Of course, feel free to ask me to check again anytime."
