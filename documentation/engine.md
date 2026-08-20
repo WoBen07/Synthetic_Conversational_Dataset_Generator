@@ -15,7 +15,22 @@ Writes a `metadata.json` file with the generator version, timestamp, scenario pa
 
 ## `engine/template_loader.py`
 
-Loads a template by name from `templates/<name>.json`.
+Loads a template by id from `templates/<id>.json`, where `<id>` is the
+path relative to `templates/` without the extension (e.g.
+`tool_use/patient_reminder`), so category subfolders resolve
+transparently.
+
+## `engine/orchestrator.py`
+
+`get_templates()` recursively walks `templates/` (`Path.rglob("*.json")`)
+and returns each template's id as its path relative to `templates/`
+without the `.json` extension. That id is used to build the matching
+`schemas/scenarios/<id>.yaml` and `schemas/language/<id>.yaml` paths.
+`get_amount()` looks up `config/generation_config.yaml`'s
+`important_templates` by the id's leaf name only, and output under
+`Synthetic_Data/` is written flat, keyed by that same leaf name — so
+neither the config file nor the generated dataset layout needs to know
+about category subfolders.
 
 ## `engine/schemaloader.py`
 

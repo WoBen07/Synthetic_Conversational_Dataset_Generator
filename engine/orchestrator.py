@@ -31,20 +31,28 @@ def get_templates():
 
     templates = []
 
-    for file in TEMPLATE_DIR.iterdir():
+    for file in sorted(TEMPLATE_DIR.rglob("*.json")):
 
-        if file.suffix == ".json":
-            templates.append(file.stem)
+        relative = file.relative_to(TEMPLATE_DIR).with_suffix("")
+
+        # POSIX-style id so it works the same as a lookup path
+        # regardless of the subfolder it lives in, e.g.
+        # "safety_and_refusals/medical_advice_refusal"
+        templates.append(relative.as_posix())
 
     return templates
 
 
-def get_amount(template_name, config):
+def get_amount(template_id, config):
 
     important = config.get("important_templates", {})
 
-    if template_name in important:
-        return important[template_name]["amount"]
+    # important_templates is keyed by the template's own name,
+    # not its subfolder path, so look it up by the leaf name
+    name = Path(template_id).name
+
+    if name in important:
+        return important[name]["amount"]
 
     return config["default_amount"]
 
@@ -59,10 +67,10 @@ def create_seed(config):
     )
 
 
-def run_template(template_name, amount, seed):
+def run_template(template_id, amount, seed):
 
     print(
-        f"\nGenerating {template_name}"
+        f"\nGenerating {template_id}"
         f" | amount={amount}"
         f" | seed={seed}"
     )
@@ -71,21 +79,26 @@ def run_template(template_name, amount, seed):
         random_seed=seed
     )
 
+    # Output stays flat, keyed by the template's own name, so the
+    # subfolder grouping under templates/ and schemas/ doesn't
+    # ripple into Synthetic_Data/ or the merger step.
+    name = Path(template_id).name
+
     output_dir = (
-        f"{OUTPUT_ROOT}/{template_name}"
+        f"{OUTPUT_ROOT}/{name}"
     )
 
     generator.generate_many(
 
-        scenario=f"{SCENARIO_DIR}/{template_name}.yaml",
+        scenario=f"{SCENARIO_DIR}/{template_id}.yaml",
 
-        template=template_name,
+        template=template_id,
 
         amount=amount,
 
         output_dir=output_dir,
 
-        language_schema=f"{LANGUAGE_DIR}/{template_name}.yaml",
+        language_schema=f"{LANGUAGE_DIR}/{template_id}.yaml",
 
     )
 
