@@ -1,0 +1,7 @@
+name: guided_mobility_assistance
+
+entities:
+  patient:
+    type: patient
+
+language_schema: guided_mobility_assistance

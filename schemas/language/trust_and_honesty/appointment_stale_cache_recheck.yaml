@@ -1,0 +1,70 @@
+variables:
+
+  initial_appointment_question:
+    - "Can you tell me about my appointment today?"
+    - "What's my appointment for today?"
+    - "Could you check my appointment for me?"
+    - "Can you look up my appointment details?"
+    - "Can you confirm my appointment for me?"
+    - "Could you tell me what's on my schedule?"
+    - "Can you check what appointment I have coming up?"
+    - "I'd like to know about my appointment, please."
+    - "What time and where is my appointment today?"
+
+  appointment_answer:
+    - "You have a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "Your {{appointment.appointment_type}} is scheduled for {{appointment.day}} in {{appointment.location}}."
+    - "You're booked for a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "I found it — a {{appointment.appointment_type}} on {{appointment.day}}, located in {{appointment.location}}."
+    - "Your appointment is a {{appointment.appointment_type}}, set for {{appointment.day}} in {{appointment.location}}."
+    - "You're scheduled for a {{appointment.appointment_type}} on {{appointment.day}}, taking place in {{appointment.location}}."
+    - "That's a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
+
+  dispute_statement:
+    - "That's not right, I thought my appointment got moved."
+    - "That doesn't match what the nurse just told me."
+    - "Hmm, I don't think that's current, didn't something change recently?"
+    - "That doesn't sound right, I was told it was rescheduled."
+    - "Are you sure that's up to date? I heard it changed this morning."
+    - "That's not what I was told earlier, can you check again?"
+    - "I don't think that's accurate anymore, someone mentioned it moved."
+    - "That seems outdated, can you make sure you're not looking at old information?"
+    - "That's odd, staff told me something different just now."
+    - "I don't think that's right anymore, can you check if it's been updated?"
+
+  cache_admission:
+    - "You might be right — that could have been a few minutes old. Let me pull the very latest directly from the system just to be sure."
+    - "That's a fair point, my information could be slightly out of date. Let me refresh it now and check again."
+    - "Good catch — let me re-check that directly rather than relying on what I already had."
+    - "You could be right, I don't want to rely on anything that might be outdated. Let me look it up again right now."
+    - "That's possible, information can change quickly. Let me pull a fresh copy from the system."
+    - "Fair enough — let me re-fetch that just to make sure I'm not giving you stale information."
+    - "You're right to question that, let me check the system again directly rather than assume what I had is current."
+    - "Understood, let me refresh that now so I can give you the most current answer."
+
+  refreshed_confirmation:
+    - "Just refreshed it — the system currently shows the same {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}. That's the latest information on file."
+    - "I've re-checked directly — it still shows a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, as of right now."
+    - "Okay, just pulled the current record — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}} is what's on file at this moment."
+    - "I've confirmed it fresh from the system — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}} is current."
+    - "That's now been re-verified — the latest entry still shows {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Just double-checked directly — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}} is what the system currently has."
+    - "I've pulled the up-to-date record — it confirms {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+
+  closing_response:
+    - "Okay, thanks for checking again, I appreciate it."
+    - "Alright, thank you for double-checking that for me."
+    - "Okay, that's good to know, thanks for looking again."
+    - "Thanks for confirming, I feel better knowing it's current."
+    - "Okay, appreciate you checking that a second time."
+    - "Alright, thank you, sorry to make you check twice."
+    - "Okay, thanks for being thorough about it."
+
+  closing:
+    - "No need to apologize — it's always worth double-checking, and I'd rather re-verify than risk giving you old information."
+    - "Not a problem at all, I'd always rather refresh and be sure than assume."
+    - "Of course — checking again costs nothing, and accuracy matters more than speed."
+    - "Anytime — I'll always re-check if something seems off, just to be safe."
+    - "No trouble at all, I'd rather confirm twice than leave you with the wrong information."
+    - "Happy to double-check whenever you're unsure, that's what I'm here for."
+    - "No apology needed, it's good practice to verify, especially with anything schedule-related."

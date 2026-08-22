@@ -1,9 +1,0 @@
-{
-  "messages": [
-    { "role": "user", "content": "{{wrong_instruction}}" },
-    { "role": "assistant", "content": "{{refusal_response}}" },
-    { "role": "user", "content": "{{user_pushback}}" },
-    { "role": "assistant", "content": "{{firm_refusal_response}}" },
-    { "role": "assistant", "content": "{{closing}}" }
-  ]
-}

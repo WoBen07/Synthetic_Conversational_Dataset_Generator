@@ -1,0 +1,9 @@
+name: in_scope_reminder_request
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: in_scope_reminder_request

@@ -1,0 +1,39 @@
+variables:
+
+  appointment_concern:
+    - "I'm {{patient.full_name}}. I'm a bit nervous about my {{appointment.appointment_type}} on {{appointment.day}}, could you note that for the staff?"
+    - "This is {{patient.full_name}}. Can you note that I'll need a wheelchair for my {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "I'm {{patient.full_name}}. Could you log that I have questions I want to ask during my {{appointment.appointment_type}}?"
+    - "It's {{patient.full_name}}. Can you make a note that I might be a few minutes late to my {{appointment.appointment_type}}?"
+    - "I'm {{patient.full_name}}, and I'd like it noted that I'm allergic to latex before my {{appointment.appointment_type}} on {{appointment.day}}."
+    - "This is {{patient.full_name}}. Can you log that I'd prefer a female doctor for my {{appointment.appointment_type}}?"
+    - "I'm {{patient.full_name}}. Could you note that I need an interpreter for my {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "It's {{patient.full_name}} here. Please note that I get anxious with needles, ahead of my {{appointment.appointment_type}}."
+    - "I'm {{patient.full_name}}. Can you log that a family member will be joining me for my {{appointment.appointment_type}}?"
+    - "This is {{patient.full_name}}. Could you note that I have mobility issues before my {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "I'm {{patient.full_name}}. Please make a note that I'd like to discuss my medication during the {{appointment.appointment_type}}."
+    - "It's {{patient.full_name}}. Can you note down that I'm fasting ahead of my {{appointment.appointment_type}} on {{appointment.day}}?"
+
+  note_content:
+    - "Patient {{patient.full_name}} reports feeling nervous ahead of the {{appointment.appointment_type}} scheduled for {{appointment.day}}."
+    - "{{patient.full_name}} will require a wheelchair for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} has questions to raise during the {{appointment.appointment_type}}."
+    - "{{patient.full_name}} may arrive a few minutes late to the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} has a latex allergy; noted ahead of the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} has requested a female doctor for the {{appointment.appointment_type}}."
+    - "{{patient.full_name}} requires an interpreter for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} reports anxiety around needles ahead of the {{appointment.appointment_type}}."
+    - "A family member will be accompanying {{patient.full_name}} to the {{appointment.appointment_type}}."
+    - "{{patient.full_name}} has mobility issues; noted ahead of the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} would like to discuss medication during the {{appointment.appointment_type}}."
+    - "{{patient.full_name}} is fasting ahead of the {{appointment.appointment_type}} on {{appointment.day}}."
+
+  note_confirmation:
+    - "I've made a note of that for your {{appointment.appointment_type}} on {{appointment.day}}. Staff will see it before your visit."
+    - "That's been logged in your chart ahead of your {{appointment.appointment_type}}."
+    - "Noted. The care team will see this before your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've added that to your record so it's ready for your {{appointment.appointment_type}}."
+    - "Got it, that's been logged for your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've recorded that note. It'll be visible to staff ahead of your {{appointment.appointment_type}}."
+    - "Done — that's noted in your chart for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "That's been logged. The team handling your {{appointment.appointment_type}} will see it."

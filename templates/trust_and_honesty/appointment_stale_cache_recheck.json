@@ -1,0 +1,55 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{initial_appointment_question}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{appointment_answer}}" },
+    { "role": "user", "content": "{{dispute_statement}}" },
+    { "role": "assistant", "content": "{{cache_admission}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{refreshed_confirmation}}" },
+    { "role": "user", "content": "{{closing_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

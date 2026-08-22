@@ -1,0 +1,9 @@
+name: appointment_trust_dispute
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: appointment_trust_dispute

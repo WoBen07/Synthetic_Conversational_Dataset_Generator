@@ -1,0 +1,69 @@
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": "{{appointment_concern}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "log_patient_note",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "note": "{{note_content}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "log_patient_note",
+      "content": {
+        "status": "logged"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{note_confirmation}}"
+    }
+  ]
+}

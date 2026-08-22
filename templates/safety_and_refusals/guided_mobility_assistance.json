@@ -1,0 +1,26 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{guidance_request}}" },
+    { "role": "assistant", "content": "{{guidance_acceptance}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "navigate_to",
+        "arguments": {
+          "room": "{{destination}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "navigate_to",
+      "content": {
+        "status": "arrived",
+        "location": "{{destination}}"
+      }
+    },
+    { "role": "assistant", "content": "{{arrival_confirmation}}" },
+    { "role": "user", "content": "{{user_acknowledgment}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

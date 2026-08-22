@@ -1,0 +1,11 @@
+name: appointment_note
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: appointment_note

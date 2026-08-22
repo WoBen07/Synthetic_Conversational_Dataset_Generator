@@ -1,0 +1,11 @@
+name: appointment_escort
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: appointment_escort

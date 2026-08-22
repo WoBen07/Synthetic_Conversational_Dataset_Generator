@@ -1,0 +1,11 @@
+name: appointment_by_room
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: appointment_by_room

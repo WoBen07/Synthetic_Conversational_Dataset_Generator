@@ -1,0 +1,53 @@
+variables:
+
+  relay_request:
+    - "My mother doesn't speak much English, can you say my appointment time slowly and clearly so she can understand?"
+    - "Can you repeat that a bit slower for my son? English isn't his first language."
+    - "Could you say the appointment details plainly? My husband is still learning English."
+    - "My daughter is only starting to learn English, can you say it slowly for her?"
+    - "Can you speak clearly and slowly? My visitor understands English but not when it's spoken fast."
+    - "Could you say that again, nice and slow? My wife has trouble following quick English."
+    - "My brother's English is basic, could you keep it simple and slow when you explain?"
+    - "Can you say it plainly and slowly for my father? He's still getting used to English."
+    - "Could you repeat the appointment info clearly? My grandson is learning English at school."
+    - "My friend understands some English but needs it said slowly, could you do that?"
+
+  acceptance_clarification:
+    - "Of course, I can say it slowly and clearly in English for them. I should mention I can't translate into another language, but I'm glad to make the English as clear as possible."
+    - "Sure, I'll speak slowly and simply in English so it's easier to follow. I'm not able to translate to another language, but clear English I can definitely do."
+    - "Of course — I can't switch to another language reliably, but I'm happy to slow down and keep the English simple and clear."
+    - "Absolutely, I'll say it slowly and plainly in English. I can't guarantee a translation into another language, but clear, simple English is no problem."
+    - "Sure thing, I'll keep it slow and clear in English. I'm not confident translating into other languages, but this I can do well."
+    - "Of course, slowing down and simplifying my English is something I can do reliably, even though I can't translate into another language."
+    - "Happy to help — I'll speak clearly and slowly in English for them. Just so you know, I can't translate, but plain English is easy for me."
+    - "Sure, I can definitely do that — slow, clear English. I want to be upfront that I can't translate, but this part I can handle well."
+
+  clear_relay:
+    - "Here it is, nice and clear: {{patient.full_name}} has a {{appointment.appointment_type}}. That is on {{appointment.day}}. The place is {{appointment.location}}."
+    - "Let me say this slowly. The appointment is a {{appointment.appointment_type}}. It is on {{appointment.day}}. It is at {{appointment.location}}."
+    - "Okay, speaking clearly now: {{appointment.appointment_type}}. Day: {{appointment.day}}. Location: {{appointment.location}}."
+    - "Nice and simple: {{patient.full_name}}'s appointment is a {{appointment.appointment_type}}, on {{appointment.day}}, at {{appointment.location}}."
+    - "Slowly now — the appointment type is {{appointment.appointment_type}}. The day is {{appointment.day}}. The place is {{appointment.location}}."
+    - "Here it is, plain and clear: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."
+    - "Let me repeat it clearly: it is a {{appointment.appointment_type}}, happening on {{appointment.day}}, at {{appointment.location}}."
+    - "One more time, slowly: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  user_thanks:
+    - "Thank you, that was much easier to follow."
+    - "Thanks, that helped a lot, she understood that."
+    - "That's great, thank you for slowing down."
+    - "Thank you, he could follow that clearly."
+    - "Thanks so much, that was much clearer."
+    - "That helped, thank you for being patient with it."
+    - "Thank you, she got it that time."
+    - "Thanks, that was a lot easier to understand."
+
+  closing:
+    - "Of course — I'm always glad to slow down and keep things clear in English whenever that helps."
+    - "Anytime, happy to speak slowly and clearly whenever it's useful for your family."
+    - "No problem at all, I'll always keep it slow and simple in English when you need that."
+    - "Glad that helped — feel free to ask me to slow down anytime."
+    - "Of course, I'm happy to keep things clear and simple in English whenever needed."
+    - "Anytime — just let me know if slow, plain English would help again."
+    - "No trouble at all, I'll gladly repeat things clearly whenever that's useful."
+    - "Happy to help with that anytime — clear English is something I can always offer."

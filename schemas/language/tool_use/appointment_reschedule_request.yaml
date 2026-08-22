@@ -1,0 +1,56 @@
+variables:
+
+  cannot_attend_request:
+    - "I don't think I can make my appointment, can you let someone know?"
+    - "I'm not feeling well enough to go to my appointment. Can you tell staff?"
+    - "Something came up and I won't be able to make my appointment. Can you pass that along?"
+    - "Can you let staff know I need to reschedule my appointment?"
+    - "I need to cancel my appointment, could you notify someone?"
+    - "I don't think I'll make it to my appointment today, can you flag that?"
+    - "Could you tell the staff I have to reschedule my appointment?"
+    - "I'm going to miss my appointment, can you let them know?"
+    - "Can you inform staff that I won't be able to attend my appointment?"
+    - "I need to skip my appointment today. Could you let someone know?"
+    - "Something's come up, so I can't make it to my appointment. Can you notify staff?"
+    - "Can you pass along that I need to reschedule my appointment, please?"
+    - "I'm unable to attend my appointment. Could you let staff know for me?"
+    - "Please let staff know I won't be at my appointment today."
+    - "I don't feel up to going to my appointment, can you tell someone?"
+
+  name_request:
+    - "Of course. Could you tell me your name so I can look into this?"
+    - "I can help with that. What's your name?"
+    - "Sure, may I have your name first?"
+    - "I'd be glad to pass that along. Could you tell me your name?"
+    - "No problem. What is your name, please?"
+    - "I can take care of that. May I know your name?"
+    - "Happy to help. Could you provide your name?"
+    - "Sure thing. Who am I letting staff know about?"
+    - "I'll make sure staff hears about this. What's your name?"
+    - "Understood. Could you tell me your name so I can find your appointment?"
+
+  name_response:
+    - "I'm {{patient.full_name}}."
+    - "It's {{patient.full_name}}."
+    - "{{patient.full_name}}."
+    - "My name is {{patient.full_name}}."
+    - "You can look me up as {{patient.full_name}}."
+    - "That would be {{patient.full_name}}."
+    - "{{patient.full_name}}, that's me."
+
+  reschedule_reason:
+    - "Patient {{patient.full_name}} is unable to attend the {{appointment.appointment_type}} scheduled for {{appointment.day}} and needs to reschedule."
+    - "{{patient.full_name}} will miss the {{appointment.appointment_type}} on {{appointment.day}} and has requested a reschedule."
+    - "{{patient.full_name}} cannot make the {{appointment.appointment_type}} on {{appointment.day}}; please arrange a new time."
+    - "Please note that {{patient.full_name}} needs to cancel or reschedule the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} is not feeling well enough to attend the {{appointment.appointment_type}} on {{appointment.day}}."
+
+  reschedule_confirmation:
+    - "I've let staff know that you won't be able to make your {{appointment.appointment_type}} on {{appointment.day}}. They'll follow up about rescheduling."
+    - "Staff has been notified about your {{appointment.appointment_type}} on {{appointment.day}}. Someone will reach out to reschedule."
+    - "Done — staff now knows you can't attend your {{appointment.appointment_type}} on {{appointment.day}} and will help arrange a new time."
+    - "I've passed this along to staff. They'll be in touch about rescheduling your {{appointment.appointment_type}}."
+    - "Staff has been informed that you'll be missing your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've flagged this for staff. Expect a follow-up about rescheduling your {{appointment.appointment_type}}."
+    - "Consider it handled. Staff knows about your {{appointment.appointment_type}} on {{appointment.day}} and will reach out."
+    - "I've notified staff about your situation. They'll help you reschedule your {{appointment.appointment_type}}."

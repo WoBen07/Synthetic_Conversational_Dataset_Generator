@@ -1,0 +1,65 @@
+variables:
+
+  destination:
+    - "the bathroom"
+    - "the day room"
+    - "the window"
+    - "the chair by the window"
+    - "the nurses' station"
+    - "the visitor lounge"
+    - "the elevator"
+    - "the garden area"
+
+  guidance_request:
+    - "Can you walk with me to {{destination}}?"
+    - "Could you guide me over to {{destination}}?"
+    - "Can you show me the way to {{destination}}?"
+    - "Could you lead me to {{destination}}?"
+    - "Can you accompany me to {{destination}}?"
+    - "Would you walk alongside me to {{destination}}?"
+    - "Can you guide me to {{destination}}? I just need someone leading the way."
+    - "Could you walk ahead of me to {{destination}} so I know where to go?"
+    - "Can you come with me to {{destination}}, I don't want to go alone?"
+    - "Could you show me how to get to {{destination}} from here?"
+    - "Can you walk beside me over to {{destination}}?"
+    - "Would you mind guiding me to {{destination}}?"
+
+  guidance_acceptance:
+    - "Of course, I'll walk alongside you and guide the way to {{destination}}. I can't physically hold you up, though, so please use the handrail or your walker if you need extra support."
+    - "Happy to guide you there — I'll lead the way to {{destination}}. Just make sure to lean on your walker or the rail for any actual support along the way."
+    - "Sure, I'll accompany you to {{destination}} and show you the way. I'm not able to physically steady you, so please hold onto the rail if you feel unsteady."
+    - "Of course, let's go together — I'll guide you to {{destination}}. I can walk right beside you, just not physically support your weight, so use the handrail if needed."
+    - "I'd be glad to walk with you to {{destination}}. I'll stay right by your side the whole way, though please rely on the rail or your walker for any physical support."
+    - "Sure thing, I'll lead the way to {{destination}} and stay close. Just remember I can't physically hold you steady, so use the handrail if you need to."
+    - "Of course, I'll go with you to {{destination}} and show you the route. I can guide you, but please lean on your walker or the rail for support."
+    - "Happy to help — I'll walk alongside you to {{destination}}. I just can't physically support you, so please use the rail if you feel unsteady on the way."
+
+  arrival_confirmation:
+    - "We've made it to {{destination}} — I stayed right beside you the whole way."
+    - "Here we are at {{destination}}. That went smoothly."
+    - "We've arrived at {{destination}}, nice and steady."
+    - "We're at {{destination}} now — well done getting here."
+    - "Made it to {{destination}} together, right on track."
+    - "Here we are — {{destination}}, just like you asked."
+    - "We've reached {{destination}}. I was right there with you the whole time."
+    - "That's {{destination}} — we made it without any trouble."
+
+  user_acknowledgment:
+    - "Thanks for walking with me, that helped."
+    - "I appreciate you guiding me here."
+    - "Thank you, I felt safer with you leading the way."
+    - "Thanks for staying close, that made it easier."
+    - "I appreciate you coming with me, thank you."
+    - "Thanks, it's nice not to have to go alone."
+    - "That helped a lot, thank you for showing me the way."
+    - "Thank you for walking beside me the whole time."
+
+  closing:
+    - "Anytime — I'm always happy to guide the way, just remember to use the rail or your walker for the physical side of things."
+    - "Of course, I'll walk with you wherever you need to go. Just lean on your walker or the rail if you need actual support."
+    - "No problem at all, I'm glad to accompany you anytime. Just keep using the rail for support, and I'll handle showing the way."
+    - "Happy to guide you anywhere you need, just holler if you'd like company again."
+    - "Anytime you need someone to walk with, just ask — I'll always be glad to lead the way."
+    - "Of course, guiding you around is something I can always help with, just use the rail for support along the way."
+    - "No trouble at all, I enjoy walking with you. Just remember the rail is there if you need it."
+    - "Glad to help anytime — just ask, and I'll walk with you wherever you're headed."

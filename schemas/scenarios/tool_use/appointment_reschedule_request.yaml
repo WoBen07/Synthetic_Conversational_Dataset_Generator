@@ -1,0 +1,11 @@
+name: appointment_reschedule_request
+
+entities:
+
+  patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+language_schema: appointment_reschedule_request

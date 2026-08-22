@@ -1,0 +1,33 @@
+variables:
+
+  escort_request:
+    - "Can you take {{patient.full_name}} to {{patient.possessive_pronoun}} appointment?"
+    - "Could you escort {{patient.full_name}} to {{patient.possessive_pronoun}} appointment, please?"
+    - "Please walk {{patient.full_name}} to {{patient.possessive_pronoun}} appointment."
+    - "Can you bring {{patient.full_name}} to where {{patient.pronoun}} needs to be for {{patient.possessive_pronoun}} appointment?"
+    - "Would you mind guiding {{patient.full_name}} to {{patient.possessive_pronoun}} appointment?"
+    - "Please accompany {{patient.full_name}} to {{patient.possessive_pronoun}} appointment."
+    - "Can you help {{patient.full_name}} get to {{patient.possessive_pronoun}} appointment on time?"
+    - "Could you take {{patient.last_name}} to {{patient.possessive_pronoun}} appointment now?"
+    - "I need you to escort {{patient.full_name}} to {{patient.possessive_pronoun}} appointment."
+    - "Please lead {{patient.full_name}} to {{patient.possessive_pronoun}} appointment location."
+    - "Can you go get {{patient.full_name}} and take {{patient.object_pronoun}} to {{patient.possessive_pronoun}} appointment?"
+    - "Please make sure {{patient.full_name}} gets to {{patient.possessive_pronoun}} appointment safely."
+    - "Could you walk {{patient.first_name}} over to {{patient.possessive_pronoun}} appointment?"
+    - "Can you take {{patient.full_name}} where {{patient.pronoun}} needs to go for the appointment?"
+    - "Please bring {{patient.full_name}} to {{patient.possessive_pronoun}} appointment right away."
+    - "Would you escort {{patient.last_name}} to {{patient.possessive_pronoun}} appointment, please?"
+
+  escort_confirmation:
+    - "I've brought {{patient.full_name}} to {{patient.possessive_pronoun}} {{appointment.appointment_type}} in {{appointment.location}}. We've arrived."
+    - "{{patient.full_name}} has been escorted to {{appointment.location}} for {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "We've arrived at {{appointment.location}}. {{patient.full_name}} is here for {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "I've walked {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "{{patient.full_name}} has arrived at {{appointment.location}} for {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done. {{patient.full_name}} is now at {{appointment.location}} for {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've taken {{patient.full_name}} to {{appointment.location}}. {{patient.pronoun}} is ready for the {{appointment.appointment_type}}."
+    - "{{patient.full_name}} made it to {{appointment.location}} for {{patient.possessive_pronoun}} {{appointment.appointment_type}}, right on schedule."
+    - "We've reached {{appointment.location}}. {{patient.full_name}} is checked in for the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've escorted {{patient.full_name}} to {{appointment.location}} for {{patient.possessive_pronoun}} {{appointment.appointment_type}}, as requested."
+    - "{{patient.full_name}} is now at {{appointment.location}}, ready for {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "I've delivered {{patient.full_name}} safely to {{appointment.location}} for the {{appointment.appointment_type}}."

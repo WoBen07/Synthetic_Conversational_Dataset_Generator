@@ -1,0 +1,9 @@
+name: general_health_information
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: general_health_information

@@ -1,7 +1,0 @@
-name: third_party_request
-
-entities:
-  patient:
-    type: patient
-
-language_schema: third_party_request

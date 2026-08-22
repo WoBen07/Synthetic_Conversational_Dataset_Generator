@@ -1,0 +1,69 @@
+variables:
+
+  seemingly_out_of_scope_request:
+    - "Can you make sure I don't forget to ask about switching my medication when the doctor comes?"
+    - "Could you help me remember to bring up my headache during my {{appointment.appointment_type}}?"
+    - "Can you remind me to mention my allergy at my {{appointment.appointment_type}}?"
+    - "Can you make sure I don't forget to ask about my test results?"
+    - "Could you help me remember something important for my appointment?"
+    - "Can you remind me to ask the doctor about my dosage when they come by?"
+    - "Could you make sure I bring up my dizziness during my {{appointment.appointment_type}}?"
+    - "Can you help me remember to ask about a second opinion at my appointment?"
+    - "Could you remind me to mention that I missed a dose yesterday?"
+    - "Can you make sure I ask about my medication schedule during my {{appointment.appointment_type}}?"
+    - "Could you help me remember to bring up my sleep trouble with the doctor?"
+    - "Can you remind me to ask about physical therapy options at my appointment?"
+
+  confident_acceptance:
+    - "Of course, I can set a reminder for that right now so you don't forget."
+    - "Sure, that's easy — I'll put a reminder in place for you."
+    - "Absolutely, I can take care of that directly with a reminder."
+    - "No problem at all, I'll set that as a reminder for you now."
+    - "Of course, that's something I can handle myself — setting it up now."
+    - "Sure thing, I'll make a note and remind you about it."
+    - "Happy to help with that — I'll set a reminder right now."
+    - "Of course, consider it done — I'm setting that reminder now."
+
+  reminder_message:
+    - "Ask the doctor about switching your medication during today's appointment."
+    - "Mention your headache to the doctor during your {{appointment.appointment_type}}."
+    - "Bring up your allergy during your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Ask about your test results during your appointment."
+    - "Don't forget to mention what you wanted to bring up with the doctor."
+    - "Ask the doctor about your medication dosage when they visit."
+    - "Mention your dizziness during your {{appointment.appointment_type}}."
+    - "Ask about a second opinion during your appointment."
+    - "Mention that you missed a dose yesterday."
+    - "Ask about your medication schedule during your {{appointment.appointment_type}}."
+    - "Mention your sleep trouble to the doctor."
+    - "Ask about physical therapy options during your appointment."
+
+  confirmation:
+    - "Done — I'll remind you about that before your {{appointment.appointment_type}}."
+    - "That's set — you'll get a reminder about it in time for your appointment."
+    - "All set, I'll make sure you're reminded before your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Taken care of — the reminder is in place now."
+    - "That's been set up, you won't forget it now."
+    - "Done — I've got that noted and you'll be reminded in time."
+    - "All set, that reminder will come through before your appointment."
+    - "That's handled — you're all set for {{appointment.day}}."
+
+  user_thanks:
+    - "Thank you, that really helps."
+    - "Thanks, I appreciate you handling that."
+    - "That's great, thank you."
+    - "Thanks so much, I always forget these things."
+    - "Perfect, thank you for setting that up."
+    - "Thanks, that takes a load off my mind."
+    - "I appreciate that, thank you."
+    - "Thanks a lot, that's really helpful."
+
+  closing:
+    - "Of course — that kind of thing I can always take care of directly, just ask anytime."
+    - "Happy to help with reminders like that whenever you need one."
+    - "Anytime — setting reminders is something I can always do for you directly."
+    - "No problem at all, just let me know if there's anything else to remember."
+    - "Glad I could help — feel free to ask for more reminders anytime."
+    - "Of course, that's an easy one for me to handle whenever you need."
+    - "Anytime you need something remembered, just ask, I've got you covered."
+    - "Happy to keep track of things like that for you going forward."

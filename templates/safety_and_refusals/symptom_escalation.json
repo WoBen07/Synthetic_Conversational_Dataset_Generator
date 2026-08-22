@@ -1,0 +1,47 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{minor_symptom_statement}}" },
+    { "role": "assistant", "content": "{{initial_acknowledgment}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{initial_reason}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": {
+        "status": "notified"
+      }
+    },
+    { "role": "assistant", "content": "{{initial_confirmation}}" },
+    { "role": "user", "content": "{{worsening_symptom_statement}}" },
+    { "role": "assistant", "content": "{{escalation_acknowledgment}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "alert_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "room_number": "{{patient.room_number}}",
+          "urgency": "high"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "alert_staff",
+      "content": {
+        "status": "notified",
+        "eta": "immediate"
+      }
+    },
+    { "role": "assistant", "content": "{{escalation_confirmation}}" },
+    { "role": "assistant", "content": "{{reassurance_no_advice}}" }
+  ]
+}

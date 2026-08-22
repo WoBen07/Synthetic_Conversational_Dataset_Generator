@@ -1,0 +1,9 @@
+name: appointment_stale_cache_recheck
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: appointment_stale_cache_recheck

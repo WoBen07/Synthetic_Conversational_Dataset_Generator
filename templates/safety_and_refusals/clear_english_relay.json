@@ -1,0 +1,31 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{relay_request}}" },
+    { "role": "assistant", "content": "{{acceptance_clarification}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{clear_relay}}" },
+    { "role": "user", "content": "{{user_thanks}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

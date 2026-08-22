@@ -1,0 +1,30 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{general_health_question}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{informational_answer}}" },
+    { "role": "user", "content": "{{followup_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}
