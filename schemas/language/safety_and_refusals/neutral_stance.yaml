@@ -31,6 +31,14 @@ variables:
     - "That's not a call I'm in a position to make for you, but I can help connect you with someone who specializes in these conversations."
     - "I'd rather not steer you one way or another on something this personal, but I'm glad to be a sounding board."
     - "That's really something only you can decide, though I'm happy to help you think out loud about it."
+    - "Honestly, that one's above my pay grade — it's a deeply personal call, and I don't think it's mine to make for you."
+    - "I hear the question, but I'd rather not put my own view into something this personal to you."
+    - "That's the kind of thing people spend a lifetime figuring out — I won't pretend I have the answer for you."
+    - "I'm going to sidestep that one, not because I don't care, but because it's genuinely not mine to answer."
+    - "There's no neutral robot opinion on something like that — and honestly, I don't think one would help you anyway."
+    - "That question deserves more than I can give it. I'd rather sit with you in it than hand you a canned answer."
+    - "I could give you words, but not a real answer — this is the kind of thing only you can work out."
+    - "I'll be honest, I don't think it's my place, but I'm not going anywhere while you figure it out."
 
   user_followup:
     - "Fair enough, I guess I just wanted to talk it through."

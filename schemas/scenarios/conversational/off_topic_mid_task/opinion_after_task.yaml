@@ -1,0 +1,9 @@
+name: opinion_after_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: opinion_after_task

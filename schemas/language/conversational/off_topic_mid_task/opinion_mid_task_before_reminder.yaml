@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}?"
+    - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
+
+  offtopic_question:
+    - "Random one while that's pulling up — beach or mountains?"
+    - "Quick question, do you prefer the beach or the mountains?"
+    - "Just curious, mountains or beach, which do you like more?"
+    - "While that's loading, beach person or mountain person?"
+    - "Random thought, if you had to pick, beach or mountains?"
+    - "Just wondering, do you lean toward the beach or the mountains?"
+    - "Quick one, mountains or beach, what's your pick?"
+    - "While we wait, beach or mountains, which wins for you?"
+
+  offtopic_reply_bridge:
+    - "I'd probably say mountains, there's something nice about the quiet up there. Alright, sending the reminder now."
+    - "Mountains, for me, I think. Okay, sending the reminder now."
+    - "I'd lean toward mountains, myself. Alright, sending that reminder now."
+    - "Mountains edge it out for me. Okay, sending the reminder."
+    - "Probably mountains, though the beach has its moments too. Alright, sending the reminder now."
+    - "I'd say mountains, honestly. Okay, sending the reminder now."
+    - "Mountains, most days, for me. Alright, sending that reminder now."
+    - "I think I'd go with mountains, if I had to pick. Okay, sending the reminder now."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "All set, {{patient.full_name}} now knows about the appointment on {{appointment.day}}."
+    - "That's taken care of — {{patient.full_name}} has been notified."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder went through to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+    - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."

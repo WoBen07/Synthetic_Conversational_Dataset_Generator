@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Please go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment today."
+    - "Can you let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}} coming up on {{appointment.day}}?"
+    - "Could you make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}?"
+    - "Please remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}."
+    - "Can you tell {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} scheduled for {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming appointment?"
+    - "Please notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+
+  offtopic_question:
+    - "While that's loading, got any good puns?"
+    - "Quick one, tell me something funny while we wait."
+    - "Random one, know any good one-liners?"
+    - "Quick joke while we wait?"
+    - "While that's pulling up, got a good joke for me?"
+    - "Random thought, can you tell me something funny?"
+    - "While that loads, do you know any good jokes?"
+    - "Quick one while we wait, make me laugh?"
+
+  offtopic_reply_bridge:
+    - "Here's one: I tried to catch some fog earlier. I mist. Anyway, let me look up that appointment now."
+    - "Why don't skeletons fight each other? They don't have the guts. Okay, checking the appointment now."
+    - "What did the ocean say to the beach? Nothing, it just waved. Alright, pulling up the appointment."
+    - "Why did the scarecrow win an award? He was outstanding in his field. Let me grab that appointment info now."
+    - "What do you call a bear with no teeth? A gummy bear. Okay, checking the appointment."
+    - "Why did the bicycle fall over? It was two-tired. Alright, pulling up the appointment now."
+    - "What do you call cheese that isn't yours? Nacho cheese. Let me check the appointment now."
+    - "Why can't you give Elsa a balloon? She'll let it go. Okay, pulling that appointment up."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — I've reminded {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} appointment on {{appointment.day}}."
+    - "All set — {{patient.full_name}} now knows about the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "That's taken care of, {{patient.full_name}} has been notified about {{appointment.day}}'s appointment."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder was sent to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about the {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "That's handled — {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."

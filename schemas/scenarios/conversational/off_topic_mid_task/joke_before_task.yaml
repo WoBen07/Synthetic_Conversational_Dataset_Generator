@@ -1,0 +1,9 @@
+name: joke_before_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: joke_before_task

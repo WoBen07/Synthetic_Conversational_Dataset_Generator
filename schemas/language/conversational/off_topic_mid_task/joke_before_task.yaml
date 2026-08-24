@@ -1,0 +1,41 @@
+variables:
+
+  offtopic_question:
+    - "Before we get started, tell me a joke, cheer me up a bit."
+    - "Got any good puns for me?"
+    - "Before anything else, know any good one-liners?"
+    - "Tell me something funny before we start, I could use a laugh."
+    - "Go on then, make me laugh before we get to business."
+    - "Quick one before we start, got a good joke for me?"
+    - "Before we start, can you tell me something funny?"
+    - "Do you know any good jokes, before we get going?"
+
+  offtopic_reply:
+    - "Why don't skeletons fight each other? They don't have the guts."
+    - "Here's one: I tried to catch some fog earlier. I mist."
+    - "What do you call a bear with no teeth? A gummy bear."
+    - "Why did the scarecrow win an award? He was outstanding in his field."
+    - "What did the ocean say to the beach? Nothing, it just waved."
+    - "Why did the bicycle fall over? It was two-tired."
+    - "What do you call cheese that isn't yours? Nacho cheese."
+    - "Why can't you give Elsa a balloon? She'll let it go."
+
+  task_request:
+    - "Anyway, could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Right, so — could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment on {{appointment.day}}?"
+    - "Okay, back to business — please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Anyway, what I actually needed was for you to remind {{patient.full_name}} about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "So, could you let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Right, please go remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}."
+    - "Anyway — can you make sure {{patient.full_name}} knows about {{patient.possessive_pronoun}} appointment on {{appointment.day}}?"
+    - "Okay, could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} now?"
+
+  ack_after_pivot:
+    - "Got it, I'll go remind {{patient.full_name}} now."
+    - "Sure thing, heading to remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment."
+    - "On it — I'll let {{patient.full_name}} know right away."
+    - "Understood, I'll take care of reminding {{patient.full_name}} now."
+    - "Of course, I'll go find {{patient.full_name}} and remind {{patient.object_pronoun}}."
+    - "Sure, I'll make sure {{patient.full_name}} hears about it."
+    - "Okay, I'll handle that reminder for {{patient.full_name}} now."
+    - "Absolutely, I'll go remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."

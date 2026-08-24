@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}?"
+    - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "All set, {{patient.full_name}} now knows about the appointment on {{appointment.day}}."
+    - "That's taken care of — {{patient.full_name}} has been notified."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder went through to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+    - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."
+
+  offtopic_question:
+    - "Now that that's done, how's the rest of your day looking?"
+    - "Since we're free now, has it been a busy one today?"
+    - "Now that's sorted, has today felt like a normal day overall?"
+    - "While I've got a second, how've things been today?"
+    - "Since that's handled, has today felt pretty normal?"
+    - "Now that's out of the way, how's everything running on your end?"
+    - "While we're just chatting now, has it been hectic today?"
+    - "Since we're done there, how's your day treating you?"
+
+  offtopic_reply_closing:
+    - "Pretty steady so far, thanks for asking. Anything else I can help with?"
+    - "Fairly busy, but nothing unusual. Let me know if there's anything else."
+    - "Pretty normal so far, no complaints. Anything else you need?"
+    - "It's had its moments, but overall pretty normal. Happy to help with anything else too."
+    - "Everything's running smoothly, thanks. Anything else I can help with?"
+    - "Feels like a fairly typical day so far. Let me know if there's more I can do."
+    - "Things have been steady around here. Anything else on your mind?"
+    - "All good on my end, thanks for checking. Let me know if there's anything else."

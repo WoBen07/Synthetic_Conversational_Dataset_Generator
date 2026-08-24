@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}?"
+    - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
+
+  offtopic_question:
+    - "Random one while that's pulling up — got any good one-liners?"
+    - "Quick joke while we wait?"
+    - "While that's loading, got any good puns?"
+    - "Random thought, can you tell me something funny?"
+    - "While we wait, tell me a joke."
+    - "Quick one, do you know any good jokes?"
+    - "While that's loading, make me laugh?"
+    - "Just for fun while we wait, got a good joke for me?"
+
+  offtopic_reply_bridge:
+    - "Why did the scarecrow win an award? He was outstanding in his field. Alright, sending the reminder now."
+    - "Sure — I tried to catch some fog earlier. I mist. Okay, sending the reminder now."
+    - "What do you call a bear with no teeth? A gummy bear. Alright, sending that reminder now."
+    - "What did the ocean say to the beach? Nothing, it just waved. Okay, sending the reminder."
+    - "Why don't skeletons fight each other? They don't have the guts. Alright, sending the reminder now."
+    - "Why did the bicycle fall over? It was two-tired. Okay, sending the reminder now."
+    - "What do you call cheese that isn't yours? Nacho cheese. Alright, sending that reminder now."
+    - "Why can't you give Elsa a balloon? She'll let it go. Okay, sending the reminder now."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "All set, {{patient.full_name}} now knows about the appointment on {{appointment.day}}."
+    - "That's taken care of — {{patient.full_name}} has been notified."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder went through to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+    - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."

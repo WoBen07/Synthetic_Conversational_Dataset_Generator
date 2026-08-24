@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Please go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment today."
+    - "Can you let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}} coming up on {{appointment.day}}?"
+    - "Could you make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}?"
+    - "Please remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}."
+    - "Can you tell {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} scheduled for {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming appointment?"
+    - "Please notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+
+  offtopic_question:
+    - "Quick one while that's loading — coffee or tea?"
+    - "Random question, are you more of a coffee or tea person?"
+    - "Just curious, tea or coffee, which do you prefer?"
+    - "While we're at it, coffee person or tea person?"
+    - "Random thought, if you had to pick, coffee or tea?"
+    - "Just wondering, do you lean toward coffee or tea?"
+    - "Quick one — tea or coffee, what's your pick?"
+    - "While that's loading, coffee or tea, which wins for you?"
+
+  offtopic_reply_bridge:
+    - "I'd lean toward tea, honestly, though I can see the appeal of coffee. Anyway, let me pull up that appointment now."
+    - "Tea, probably, for me. Okay, checking the appointment now."
+    - "I think I'd go with tea, if I had to pick one. Alright, let me look up the appointment."
+    - "Tea edges it out for me. Let me grab that appointment info now."
+    - "I'd say tea, myself. Okay, pulling up the appointment."
+    - "Probably tea, though coffee has its moments too. Alright, checking the appointment now."
+    - "I'd lean tea, honestly. Let me pull that appointment up now."
+    - "Tea, for me, most days. Okay, checking the appointment."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — I've reminded {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "{{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} appointment on {{appointment.day}}."
+    - "All set — {{patient.full_name}} now knows about the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "That's taken care of, {{patient.full_name}} has been notified about {{appointment.day}}'s appointment."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder was sent to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about the {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "That's handled — {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."

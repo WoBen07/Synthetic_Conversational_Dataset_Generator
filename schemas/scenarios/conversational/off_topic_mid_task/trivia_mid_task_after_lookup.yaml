@@ -1,0 +1,9 @@
+name: trivia_mid_task_after_lookup
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: trivia_mid_task_after_lookup

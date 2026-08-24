@@ -31,6 +31,14 @@ variables:
     - "I'm not able to physically support you while walking — I'd rather get someone qualified to help."
     - "I don't have access to test results — your doctor will need to go over those with you."
     - "I'm not able to administer injections — that needs to be done by a nurse."
+    - "That one's not mine to do — it takes hands-on clinical training I don't have."
+    - "I have to be honest, that's a medical task, and I'm not the one for it."
+    - "That's not something within my reach, physically or in terms of training — a nurse is the right person here."
+    - "I wish I could just handle that directly, but it genuinely needs a trained clinician."
+    - "That falls squarely on the clinical side of things, which isn't something I'm equipped for."
+    - "Much as I'd like to help with that myself, it needs hands and training I don't have."
+    - "That's a step beyond what I'm built for — it needs someone with real clinical training."
+    - "I'm going to be upfront: that's not a task I'm able to carry out, it needs a member of staff."
 
   capability_offer:
     - "What I can do is let the nursing team know you'd like your blood pressure checked."

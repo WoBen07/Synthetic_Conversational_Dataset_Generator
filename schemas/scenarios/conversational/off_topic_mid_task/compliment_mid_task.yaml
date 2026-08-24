@@ -1,0 +1,9 @@
+name: compliment_mid_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: compliment_mid_task

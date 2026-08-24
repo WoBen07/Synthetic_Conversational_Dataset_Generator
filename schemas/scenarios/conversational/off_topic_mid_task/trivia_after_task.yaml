@@ -1,0 +1,9 @@
+name: trivia_after_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: trivia_after_task

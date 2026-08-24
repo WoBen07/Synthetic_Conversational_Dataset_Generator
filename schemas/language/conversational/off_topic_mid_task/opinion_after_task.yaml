@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}?"
+    - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "All set, {{patient.full_name}} now knows about the appointment on {{appointment.day}}."
+    - "That's taken care of — {{patient.full_name}} has been notified."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder went through to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+    - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."
+
+  offtopic_question:
+    - "Now that that's done — random question, does pineapple belong on pizza?"
+    - "Since we're free now, what's your take, pineapple on pizza, yes or no?"
+    - "Now that's sorted, do you think pineapple belongs on pizza?"
+    - "While I've got you, pineapple on pizza — good idea or not, in your opinion?"
+    - "Since that's handled, what do you think about pineapple on pizza?"
+    - "Now that's out of the way, is pineapple okay on pizza, in your view?"
+    - "While we're just chatting, pineapple on pizza — yes or no for you?"
+    - "Since we're done there, what's your opinion on pineapple pizza?"
+
+  offtopic_reply_closing:
+    - "Honestly, I think it works — a bit divisive, but I'm a fan. Anything else I can help with?"
+    - "I'm okay with it, personally — sweet and salty isn't a bad combo. Let me know if there's anything else."
+    - "I don't mind it at all, honestly. Anything else on your mind?"
+    - "I'd say it works, even if plenty of people disagree with me. Let me know if there's more I can do."
+    - "I'm a fan, personally, divisive as it is. Anything else I can help with?"
+    - "I think it's fine, honestly — good combination. Let me know if there's anything else."
+    - "I don't see the problem with it, myself. Anything else you need?"
+    - "I'd vote yes on that one. Let me know if there's anything else."

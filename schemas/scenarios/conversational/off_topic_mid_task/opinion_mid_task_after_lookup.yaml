@@ -1,0 +1,9 @@
+name: opinion_mid_task_after_lookup
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: opinion_mid_task_after_lookup

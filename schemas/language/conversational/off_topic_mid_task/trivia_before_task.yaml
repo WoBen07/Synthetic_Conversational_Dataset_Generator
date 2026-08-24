@@ -1,0 +1,41 @@
+variables:
+
+  offtopic_question:
+    - "Quick one before we start — how many days are there in a week?"
+    - "Random question, do you know how many days make up a week?"
+    - "Before we get to it — how many days are in a standard week?"
+    - "Just curious, how many days does a week have?"
+    - "Random thought, quick one — how many days in a week again?"
+    - "Before we start, do you happen to know how many days are in a week?"
+    - "Just wondering, how many days make a full week?"
+    - "Quick trivia — how many days are there in one week?"
+
+  offtopic_reply:
+    - "Sure — seven days in a week."
+    - "That'd be seven."
+    - "Seven days, like always."
+    - "Seven — Monday through Sunday."
+    - "That's seven days in total."
+    - "Seven, same as every week."
+    - "Seven days make up a week."
+    - "It's seven, all seven days of the week."
+
+  task_request:
+    - "Anyway, could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Right, so — could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment on {{appointment.day}}?"
+    - "Okay, back to business — please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Anyway, what I actually needed was for you to remind {{patient.full_name}} about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "So, could you let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Right, please go remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}."
+    - "Anyway — can you make sure {{patient.full_name}} knows about {{patient.possessive_pronoun}} appointment on {{appointment.day}}?"
+    - "Okay, could you remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} now?"
+
+  ack_after_pivot:
+    - "Got it, I'll go remind {{patient.full_name}} now."
+    - "Sure thing, heading to remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment."
+    - "On it — I'll let {{patient.full_name}} know right away."
+    - "Understood, I'll take care of reminding {{patient.full_name}} now."
+    - "Of course, I'll go find {{patient.full_name}} and remind {{patient.object_pronoun}}."
+    - "Sure, I'll make sure {{patient.full_name}} hears about it."
+    - "Okay, I'll handle that reminder for {{patient.full_name}} now."
+    - "Absolutely, I'll go remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."

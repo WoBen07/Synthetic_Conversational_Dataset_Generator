@@ -1,0 +1,9 @@
+name: trivia_mid_task_before_reminder
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: trivia_mid_task_before_reminder

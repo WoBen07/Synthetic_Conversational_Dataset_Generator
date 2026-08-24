@@ -1,0 +1,9 @@
+name: smalltalk_mid_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: smalltalk_mid_task

@@ -1,0 +1,51 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Would you remind {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}?"
+    - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
+
+  offtopic_question:
+    - "Random one while that loads — here's a classic: a trolley is about to hit five people, but you could pull a lever to divert it onto a track with one person instead. Right or wrong to pull it? A) Right B) Wrong C) Depends"
+    - "Quick philosophy one for you — the trolley problem: pull the lever to save five but kill one, or do nothing? What would you say?"
+    - "While that's loading, here's a classic thought experiment: divert the trolley to save five at the cost of one life, yes or no?"
+    - "Random question — you know the trolley problem? Five lives versus one, pull the lever or not?"
+    - "Quick one while we wait — is it right to sacrifice one person to save five, trolley-problem style?"
+    - "While that loads, here's a philosophy classic: would you divert the trolley to save five people, even if it means one person dies?"
+    - "Random thought — the old trolley dilemma, save five by sacrificing one. What's the 'right' answer, in your view?"
+    - "Quick one for you while we wait — trolley problem: divert and save five, or don't act and let five die? Right or wrong to divert?"
+
+  offtopic_reply_bridge:
+    - "That's the classic trolley problem — most people say divert it, since saving five outweighs one, though plenty disagree and it's really a thought experiment with no single right answer. Anyway, here's the reminder going out now."
+    - "It's a famous thought experiment, and most people lean toward pulling the lever on utilitarian grounds, though it's genuinely debated with no consensus. Okay, sending the reminder now."
+    - "There's no single correct answer — most people say divert it to save the five, but it's a well-known ethical puzzle precisely because reasonable people disagree. Alright, sending the reminder now."
+    - "Most people would pull the lever, reasoning five lives outweigh one, but it's intentionally a dilemma without a clean answer. Okay, sending that reminder now."
+    - "That's the trolley problem, a classic in ethics — the common answer is to divert it, though it's debated endlessly. Alright, let me send the reminder now."
+    - "It's meant to have no easy answer — most people lean toward diverting to save the five, but there's no consensus. Okay, sending the reminder now."
+    - "That one's famous precisely because there's no agreed answer — most people say divert, but plenty argue otherwise. Alright, sending the reminder now."
+    - "It's a classic ethics thought experiment — most say divert to save more lives, though it's genuinely contested. Okay, sending the reminder now."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
+    - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Done — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "All set, {{patient.full_name}} now knows about the appointment on {{appointment.day}}."
+    - "That's taken care of — {{patient.full_name}} has been notified."
+    - "I've let {{patient.full_name}} know about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — the reminder went through to {{patient.full_name}} successfully."
+    - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+    - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."
