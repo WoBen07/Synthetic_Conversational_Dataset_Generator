@@ -1,0 +1,44 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{appointment_question}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": null
+      }
+    },
+    { "role": "assistant", "content": "{{no_appointment_disclosure}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

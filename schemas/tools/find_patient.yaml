@@ -26,3 +26,9 @@ output:
 
 
       item_type: patient
+
+
+# Placeholder convention used in templates/tool_error_recovery/ for the
+# "no matches" case: matches: [] (already covered by minimum_items: 0
+# above). If find_patient later gains a distinct not-found vs. no-input
+# error, update the affected templates accordingly.

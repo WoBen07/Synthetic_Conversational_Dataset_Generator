@@ -1,0 +1,17 @@
+variables:
+
+  escort_prep_question:
+    - "Before I take {{patient.full_name}} anywhere, can you confirm exactly where and when the appointment is?"
+    - "Can you double check the appointment details before we escort {{patient.full_name}}?"
+    - "What's the exact day and location, before I bring {{patient.full_name}} over?"
+    - "Can you confirm the appointment specifics before we head out with {{patient.full_name}}?"
+    - "Before escorting {{patient.full_name}}, what exactly is the appointment and where?"
+    - "Can you verify the day and place before we take {{patient.full_name}} there?"
+
+  explicit_answer:
+    - "Confirmed — {{patient.full_name}}'s {{appointment.appointment_type}} is on {{appointment.day}}, in {{appointment.location}}. Ready whenever you are."
+    - "It's a {{appointment.appointment_type}} on {{appointment.day}}, at {{appointment.location}} — that's confirmed before heading out."
+    - "Double checked: {{appointment.day}}, {{appointment.location}}, for the {{appointment.appointment_type}}. We're good to go."
+    - "That's a {{appointment.appointment_type}}, {{appointment.day}}, in {{appointment.location}} — confirmed and ready."
+    - "Verified — {{appointment.day}}, {{appointment.location}}, {{appointment.appointment_type}}. Ready to escort {{patient.full_name}} now."
+    - "Confirmed before heading out: {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."

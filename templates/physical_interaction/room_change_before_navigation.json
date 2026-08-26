@@ -1,0 +1,24 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{ask_to_go}}" },
+    { "role": "assistant", "content": "{{room_change_notice}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "navigate_to",
+        "arguments": {
+          "room": "{{new_location}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "navigate_to",
+      "content": {
+        "status": "arrived",
+        "location": "{{new_location}}"
+      }
+    },
+    { "role": "assistant", "content": "{{arrival_confirmation}}" }
+  ]
+}

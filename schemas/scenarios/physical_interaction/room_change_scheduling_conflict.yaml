@@ -1,0 +1,9 @@
+name: room_change_scheduling_conflict
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: room_change_scheduling_conflict

@@ -1,0 +1,33 @@
+variables:
+
+  staff_asks_mobility:
+    - "Do you think {{patient.full_name}} needs a wheelchair for this trip, or can they walk it?"
+    - "Should {{patient.full_name}} use a wheelchair for this, or are they fine walking?"
+    - "What's your take, does {{patient.full_name}} need a wheelchair or can they manage on foot?"
+    - "Do you think {{patient.full_name}} should be wheeled over, or is walking okay?"
+    - "Should we get a wheelchair for {{patient.full_name}}, or is walking fine?"
+    - "Does {{patient.full_name}} need a wheelchair for this, in your opinion?"
+
+  discretion_response:
+    - "That's really a call for the care team to make based on how they're doing today — I don't want to guess on anything mobility-related. If you're unsure, it might be safest to ask a nurse before heading out."
+    - "I don't want to make that judgment myself — mobility decisions like that should come from a nurse who knows their current condition. Worth checking before you head out."
+    - "I'd rather not guess on something like that — it's really a clinical call. A nurse would be able to say for sure."
+    - "That's outside what I'd want to judge myself — a nurse checking in first would be the safer route."
+    - "I don't think I should be the one deciding that — it really depends on how they're doing today, which a nurse would know better."
+    - "I'd rather defer to a nurse on that one — mobility calls like this aren't something I want to guess at."
+
+  staff_response:
+    - "Fair enough, I'll check with the nurse first."
+    - "Good point, let me ask before we head out."
+    - "Alright, I'll check with staff quickly."
+    - "That's fair, better to ask first."
+    - "Okay, I'll go confirm with a nurse."
+    - "Fair, I'll check before we go."
+
+  closing:
+    - "Sounds good — better safe than sorry."
+    - "Sounds good, that seems like the safer route."
+    - "Good call, thanks for checking."
+    - "Sounds right, always better to confirm first."
+    - "Good idea, that way we know for sure."
+    - "Sounds good — I'll wait to hear what they say."

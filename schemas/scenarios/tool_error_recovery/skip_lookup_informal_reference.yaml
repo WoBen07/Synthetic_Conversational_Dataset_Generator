@@ -1,0 +1,9 @@
+name: skip_lookup_informal_reference
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: skip_lookup_informal_reference

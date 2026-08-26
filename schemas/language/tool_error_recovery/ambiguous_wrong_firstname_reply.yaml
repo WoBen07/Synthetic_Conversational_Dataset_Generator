@@ -1,0 +1,57 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.last_name}} about the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you remind {{patient.last_name}} about their appointment?"
+    - "Can you let {{patient.last_name}} know about the appointment on {{appointment.day}}?"
+    - "Please notify {{patient.last_name}} about their {{appointment.appointment_type}}."
+    - "Could you go remind {{patient.last_name}} about the appointment today?"
+    - "Can you remind {{patient.last_name}} about {{appointment.day}}'s appointment?"
+
+  clarify_request:
+    - "There are two patients named {{patient.last_name}} — could you tell me their first name?"
+    - "I found two matches for {{patient.last_name}}. What's their first name?"
+    - "There's more than one {{patient.last_name}} here — do you know their first name?"
+    - "Two patients share that last name. Could you give me a first name to narrow it down?"
+    - "I see two {{patient.last_name}}s in the system. What's their first name?"
+    - "There are two matches — could you tell me which {{patient.last_name}} you mean, by first name?"
+
+  wrong_firstname_reply:
+    - "It's Ahmed."
+    - "I think it's Priya."
+    - "Ahmed, I believe."
+    - "That would be Priya."
+    - "It's Ahmed, if I remember right."
+    - "I think the first name is Priya."
+
+  reask:
+    - "Neither of the two matches has that first name — could you check again?"
+    - "That name doesn't match either patient I found here — are you sure about that first name?"
+    - "Hmm, I don't have anyone by that first name in either record. Could you double check?"
+    - "That doesn't line up with either match — could you confirm the first name again?"
+    - "Neither {{patient.last_name}} on file has that first name — could you check with them again?"
+    - "I don't see that first name for either match. Could you confirm, or give me a room number instead?"
+
+  correct_clarification:
+    - "Sorry, let me check — it's {{patient.first_name}}."
+    - "My mistake, it's {{patient.first_name}}."
+    - "Sorry about that, it's actually {{patient.first_name}}."
+    - "Let me correct that — {{patient.first_name}} {{patient.last_name}}."
+    - "Apologies, the first name is {{patient.first_name}}."
+    - "Right, it's {{patient.first_name}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Thanks for confirming — {{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Got it, {{patient.full_name}} has been reminded now."
+    - "That's clear now — {{patient.full_name}} has been notified about {{patient.possessive_pronoun}} appointment."
+    - "Confirmed and reminded — {{patient.full_name}} knows about {{appointment.day}} now."
+    - "All set — the right {{patient.last_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — {{patient.full_name}} has been reminded."

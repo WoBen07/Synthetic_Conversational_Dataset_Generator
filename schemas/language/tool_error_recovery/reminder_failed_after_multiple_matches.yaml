@@ -1,0 +1,49 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.last_name}} about the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you remind {{patient.last_name}} about their appointment?"
+    - "Can you let {{patient.last_name}} know about the appointment on {{appointment.day}}?"
+    - "Please notify {{patient.last_name}} about their {{appointment.appointment_type}}."
+    - "Could you go remind {{patient.last_name}} about the appointment today?"
+    - "Can you remind {{patient.last_name}} about {{appointment.day}}'s appointment?"
+
+  clarify_request:
+    - "There are two patients named {{patient.last_name}} — could you tell me which room, or their first name?"
+    - "I found two matches for {{patient.last_name}}. Which one do you mean?"
+    - "There's more than one {{patient.last_name}} here — could you confirm the room number?"
+    - "Two patients share that last name. Could you give me a first name or room number?"
+    - "I see two {{patient.last_name}}s in the system. Which one is it?"
+    - "There are two matches — could you clarify which one you mean?"
+
+  clarification_response:
+    - "It's {{patient.full_name}}, room {{patient.room_number}}."
+    - "That's {{patient.full_name}}."
+    - "I mean {{patient.full_name}}, in room {{patient.room_number}}."
+    - "The one in room {{patient.room_number}}, {{patient.full_name}}."
+    - "{{patient.full_name}} is who I mean."
+    - "It's {{patient.full_name}}, room {{patient.room_number}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  failure_acknowledgment:
+    - "That reminder failed to send — let me re-verify {{patient.full_name}} by room number before trying again."
+    - "That didn't go through, even after confirming which one. Let me re-check the record by room and retry."
+    - "The reminder failed — I'll re-verify {{patient.full_name}}'s record by room number rather than assume it's still valid."
+    - "That attempt failed. Let me look {{patient.full_name}} up again by room to be sure, then retry."
+    - "Hmm, that didn't work. I'll re-confirm {{patient.full_name}} by room number and send it again."
+    - "That failed — let me re-verify the record for {{patient.full_name}} before sending it once more."
+
+  task_confirmation:
+    - "That worked — {{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Re-verified and resent — {{patient.full_name}} is reminded now."
+    - "Second attempt succeeded, {{patient.full_name}} has been notified about {{patient.possessive_pronoun}} appointment."
+    - "After re-checking the record, the reminder went through — {{patient.full_name}} is all set."
+    - "That's sorted now — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Confirmed and resent successfully — {{patient.full_name}} knows about {{appointment.day}} now."

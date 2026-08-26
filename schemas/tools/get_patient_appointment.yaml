@@ -19,3 +19,12 @@ output:
   appointment:
     type: object
     item_type: appointment
+
+
+# Placeholder convention used in templates/tool_error_recovery/ for the
+# "no appointment on file" case: appointment: null, with patient_id/name
+# still populated. This isn't formally declared above (the schema still
+# lists appointment as a required object) — it's an invented placeholder,
+# not a real contract. If the backend later returns something more
+# explicit (e.g. a "found: false" flag or a distinct not-found response),
+# update this schema and the affected templates to match.

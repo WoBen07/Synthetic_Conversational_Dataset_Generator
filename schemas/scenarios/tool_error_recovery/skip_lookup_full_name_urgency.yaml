@@ -1,0 +1,9 @@
+name: skip_lookup_full_name_urgency
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: skip_lookup_full_name_urgency

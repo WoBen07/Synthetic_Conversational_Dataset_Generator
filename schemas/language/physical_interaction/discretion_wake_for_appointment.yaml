@@ -1,0 +1,33 @@
+variables:
+
+  staff_asks_discretion:
+    - "{{patient.full_name}} is resting right now but has a {{appointment.appointment_type}} coming up soon — what do you think, should we wake them?"
+    - "{{patient.full_name}} is asleep and their {{appointment.appointment_type}} is soon — what's your take, wake them now or let them rest a bit more?"
+    - "{{patient.full_name}} is napping and has an appointment coming up — should we go ahead and wake them?"
+    - "{{patient.full_name}}'s resting, but the {{appointment.appointment_type}} is soon — what do you think, wake them now?"
+    - "{{patient.full_name}} is asleep right now with an appointment coming up — any thoughts on waking them?"
+    - "{{patient.full_name}} is resting and has a {{appointment.appointment_type}} soon — should we wake them up now or wait a bit?"
+
+  discretion_response:
+    - "Since the appointment is coming up soon, I'd gently let them know now so there's enough time to get ready — better than rushing them awake at the last minute. But if you'd rather let them rest a bit longer, that's your call too."
+    - "I'd lean toward waking them soon, just so they have time to get ready without feeling rushed. Though it's really your judgment call on timing."
+    - "Given how soon it is, I think a gentle wake-up now would give them more time to get ready comfortably. Up to you, though."
+    - "I'd suggest waking them a little early rather than late, so there's no last-minute rush. But you know their routine better than I do."
+    - "My instinct would be to wake them now, gently, so they're not rushed — but I'll defer to you on the exact timing."
+    - "I think a gentle wake-up now makes sense given the timing, so they're not scrambling later. That said, it's your call."
+
+  staff_decision:
+    - "Good point, let's wake them now then."
+    - "That makes sense, I'll go wake them gently."
+    - "Alright, let's do that then."
+    - "Good call, I'll go check on them now."
+    - "Fair enough, let's wake them up now."
+    - "Okay, I'll go gently wake them then."
+
+  closing_ack:
+    - "Sounds good, I'll go let {{patient.full_name}} know gently."
+    - "Alright, I'll head over and give them a gentle heads up."
+    - "Okay, I'll go check in with {{patient.full_name}} now."
+    - "Sounds good, I'll let them know softly that it's time."
+    - "Alright, heading over to gently remind {{patient.full_name}} now."
+    - "Okay, I'll go take care of that now."

@@ -1,0 +1,7 @@
+name: identification_corrected_wrong_room
+
+entities:
+  patient:
+    type: patient
+
+language_schema: identification_corrected_wrong_room

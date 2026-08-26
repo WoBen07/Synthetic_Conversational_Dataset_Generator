@@ -1,0 +1,33 @@
+variables:
+
+  jacket_request:
+    - "Could you help me get my jacket on?"
+    - "Can you help me into my jacket?"
+    - "Would you help me put my jacket on, please?"
+    - "Could you give me a hand with my jacket?"
+    - "Can you help me with this jacket?"
+    - "Could you assist me getting my jacket on?"
+
+  hands_off_help_offer:
+    - "I'm not able to physically help with that — I don't have any hands-on ability. But I'm happy to stay here while you get it on, and I can let a nurse know if you'd like real help."
+    - "I can't physically assist with that, I'm afraid — no hands-on tasks for me. I'm glad to keep you company, or flag it for staff if you need actual help."
+    - "That's not something I can do physically, unfortunately. I can stay with you while you manage it, or ask a nurse to help if needed."
+    - "I'm not able to physically handle that myself, but I don't want to leave you without support — I can stay here, or let staff know if you need hands-on help."
+    - "I can't do anything hands-on like that, but I'm happy to be here while you manage it, and I can mention it to a nurse if you'd like."
+    - "That's beyond what I can physically do, but I'm glad to stay close and flag it for staff if you need real assistance."
+
+  user_response:
+    - "That's alright, I think I can manage, thanks."
+    - "That's fine, I'll try on my own first."
+    - "Okay, thanks for offering anyway."
+    - "Alright, I'll ask a nurse if I really need help."
+    - "That's okay, thanks for staying though."
+    - "Understood, I'll give it a try myself."
+
+  closing:
+    - "Of course — I'm right here if you change your mind or need anything else."
+    - "Sounds good, just let me know if you need me to get a nurse."
+    - "Of course, take your time — I'm not going anywhere."
+    - "Alright, I'm here if you need anything at all."
+    - "No problem, just say the word if you'd like actual help."
+    - "Of course — I'll stay close in case you need anything."

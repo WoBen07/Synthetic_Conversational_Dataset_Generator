@@ -1,0 +1,33 @@
+variables:
+
+  appointment_question:
+    - "Can you tell me about my appointment today?"
+    - "Do I have an appointment today?"
+    - "Could you check my appointment for me?"
+    - "What's my appointment for today?"
+    - "Can you look up my appointment details?"
+    - "Could you confirm my appointment for me?"
+
+  no_appointment_disclosure:
+    - "I checked, and I'm not seeing any appointment on file for you right now — I don't want to guess at a day or time that isn't there."
+    - "I don't see an appointment listed for you at the moment. I'd rather tell you that clearly than make something up."
+    - "There's no appointment showing up in the system for you right now — I don't have a date or time to give you."
+    - "I looked, but there's nothing on file for you at the moment — I won't invent details that aren't there."
+    - "According to the system, you don't currently have an appointment scheduled — I don't want to guess at one."
+    - "I'm not finding any appointment for you right now. I'd rather say that plainly than make something up."
+
+  doubt_statement:
+    - "Are you sure? I definitely remember booking one."
+    - "That can't be right, I know I had one scheduled."
+    - "Are you sure you're looking at the right record?"
+    - "That seems wrong, I was told I had an appointment."
+    - "Hmm, are you sure that's accurate? I really thought there was one."
+    - "That doesn't sound right, can you check again?"
+
+  firm_restatement:
+    - "I understand the confusion, but I'm looking at the current record and there's genuinely nothing listed — I don't want to tell you a date that isn't real. It might be worth asking staff directly."
+    - "I hear you, but the system really doesn't show anything for you right now — rather than guess, I'd suggest checking with staff directly."
+    - "I know that's frustrating, but I don't want to make up a time just to give you an answer — the record shows nothing right now, so staff would be the best next step."
+    - "I understand it doesn't match what you expected, but I have to go by what's actually in the system, and it's empty right now — staff can look into it further."
+    - "I get that it's confusing, but I'd rather be accurate than guess — there's nothing on file at the moment, so it's worth double checking with staff."
+    - "I understand, but I don't have anything to base a date on right now — I'd rather say that honestly than invent one. Staff can confirm from their end."

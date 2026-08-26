@@ -1,0 +1,33 @@
+variables:
+
+  wrong_identification:
+    - "I found {{alternative_patient.full_name}} here in room {{alternative_patient.room_number}}."
+    - "This is {{alternative_patient.full_name}}, room {{alternative_patient.room_number}}."
+    - "Got it — {{alternative_patient.full_name}} here in {{alternative_patient.room_number}}."
+    - "That's {{alternative_patient.full_name}} in room {{alternative_patient.room_number}}."
+    - "I have {{alternative_patient.full_name}} here, room {{alternative_patient.room_number}}."
+    - "This should be {{alternative_patient.full_name}}, in {{alternative_patient.room_number}}."
+
+  correction_wrong_person:
+    - "No, that's not the right {{target_patient.last_name}} — I meant the one in room {{target_patient.room_number}}."
+    - "That's the wrong {{target_patient.last_name}}. I need the one in {{target_patient.room_number}}."
+    - "No, wrong {{target_patient.last_name}} — there are two, I meant the one in room {{target_patient.room_number}}."
+    - "That's a different {{target_patient.last_name}}. The one I meant is in {{target_patient.room_number}}."
+    - "No, that's the wrong one — the {{target_patient.last_name}} I need is in room {{target_patient.room_number}}."
+    - "Wrong {{target_patient.last_name}}, sorry — I meant room {{target_patient.room_number}}."
+
+  acknowledge_correction:
+    - "Thanks for catching that, let me check again."
+    - "Got it, sorry about that — let me look again."
+    - "Ah, my mistake — checking the right room now."
+    - "Thanks for the correction, one moment."
+    - "Understood, let me find the right one now."
+    - "Appreciate you catching that, checking again now."
+
+  corrected_confirmation:
+    - "Got it — {{target_patient.full_name}} in room {{target_patient.room_number}}. That's the right one."
+    - "Confirmed, this is {{target_patient.full_name}}, room {{target_patient.room_number}}."
+    - "That's better — {{target_patient.full_name}} in {{target_patient.room_number}}, correct this time."
+    - "Found the right one now — {{target_patient.full_name}}, room {{target_patient.room_number}}."
+    - "This is {{target_patient.full_name}} in {{target_patient.room_number}} — the correct patient."
+    - "Verified — {{target_patient.full_name}}, room {{target_patient.room_number}}. Thanks for the correction."

@@ -1,0 +1,9 @@
+name: no_match_ask_spelling
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: no_match_ask_spelling

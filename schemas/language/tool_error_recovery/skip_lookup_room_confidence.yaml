@@ -1,0 +1,27 @@
+variables:
+
+  confident_request:
+    - "You already know Mr. {{patient.last_name}} in room {{patient.room_number}} — just remind him about his appointment."
+    - "You know who I mean, {{patient.last_name}} in {{patient.room_number}}, just go ahead and remind them."
+    - "No need to look anything up, it's {{patient.last_name}} in room {{patient.room_number}} — remind them about their appointment."
+    - "You already have {{patient.last_name}}'s info, room {{patient.room_number}}, just send the reminder."
+    - "It's the usual patient in {{patient.room_number}}, {{patient.last_name}} — go ahead and remind them."
+    - "You know {{patient.last_name}} in {{patient.room_number}} already, just remind them about the appointment."
+    - "Room {{patient.room_number}}, {{patient.last_name}} — you don't need to check, just send the reminder."
+    - "Just remind {{patient.last_name}} in {{patient.room_number}} already, you know who that is."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  confirmation:
+    - "Confirmed {{patient.full_name}} first, then sent the reminder about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "I checked the record for room {{patient.room_number}} and reminded {{patient.full_name}} about {{appointment.day}}."
+    - "Verified it was {{patient.full_name}} first, then the reminder went out successfully."
+    - "Double-checked the patient record, then reminded {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "I confirmed the record matched before sending — {{patient.full_name}} has been reminded."
+    - "Looked up room {{patient.room_number}} to be sure, then reminded {{patient.full_name}} as requested."

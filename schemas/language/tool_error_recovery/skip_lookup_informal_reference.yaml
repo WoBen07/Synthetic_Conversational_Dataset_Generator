@@ -1,0 +1,27 @@
+variables:
+
+  informal_request:
+    - "The guy in {{patient.room_number}}, remind him about his appointment, would you?"
+    - "The patient in {{patient.room_number}} — can you remind them about their appointment?"
+    - "Whoever's in {{patient.room_number}}, remind them about the appointment coming up."
+    - "That one in room {{patient.room_number}}, remind them about their {{appointment.appointment_type}}."
+    - "The person in {{patient.room_number}}, could you send them a reminder about their appointment?"
+    - "Can you remind whoever's staying in {{patient.room_number}} about their appointment?"
+    - "The one in {{patient.room_number}} needs a reminder about their appointment, could you handle that?"
+    - "Room {{patient.room_number}}, remind them about the appointment, please."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  confirmation:
+    - "That's {{patient.full_name}} in {{patient.room_number}} — I confirmed the record and sent the reminder."
+    - "Found them — {{patient.full_name}}. Reminder about {{appointment.day}}'s {{appointment.appointment_type}} sent."
+    - "Looked up room {{patient.room_number}} first — {{patient.full_name}} has been reminded now."
+    - "Confirmed it was {{patient.full_name}} before sending anything — the reminder went through."
+    - "That's {{patient.full_name}}, verified by room {{patient.room_number}} — reminder sent successfully."
+    - "I checked the record for {{patient.room_number}} first, then reminded {{patient.full_name}}."

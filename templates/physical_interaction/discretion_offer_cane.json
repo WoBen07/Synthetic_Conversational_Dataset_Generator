@@ -1,0 +1,7 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{observation_offer}}" },
+    { "role": "user", "content": "{{patient_response}}" },
+    { "role": "assistant", "content": "{{closing_ack}}" }
+  ]
+}

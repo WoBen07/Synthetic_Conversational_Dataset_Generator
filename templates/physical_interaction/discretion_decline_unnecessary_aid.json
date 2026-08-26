@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{staff_asks_mobility}}" },
+    { "role": "assistant", "content": "{{discretion_response}}" },
+    { "role": "user", "content": "{{staff_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

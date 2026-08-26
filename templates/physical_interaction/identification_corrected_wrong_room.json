@@ -1,0 +1,25 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{initial_room_statement}}" },
+    { "role": "user", "content": "{{room_correction}}" },
+    { "role": "assistant", "content": "{{acknowledge_and_replan}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "navigate_to",
+        "arguments": {
+          "room": "{{patient.room_number}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "navigate_to",
+      "content": {
+        "status": "arrived",
+        "location": "{{patient.room_number}}"
+      }
+    },
+    { "role": "assistant", "content": "{{arrival_confirmation}}" }
+  ]
+}

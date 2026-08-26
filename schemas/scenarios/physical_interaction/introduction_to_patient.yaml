@@ -1,0 +1,7 @@
+name: introduction_to_patient
+
+entities:
+  patient:
+    type: patient
+
+language_schema: introduction_to_patient

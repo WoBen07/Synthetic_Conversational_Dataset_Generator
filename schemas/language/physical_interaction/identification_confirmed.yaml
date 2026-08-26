@@ -1,0 +1,25 @@
+variables:
+
+  identification_announcement:
+    - "I have {{patient.full_name}} here in room {{patient.room_number}}."
+    - "This is {{patient.full_name}}, room {{patient.room_number}} — is that who you were looking for?"
+    - "Found them — {{patient.full_name}} in room {{patient.room_number}}."
+    - "That's {{patient.full_name}} here in {{patient.room_number}}."
+    - "I've identified {{patient.full_name}}, room {{patient.room_number}}."
+    - "This should be {{patient.full_name}} in room {{patient.room_number}}."
+
+  confirmation_reply:
+    - "Yes, that's right."
+    - "Yep, that's the one."
+    - "Correct, that's them."
+    - "Yes, that's who I meant."
+    - "That's right, good."
+    - "Yep, that's the right patient."
+
+  closing_ack:
+    - "Great, I'll proceed with {{patient.full_name}}."
+    - "Perfect, continuing with {{patient.full_name}} then."
+    - "Good, I'll go ahead with {{patient.full_name}}."
+    - "Understood, moving forward with {{patient.full_name}}."
+    - "Great, glad I had the right one — proceeding now."
+    - "Perfect, I'll continue with {{patient.full_name}} as confirmed."

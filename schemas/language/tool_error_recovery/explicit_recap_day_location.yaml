@@ -1,0 +1,17 @@
+variables:
+
+  day_location_question:
+    - "What day is my appointment, and where exactly do I need to go?"
+    - "Can you tell me the day and the room for my appointment?"
+    - "Which day is it on, and what's the location?"
+    - "I need the exact day and place for my appointment, please."
+    - "Can you confirm both the day and the location of my appointment?"
+    - "What day and where — could you give me both details?"
+
+  explicit_answer:
+    - "Your appointment is on {{appointment.day}}, and it's in {{appointment.location}}."
+    - "It's on {{appointment.day}}, at {{appointment.location}} — both confirmed from your record."
+    - "The day is {{appointment.day}}, and the location is {{appointment.location}}."
+    - "You're set for {{appointment.day}}, in {{appointment.location}}."
+    - "That's {{appointment.day}} for the day, and {{appointment.location}} for the location."
+    - "Confirmed: {{appointment.day}}, {{appointment.location}}."

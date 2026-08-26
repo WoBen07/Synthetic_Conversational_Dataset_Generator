@@ -1,0 +1,7 @@
+name: discretion_offer_cane
+
+entities:
+  patient:
+    type: patient
+
+language_schema: discretion_offer_cane

@@ -1,0 +1,30 @@
+name: ambiguous_wrong_firstname_reply
+
+entities:
+  target_patient:
+    type: patient
+  alternative_patient:
+    type: patient
+  appointment:
+    type: appointment
+
+aliases:
+  patient: target_patient
+
+constraints:
+  - type: equal
+    fields:
+      - target_patient.last_name
+      - alternative_patient.last_name
+
+  - type: different
+    fields:
+      - target_patient.patient_id
+      - alternative_patient.patient_id
+
+  - type: different
+    fields:
+      - target_patient.first_name
+      - alternative_patient.first_name
+
+language_schema: ambiguous_wrong_firstname_reply

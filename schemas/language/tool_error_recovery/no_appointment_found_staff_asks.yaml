@@ -1,0 +1,33 @@
+variables:
+
+  staff_question:
+    - "Can you check what appointment {{patient.full_name}} has today?"
+    - "Could you look up {{patient.full_name}}'s appointment for me?"
+    - "Can you confirm {{patient.full_name}}'s appointment details?"
+    - "Could you check the appointment for {{patient.full_name}}?"
+    - "Can you pull up {{patient.full_name}}'s appointment?"
+    - "Could you tell me what appointment {{patient.full_name}} has scheduled?"
+
+  no_appointment_disclosure:
+    - "I checked, and there's no appointment on file for {{patient.full_name}} right now — I don't want to guess at a day or time that isn't there."
+    - "I don't see an appointment listed for {{patient.full_name}} at the moment. I'd rather tell you that clearly than make something up."
+    - "There's nothing showing up in the system for {{patient.full_name}} right now — I don't have a date or time to give you."
+    - "I looked, but there's no appointment on file for {{patient.full_name}} at the moment — I won't invent details that aren't there."
+    - "According to the system, {{patient.full_name}} doesn't currently have an appointment scheduled — I don't want to guess at one."
+    - "I'm not finding any appointment for {{patient.full_name}} right now. I'd rather say that plainly than make something up."
+
+  staff_response:
+    - "Really? I was sure there was one scheduled."
+    - "Hm, that's odd, let me double check on my end too."
+    - "Okay, maybe it got moved or cancelled somewhere."
+    - "That's strange, are you sure you checked the right patient?"
+    - "Okay, I'll look into it from another system."
+    - "Alright, thanks for checking anyway."
+
+  closing:
+    - "Of course — I only have what's in this system, so it's worth cross-checking elsewhere if something seems off."
+    - "That's fair, it's possible something's out of sync — happy to check again if you get updated info."
+    - "I'd recommend double checking the scheduling system directly, since I only see what's logged here."
+    - "It's possible something changed recently — I'll check again if you find anything different."
+    - "I only see what's in this system, so cross-checking elsewhere is a good next step."
+    - "Understandable — let me know if you find anything, and I'll happily check again."

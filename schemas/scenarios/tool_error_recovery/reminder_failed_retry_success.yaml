@@ -1,0 +1,9 @@
+name: reminder_failed_retry_success
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: reminder_failed_retry_success

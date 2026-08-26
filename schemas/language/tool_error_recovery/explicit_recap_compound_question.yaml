@@ -1,0 +1,17 @@
+variables:
+
+  compound_question:
+    - "What type of appointment is it, and what day and room is it in?"
+    - "Can you tell me the appointment type, the day, and the location, all together?"
+    - "I need to know the type, day, and where it is — can you give me all three?"
+    - "What kind of appointment, which day, and what room — could you cover all of that?"
+    - "Could you tell me everything — the type, the day, and the location?"
+    - "What's the appointment type, and when and where is it exactly?"
+
+  explicit_answer:
+    - "It's a {{appointment.appointment_type}}, scheduled for {{appointment.day}}, in {{appointment.location}}."
+    - "That's a {{appointment.appointment_type}} on {{appointment.day}}, located in {{appointment.location}}."
+    - "To cover all three: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."
+    - "You have a {{appointment.appointment_type}} on {{appointment.day}}, taking place in {{appointment.location}}."
+    - "Here's everything: it's a {{appointment.appointment_type}}, on {{appointment.day}}, at {{appointment.location}}."
+    - "Confirmed: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."

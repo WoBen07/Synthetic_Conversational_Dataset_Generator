@@ -1,0 +1,33 @@
+variables:
+
+  appointment_question:
+    - "Can you tell me about my appointment today?"
+    - "Do I have an appointment today?"
+    - "Could you check my appointment for me?"
+    - "What's my appointment for today?"
+    - "Can you look up my appointment details?"
+    - "Could you confirm my appointment for me?"
+
+  no_appointment_disclosure:
+    - "I checked, and I'm not seeing any appointment on file for you right now — I don't want to guess at a day or time that isn't there."
+    - "I don't see an appointment listed for you at the moment. I'd rather tell you that clearly than make something up."
+    - "There's no appointment showing up in the system for you right now — I don't have a date or time to give you."
+    - "I looked, but there's nothing on file for you at the moment — I won't invent details that aren't there."
+    - "According to the system, you don't currently have an appointment scheduled — I don't want to guess at one."
+    - "I'm not finding any appointment for you right now. I'd rather say that plainly than make something up."
+
+  user_response:
+    - "Really? I was sure I had one."
+    - "Hm, that's odd, I thought there was one scheduled."
+    - "Okay, maybe it got cancelled then."
+    - "That's strange, are you sure you checked correctly?"
+    - "Okay, I'll ask staff about it then."
+    - "Alright, thanks for checking anyway."
+
+  closing:
+    - "I understand it's confusing — it might be worth checking with staff directly, since I only have what's in the system."
+    - "That's fair, staff would be able to confirm from their end if something's off with the schedule."
+    - "I'd recommend checking with the front desk, just to be sure — I only see what's logged here."
+    - "It's possible something changed on their end — staff can look into it further if you'd like."
+    - "I only see what's in the system, so staff would be the best next step to sort this out."
+    - "Understandable — I'd suggest asking staff directly, since that's the most reliable way to double check."

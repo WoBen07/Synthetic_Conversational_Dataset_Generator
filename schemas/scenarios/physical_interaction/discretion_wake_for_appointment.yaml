@@ -1,0 +1,9 @@
+name: discretion_wake_for_appointment
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: discretion_wake_for_appointment

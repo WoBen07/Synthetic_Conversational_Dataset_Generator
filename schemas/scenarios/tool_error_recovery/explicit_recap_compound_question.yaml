@@ -1,0 +1,9 @@
+name: explicit_recap_compound_question
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: explicit_recap_compound_question

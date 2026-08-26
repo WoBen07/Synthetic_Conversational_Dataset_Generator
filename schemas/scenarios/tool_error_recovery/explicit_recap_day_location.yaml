@@ -1,0 +1,9 @@
+name: explicit_recap_day_location
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: explicit_recap_day_location

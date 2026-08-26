@@ -1,0 +1,33 @@
+variables:
+
+  fetch_request:
+    - "Could you hand me my glasses from the table?"
+    - "Can you pass me my water cup, it's right there?"
+    - "Could you grab my book from the nightstand for me?"
+    - "Can you hand me the remote, please?"
+    - "Could you pass me my phone from over there?"
+    - "Can you grab that blanket for me?"
+
+  hands_off_help_offer:
+    - "I'm not able to physically pick things up or hand them to you, I'm afraid — I don't have that kind of capability. I can let a nurse know if you'd like a hand, or I'm happy to guide you if it helps to know exactly where it is."
+    - "I can't physically grab or hand you things, unfortunately — no manipulation ability at all. I can flag it for staff, or tell you exactly where it is if that helps."
+    - "That's not something I can do physically — I'm not able to pick anything up. I'm glad to let a nurse know, or describe exactly where it is for you."
+    - "I'm not able to physically reach or hand things over, but I don't want to leave you without help — I can let staff know, or guide you to exactly where it is."
+    - "I can't physically handle objects like that, but I can flag it for a nurse, or tell you precisely where it is if that's useful."
+    - "That's beyond what I can physically do, but I'm happy to let staff know, or point you toward exactly where it is."
+
+  user_response:
+    - "That's alright, I can reach it myself, thanks."
+    - "Okay, no problem, I'll get it."
+    - "That's fine, thanks for offering anyway."
+    - "Alright, I'll ask a nurse if I really can't reach it."
+    - "That's okay, I think I can manage."
+    - "Understood, I'll try to get it myself."
+
+  closing:
+    - "Of course — let me know if you'd like me to get a nurse instead."
+    - "Sounds good, I'm here if you need anything else."
+    - "Of course, take your time — just ask if you need help."
+    - "Alright, I'm here if you need anything at all."
+    - "No problem, just say the word if you'd like actual help."
+    - "Of course — I'll stay close in case you need anything."

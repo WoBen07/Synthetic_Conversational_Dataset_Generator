@@ -1,0 +1,63 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{confident_request}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "room_number": "{{patient.room_number}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "remind_patient",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "message": "{{reminder_message}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "remind_patient",
+      "content": {
+        "status": "success"
+      }
+    },
+    { "role": "assistant", "content": "{{confirmation}}" }
+  ]
+}

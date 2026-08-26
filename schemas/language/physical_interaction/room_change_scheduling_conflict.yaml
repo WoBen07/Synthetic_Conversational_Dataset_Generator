@@ -1,0 +1,33 @@
+variables:
+
+  new_location:
+    - "Therapy Room B"
+    - "Consultation Room 2"
+    - "the Sunroom"
+    - "Exam Room 5"
+    - "the East Wing consultation room"
+    - "Room 12, second floor"
+
+  staff_informs_change:
+    - "Heads up — {{appointment.appointment_type}} got moved to {{new_location}}, there's a scheduling conflict in {{appointment.location}}."
+    - "Quick note — {{patient.full_name}}'s appointment is now in {{new_location}} instead of {{appointment.location}}, double booking issue."
+    - "Just so you know, the {{appointment.appointment_type}} moved to {{new_location}} — {{appointment.location}} got double booked."
+    - "FYI, {{appointment.location}} has a scheduling conflict, so {{patient.full_name}}'s appointment is now in {{new_location}}."
+    - "Small change — {{appointment.location}} is double booked, so head to {{new_location}} instead for {{patient.full_name}}'s appointment."
+    - "Just letting you know, the appointment moved to {{new_location}} because of a conflict in {{appointment.location}}."
+
+  acknowledge_and_confirm:
+    - "Got it, thanks for letting me know — I'll take {{patient.full_name}} to {{new_location}} instead of {{appointment.location}}."
+    - "Understood, updating the plan — heading to {{new_location}} with {{patient.full_name}} now."
+    - "Thanks for the heads up, I'll bring {{patient.full_name}} to {{new_location}} instead."
+    - "Noted, redirecting to {{new_location}} for {{patient.full_name}}'s appointment."
+    - "Got it, I'll adjust and take {{patient.full_name}} to {{new_location}} now."
+    - "Thanks for telling me — heading to {{new_location}} instead of {{appointment.location}}."
+
+  confirmation:
+    - "We've arrived at {{new_location}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."
+    - "Here at {{new_location}} now, all set for {{patient.full_name}}'s appointment."
+    - "Made it to {{new_location}} without any trouble."
+    - "Arrived at {{new_location}} with {{patient.full_name}}, ready for the appointment."
+    - "That's {{new_location}} — {{patient.full_name}} is checked in for the {{appointment.appointment_type}}."
+    - "We're at {{new_location}} now, thanks again for the update."

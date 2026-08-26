@@ -1,0 +1,41 @@
+variables:
+
+  wrong_room_guess:
+    - "the day room"
+    - "the therapy room"
+    - "Room 3B"
+    - "the wrong wing"
+    - "the room by the elevator"
+    - "the sunroom"
+
+  initial_room_statement:
+    - "I'll head to {{wrong_room_guess}} to check on {{patient.full_name}}."
+    - "Heading to {{wrong_room_guess}} now for {{patient.full_name}}."
+    - "I'm on my way to {{wrong_room_guess}} to find {{patient.full_name}}."
+    - "Going to {{wrong_room_guess}} to check on {{patient.full_name}} now."
+    - "I'll go check {{wrong_room_guess}} for {{patient.full_name}}."
+    - "Heading over to {{wrong_room_guess}} for {{patient.full_name}} now."
+
+  room_correction:
+    - "Actually, {{patient.full_name}} is in {{patient.room_number}}, not {{wrong_room_guess}}."
+    - "Wait, that's wrong — {{patient.full_name}} is in {{patient.room_number}}."
+    - "No, {{patient.full_name}} is actually in {{patient.room_number}}, not {{wrong_room_guess}}."
+    - "That's not right, {{patient.full_name}} is in room {{patient.room_number}}."
+    - "Hold on, {{patient.full_name}}'s room is {{patient.room_number}}, not {{wrong_room_guess}}."
+    - "Actually {{patient.full_name}} moved to {{patient.room_number}}, not {{wrong_room_guess}}."
+
+  acknowledge_and_replan:
+    - "Thanks for the correction — heading to {{patient.room_number}} instead."
+    - "Got it, redirecting to {{patient.room_number}} now."
+    - "Noted, going to {{patient.room_number}} instead of {{wrong_room_guess}}."
+    - "Thanks, updating my route to {{patient.room_number}} now."
+    - "Appreciate the correction — heading to {{patient.room_number}}."
+    - "Understood, redirecting now to {{patient.room_number}}."
+
+  arrival_confirmation:
+    - "Here now, with {{patient.full_name}} in {{patient.room_number}}."
+    - "Arrived at {{patient.room_number}} — {{patient.full_name}} is here."
+    - "Made it to the right room — {{patient.full_name}}, {{patient.room_number}}."
+    - "Confirmed, I'm with {{patient.full_name}} in {{patient.room_number}} now."
+    - "That's sorted — I'm with {{patient.full_name}} in the correct room now."
+    - "Here with {{patient.full_name}} in {{patient.room_number}}, thanks for the correction."

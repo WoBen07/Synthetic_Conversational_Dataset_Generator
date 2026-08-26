@@ -1,0 +1,49 @@
+variables:
+
+  new_location:
+    - "Therapy Room B"
+    - "Consultation Room 2"
+    - "the Sunroom"
+    - "Exam Room 5"
+    - "the East Wing consultation room"
+    - "Room 12, second floor"
+
+  ask_to_go:
+    - "Can you take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
+    - "Could you bring {{patient.full_name}} to {{appointment.location}} for their appointment?"
+    - "Can you escort {{patient.full_name}} to {{appointment.location}} now?"
+    - "Please take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}."
+    - "Could you walk {{patient.full_name}} over to {{appointment.location}} for the appointment?"
+    - "Can you bring {{patient.full_name}} to their {{appointment.appointment_type}} in {{appointment.location}}?"
+
+  starting_statement:
+    - "Sure, let's head to {{appointment.location}} for the {{appointment.appointment_type}}."
+    - "Of course, on our way to {{appointment.location}} now."
+    - "Sure thing, heading to {{appointment.location}} with {{patient.full_name}}."
+    - "Absolutely, let's go to {{appointment.location}} now."
+    - "Sure, {{appointment.location}} it is — let's head over."
+    - "Of course, starting toward {{appointment.location}} now."
+
+  mid_escort_update:
+    - "Wait — actually {{appointment.location}} just became unavailable, they need to go to {{new_location}} instead."
+    - "Hold on, change of plan — {{appointment.location}} is out, head to {{new_location}} instead."
+    - "Actually, stop — {{appointment.location}} just got closed off, go to {{new_location}} instead."
+    - "Wait, quick change — {{appointment.location}} isn't available anymore, it's {{new_location}} now."
+    - "Hold on a second — {{appointment.location}} just became unusable, redirect to {{new_location}}."
+    - "Actually, there's been a last-minute change — {{new_location}} instead of {{appointment.location}}."
+
+  redirect_acknowledgment:
+    - "Got it, redirecting to {{new_location}} instead of {{appointment.location}}."
+    - "Understood, changing course — heading to {{new_location}} now."
+    - "No problem, updating the route to {{new_location}}."
+    - "Thanks for catching that — heading to {{new_location}} instead."
+    - "Noted, redirecting {{patient.full_name}} to {{new_location}} now."
+    - "Got it, adjusting now — {{new_location}} it is."
+
+  arrival_confirmation:
+    - "We've arrived at {{new_location}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."
+    - "Here at {{new_location}} now, no trouble redirecting."
+    - "Made it to {{new_location}} — all set despite the change."
+    - "Arrived at {{new_location}} with {{patient.full_name}}, ready for the appointment."
+    - "That's {{new_location}} — {{patient.full_name}} is checked in for the {{appointment.appointment_type}}."
+    - "We're at {{new_location}} now, smooth redirect."

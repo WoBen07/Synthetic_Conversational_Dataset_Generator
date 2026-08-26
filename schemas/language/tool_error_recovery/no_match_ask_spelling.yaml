@@ -1,0 +1,49 @@
+variables:
+
+  initial_request:
+    - "Could you remind Mr. Kowalski about his appointment?"
+    - "Can you remind Mrs. Petrova about her appointment today?"
+    - "Please remind Mr. Dubois about his upcoming appointment."
+    - "Could you go remind Ms. Nowak about her appointment?"
+    - "Can you remind Mr. Ivanov about his appointment, please?"
+    - "Please let Mrs. Kowalczyk know about her appointment today."
+
+  attempted_name:
+    - "Kowalski"
+    - "Petrova"
+    - "Dubois"
+    - "Nowak"
+    - "Ivanov"
+    - "Kowalczyk"
+
+  ask_spelling:
+    - "I couldn't find anyone by that name — could you double check the spelling for me?"
+    - "I'm not finding a match for that name. Could you confirm how it's spelled?"
+    - "That name isn't coming up in the system — would you mind spelling it out for me?"
+    - "No matches for that name. Could you check the spelling and try again?"
+    - "I can't find anyone under that name — could you give me the correct spelling?"
+    - "That name doesn't seem to be in the system — could you confirm the spelling?"
+
+  corrected_name_response:
+    - "Sorry, it's {{patient.last_name}}."
+    - "Ah, my mistake — it's {{patient.last_name}}."
+    - "Let me correct that, it's {{patient.last_name}}."
+    - "Sorry about that, the name is {{patient.last_name}}."
+    - "My apologies, it should be {{patient.last_name}}."
+    - "Right, it's actually {{patient.last_name}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Found {{patient.full_name}} — reminder about {{appointment.day}}'s {{appointment.appointment_type}} sent successfully."
+    - "Got it, {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "That worked — {{patient.full_name}} is reminded about {{appointment.day}} now."
+    - "Thanks for the correction, {{patient.full_name}} has been notified about the appointment."
+    - "All set — {{patient.full_name}} now knows about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — reminder delivered to {{patient.full_name}} successfully."

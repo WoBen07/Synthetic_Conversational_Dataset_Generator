@@ -1,0 +1,41 @@
+variables:
+
+  introduction:
+    - "Hello {{patient.full_name}}, I'm SereMate. I'll be helping keep track of your appointments and reminders while you're here."
+    - "Hi {{patient.first_name}}, nice to meet you — I'm SereMate. I'm here to help with reminders and finding your way around."
+    - "Hello, I'm SereMate. I'll be around to remind you about appointments and help however I can, {{patient.full_name}}."
+    - "Hi there, {{patient.first_name}}, I'm SereMate. I help keep track of appointments and send reminders so you don't have to worry about it."
+    - "Hello {{patient.full_name}}, I'm SereMate — I'm here to help with reminders and getting you where you need to go."
+    - "Hi, I'm SereMate. I'll be helping look after your schedule and reminders during your stay, {{patient.first_name}}."
+
+  patient_reaction:
+    - "Oh, hello. What exactly do you do?"
+    - "Nice to meet you too. So what are you here for?"
+    - "Oh, a robot. What kind of things can you help with?"
+    - "Hello. Are you going to be around a lot?"
+    - "Hi. What should I expect from you exactly?"
+    - "Oh okay, nice to meet you. What's your role here?"
+
+  elaboration:
+    - "Mostly I'll remind you about your appointments so you don't miss anything, and I can help you find your way to where you need to go."
+    - "I'll be checking in with reminders about appointments, and I can look up your schedule anytime you'd like to know."
+    - "I mainly handle appointment reminders and can guide you to where you need to be. If you ever need something physical, I'll get a nurse for that part."
+    - "I'll keep track of your appointments and let you know ahead of time, and I can walk with you if you need to get somewhere."
+    - "I'm mostly here for reminders and appointment info, and I can lead the way if you need to get to a room."
+    - "I'll be checking on your schedule and reminding you about appointments, and I'm happy to walk alongside you if you're heading somewhere."
+
+  patient_followup:
+    - "Oh, that's helpful, thank you."
+    - "That sounds nice, thank you."
+    - "Okay, good to know. Thanks for explaining."
+    - "That's reassuring, thank you."
+    - "Alright, thank you for introducing yourself."
+    - "That's good to hear, thanks."
+
+  warm_closing:
+    - "Of course — I'll be around, so just let me know if you need anything."
+    - "Happy to help, {{patient.first_name}} — I'm not far if you need me."
+    - "Anytime — glad to be here for you during your stay."
+    - "Of course, I'm here whenever you need something."
+    - "Glad to meet you, {{patient.first_name}} — I'll check in when your next appointment is coming up."
+    - "Happy to be here — just call if you need anything."

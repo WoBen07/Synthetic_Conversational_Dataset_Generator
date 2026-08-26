@@ -17,3 +17,11 @@ output:
   status:
     type: enum
     values: [success, failed]
+
+
+# Placeholder convention used in templates/tool_error_recovery/: "failed"
+# represents a rejected call with an invalid/stale patient_id (e.g. the
+# patient record changed between find_patient and remind_patient). No
+# separate error code exists yet. If the real backend returns a more
+# specific error (e.g. reason/error_code), update the affected templates
+# to match instead of the bare "failed" status.

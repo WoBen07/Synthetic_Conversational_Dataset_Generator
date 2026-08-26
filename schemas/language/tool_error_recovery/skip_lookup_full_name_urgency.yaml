@@ -1,0 +1,27 @@
+variables:
+
+  urgent_request:
+    - "Quick, no time to look anything up, just remind {{patient.full_name}} now about the {{appointment.appointment_type}}!"
+    - "Hurry, remind {{patient.full_name}} right now, no time to check anything, about {{appointment.day}}'s appointment!"
+    - "We're in a rush — just get {{patient.full_name}} reminded about the {{appointment.appointment_type}} now, skip the lookup!"
+    - "No time to waste, remind {{patient.full_name}} immediately about {{appointment.day}}!"
+    - "Fast, please — remind {{patient.full_name}} about the {{appointment.appointment_type}} right now, don't bother checking!"
+    - "Emergency reminder needed — {{patient.full_name}}, {{appointment.appointment_type}}, go now, skip the lookup!"
+    - "We need this done immediately, remind {{patient.full_name}} about {{appointment.day}}, no time to verify!"
+    - "Quick quick, remind {{patient.full_name}} right now about the appointment, forget checking first!"
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  confirmation:
+    - "Done — verified it was {{patient.full_name}} and reminded {{patient.object_pronoun}} right away, quick but still checked."
+    - "Handled quickly — confirmed the record first, then reminded {{patient.full_name}} immediately."
+    - "Fast but verified — {{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "I still checked the record first, just quickly — {{patient.full_name}} is reminded now."
+    - "Done in a hurry, but I confirmed {{patient.full_name}} before sending the reminder."
+    - "Quick turnaround — verified and reminded {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."

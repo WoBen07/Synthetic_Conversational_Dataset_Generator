@@ -1,0 +1,33 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you go remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}?"
+    - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Could you remind {{patient.full_name}} that {{patient.pronoun}} has an appointment on {{appointment.day}}?"
+    - "Can you notify {{patient.full_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}} on {{appointment.day}}?"
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  failure_acknowledgment:
+    - "That reminder failed to send — let me re-verify {{patient.full_name}} by room number this time, in case the record ID was stale."
+    - "That didn't go through. Let me look {{patient.full_name}} up again by room, just to be sure I have the current record."
+    - "The reminder failed — I'll re-check {{patient.full_name}}'s record using the room number before trying again."
+    - "That attempt failed. Let me re-verify by room number rather than assume the old ID still works."
+    - "Hmm, that didn't work. I'll search for {{patient.full_name}} again by room number and retry."
+    - "That failed to send — let me re-confirm the record by room number before sending it again."
+
+  task_confirmation:
+    - "That worked — {{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Re-verified by room and resent — {{patient.full_name}} is reminded now."
+    - "Second attempt succeeded, {{patient.full_name}} has been notified about {{patient.possessive_pronoun}} appointment."
+    - "After re-checking by room number, the reminder went through — {{patient.full_name}} is all set."
+    - "That's sorted now — {{patient.full_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Confirmed and resent successfully — {{patient.full_name}} knows about {{appointment.day}} now."

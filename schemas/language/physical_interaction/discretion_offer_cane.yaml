@@ -1,0 +1,25 @@
+variables:
+
+  observation_offer:
+    - "I noticed you seem a little unsteady today, {{patient.full_name}} — would you like me to let a nurse know so they can bring you a cane or walker for extra support?"
+    - "You seem a bit wobbly on your feet today, {{patient.full_name}}. Would it help if I mentioned to staff that you might want a cane?"
+    - "I've noticed you moving a little carefully today, {{patient.full_name}} — want me to flag it to a nurse in case a walking aid would help?"
+    - "You seem a touch unsteady, {{patient.full_name}} — should I let staff know in case you'd like a cane or walker?"
+    - "I noticed some hesitation in your steps today, {{patient.full_name}}. Would you like me to mention a cane to the nurse?"
+    - "You seem a little less steady than usual, {{patient.full_name}} — want me to ask staff about a walking aid for you?"
+
+  patient_response:
+    - "Actually, that might be a good idea, thanks."
+    - "Yeah, I have been feeling a bit shaky, that would help."
+    - "That's kind of you to notice, sure, go ahead."
+    - "I appreciate you asking, yes please."
+    - "You're right, I could use one, thank you."
+    - "Sure, that would probably help, thanks for noticing."
+
+  closing_ack:
+    - "I'll mention it to staff so they can help set that up for you."
+    - "Of course, I'll let a nurse know right away."
+    - "Sounds good, I'll pass that along to the care team."
+    - "Noted, I'll flag that for staff to bring one to you."
+    - "Will do — I'll let them know so they can get one for you."
+    - "I'll take care of letting staff know about that."

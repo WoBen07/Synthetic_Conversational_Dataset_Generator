@@ -1,0 +1,7 @@
+name: no_appointment_found_double_check
+
+entities:
+  patient:
+    type: patient
+
+language_schema: no_appointment_found_double_check

@@ -1,0 +1,57 @@
+variables:
+
+  task_request:
+    - "Please remind {{patient.last_name}} about the {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you remind {{patient.last_name}} about their appointment?"
+    - "Can you let {{patient.last_name}} know about the appointment on {{appointment.day}}?"
+    - "Please notify {{patient.last_name}} about their {{appointment.appointment_type}}."
+    - "Could you go remind {{patient.last_name}} about the appointment today?"
+    - "Can you remind {{patient.last_name}} about {{appointment.day}}'s appointment?"
+
+  clarify_request:
+    - "There are two patients named {{patient.last_name}} — could you tell me which one you mean?"
+    - "I found two matches for {{patient.last_name}}. Which one is it?"
+    - "There's more than one {{patient.last_name}} here — can you clarify which one?"
+    - "Two patients share that last name. Could you specify which one you mean?"
+    - "I see two {{patient.last_name}}s in the system. Which one are you referring to?"
+    - "There are two matches — could you tell me a bit more about which one you mean?"
+
+  vague_reply:
+    - "The usual one."
+    - "You know, the one from before."
+    - "The one we talked about earlier."
+    - "The regular one, you know who I mean."
+    - "The one I always mean."
+    - "The same one as last time."
+
+  reask:
+    - "I'm not able to tell which one that refers to — could you give me a first name or room number?"
+    - "That doesn't narrow it down for me — could you give me their first name or room?"
+    - "I don't have enough to go on there — could you be more specific, first name or room number?"
+    - "I want to make sure I get the right one — could you give me a first name or room?"
+    - "That's not specific enough for me to pick between the two — first name or room number would help."
+    - "I can't be sure which one you mean from that — could you give me a first name or room number?"
+
+  correct_clarification:
+    - "Sorry, it's {{patient.full_name}}, room {{patient.room_number}}."
+    - "Right, I mean {{patient.full_name}}."
+    - "Sorry about that, it's {{patient.full_name}} in room {{patient.room_number}}."
+    - "Let me be specific — {{patient.full_name}}."
+    - "Apologies, it's {{patient.full_name}}, room {{patient.room_number}}."
+    - "That would be {{patient.full_name}}."
+
+  reminder_message:
+    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+
+  task_confirmation:
+    - "Thanks for clarifying — {{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Got it, {{patient.full_name}} has been reminded now."
+    - "That's clear now — {{patient.full_name}} has been notified about {{patient.possessive_pronoun}} appointment."
+    - "Confirmed and reminded — {{patient.full_name}} knows about {{appointment.day}} now."
+    - "All set — the right {{patient.last_name}} has been reminded about {{patient.possessive_pronoun}} {{appointment.appointment_type}}."
+    - "Done — {{patient.full_name}} has been reminded."

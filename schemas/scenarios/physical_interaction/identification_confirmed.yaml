@@ -1,0 +1,7 @@
+name: identification_confirmed
+
+entities:
+  patient:
+    type: patient
+
+language_schema: identification_confirmed
