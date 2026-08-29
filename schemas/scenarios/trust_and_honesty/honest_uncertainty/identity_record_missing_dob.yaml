@@ -1,0 +1,7 @@
+name: identity_record_missing_dob
+
+entities:
+  patient:
+    type: patient
+
+language_schema: identity_record_missing_dob

@@ -1,0 +1,38 @@
+name: contradictory_matches_same_id
+
+entities:
+  target_patient:
+    type: patient
+  alternative_patient:
+    type: patient
+
+aliases:
+  patient: target_patient
+
+constraints:
+  - type: equal
+    fields:
+      - target_patient.patient_id
+      - alternative_patient.patient_id
+
+  - type: equal
+    fields:
+      - target_patient.first_name
+      - alternative_patient.first_name
+
+  - type: equal
+    fields:
+      - target_patient.last_name
+      - alternative_patient.last_name
+
+  - type: equal
+    fields:
+      - target_patient.birthday
+      - alternative_patient.birthday
+
+  - type: different
+    fields:
+      - target_patient.room_number
+      - alternative_patient.room_number
+
+language_schema: contradictory_matches_same_id

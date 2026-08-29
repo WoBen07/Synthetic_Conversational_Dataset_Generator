@@ -1,6 +1,7 @@
 from .placeholder_validator import PlaceholderValidator
 from .structure_validator import StructureValidator
 from .tool_validator import ToolValidator
+from .conversation_flow_validator import ConversationFlowValidator
 from .pronoun_validator import PronounValidator
 from .weather_consistency_validator import WeatherConsistencyValidator
 from .weather_recommendation_validator import WeatherRecommendationValidator
@@ -17,6 +18,8 @@ class Validator:
             PlaceholderValidator(),
 
             ToolValidator(),
+
+            ConversationFlowValidator(),
 
             PronounValidator(),
 

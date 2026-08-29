@@ -1,0 +1,33 @@
+variables:
+
+  user_question:
+    - "Where's my appointment taking place?"
+    - "Which room do I need to go to for my appointment?"
+    - "Can you tell me where to go for my appointment?"
+    - "What's the location for my appointment?"
+    - "Where am I meant to be for my appointment?"
+    - "Could you check which room my appointment is in?"
+
+  missing_location_disclosure:
+    - "I can see your {{appointment.appointment_type}} is on {{appointment.day}}, but the location field in the record is blank. I don't want to guess a room, so I'd rather tell you it's missing."
+    - "Your {{appointment.appointment_type}} on {{appointment.day}} is confirmed, but there's no room recorded against it; that field is empty. I won't invent one."
+    - "The record shows {{appointment.appointment_type}}, {{appointment.day}}, and then nothing in the location field. Rather than guess where it is, I'd flag that the room is missing."
+    - "I've got the day, {{appointment.day}}, and the type, {{appointment.appointment_type}}, but the location entry is left blank. I can't reliably tell you the room from this."
+    - "Everything's there except the room: {{appointment.appointment_type}} on {{appointment.day}}, location field empty. I'd rather be upfront about the gap than pick a room."
+    - "The location for your {{appointment.day}} {{appointment.appointment_type}} hasn't been filled in on the record. I don't want to send you to the wrong place, so I won't guess."
+
+  user_ack:
+    - "Okay, I'll ask at the desk where to go."
+    - "Alright, thanks for being honest about it."
+    - "Got it, I'll check with a nurse then."
+    - "Okay, thank you for not just guessing."
+    - "Understood, I'll find out from staff."
+    - "Okay, appreciate you telling me straight."
+
+  closing:
+    - "The front desk can tell you the room and get the record updated; I'll have it for you next time once it's filled in."
+    - "A member of staff can confirm the location, and once it's on the record I can point you there directly."
+    - "I'd ask at the nursing station; they can add the room to your file too."
+    - "Staff will know where it is, and they can complete the record so it's there in future."
+    - "Once the location's entered, I'll be able to give you clear directions to it."
+    - "The care team can fill that gap in, and after that I can confirm the room whenever you ask."

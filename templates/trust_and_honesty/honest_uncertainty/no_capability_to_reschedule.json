@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{reschedule_request}}" },
+    { "role": "assistant", "content": "{{no_capability_response}}" },
+    { "role": "user", "content": "{{user_ack}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

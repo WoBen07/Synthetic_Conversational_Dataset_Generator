@@ -1,0 +1,57 @@
+variables:
+
+  appointment_question:
+    - "What day is my appointment on?"
+    - "Can you tell me which day my appointment is?"
+    - "Could you confirm the day of my appointment?"
+    - "When is my appointment this week?"
+    - "Can you check what day I'm booked for?"
+    - "Which day am I meant to come in?"
+
+  first_answer:
+    - "The record shows your {{appointment.appointment_type}} is on {{appointment.day}}."
+    - "It's down as {{appointment.day}} for your {{appointment.appointment_type}}."
+    - "You're booked for {{appointment.day}}, that's the {{appointment.appointment_type}}."
+    - "I've got {{appointment.day}} for your {{appointment.appointment_type}}."
+    - "The system says {{appointment.day}} for the {{appointment.appointment_type}}."
+    - "Your {{appointment.appointment_type}} is listed for {{appointment.day}}."
+
+  dispute:
+    - "That's not what the nurse told me this morning."
+    - "Are you sure? I was told a different day."
+    - "That doesn't sound right, can you check again?"
+    - "Hmm, I thought it had been moved. Could you look once more?"
+    - "That's not the day I had written down. Can you double-check?"
+    - "Someone told me something different earlier. Can you verify?"
+
+  recheck_intent:
+    - "Let me pull it again directly, right now, so we're not going on something stale."
+    - "That's worth re-checking. Let me query the record fresh."
+    - "Okay, let me look it up a second time to be sure."
+    - "Fair enough, I'll re-fetch it straight from the system."
+    - "Let me check again properly rather than rely on what I just had."
+    - "I'll run the lookup once more so we've got the current entry."
+
+  contradiction_disclosure:
+    - "Now I'm getting a different answer. The first lookup said {{appointment.day}}, this one says {{alternative_appointment.day}}. I can't tell you which is correct, and I won't just pick one; staff need to confirm the real day."
+    - "The two checks don't agree: {{appointment.day}} the first time, {{alternative_appointment.day}} just now. That inconsistency means I shouldn't give you a definite day. Please have the desk confirm it."
+    - "I've got a conflict: {{appointment.day}} initially, {{alternative_appointment.day}} on the recheck. Rather than guess which is right, I'd ask staff to verify before you rely on either."
+    - "That changed between checks. It read {{appointment.day}}, now it reads {{alternative_appointment.day}}. I don't know which reflects reality, so I won't commit to one. The care team should settle it."
+    - "The record gave me two different days, {{appointment.day}}, then {{alternative_appointment.day}}. I'd rather tell you it's contradictory than pretend one is certain. Staff can confirm which stands."
+    - "I'm seeing {{appointment.day}} and {{alternative_appointment.day}} from two back-to-back lookups. That's not something I can resolve myself; please check with the desk for the confirmed day."
+
+  closing_response:
+    - "Okay, I'll ask them to confirm it. Thanks for being honest."
+    - "Alright, that's frustrating, but I appreciate you not guessing."
+    - "Okay, I'll check with the desk. Thank you for looking twice."
+    - "Understood. Thanks for telling me it's unclear."
+    - "Okay, I'd rather know it's uncertain than be told the wrong day."
+    - "Alright, thanks for being straight with me about it."
+
+  closing:
+    - "I'll flag the conflicting record so it gets corrected; you shouldn't have to chase two different answers."
+    - "I'd rather leave you certain of nothing than confident of the wrong thing. Staff can get this straightened out."
+    - "Once the record's consistent again I'll be able to give you a clear answer. Sorry it's a mess right now."
+    - "The mismatch needs fixing at the source; the desk can do that and confirm the real day for you."
+    - "Accuracy matters more here than giving you a quick reply. I'll note the discrepancy for the team."
+    - "I'll make sure the inconsistency is reported. You deserve one reliable date, not two."

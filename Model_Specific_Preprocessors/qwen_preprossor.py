@@ -48,6 +48,26 @@ def normalize_arguments(arguments):
 
 
 
+def extract_tool_calls(message):
+
+    """
+    Return the message's tool calls as a list, accepting both the singular
+    `tool_call` (a dict) and the plural `tool_calls` (a list) forms.
+    """
+
+    plural = message.get("tool_calls")
+
+    if plural:
+        return list(plural) if isinstance(plural, list) else [plural]
+
+    singular = message.get("tool_call")
+
+    if singular:
+        return [singular]
+
+    return []
+
+
 def convert_assistant_tool_call(message):
 
     """
@@ -55,6 +75,7 @@ def convert_assistant_tool_call(message):
 
     {
         "role": "assistant",
+        "content": "... (optional)",
         "tool_call": {
             "name": "...",
             "arguments": {}
@@ -67,6 +88,7 @@ def convert_assistant_tool_call(message):
 
     {
         "role": "assistant",
+        "content": "... (kept if present)",
         "tool_calls": [
             {
                 "id": "...",
@@ -82,17 +104,17 @@ def convert_assistant_tool_call(message):
     """
 
 
-    old_call = message.pop(
-        "tool_call"
-    )
+    old_calls = extract_tool_calls(message)
 
 
-    call_id = create_tool_call_id()
+    converted_calls = []
+    call_id = None
 
+    for old_call in old_calls:
 
-    new_message = {
-        "role": "assistant",
-        "tool_calls": [
+        call_id = create_tool_call_id()
+
+        converted_calls.append(
             {
                 "id": call_id,
                 "type": "function",
@@ -105,10 +127,22 @@ def convert_assistant_tool_call(message):
                     )
                 }
             }
-        ]
+        )
+
+
+    new_message = {
+        "role": "assistant",
+        "tool_calls": converted_calls
     }
 
 
+    content = message.get("content")
+
+    if isinstance(content, str) and content.strip():
+        new_message["content"] = content
+
+
+    # The last id is the one the single following tool response maps to.
     return new_message, call_id
 
 
@@ -176,7 +210,10 @@ def process_example(example):
 
         if (
             message["role"] == "assistant"
-            and "tool_call" in message
+            and (
+                "tool_call" in message
+                or "tool_calls" in message
+            )
         ):
 
             new_message, current_tool_id = (

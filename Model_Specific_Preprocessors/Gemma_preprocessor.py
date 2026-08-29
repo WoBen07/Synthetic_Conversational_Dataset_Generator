@@ -16,19 +16,46 @@ OUTPUT_FILE = Path("../Datasets/Test_Dataset_2/validation_gemma.jsonl")
 # Conversion Logic
 # ==========================
 
+def extract_tool_calls(message):
+    """
+    Return the message's tool calls as a list, accepting both the singular
+    `tool_call` (a dict) and the plural `tool_calls` (a list) forms.
+    """
+
+    plural = message.get("tool_calls")
+
+    if plural:
+        return list(plural) if isinstance(plural, list) else [plural]
+
+    singular = message.get("tool_call")
+
+    if singular:
+        return [singular]
+
+    return []
+
+
 def convert_message(message):
     """
     Convert old tool_call format into OpenAI tool_calls format.
+
+    A merged assistant turn may carry both text and a tool call; the text
+    is preserved as `content` instead of being dropped.
     """
 
     # Convert assistant tool calls
-    if "tool_call" in message:
+    if "tool_call" in message or "tool_calls" in message:
 
-        tool_call = message["tool_call"]
+        tool_calls = extract_tool_calls(message)
+
+        content = message.get("content")
+
+        if not (isinstance(content, str) and content.strip()):
+            content = None
 
         return {
             "role": "assistant",
-            "content": None,
+            "content": content,
             "tool_calls": [
                 {
                     "type": "function",
@@ -40,6 +67,7 @@ def convert_message(message):
                         )
                     }
                 }
+                for tool_call in tool_calls
             ]
         }
 

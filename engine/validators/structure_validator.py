@@ -28,6 +28,7 @@ class StructureValidator:
                 if (
                     "content" not in message
                     and "tool_call" not in message
+                    and "tool_calls" not in message
                 ):
 
                     errors.append(

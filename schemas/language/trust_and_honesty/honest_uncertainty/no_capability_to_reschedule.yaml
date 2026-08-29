@@ -1,0 +1,33 @@
+variables:
+
+  reschedule_request:
+    - "Can you move my appointment to next week?"
+    - "Could you reschedule my appointment for me?"
+    - "I need to change my appointment to a different day, can you do that?"
+    - "Can you push my appointment back a few days?"
+    - "Could you cancel my appointment and book a new one?"
+    - "Can you switch my appointment to the morning instead?"
+
+  no_capability_response:
+    - "I can't do that. I'm able to look up appointments and send reminders, but I don't have any way to change or cancel one. The scheduling desk handles that."
+    - "That's outside what I can do. Rescheduling isn't something I have the tools for; I can only view appointments and remind people about them. Staff at the front desk can move it."
+    - "I'm not able to reschedule anything. What I can do is check your appointment and pass a message to staff, but changing the date has to go through the scheduling team."
+    - "Changing an appointment isn't something I can do; I don't have that function. I can look yours up so you have the details to give the desk, though."
+    - "I can't move it myself. My side only covers looking appointments up and reminding about them; the scheduling office is who actually makes changes."
+    - "That one's not in my remit; I have no way to alter a booking. I can help you get the current details and flag to staff that you need it changed."
+
+  user_ack:
+    - "Okay, I'll go to the front desk then."
+    - "Alright, thanks for explaining what you can and can't do."
+    - "Got it. I'll call the scheduling office."
+    - "Okay, that's clear. Thanks."
+    - "Understood, I'll sort it with staff."
+    - "Okay, no problem. Thanks for being clear about it."
+
+  closing:
+    - "If you'd like, I can let staff know you're trying to reach them about a reschedule."
+    - "I can pull up your current appointment now so you've got the details ready for them."
+    - "Want me to note that you've asked to change it, so the desk sees it?"
+    - "I'll be able to confirm the new time back to you once they've made the change."
+    - "Happy to flag it to the team so they know to expect you about it."
+    - "Once it's moved, just ask me and I'll give you the updated details."

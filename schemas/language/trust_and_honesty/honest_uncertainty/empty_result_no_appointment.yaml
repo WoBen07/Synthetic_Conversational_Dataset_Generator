@@ -1,0 +1,33 @@
+variables:
+
+  user_question:
+    - "Can you tell me when my appointment is?"
+    - "What time is my appointment today?"
+    - "Could you check my schedule for today?"
+    - "Can you pull up my appointment details?"
+    - "Do you know what I've got booked today?"
+    - "Could you confirm my next appointment for me?"
+
+  no_appointment_disclosure:
+    - "I checked, and there's no appointment on file for you at all right now. I can't give you a time because there isn't one recorded, not because something went wrong."
+    - "The record came back empty: nothing is scheduled for you at the moment. There's simply no appointment to report, rather than a lookup that failed."
+    - "I looked, and your schedule has no appointment on it right now. I'd rather tell you it's genuinely empty than invent a time."
+    - "Nothing is booked under your name at the moment. The lookup worked fine, it just has no appointment for you to share."
+    - "There's no appointment recorded for you today or coming up. That's the actual result, not a glitch, so I won't guess at one."
+    - "I don't see any appointment on your record at all. It came back clear, so the honest answer is that there isn't one scheduled."
+
+  user_followup:
+    - "Oh, okay. Maybe it hasn't been booked yet."
+    - "Hm, I was sure I had one. Thanks for checking."
+    - "Alright, that's strange, but thank you for looking."
+    - "Okay, I'll ask the desk to book one then."
+    - "Got it. I appreciate you checking properly."
+    - "Okay, thanks for telling me straight."
+
+  closing:
+    - "If you'd like, mention it to the front desk and they can schedule one; I'll be able to see it once it's in."
+    - "The nursing station can set one up for you, and it'll show on my end as soon as it's entered."
+    - "Once staff book something, I'll have the details for you right away."
+    - "I'd check with the desk so they can get one on the calendar for you."
+    - "As soon as there's an appointment on file, I can walk you through the details."
+    - "Staff can add one whenever you're ready, and I'll confirm it back to you then."

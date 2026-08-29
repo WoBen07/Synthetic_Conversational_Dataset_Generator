@@ -15,7 +15,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 INPUT_FOLDER = PROJECT_ROOT / "Synthetic_Data"
-OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_7"
+OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_8"
 TRAIN_OUTPUT = "train.jsonl"
 VALIDATION_OUTPUT = "validation.jsonl"
 
@@ -105,6 +105,61 @@ def load_dataset_by_template(input_folder):
 
     return datasets
 
+
+
+# ==========================
+# Conversation-flow lint
+# ==========================
+
+def assert_strict_role_alternation(datasets):
+    """Fail loudly if any datapoint has two consecutive messages with the
+    same role.
+
+    Runs over the full generated corpus as a last line of defence: the
+    renderer already folds consecutive assistant turns, so a hit here means
+    that step regressed and the dataset must not be written.
+    """
+
+    violations = []
+
+    for template, samples in datasets.items():
+
+        template_file = f"templates/{template}.json"
+
+        for sample_index, datapoint in enumerate(samples):
+
+            messages = datapoint.get("messages", [])
+
+            for i in range(1, len(messages)):
+
+                if messages[i].get("role") == messages[i - 1].get("role"):
+
+                    violations.append(
+                        f"{template} (sample {sample_index}): "
+                        f"consecutive '{messages[i].get('role')}' at "
+                        f"messages {i - 1}/{i} - check {template_file}"
+                    )
+
+    if violations:
+
+        preview = "\n".join(f"  - {v}" for v in violations[:20])
+
+        more = (
+            f"\n  ... and {len(violations) - 20} more"
+            if len(violations) > 20
+            else ""
+        )
+
+        raise RuntimeError(
+            f"Conversation-flow lint failed: {len(violations)} datapoint(s) "
+            f"have consecutive same-role messages.\n{preview}{more}"
+        )
+
+    print(
+        f"Conversation-flow lint OK: "
+        f"{sum(len(s) for s in datasets.values())} datapoints, "
+        f"strictly alternating roles."
+    )
 
 
 # ==========================
@@ -215,6 +270,10 @@ def main():
     datasets = load_dataset_by_template(
         INPUT_FOLDER
     )
+
+
+    print("\nLinting conversation flow...")
+    assert_strict_role_alternation(datasets)
 
 
     print("\nSplitting datasets...")

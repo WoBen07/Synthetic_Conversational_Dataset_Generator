@@ -1,0 +1,9 @@
+name: partial_record_missing_location
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: partial_record_missing_location

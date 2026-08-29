@@ -11,6 +11,7 @@ from synthetic_data_generator.engine.schemaloader import SchemaLoader
 from synthetic_data_generator.engine.scenario_builder import ScenarioBuilder
 from synthetic_data_generator.engine.template_loader import TemplateLoader
 from synthetic_data_generator.engine.template_renderer import TemplateRenderer
+from synthetic_data_generator.engine.conversation_normalizer import normalize_conversation
 from synthetic_data_generator.engine.validators.validator import Validator
 
 
@@ -87,8 +88,20 @@ class DatasetGenerator:
         )
 
 
-        return renderer.render(
+        rendered = renderer.render(
             template_data
+        )
+
+
+        #
+        # Normalize conversation flow
+        #
+        # Fold any consecutive assistant messages into one so the datapoint
+        # renders into strictly alternating chat-template turns.
+        #
+
+        return normalize_conversation(
+            rendered
         )
 
 
@@ -155,7 +168,7 @@ class DatasetGenerator:
 
                 if errors:
 
-                    print(errors)
+                    print(f"[{template}] {errors}")
                     print(
                         "Regenerating datapoint after validation error."
                     )
@@ -177,7 +190,8 @@ class DatasetGenerator:
                 skipped += 1
 
                 print(
-                    f"Skipping datapoint after {max_attempts_per_datapoint} failed attempts."
+                    f"[{template}] Skipping datapoint after "
+                    f"{max_attempts_per_datapoint} failed attempts."
                 )
 
                 continue

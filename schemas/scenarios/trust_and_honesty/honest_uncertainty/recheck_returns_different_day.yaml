@@ -1,0 +1,27 @@
+name: recheck_returns_different_day
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+  alternative_appointment:
+    type: appointment
+
+constraints:
+  - type: equal
+    fields:
+      - appointment.appointment_type
+      - alternative_appointment.appointment_type
+
+  - type: equal
+    fields:
+      - appointment.location
+      - alternative_appointment.location
+
+  - type: different
+    fields:
+      - appointment.day
+      - alternative_appointment.day
+
+language_schema: recheck_returns_different_day

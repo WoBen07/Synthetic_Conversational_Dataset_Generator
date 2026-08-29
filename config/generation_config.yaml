@@ -1,5 +1,8 @@
 default_amount: 1000
 
+# Per-template overrides, keyed by the template's leaf name. Highest
+# priority - wins over category_amounts and default_amount.
+# Core-flow templates: genuinely wide entity-slot combinatorics, kept high.
 important_templates:
   patient_reminder:
     amount: 2000
@@ -9,6 +12,30 @@ important_templates:
 
   patient_toolcall3:
     amount: 1250
+
+# Per-category amounts, keyed by a template-path prefix (top-level
+# category or a nested sub-folder). Longest matching prefix wins, so a
+# sub-folder overrides its parent. Consulted after important_templates
+# and before default_amount.
+#
+# Values sit near each group's saturation point (see saturation analysis):
+#   Tier A (500) - mature categories, largest language pool 14-22
+#   Tier B (400) - small language pool (<=8), recently added behaviours;
+#                  info-saturation is ~250, 400 is a reliability margin
+#   Tier C (600) - wide slot pools (18-36), identity disambiguation
+category_amounts:
+  conversational: 500
+  safety_and_refusals: 500
+  social_dynamics: 500
+  trust_and_honesty: 500
+
+  conversational/off_topic_mid_task: 400
+  physical_interaction: 400
+  tool_error_recovery: 400
+  trust_and_honesty/honest_uncertainty: 400
+
+  patient_identity: 600
+  tool_use: 600
 
 random_seed_range:
   min: 1

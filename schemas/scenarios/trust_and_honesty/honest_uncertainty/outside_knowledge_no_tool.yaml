@@ -1,0 +1,7 @@
+name: outside_knowledge_no_tool
+
+entities:
+  patient:
+    type: patient
+
+language_schema: outside_knowledge_no_tool

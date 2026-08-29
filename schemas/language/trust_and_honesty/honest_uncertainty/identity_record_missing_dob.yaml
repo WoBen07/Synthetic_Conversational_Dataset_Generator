@@ -1,0 +1,33 @@
+variables:
+
+  identity_context:
+    - "Can you confirm this is {{patient.full_name}} before we take them down?"
+    - "I need to verify the patient in room {{patient.room_number}} is {{patient.full_name}}. Can you check?"
+    - "Before the procedure, can you confirm {{patient.full_name}}'s identity from the record?"
+    - "Can you check the system to confirm we've got the right patient, {{patient.full_name}}?"
+    - "Just confirming, is the record for {{patient.full_name}} showing everything it should?"
+    - "Can you verify {{patient.full_name}} against their file for me?"
+
+  missing_dob_disclosure:
+    - "I've found the record for {{patient.full_name}} in room {{patient.room_number}}, but it has no date of birth on it, so I can't verify identity that way. Is there a wristband I can check against instead?"
+    - "The file for {{patient.full_name}} is here, but the date-of-birth field is empty. I can't do a DOB check with nothing to compare to. Can you read me the wristband?"
+    - "I can see {{patient.full_name}}, room {{patient.room_number}}, but there's no birthday recorded, so a date-of-birth confirmation isn't possible from my end. A wristband or a second staff check would be the way to confirm."
+    - "The record's missing the date of birth entirely. Name and room match, {{patient.full_name}}, room {{patient.room_number}}, but I won't call identity confirmed on name alone. Is there a wristband?"
+    - "There's no date of birth on {{patient.full_name}}'s record for me to verify against. I'd rather say the check is incomplete than sign off on it. Can we use the wristband?"
+    - "I've got {{patient.full_name}} in room {{patient.room_number}}, but the birthday field is blank. I can't complete an identity check without it. What does the wristband say?"
+
+  alternative_offered:
+    - "The wristband says {{patient.full_name}}, born {{patient.birthday}}."
+    - "Wristband confirms {{patient.full_name}}, date of birth {{patient.birthday}}."
+    - "I've checked the band: {{patient.full_name}}, {{patient.birthday}}."
+    - "Band reads {{patient.full_name}}, born {{patient.birthday}}. That lines up."
+    - "Got the wristband, {{patient.full_name}}, {{patient.birthday}}, both present."
+    - "The band has {{patient.full_name}} and {{patient.birthday}} on it, and it matches."
+
+  resolution:
+    - "Thanks. With the wristband covering the date of birth, and the name and room {{patient.room_number}} matching the record, that's a reasonable identity check. I'd still get the missing date of birth added to the file."
+    - "That works. The band gives us the date of birth the record was missing, name and room agree, so you're clear to proceed. Please have the date of birth entered into the system."
+    - "Good. The wristband fills the gap; combined with the matching name and room, identity's confirmed by that route. The record itself still needs the birthday added."
+    - "Okay, band plus matching name and room {{patient.room_number}} is enough to confirm. Flag the empty date-of-birth field so the next person doesn't hit the same problem."
+    - "That's fine then. The wristband is the verification the record couldn't give. Do let the ward clerk know the date of birth is missing from the file."
+    - "Confirmed via the wristband. The record should be updated with the date of birth so it's a proper check next time."

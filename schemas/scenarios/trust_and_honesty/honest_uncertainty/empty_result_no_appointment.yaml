@@ -1,0 +1,7 @@
+name: empty_result_no_appointment
+
+entities:
+  patient:
+    type: patient
+
+language_schema: empty_result_no_appointment

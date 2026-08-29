@@ -5,6 +5,7 @@ import yaml
 
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
 from synthetic_data_generator.engine import dataset_merger
+from synthetic_data_generator.engine import lint_templates
 from pathlib import Path
 
 
@@ -53,6 +54,25 @@ def get_amount(template_id, config):
 
     if name in important:
         return important[name]["amount"]
+
+    # category_amounts is keyed by a template-path prefix: a top-level
+    # category ("safety_and_refusals") or a nested sub-folder
+    # ("conversational/off_topic_mid_task"). The longest matching prefix
+    # wins, so a sub-folder can override its parent category.
+    category_amounts = config.get("category_amounts", {})
+
+    best_prefix = None
+
+    for prefix, amount in category_amounts.items():
+
+        if template_id == prefix or template_id.startswith(f"{prefix}/"):
+
+            if best_prefix is None or len(prefix) > len(best_prefix):
+                best_prefix = prefix
+                best_amount = amount
+
+    if best_prefix is not None:
+        return best_amount
 
     return config["default_amount"]
 
@@ -106,6 +126,23 @@ def run_template(template_id, amount, seed):
 
 
 def main():
+
+    # Surface templates that still encode consecutive same-role messages.
+    # The renderer folds them automatically, so this is a warning, not a
+    # gate - but it keeps sloppy templates visible so they get cleaned up.
+    template_problems = lint_templates.lint()
+
+    if template_problems:
+
+        print(
+            f"\nTemplate lint: {len(template_problems)} template(s) contain "
+            f"consecutive same-role messages (auto-merged at render time):"
+        )
+
+        for path, _index, description in template_problems:
+            print(f"  {path.relative_to(PROJECT_ROOT)}: {description}")
+
+        print()
 
     config = load_config()
 

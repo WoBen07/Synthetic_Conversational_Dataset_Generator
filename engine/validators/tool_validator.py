@@ -12,29 +12,45 @@ class ToolValidator:
 
             nxt = messages[i+1]
 
-            if (
-                current["role"] == "assistant"
-                and "tool_call" in current
-            ):
+            calls = self._tool_calls(current)
 
-                if nxt["role"] != "tool":
+            if not calls:
+                continue
 
-                    errors.append(
-                        f"Tool call at {i} not followed by tool response"
-                    )
+            if nxt["role"] != "tool":
 
-                    continue
+                errors.append(
+                    f"Tool call at {i} not followed by tool response"
+                )
 
+                continue
 
-                if (
-                    current["tool_call"]["name"]
-                    != nxt["name"]
-                ):
+            # A single assistant turn carries one tool call in this
+            # dataset; if it ever carries more, they must still be answered
+            # by a matching tool response as the next message.
+            expected_names = {call.get("name") for call in calls}
 
-                    errors.append(
+            if nxt.get("name") not in expected_names:
 
-                        f"Tool mismatch at {i}"
-
-                    )
+                errors.append(
+                    f"Tool mismatch at {i}"
+                )
 
         return errors
+
+    def _tool_calls(self, message):
+
+        if message.get("role") != "assistant":
+            return []
+
+        plural = message.get("tool_calls")
+
+        if plural:
+            return list(plural) if isinstance(plural, list) else [plural]
+
+        singular = message.get("tool_call")
+
+        if singular:
+            return [singular]
+
+        return []

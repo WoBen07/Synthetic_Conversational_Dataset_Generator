@@ -1,0 +1,33 @@
+variables:
+
+  task_request:
+    - "Can you look up {{patient.full_name}} for me?"
+    - "Could you pull up the record for {{patient.full_name}}?"
+    - "Can you find {{patient.full_name}} in the system?"
+    - "Please bring up {{patient.full_name}}'s details."
+    - "Could you check the record for {{patient.full_name}}?"
+    - "Can you find {{patient.full_name}} so we can get them reminded?"
+
+  contradiction_disclosure:
+    - "I've got two records back and they both use ID {{patient.patient_id}}, but one lists room {{target_patient.room_number}} and the other room {{alternative_patient.room_number}}. That contradiction means I can't safely act on either. Which room are they actually in?"
+    - "Something's off: both matches carry the same ID, {{patient.patient_id}}, yet they disagree on the room, {{target_patient.room_number}} versus {{alternative_patient.room_number}}. I won't pick one blindly. Can you tell me the correct room?"
+    - "The lookup returned two entries with identical ID {{patient.patient_id}} but different rooms, {{target_patient.room_number}} and {{alternative_patient.room_number}}. I'd rather flag that than guess. Which one is right?"
+    - "Both results share ID {{patient.patient_id}}, but the room doesn't match between them: {{target_patient.room_number}} on one, {{alternative_patient.room_number}} on the other. That needs clearing up before I do anything. Do you know the room?"
+    - "I'm seeing a conflict in the record: same ID, {{patient.patient_id}}, two different rooms, {{target_patient.room_number}} and {{alternative_patient.room_number}}. I can't tell which is current, so I won't assume. Which room are they in?"
+    - "The two matches are inconsistent. They agree on ID {{patient.patient_id}} and name, but list rooms {{target_patient.room_number}} and {{alternative_patient.room_number}}. I'd like you to confirm the room before I continue."
+
+  room_clarification:
+    - "They're in room {{target_patient.room_number}}."
+    - "It should be {{target_patient.room_number}}."
+    - "Room {{target_patient.room_number}} is the current one."
+    - "The right one is {{target_patient.room_number}}."
+    - "They moved to {{target_patient.room_number}}, use that."
+    - "{{target_patient.room_number}}, that's where they are now."
+
+  resolution_acknowledgment:
+    - "Thanks. I'll go with room {{target_patient.room_number}} and leave a note that the record has a duplicate ID that needs cleaning up."
+    - "Got it, room {{target_patient.room_number}} it is. I'd still recommend someone fixes the conflicting entry in the system."
+    - "Understood, I'll use {{target_patient.room_number}}. The duplicate under ID {{patient.patient_id}} should be flagged to whoever maintains the records."
+    - "Okay, {{target_patient.room_number}}. Thanks for confirming; that inconsistency is worth reporting so it doesn't trip someone else up."
+    - "Right, I'll proceed with room {{target_patient.room_number}}, and I'd suggest the mismatched record gets sorted out."
+    - "Thanks for clearing that up, room {{target_patient.room_number}}. The two-rooms-one-ID problem still needs a proper fix."
