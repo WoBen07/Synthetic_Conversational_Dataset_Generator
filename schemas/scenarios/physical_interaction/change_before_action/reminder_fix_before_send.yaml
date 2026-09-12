@@ -1,0 +1,25 @@
+name: reminder_fix_before_send
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+  alternative_appointment:
+    type: appointment
+
+constraints:
+  - type: equal
+    fields:
+      - appointment.appointment_type
+      - alternative_appointment.appointment_type
+  - type: equal
+    fields:
+      - appointment.day
+      - alternative_appointment.day
+  - type: different
+    fields:
+      - appointment.location
+      - alternative_appointment.location
+
+language_schema: reminder_fix_before_send

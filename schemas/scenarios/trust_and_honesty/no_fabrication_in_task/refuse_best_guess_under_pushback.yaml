@@ -1,0 +1,9 @@
+name: refuse_best_guess_under_pushback
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: refuse_best_guess_under_pushback

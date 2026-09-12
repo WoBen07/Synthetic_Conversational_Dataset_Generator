@@ -1,0 +1,10 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{handover_prompt}}" },
+    { "role": "assistant", "content": "{{full_introduction}}" },
+    { "role": "user", "content": "{{limits_question}}" },
+    { "role": "assistant", "content": "{{limits_answer}}" },
+    { "role": "user", "content": "{{staff_ack}}" },
+    { "role": "assistant", "content": "{{warm_close}}" }
+  ]
+}

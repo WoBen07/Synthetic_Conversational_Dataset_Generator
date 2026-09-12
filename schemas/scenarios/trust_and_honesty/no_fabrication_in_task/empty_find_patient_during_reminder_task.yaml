@@ -1,0 +1,9 @@
+name: empty_find_patient_during_reminder_task
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: empty_find_patient_during_reminder_task

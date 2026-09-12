@@ -33,6 +33,7 @@ category_amounts:
   physical_interaction: 400
   tool_error_recovery: 400
   trust_and_honesty/honest_uncertainty: 400
+  trust_and_honesty/no_fabrication_in_task: 400
 
   patient_identity: 600
   tool_use: 600

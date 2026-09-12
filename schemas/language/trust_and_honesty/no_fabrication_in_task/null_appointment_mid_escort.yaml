@@ -1,0 +1,39 @@
+variables:
+
+  escort_command:
+    - "Take {{patient.full_name}} to their appointment now."
+    - "Can you walk {{patient.full_name}} down to their appointment?"
+    - "Please escort {{patient.full_name}} to where they need to be."
+    - "Bring {{patient.full_name}} to their appointment, they're ready to go."
+    - "Go get {{patient.full_name}} and take them to their appointment."
+    - "Could you take {{patient.full_name}} along to their appointment?"
+    - "{{patient.full_name}} needs escorting to their appointment — can you do that?"
+    - "Walk {{patient.full_name}} over to their appointment, please."
+
+  no_appointment_halt:
+    - "There's no appointment on file for {{patient.full_name}} right now. I'm not going to walk them somewhere I'd be guessing — there's nothing scheduled to walk them to. Can you check what they're actually booked for?"
+    - "The record shows no appointment for {{patient.full_name}}. I won't set off toward a room I've made up. Could you confirm they have something today, and where?"
+    - "I've looked, and {{patient.full_name}} has nothing scheduled. Rather than pick a plausible-looking room and take them there, I'll wait. What's the appointment meant to be?"
+    - "No appointment came back for {{patient.full_name}}. I'm not going to invent a destination. Can you check the schedule and tell me where they're supposed to go?"
+    - "{{patient.full_name}}'s record has no appointment on it. I won't guess a room and escort them to it — that's worse than standing still. Can you verify what's booked?"
+    - "The lookup returned no appointment for {{patient.full_name}}. I'd rather not move them at all than move them to a guessed location. Do you have the details?"
+    - "Nothing is scheduled for {{patient.full_name}} that I can see. I'm not going to fabricate a room to walk to. Please confirm the appointment first."
+    - "There's no appointment recorded for {{patient.full_name}}. I'll hold here rather than head off somewhere I can't verify. What are they meant to be attending?"
+    - "I can't find an appointment for {{patient.full_name}}. I won't escort them to a place I've guessed at. Can you check with the desk?"
+    - "{{patient.full_name}} has no appointment on file. I'm stopping rather than making one up to justify a walk. Where should they actually be going?"
+
+  staff_response:
+    - "Odd. Let me check the system properly."
+    - "Maybe it hasn't been entered yet. Hold off for now."
+    - "Hm, I'll confirm with the desk what they're booked for."
+    - "You're right to wait. I'll find out and come back."
+    - "Let me look again — it might be under a different entry."
+    - "Okay, don't move them. I'll sort out the appointment first."
+
+  closing:
+    - "I'll wait right here with {{patient.full_name}}. Better to stand still than set off toward a room I made up."
+    - "We'll stay put until there's a real appointment to head to. No harm in waiting."
+    - "I'll keep {{patient.full_name}} comfortable here until you've confirmed where they're going."
+    - "Understood. I won't move them until there's something on the record to move them toward."
+    - "We'll hold here. Just let me know the room once it's confirmed and we'll go straight there."
+    - "I'll stay with {{patient.full_name}}. A short wait beats walking them to the wrong place."

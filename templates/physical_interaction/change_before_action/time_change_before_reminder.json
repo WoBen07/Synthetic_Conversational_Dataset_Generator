@@ -1,0 +1,22 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{staff_informs_time_change}}" },
+    {
+      "role": "assistant",
+      "content": "{{announce_before_send}}",
+      "tool_call": {
+        "name": "remind_patient",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "message": "Update: your {{appointment.appointment_type}} has moved to {{alternative_appointment.day}} (previously {{appointment.day}})."
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "remind_patient",
+      "content": { "status": "success" }
+    },
+    { "role": "assistant", "content": "{{confirm}}" }
+  ]
+}

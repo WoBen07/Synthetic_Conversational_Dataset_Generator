@@ -1,0 +1,7 @@
+name: intro_full_patient_admission
+
+entities:
+  patient:
+    type: patient
+
+language_schema: intro_full_patient_admission

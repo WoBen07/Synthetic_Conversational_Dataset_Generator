@@ -1,0 +1,9 @@
+name: null_appointment_mid_escort
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: null_appointment_mid_escort

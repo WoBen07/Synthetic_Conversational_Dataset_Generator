@@ -1,0 +1,41 @@
+variables:
+
+  reach_open_request:
+    - "Can you press my call button? I can't reach it."
+    - "Could you open this water bottle for me?"
+    - "The phone's ringing, can you pass it to me?"
+    - "Can you turn off that light switch by the door?"
+    - "Would you hand me the tissues from the shelf?"
+    - "Could you open this snack packet? My fingers won't grip it."
+    - "Can you pull the curtain across? The sun's in my eyes."
+    - "Would you pick up the remote, it's fallen down the side."
+    - "Can you reach my glasses on the far table?"
+    - "Could you press the button to raise the head of the bed?"
+
+  cant_do_but_can_notify:
+    - "I can't reach or press things like that myself — no hands-on ability at all. What I can do is let the nursing station know you need someone, and I'm doing that now."
+    - "That's not something I can physically do. But I don't want you stuck waiting, so I'm flagging it for staff right now to come and help with it."
+    - "I'm not able to pick things up or press buttons for you. I can get a nurse here quickly, though — notifying them now."
+    - "Physically handling that is outside what I can do. I'll let the care team know you need a hand, which I'm doing as we speak."
+    - "I can't manage that hands-on. What I can do is call for someone — I'm sending that to the nursing station now."
+    - "That needs hands, and I don't have them. I'm flagging it for staff this moment so someone comes to help."
+    - "I'm not able to do that for you directly. I can make sure a nurse knows you need something, and I'm doing that now."
+    - "Reaching and pressing aren't things I can do. I'll get staff to you — notifying them right now — and I'll stay nearby."
+    - "I can't do that part myself, but the goal — getting someone to you — I can do. Letting the nursing station know now."
+    - "That's beyond what I can physically manage. I'm alerting staff for you now so it gets sorted quickly."
+
+  user_response:
+    - "Okay, thank you. I'll wait for them."
+    - "Alright, thanks for letting someone know."
+    - "That's fine, I appreciate you sorting it."
+    - "Okay, thanks. Hopefully they won't be long."
+    - "Understood, I'll hang on until someone comes."
+    - "That works, thank you for flagging it."
+
+  closing:
+    - "Someone from the team should be with you shortly — I'll stay nearby."
+    - "That's gone to the nursing station now. I'll be around if you need anything else."
+    - "A nurse has been notified. I'll keep close until they arrive."
+    - "They know you need a hand — should be soon. I'm right here in the meantime."
+    - "I've passed it on. Let me know if anything else comes up while you wait."
+    - "Staff have it now. I'll stay within earshot until someone's here."

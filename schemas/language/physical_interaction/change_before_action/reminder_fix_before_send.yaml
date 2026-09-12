@@ -1,0 +1,41 @@
+variables:
+
+  initial_reminder_request:
+    - "Send {{patient.full_name}} the reminder for {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Can you remind {{patient.full_name}} about the {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Please get a reminder out to {{patient.full_name}} for the {{appointment.appointment_type}}."
+    - "Let {{patient.full_name}} know about {{appointment.day}}'s {{appointment.appointment_type}}, would you?"
+    - "Time to remind {{patient.full_name}} about their {{appointment.appointment_type}} on {{appointment.day}}."
+    - "Could you send {{patient.full_name}} their {{appointment.appointment_type}} reminder?"
+
+  draft_readback:
+    - "Before I send — I have {{appointment.appointment_type}}, {{appointment.day}}, in {{appointment.location}}. That right?"
+    - "Let me read it back first: {{appointment.appointment_type}} on {{appointment.day}}, location {{appointment.location}}. Confirm and I'll send."
+    - "Checking before it goes out — {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}. Okay to send?"
+    - "Draft is: your {{appointment.appointment_type}} is on {{appointment.day}} in {{appointment.location}}. Shall I send that?"
+    - "I've got {{appointment.day}}, {{appointment.appointment_type}}, {{appointment.location}}. Confirm the details before I send it to {{patient.full_name}}?"
+    - "One check first: {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}. Good to go?"
+
+  staff_corrects_location:
+    - "The room's wrong — it moved to {{alternative_appointment.location}}. Fix that before sending."
+    - "Not {{appointment.location}} anymore — it's {{alternative_appointment.location}} now. Correct it first."
+    - "Hold on, the location changed to {{alternative_appointment.location}}. Don't send it with {{appointment.location}}."
+    - "The {{appointment.appointment_type}} is in {{alternative_appointment.location}} now, not {{appointment.location}}. Update the reminder."
+    - "Wrong room — {{alternative_appointment.location}}, not {{appointment.location}}. Change it before it goes out."
+    - "That's the old room. It's {{alternative_appointment.location}} today. Fix and then send."
+
+  announce_fix_before_send:
+    - "Good catch — I'll change it to {{alternative_appointment.location}} and send the corrected reminder now."
+    - "Right, updating the location to {{alternative_appointment.location}} before it goes. Sending now."
+    - "Thanks — swapping {{appointment.location}} for {{alternative_appointment.location}} in the reminder, then sending."
+    - "Got it. The reminder will say {{alternative_appointment.location}}, not {{appointment.location}}. Sending the fixed version."
+    - "Correcting the room to {{alternative_appointment.location}} first — now sending it to {{patient.full_name}}."
+    - "Understood — {{alternative_appointment.location}} it is. Sending the reminder with the right room."
+
+  confirm:
+    - "Sent — {{patient.full_name}} has {{appointment.day}}'s {{appointment.appointment_type}} in {{alternative_appointment.location}}."
+    - "Done. The reminder went out with {{alternative_appointment.location}} as the location."
+    - "{{patient.full_name}} now has the corrected reminder — {{appointment.appointment_type}}, {{appointment.day}}, {{alternative_appointment.location}}."
+    - "That's gone through with the right room, {{alternative_appointment.location}}."
+    - "Reminder delivered to {{patient.full_name}} with {{alternative_appointment.location}}, not the old room."
+    - "Sent and correct — {{appointment.day}}, {{appointment.appointment_type}}, {{alternative_appointment.location}} for {{patient.full_name}}."

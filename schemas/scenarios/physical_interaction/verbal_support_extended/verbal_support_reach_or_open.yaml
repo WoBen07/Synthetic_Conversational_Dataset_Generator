@@ -1,0 +1,7 @@
+name: verbal_support_reach_or_open
+
+entities:
+  patient:
+    type: patient
+
+language_schema: verbal_support_reach_or_open

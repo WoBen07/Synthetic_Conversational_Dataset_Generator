@@ -1,0 +1,9 @@
+name: partial_result_finish_what_is_possible
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: partial_result_finish_what_is_possible

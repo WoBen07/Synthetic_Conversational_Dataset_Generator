@@ -1,0 +1,19 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{staff_swaps_order}}" },
+    {
+      "role": "assistant",
+      "content": "{{announce_new_order}}",
+      "tool_call": {
+        "name": "navigate_to",
+        "arguments": { "room": "{{appointment.location}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "navigate_to",
+      "content": { "status": "arrived", "location": "{{appointment.location}}" }
+    },
+    { "role": "assistant", "content": "{{arrival_confirm}}" }
+  ]
+}

@@ -1,0 +1,41 @@
+variables:
+
+  reposition_request:
+    - "Can you help me sit up a bit? I've slid down."
+    - "Could you fluff my pillow behind me?"
+    - "I've slipped down the bed, can you pull me up?"
+    - "Can you help me turn onto my side?"
+    - "Would you straighten this blanket, it's all bunched under me?"
+    - "Can you lift my legs back onto the bed?"
+    - "Could you shift the pillow so it's under my neck?"
+    - "Help me scoot over to the other side of the bed?"
+    - "Can you prop me up so I can see the window?"
+    - "Would you adjust me? I'm at an awkward angle."
+
+  verbal_decline_offer:
+    - "I can't reposition you myself — I'm not able to safely take any of your weight, and I wouldn't want to risk hurting you. I'll get a nurse to help you get comfortable, and I'll stay here until they come."
+    - "That's not something I can do physically — moving or lifting a person needs proper training, which I don't have. Let me call for staff, and I'll wait with you."
+    - "I'm not built to help with that safely. I'll flag it for a nurse straight away so someone can settle you properly, and I'll keep you company in the meantime."
+    - "Adjusting your position isn't something I can do hands-on. I don't want to leave you uncomfortable, so I'll get someone qualified and stay nearby until they arrive."
+    - "I can't lift or turn you — that's a safety risk I can't take. I'll let the care team know now, and I'll be right here while you wait."
+    - "Repositioning needs a trained person, not me. I'll notify staff that you need help getting comfortable, and I'll stay with you until they're here."
+    - "I'm not able to move you or your pillows physically. Let me get a nurse for that, and I won't leave you on your own with it."
+    - "That's beyond what I can safely do. I'll ask someone to come and help you settle, and I'll wait here with you."
+    - "Hands-on repositioning isn't in what I can do. I'll flag it now, and I'll stay close until help arrives."
+    - "I can't help you shift or sit up myself. I'll get staff to come do it properly, and I'll keep you company until then."
+
+  user_response:
+    - "Okay, thanks. I'll manage for a minute."
+    - "Alright, I can wait for the nurse."
+    - "That's fine, thank you for asking someone."
+    - "Okay, I appreciate you not just trying anyway."
+    - "Understood, I'll hold still until they come."
+    - "That's alright, thanks for staying with me."
+
+  closing:
+    - "Someone will be along shortly to help you get comfortable — I'll stay right here."
+    - "I've let staff know. Try to stay still if you can, and I'll wait with you."
+    - "A nurse is coming to settle you properly. I'm not going anywhere in the meantime."
+    - "That's flagged. I'll keep you company until they can reposition you."
+    - "Help's on the way. Let me know if anything feels worse while we wait."
+    - "I've passed it on — someone should be here soon, and I'll stay close."

@@ -1,0 +1,73 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{initial_request}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": { "name": "{{patient.last_name}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [ "{{target_patient}}", "{{alternative_patient}}" ]
+      }
+    },
+    { "role": "assistant", "content": "{{ask_firstname}}" },
+    { "role": "user", "content": "{{wrong_firstname}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": { "name": "{{alternative_patient.first_name}} {{alternative_patient.last_name}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [ "{{alternative_patient}}" ]
+      }
+    },
+    { "role": "assistant", "content": "{{state_and_proceed}}" },
+    { "role": "user", "content": "{{self_correction}}" },
+    {
+      "role": "assistant",
+      "content": "{{acknowledge_recheck}}",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": { "room_number": "{{target_patient.room_number}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [ "{{target_patient}}" ]
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": { "patient_id": "{{target_patient.patient_id}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{target_patient.patient_id}}",
+        "name": "{{target_patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{appointment.location}}"
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{corrected_answer}}" }
+  ]
+}

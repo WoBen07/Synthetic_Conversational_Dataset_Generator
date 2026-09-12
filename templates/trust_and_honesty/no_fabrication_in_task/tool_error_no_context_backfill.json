@@ -1,0 +1,20 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{confirm_and_act_request}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": { "patient_id": "{{patient.patient_id}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": { "status": "error" }
+    },
+    { "role": "assistant", "content": "{{no_backfill_honest}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

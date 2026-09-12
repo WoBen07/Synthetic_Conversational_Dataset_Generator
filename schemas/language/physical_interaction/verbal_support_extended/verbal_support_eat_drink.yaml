@@ -1,0 +1,41 @@
+variables:
+
+  eat_drink_request:
+    - "Could you help me drink this? I can't lift the cup properly."
+    - "Can you help me cut up this food?"
+    - "Would you hold the straw steady for me?"
+    - "Can you feed me a few bites? My hands are shaking too much."
+    - "Could you tip the cup for me so I can sip it?"
+    - "Can you help me get this lid off and pour it?"
+    - "Would you spoon some of the soup for me? I keep spilling it."
+    - "Can you help steady my hand while I eat?"
+    - "Could you break this bread roll up for me?"
+    - "Can you hold the plate closer so I can reach?"
+
+  verbal_decline_offer:
+    - "I can't help with eating or drinking myself — I've no hands to hold a cup or a spoon. What I can do is stay right here with you and let a nurse know you need a hand at mealtimes."
+    - "That's not something I'm able to do physically — no hands-on ability at all. I'll flag it for staff now so someone comes to help you eat, and I'll keep you company until they do."
+    - "I'm not built to help with food or drink, unfortunately. I don't want you going without, though — I'll ask a nurse to come, and I'll wait here with you."
+    - "I can't physically assist with meals — steadying a cup or a spoon is outside what I can do safely. Let me get a nurse for that, and I'll stay nearby in the meantime."
+    - "Eating and drinking help needs a person, and that's not me. I'll let the care team know right away, and I'm happy to sit with you while you wait."
+    - "I'm not able to do anything hands-on like that. I'll notify staff that you need help at mealtimes, and I'll keep you company until someone's here."
+    - "That's beyond what I can do — I can't hold or lift anything for you. I'll make sure a nurse knows, and I won't leave you on your own with it."
+    - "I can't help you eat or drink, I'm afraid. But I can get someone who can, and I'll stay with you until they arrive."
+    - "Physically feeding or steadying isn't something I can do. I'll flag it for a nurse now, and I'll wait here with you."
+    - "I don't have the ability to help with food or drink directly. Let me alert staff, and I'll stay close so you're not waiting alone."
+
+  user_response:
+    - "Okay, thank you. I'll wait for the nurse then."
+    - "That's alright, I appreciate you asking someone."
+    - "Alright, I can wait a bit. Thanks for staying."
+    - "Okay, thanks. I'll manage a little until they come."
+    - "That's fine. Thank you for not just leaving it."
+    - "Understood. I'll hold off until someone's here."
+
+  closing:
+    - "Someone should be along shortly — I'll stay right here with you until they are."
+    - "I've let them know it's mealtime help you need. I'm not going anywhere in the meantime."
+    - "A nurse is coming. Take your time, and just talk to me while you wait if you like."
+    - "That's flagged now. I'll keep you company until someone can help you eat."
+    - "Help's on the way. I'll stay close, so let me know if anything else comes up."
+    - "I've passed it on. I'll be right here until they arrive."

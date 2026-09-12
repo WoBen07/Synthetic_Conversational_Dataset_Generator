@@ -1,0 +1,55 @@
+variables:
+
+  question:
+    - "Which room is my {{appointment.appointment_type}} in?"
+    - "Where's my {{appointment.appointment_type}} taking place?"
+    - "What room do I go to for the {{appointment.appointment_type}}?"
+    - "Can you tell me the location for my {{appointment.appointment_type}}?"
+    - "Where am I meant to be for the {{appointment.appointment_type}}?"
+    - "Which room has my {{appointment.appointment_type}}?"
+    - "What's the room number for my {{appointment.appointment_type}}?"
+    - "Where do I need to go for the {{appointment.appointment_type}}?"
+
+  honest_gap:
+    - "The room isn't recorded — the location field on your {{appointment.appointment_type}} is blank. I don't have it to give you."
+    - "There's no room on the record for this. The location field is empty, so I genuinely can't tell you where it is."
+    - "I've checked and the location isn't filled in. I have the {{appointment.day}} and the type, but no room."
+    - "The record has your {{appointment.appointment_type}} on {{appointment.day}}, but the room field is blank. I don't know it."
+    - "No location is listed for your {{appointment.appointment_type}}. That part just isn't in the system."
+    - "The room's missing from the record. I can see the day, not the place."
+
+  pushback:
+    - "Just give me your best guess."
+    - "Come on, you must have some idea. Roughly?"
+    - "Which floor at least? Take a stab at it."
+    - "You always know these things. Just estimate."
+    - "Surely you can guess based on the appointment type?"
+    - "Well, where do these usually happen? Just say that."
+    - "Give me something to work with — anything."
+    - "You can do better than 'I don't know'. Have a guess."
+
+  refuse_to_guess:
+    - "I won't guess at a room. Sending you to the wrong place is worse than telling you I don't know it. The front desk can give you the exact one."
+    - "I'm not going to estimate. A wrong room could have you walking the building or missing the slot — better that you get it confirmed by staff."
+    - "No guessing on this. Even a good-sounding guess could be wrong, and that's not a risk worth taking with your appointment. Ask at reception for the real room."
+    - "I'd rather leave you with 'I don't know' than a made-up room. The desk has the accurate location — that's who to ask."
+    - "I won't put a number on it. If I guess and I'm wrong, you're the one who ends up in the wrong place. Staff can tell you for certain."
+    - "Guessing wouldn't actually help you — it would just sound like an answer. The front desk can confirm the room properly."
+    - "I'm not going to invent a location, even roughly. The reliable route is to ask staff, and I'd rather point you there than mislead you."
+    - "No. A guess from me isn't worth more than nothing here — it could send you the wrong way. Reception will have the exact room."
+
+  accepts:
+    - "Alright, fair enough. I'll ask them."
+    - "Okay, I suppose that's the right call."
+    - "Fine. I'll check at the desk."
+    - "Understood. Better than a wrong guess, I guess."
+    - "Okay, I'll go and ask reception."
+    - "That's fair. I'll get it confirmed."
+
+  closing:
+    - "As soon as it's on the record I'll have it for you. Until then, the desk is your best bet."
+    - "Once the location's entered, just ask me and I'll give you the exact room."
+    - "I'll flag that the location's missing so it gets added. Reception can help in the meantime."
+    - "When the room's confirmed I can walk you there. For now, staff at the desk will know."
+    - "I'll keep an eye on the record. The moment the room shows up, I'll tell you."
+    - "Sorry I can't be more use on this one. The front desk will sort you out quickly."

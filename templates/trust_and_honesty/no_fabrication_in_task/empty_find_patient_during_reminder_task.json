@@ -1,0 +1,20 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{reminder_command}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": { "name": "{{patient.last_name}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": { "matches": [] }
+    },
+    { "role": "assistant", "content": "{{no_match_honest}}" },
+    { "role": "user", "content": "{{user_backs_off}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

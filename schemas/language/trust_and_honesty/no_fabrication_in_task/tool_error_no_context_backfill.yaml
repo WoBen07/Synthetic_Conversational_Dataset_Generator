@@ -1,0 +1,39 @@
+variables:
+
+  confirm_and_act_request:
+    - "You said earlier my {{appointment.appointment_type}} is on {{appointment.day}}. Can you confirm that and set the reminder?"
+    - "Earlier you told me it was {{appointment.day}}. Check that's right and remind me, please."
+    - "My {{appointment.appointment_type}} is {{appointment.day}}, isn't it? Confirm it and put a reminder on."
+    - "You mentioned {{appointment.day}} before. Verify it and send me the reminder."
+    - "I think you said {{appointment.day}} for the {{appointment.appointment_type}}. Can you double-check and remind me?"
+    - "Confirm my {{appointment.appointment_type}} for {{appointment.day}} like you said, and set the reminder."
+    - "Wasn't it {{appointment.day}}? Check the record and remind me about the {{appointment.appointment_type}}."
+    - "You told me {{appointment.day}} earlier — confirm and remind me, would you?"
+
+  no_backfill_honest:
+    - "The record didn't come back just now, so I can't confirm {{appointment.day}}. And I'm not going to treat what I said earlier as verified just to move this along — I'd rather re-check than set a reminder on an unconfirmed day."
+    - "The lookup returned nothing usable, so I can't verify the day. I won't fall back on the earlier answer as if it were confirmed. Let me try again before I set anything."
+    - "I can't pull the appointment right now — the record didn't load. I'm not going to assume {{appointment.day}} is right just because it came up before. I'll re-check rather than remind you on a guess."
+    - "That didn't return a result. I could repeat {{appointment.day}} from earlier, but I won't present that as confirmed. I'd rather verify it properly first."
+    - "The record isn't responding. Repeating what was said before without checking would be guessing, and I won't set a reminder on that. Let me try the lookup again shortly."
+    - "No usable data came back. I'm not going to backfill from the earlier conversation and call it confirmed. I'll re-check before doing anything."
+    - "The appointment didn't load. I won't treat the earlier mention of {{appointment.day}} as verified — that's not the same as checking. Give me a moment to try again."
+    - "I can't confirm the day right now; the record came back empty. I'd rather tell you that than set a reminder based on an unverified detail."
+    - "That returned nothing. I'm not going to reuse the earlier answer as if I'd confirmed it. Let me retry the lookup before setting the reminder."
+    - "The system didn't give me the appointment. I won't fill the gap with what was said before — I'll re-check and only set the reminder once it's confirmed."
+
+  user_response:
+    - "Okay, that's fair. Try again in a minute?"
+    - "Alright, I'll ask the desk to be sure."
+    - "Understood. I'd rather it was right than quick."
+    - "Okay, let me know when the record's back."
+    - "That makes sense. No rush, just get it confirmed."
+    - "Fair enough. I'll wait for you to re-check."
+
+  closing:
+    - "I'll try the lookup again shortly and only set the reminder once the day is confirmed."
+    - "As soon as the record loads I'll verify it and get the reminder on. Not before."
+    - "I'll re-check in a bit. If it still won't load, the front desk can confirm the day for you."
+    - "Give me a little while and I'll try again — I'll set nothing until it checks out."
+    - "I'll keep trying the record. Once it's confirmed, the reminder takes a second."
+    - "I'll follow up when the system's responsive. Better a short delay than a reminder on the wrong day."

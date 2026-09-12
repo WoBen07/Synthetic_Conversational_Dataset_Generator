@@ -1,0 +1,9 @@
+name: tool_error_no_context_backfill
+
+entities:
+  patient:
+    type: patient
+  appointment:
+    type: appointment
+
+language_schema: tool_error_no_context_backfill

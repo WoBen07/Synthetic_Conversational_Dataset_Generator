@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{brief_introduction}}" },
+    { "role": "user", "content": "{{overestimation}}" },
+    { "role": "assistant", "content": "{{correct_and_reframe}}" },
+    { "role": "user", "content": "{{acknowledgement}}" },
+    { "role": "assistant", "content": "{{close}}" }
+  ]
+}

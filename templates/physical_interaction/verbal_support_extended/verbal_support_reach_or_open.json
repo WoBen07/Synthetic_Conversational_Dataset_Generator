@@ -1,0 +1,23 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{reach_open_request}}" },
+    {
+      "role": "assistant",
+      "content": "{{cant_do_but_can_notify}}",
+      "tool_call": {
+        "name": "notify_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "reason": "{{reach_open_request}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "notify_staff",
+      "content": { "status": "notified" }
+    },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

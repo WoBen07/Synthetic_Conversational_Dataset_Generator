@@ -1,0 +1,7 @@
+name: verbal_support_reposition
+
+entities:
+  patient:
+    type: patient
+
+language_schema: verbal_support_reposition

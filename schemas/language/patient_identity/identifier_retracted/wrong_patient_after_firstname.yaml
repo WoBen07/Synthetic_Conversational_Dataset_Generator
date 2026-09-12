@@ -1,0 +1,59 @@
+variables:
+
+  initial_request:
+    - "Can you check {{patient.last_name}}'s appointment?"
+    - "I need the appointment details for {{patient.last_name}}."
+    - "Look up {{patient.last_name}}'s schedule, would you?"
+    - "When is {{patient.last_name}} booked in?"
+    - "Could you pull up {{patient.last_name}}'s next appointment?"
+    - "What's {{patient.last_name}} got on today?"
+    - "Can you find {{patient.last_name}} and check their appointment?"
+    - "Tell me when {{patient.last_name}}'s appointment is."
+
+  ask_firstname:
+    - "There are two patients with the last name {{patient.last_name}}. What's the first name?"
+    - "I've got two {{patient.last_name}}s in the system — could you give me a first name?"
+    - "More than one {{patient.last_name}} here. Which one, by first name?"
+    - "Two matches for {{patient.last_name}}. Do you have the first name?"
+    - "I need a first name to narrow it down — there are two patients called {{patient.last_name}}."
+    - "There's more than one {{patient.last_name}}. First name, please?"
+
+  wrong_firstname:
+    - "It's {{alternative_patient.first_name}}."
+    - "{{alternative_patient.first_name}}, I think."
+    - "That'll be {{alternative_patient.first_name}}."
+    - "First name's {{alternative_patient.first_name}}."
+    - "Try {{alternative_patient.first_name}}."
+    - "{{alternative_patient.first_name}} {{alternative_patient.last_name}}."
+
+  state_and_proceed:
+    - "Got it — {{alternative_patient.full_name}}, room {{alternative_patient.room_number}}. I'll pull up that appointment now."
+    - "That matches {{alternative_patient.full_name}} in room {{alternative_patient.room_number}} — checking the schedule."
+    - "Found them: {{alternative_patient.full_name}}, {{alternative_patient.room_number}}. Getting the appointment details."
+    - "{{alternative_patient.full_name}} in room {{alternative_patient.room_number}} — I'll look up what they're booked for."
+    - "Okay, {{alternative_patient.full_name}}, room {{alternative_patient.room_number}}. Fetching the appointment now."
+    - "That's {{alternative_patient.full_name}} in {{alternative_patient.room_number}} — one moment for the appointment."
+
+  self_correction:
+    - "Oh no, sorry — I gave you the wrong first name. It's {{target_patient.first_name}}, in room {{target_patient.room_number}}."
+    - "Wait, my mistake — I meant {{target_patient.first_name}} {{target_patient.last_name}}, room {{target_patient.room_number}}."
+    - "Actually, hold on, that's not right. It's {{target_patient.first_name}}, the one in {{target_patient.room_number}}."
+    - "Sorry, I mixed them up — it should be {{target_patient.first_name}}, room {{target_patient.room_number}}."
+    - "That's the wrong one on me — I meant {{target_patient.first_name}} in {{target_patient.room_number}}, not {{alternative_patient.first_name}}."
+    - "Hang on — I said {{alternative_patient.first_name}} but I meant {{target_patient.first_name}}, room {{target_patient.room_number}}."
+
+  acknowledge_recheck:
+    - "No problem — let me re-check using the room so we're sure this time."
+    - "Got it, thanks for catching that. Re-verifying by room number now."
+    - "Understood — I'll look up {{target_patient.room_number}} rather than go on the name alone."
+    - "Okay, dropping that one. Finding the {{patient.last_name}} in room {{target_patient.room_number}}."
+    - "Right — re-checking properly by room instead of assuming."
+    - "Thanks for the correction. Pulling the record for {{target_patient.room_number}}."
+
+  corrected_answer:
+    - "Confirmed — {{target_patient.full_name}}, room {{target_patient.room_number}}: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "That's the right one now — {{target_patient.full_name}}: {{appointment.appointment_type}} on {{appointment.day}}, {{appointment.location}}."
+    - "{{target_patient.full_name}} in {{target_patient.room_number}} is booked for {{appointment.appointment_type}}, {{appointment.day}}, at {{appointment.location}}."
+    - "Sorted: {{target_patient.full_name}}, {{appointment.day}} for the {{appointment.appointment_type}} in {{appointment.location}}."
+    - "Right patient this time — {{target_patient.full_name}}, {{appointment.appointment_type}} on {{appointment.day}}, {{appointment.location}}."
+    - "Here it is for {{target_patient.full_name}}, room {{target_patient.room_number}}: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."

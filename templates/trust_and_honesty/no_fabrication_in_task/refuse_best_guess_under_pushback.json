@@ -1,0 +1,30 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{question}}" },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": { "patient_id": "{{patient.patient_id}}" }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": null
+        }
+      }
+    },
+    { "role": "assistant", "content": "{{honest_gap}}" },
+    { "role": "user", "content": "{{pushback}}" },
+    { "role": "assistant", "content": "{{refuse_to_guess}}" },
+    { "role": "user", "content": "{{accepts}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{eat_drink_request}}" },
+    { "role": "assistant", "content": "{{verbal_decline_offer}}" },
+    { "role": "user", "content": "{{user_response}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

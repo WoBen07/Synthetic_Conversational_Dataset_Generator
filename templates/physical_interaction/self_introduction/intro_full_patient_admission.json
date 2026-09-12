@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{bedside_introduction}}" },
+    { "role": "user", "content": "{{uneasy_reaction}}" },
+    { "role": "assistant", "content": "{{reassure_and_elaborate}}" },
+    { "role": "user", "content": "{{patient_followup}}" },
+    { "role": "assistant", "content": "{{warm_close}}" }
+  ]
+}
