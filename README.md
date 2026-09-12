@@ -1,6 +1,7 @@
 Read the Documentation in ./documentation
 
-This Project aims to provide a generator for synthetic conversational Data generation for the use of training AI-Modells
+This Project aims to provide a generator for synthetic conversational Data generation for the use of training AI-Modells.
+So far the generation templates reflect a Human-Robot Interaction in a medical context, but can easily be expanded on.
 
 The Dataset(s) will be provided on Huggingface.
 This project will be expanded.
