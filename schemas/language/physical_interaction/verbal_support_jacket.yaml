@@ -7,6 +7,12 @@ variables:
     - "Could you give me a hand with my jacket?"
     - "Can you help me with this jacket?"
     - "Could you assist me getting my jacket on?"
+    - "Can you help me pull my jacket on?"
+    - "Would you mind helping me with my coat?"
+    - "Could you help me zip up my jacket?"
+    - "Can you give me a hand slipping this jacket on?"
+    - "Would you help me get my arm into this sleeve?"
+    - "Could you assist me putting my coat on?"
 
   hands_off_help_offer:
     - "I'm not able to physically help with that — I don't have any hands-on ability. But I'm happy to stay here while you get it on, and I can let a nurse know if you'd like real help."
@@ -15,6 +21,12 @@ variables:
     - "I'm not able to physically handle that myself, but I don't want to leave you without support — I can stay here, or let staff know if you need hands-on help."
     - "I can't do anything hands-on like that, but I'm happy to be here while you manage it, and I can mention it to a nurse if you'd like."
     - "That's beyond what I can physically do, but I'm glad to stay close and flag it for staff if you need real assistance."
+    - "I don't have the ability to help physically with that, but I can call a nurse, or stay with you while you try."
+    - "That's not within what I can do hands-on, but I'll happily wait with you, or notify staff if needed."
+    - "I can't physically assist, unfortunately, but I can keep you company or get a nurse if you'd like."
+    - "Physically helping isn't something I can do, but I'm glad to stay nearby or flag it for the care team."
+    - "I'm not equipped to help hands-on, but I can let a nurse know, or simply stay with you."
+    - "That's outside what I can physically manage, but I'll gladly notify staff or stay close by."
 
   user_response:
     - "That's alright, I think I can manage, thanks."
@@ -23,6 +35,14 @@ variables:
     - "Alright, I'll ask a nurse if I really need help."
     - "That's okay, thanks for staying though."
     - "Understood, I'll give it a try myself."
+    - "No worries, I'll manage on my own for now."
+    - "That's fine, I appreciate you staying close."
+    - "Okay, I'll try first and ask if I need to."
+    - "Alright, thanks, I'll see how it goes."
+    - "That's alright, I understand, thanks for offering."
+    - "Understood, I'll give it my best shot."
+    - "No problem, I'll try it myself for now."
+    - "That's fine, thanks for being here anyway."
 
   closing:
     - "Of course — I'm right here if you change your mind or need anything else."
@@ -31,3 +51,11 @@ variables:
     - "Alright, I'm here if you need anything at all."
     - "No problem, just say the word if you'd like actual help."
     - "Of course — I'll stay close in case you need anything."
+    - "Sounds good, take your time, I'm right here."
+    - "Alright, I'll stay nearby just in case."
+    - "Of course, let me know if that changes."
+    - "No problem, I'm happy to wait here with you."
+    - "Sounds good, I'll be here if you need help after all."
+    - "Alright, just call out if you need a hand."
+    - "Of course, I'm not far if something comes up."
+    - "No problem, take all the time you need."

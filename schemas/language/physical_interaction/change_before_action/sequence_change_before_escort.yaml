@@ -7,6 +7,12 @@ variables:
     - "Reorder today's two for {{patient.full_name}} — {{appointment.appointment_type}} in {{appointment.location}} comes first now, {{alternative_appointment.appointment_type}} after."
     - "Do the {{appointment.appointment_type}} before the {{alternative_appointment.appointment_type}} for {{patient.full_name}}. Start at {{appointment.location}}."
     - "The {{alternative_appointment.appointment_type}} is running late, so take {{patient.full_name}} to the {{appointment.appointment_type}} in {{appointment.location}} first instead."
+    - "Quick change — {{patient.full_name}}'s {{appointment.appointment_type}} needs to happen first, in {{appointment.location}}."
+    - "Let's flip the order for {{patient.full_name}} — {{appointment.location}} for the {{appointment.appointment_type}} first."
+    - "New plan — {{appointment.appointment_type}} ahead of {{alternative_appointment.appointment_type}} for {{patient.full_name}}, starting at {{appointment.location}}."
+    - "Please prioritize the {{appointment.appointment_type}} in {{appointment.location}} for {{patient.full_name}} today."
+    - "Move the {{appointment.appointment_type}} up for {{patient.full_name}} — head to {{appointment.location}} first."
+    - "The order's changed — {{appointment.appointment_type}} in {{appointment.location}} comes before the {{alternative_appointment.appointment_type}} now."
 
   announce_new_order:
     - "Got it — I'll tell {{patient.full_name}} we're doing the {{appointment.appointment_type}} first, in {{appointment.location}}, then the {{alternative_appointment.appointment_type}} after. Heading to {{appointment.location}} now."
@@ -15,6 +21,12 @@ variables:
     - "Okay. {{patient.full_name}} will hear it from me: {{appointment.location}} for the {{appointment.appointment_type}} now, {{alternative_appointment.appointment_type}} to follow. Setting off."
     - "Will do — telling {{patient.full_name}} we start with the {{appointment.appointment_type}} in {{appointment.location}}, then the {{alternative_appointment.appointment_type}}. Navigating there."
     - "Noted. I'll walk {{patient.full_name}} through the new order first, then head to {{appointment.location}} for the {{appointment.appointment_type}}."
+    - "Understood, updating {{patient.full_name}} on the new order and heading to {{appointment.location}} now."
+    - "Got it, I'll explain the change to {{patient.full_name}} and start toward {{appointment.location}}."
+    - "Right, letting {{patient.full_name}} know we're starting with {{appointment.location}} instead."
+    - "Okay, I'll fill {{patient.full_name}} in on the swap and head over to {{appointment.location}}."
+    - "Noted, {{patient.full_name}} will know the new plan before we set off to {{appointment.location}}."
+    - "Understood, I'll clarify the order for {{patient.full_name}} and head to {{appointment.location}} first."
 
   arrival_confirm:
     - "We're in {{appointment.location}} — {{patient.full_name}} is set for the {{appointment.appointment_type}}, with the {{alternative_appointment.appointment_type}} to follow."
@@ -23,3 +35,9 @@ variables:
     - "{{patient.full_name}} is checked in at {{appointment.location}} for the {{appointment.appointment_type}}. I'll take them to the {{alternative_appointment.appointment_type}} afterward."
     - "We made it to {{appointment.location}} in the new order — {{appointment.appointment_type}} now for {{patient.full_name}}, {{alternative_appointment.appointment_type}} to come."
     - "At {{appointment.location}} with {{patient.full_name}}. The {{appointment.appointment_type}} is underway; {{alternative_appointment.appointment_type}} is still on for after."
+    - "Made it to {{appointment.location}} — {{patient.full_name}} is ready for the {{appointment.appointment_type}} first, as planned."
+    - "Here now at {{appointment.location}} with {{patient.full_name}}, following the new order successfully."
+    - "That's us at {{appointment.location}} — {{appointment.appointment_type}} first for {{patient.full_name}}, as changed."
+    - "Arrived without issue at {{appointment.location}} — order swap went smoothly for {{patient.full_name}}."
+    - "We're set at {{appointment.location}} now, {{patient.full_name}} ready for the reordered {{appointment.appointment_type}}."
+    - "Made it to {{appointment.location}} with {{patient.full_name}}, new order in effect as planned."

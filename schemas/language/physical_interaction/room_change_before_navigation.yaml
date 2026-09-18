@@ -7,6 +7,14 @@ variables:
     - "Exam Room 5"
     - "the East Wing consultation room"
     - "Room 12, second floor"
+    - "the Physical Therapy suite"
+    - "Consultation Room 4"
+    - "the West Wing exam room"
+    - "Room 9, ground floor"
+    - "the Radiology waiting room"
+    - "Exam Room 2"
+    - "the North Wing consultation room"
+    - "Room 15, third floor"
 
   change_reason:
     - "a technical issue with the equipment"
@@ -15,6 +23,14 @@ variables:
     - "an equipment malfunction"
     - "a scheduling mix-up"
     - "an unexpected repair"
+    - "a plumbing issue"
+    - "a power outage in that wing"
+    - "a cleaning crew needing extra time"
+    - "an overrunning previous appointment"
+    - "a broken air conditioning unit"
+    - "an urgent staff meeting booked in there"
+    - "a flooring repair"
+    - "a fire alarm inspection"
 
   ask_to_go:
     - "Can you take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
@@ -23,6 +39,14 @@ variables:
     - "Please take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}."
     - "Could you walk {{patient.full_name}} over to {{appointment.location}} for the appointment?"
     - "Can you bring {{patient.full_name}} to their {{appointment.appointment_type}} in {{appointment.location}}?"
+    - "Would you take {{patient.full_name}} over to {{appointment.location}} now?"
+    - "Can you get {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
+    - "Please escort {{patient.full_name}} to {{appointment.location}} when you're ready."
+    - "Could you lead {{patient.full_name}} to {{appointment.location}} for their appointment?"
+    - "Can you accompany {{patient.full_name}} to {{appointment.location}} now?"
+    - "Would you mind taking {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
+    - "Could you guide {{patient.full_name}} over to {{appointment.location}} now?"
+    - "Can you bring {{patient.full_name}} to {{appointment.location}} in time for the appointment?"
 
   room_change_notice:
     - "Actually, I just got word that {{appointment.location}} is unavailable due to {{change_reason}} — the appointment's been moved to {{new_location}}. I'll head there instead."
@@ -31,6 +55,12 @@ variables:
     - "Heads up — there's {{change_reason}} in {{appointment.location}}, so the appointment moved to {{new_location}}. Heading there now."
     - "Just found out {{appointment.location}} is closed due to {{change_reason}} — I'll bring {{patient.full_name}} to {{new_location}} instead."
     - "One update before we go — {{appointment.location}} is unavailable because of {{change_reason}}. The new location is {{new_location}}."
+    - "Before we head out — {{change_reason}} means {{appointment.location}} is closed, so we're going to {{new_location}} instead."
+    - "Small update — {{appointment.location}} is out due to {{change_reason}}, the new spot is {{new_location}}."
+    - "Just got notified — {{change_reason}} in {{appointment.location}}, so it's moved to {{new_location}} now."
+    - "I've just been told {{appointment.location}} is unavailable because of {{change_reason}} — redirecting to {{new_location}}."
+    - "Quick heads up — {{change_reason}} means we need {{new_location}} instead of {{appointment.location}}."
+    - "Before we set off — there's been {{change_reason}} in {{appointment.location}}, so it's now {{new_location}}."
 
   arrival_confirmation:
     - "We've arrived at {{new_location}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."
@@ -39,3 +69,9 @@ variables:
     - "Arrived at {{new_location}} with {{patient.full_name}}, ready for the appointment."
     - "That's {{new_location}} — {{patient.full_name}} is checked in for the {{appointment.appointment_type}}."
     - "We're at {{new_location}} now, no trouble getting here despite the change."
+    - "Made it to {{new_location}} without any issues, {{patient.full_name}} is all set."
+    - "Here now at {{new_location}} — {{patient.full_name}} is ready for the {{appointment.appointment_type}}."
+    - "Arrived without trouble at {{new_location}} with {{patient.full_name}}."
+    - "We're checked in at {{new_location}} now for the {{appointment.appointment_type}}."
+    - "That's us at {{new_location}} — {{patient.full_name}} is ready to go."
+    - "Made it to the new location, {{new_location}}, with {{patient.full_name}} in tow."

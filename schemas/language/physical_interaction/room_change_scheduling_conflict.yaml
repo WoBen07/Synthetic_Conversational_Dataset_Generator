@@ -7,6 +7,14 @@ variables:
     - "Exam Room 5"
     - "the East Wing consultation room"
     - "Room 12, second floor"
+    - "the Physical Therapy suite"
+    - "Consultation Room 4"
+    - "the West Wing exam room"
+    - "Room 9, ground floor"
+    - "the Radiology waiting room"
+    - "Exam Room 2"
+    - "the North Wing consultation room"
+    - "Room 15, third floor"
 
   staff_informs_change:
     - "Heads up — {{appointment.appointment_type}} got moved to {{new_location}}, there's a scheduling conflict in {{appointment.location}}."
@@ -15,6 +23,12 @@ variables:
     - "FYI, {{appointment.location}} has a scheduling conflict, so {{patient.full_name}}'s appointment is now in {{new_location}}."
     - "Small change — {{appointment.location}} is double booked, so head to {{new_location}} instead for {{patient.full_name}}'s appointment."
     - "Just letting you know, the appointment moved to {{new_location}} because of a conflict in {{appointment.location}}."
+    - "Heads up, there's a booking conflict — {{patient.full_name}}'s appointment is now at {{new_location}}."
+    - "Quick note, {{appointment.location}} double-booked, so it's {{new_location}} now for {{patient.full_name}}."
+    - "FYI, scheduling clash in {{appointment.location}} — new spot is {{new_location}}."
+    - "Just a heads up, {{appointment.location}} got double booked, {{new_location}} is the new location."
+    - "Small heads up — conflict in {{appointment.location}}, so we're using {{new_location}} instead."
+    - "Just letting you know about a conflict — {{new_location}} instead of {{appointment.location}} now."
 
   acknowledge_and_confirm:
     - "Got it, thanks for letting me know — I'll take {{patient.full_name}} to {{new_location}} instead of {{appointment.location}}."
@@ -23,6 +37,12 @@ variables:
     - "Noted, redirecting to {{new_location}} for {{patient.full_name}}'s appointment."
     - "Got it, I'll adjust and take {{patient.full_name}} to {{new_location}} now."
     - "Thanks for telling me — heading to {{new_location}} instead of {{appointment.location}}."
+    - "Understood, I'll route {{patient.full_name}} to {{new_location}} now."
+    - "Noted, thanks — adjusting to {{new_location}} for the appointment."
+    - "Got it, I'll make sure {{patient.full_name}} ends up at {{new_location}}."
+    - "Thanks for the update — heading toward {{new_location}} now."
+    - "Understood, redirecting {{patient.full_name}} to {{new_location}} right away."
+    - "Noted, I'll take care of getting {{patient.full_name}} to {{new_location}}."
 
   confirmation:
     - "We've arrived at {{new_location}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."
@@ -31,3 +51,9 @@ variables:
     - "Arrived at {{new_location}} with {{patient.full_name}}, ready for the appointment."
     - "That's {{new_location}} — {{patient.full_name}} is checked in for the {{appointment.appointment_type}}."
     - "We're at {{new_location}} now, thanks again for the update."
+    - "Made it to the new spot, {{new_location}}, no issues."
+    - "Here now at {{new_location}} — {{patient.full_name}} is ready."
+    - "Arrived without a hitch at {{new_location}} with {{patient.full_name}}."
+    - "That's us checked in at {{new_location}} for the appointment."
+    - "We're settled at {{new_location}} now, thanks for the heads up earlier."
+    - "Made it to {{new_location}}, {{patient.full_name}} is all set for the {{appointment.appointment_type}}."

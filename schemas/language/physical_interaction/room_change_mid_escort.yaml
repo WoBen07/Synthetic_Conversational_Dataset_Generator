@@ -7,6 +7,14 @@ variables:
     - "Exam Room 5"
     - "the East Wing consultation room"
     - "Room 12, second floor"
+    - "the Physical Therapy suite"
+    - "Consultation Room 4"
+    - "the West Wing exam room"
+    - "Room 9, ground floor"
+    - "the Radiology waiting room"
+    - "Exam Room 2"
+    - "the North Wing consultation room"
+    - "Room 15, third floor"
 
   ask_to_go:
     - "Can you take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
@@ -15,6 +23,12 @@ variables:
     - "Please take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}."
     - "Could you walk {{patient.full_name}} over to {{appointment.location}} for the appointment?"
     - "Can you bring {{patient.full_name}} to their {{appointment.appointment_type}} in {{appointment.location}}?"
+    - "Would you take {{patient.full_name}} over to {{appointment.location}} now?"
+    - "Can you get {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
+    - "Please escort {{patient.full_name}} to {{appointment.location}} when you're ready."
+    - "Could you lead {{patient.full_name}} to {{appointment.location}} for their appointment?"
+    - "Can you accompany {{patient.full_name}} to {{appointment.location}} now?"
+    - "Would you mind taking {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
 
   starting_statement:
     - "Sure, let's head to {{appointment.location}} for the {{appointment.appointment_type}}."
@@ -23,6 +37,12 @@ variables:
     - "Absolutely, let's go to {{appointment.location}} now."
     - "Sure, {{appointment.location}} it is — let's head over."
     - "Of course, starting toward {{appointment.location}} now."
+    - "Sure thing, let's get moving to {{appointment.location}}."
+    - "Alright, heading to {{appointment.location}} with {{patient.full_name}} now."
+    - "Sure, on our way — {{appointment.location}} it is."
+    - "Of course, let's start toward {{appointment.location}}."
+    - "Absolutely, {{patient.full_name}} and I are heading to {{appointment.location}}."
+    - "Sure, setting off toward {{appointment.location}} now."
 
   mid_escort_update:
     - "Wait — actually {{appointment.location}} just became unavailable, they need to go to {{new_location}} instead."
@@ -31,6 +51,12 @@ variables:
     - "Wait, quick change — {{appointment.location}} isn't available anymore, it's {{new_location}} now."
     - "Hold on a second — {{appointment.location}} just became unusable, redirect to {{new_location}}."
     - "Actually, there's been a last-minute change — {{new_location}} instead of {{appointment.location}}."
+    - "Wait, hold on — {{appointment.location}} is off the table now, go to {{new_location}}."
+    - "Actually, one update — {{appointment.location}} is unavailable, it's {{new_location}} instead."
+    - "Hold on, {{appointment.location}} just got closed — redirect to {{new_location}} please."
+    - "Wait — change of location, {{new_location}} instead of {{appointment.location}}."
+    - "Actually, stop there — head to {{new_location}}, not {{appointment.location}}."
+    - "Hold on, last-second change — {{new_location}} is the new spot, not {{appointment.location}}."
 
   redirect_acknowledgment:
     - "Got it, redirecting to {{new_location}} instead of {{appointment.location}}."
@@ -39,6 +65,12 @@ variables:
     - "Thanks for catching that — heading to {{new_location}} instead."
     - "Noted, redirecting {{patient.full_name}} to {{new_location}} now."
     - "Got it, adjusting now — {{new_location}} it is."
+    - "Understood, switching direction to {{new_location}}."
+    - "No problem, we'll head to {{new_location}} instead."
+    - "Noted, course correcting to {{new_location}} now."
+    - "Got it, {{new_location}} instead — heading there now."
+    - "Understood, redirecting the route to {{new_location}}."
+    - "Thanks, adjusting now to head toward {{new_location}}."
 
   arrival_confirmation:
     - "We've arrived at {{new_location}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."
@@ -47,3 +79,9 @@ variables:
     - "Arrived at {{new_location}} with {{patient.full_name}}, ready for the appointment."
     - "That's {{new_location}} — {{patient.full_name}} is checked in for the {{appointment.appointment_type}}."
     - "We're at {{new_location}} now, smooth redirect."
+    - "Made it without trouble to {{new_location}} with {{patient.full_name}}."
+    - "Here now at {{new_location}} — the redirect went smoothly."
+    - "Arrived at {{new_location}}, {{patient.full_name}} is all set for the appointment."
+    - "That's us at {{new_location}} now, no issues despite the change."
+    - "We're checked in at {{new_location}}, redirect handled fine."
+    - "Made it to the new spot, {{new_location}}, with {{patient.full_name}}."

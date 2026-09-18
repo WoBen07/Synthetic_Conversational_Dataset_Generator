@@ -7,6 +7,18 @@ variables:
     - "the wrong wing"
     - "the room by the elevator"
     - "the sunroom"
+    - "the east wing"
+    - "the old wing"
+    - "Room 7"
+    - "the waiting area"
+    - "the physical therapy room"
+    - "the west corridor"
+    - "the recovery room"
+    - "Room 4A"
+    - "the nurses' station wing"
+    - "the ground floor"
+    - "the consultation room"
+    - "the lounge"
 
   initial_room_statement:
     - "I'll head to {{wrong_room_guess}} to check on {{patient.full_name}}."
@@ -15,6 +27,12 @@ variables:
     - "Going to {{wrong_room_guess}} to check on {{patient.full_name}} now."
     - "I'll go check {{wrong_room_guess}} for {{patient.full_name}}."
     - "Heading over to {{wrong_room_guess}} for {{patient.full_name}} now."
+    - "On my way to {{wrong_room_guess}} to locate {{patient.full_name}}."
+    - "I'll swing by {{wrong_room_guess}} to find {{patient.full_name}}."
+    - "Making my way to {{wrong_room_guess}} for {{patient.full_name}}."
+    - "I'm heading toward {{wrong_room_guess}} to check on {{patient.full_name}}."
+    - "I'll go to {{wrong_room_guess}} now, looking for {{patient.full_name}}."
+    - "Off to {{wrong_room_guess}} to find {{patient.full_name}} now."
 
   room_correction:
     - "Actually, {{patient.full_name}} is in {{patient.room_number}}, not {{wrong_room_guess}}."
@@ -23,6 +41,12 @@ variables:
     - "That's not right, {{patient.full_name}} is in room {{patient.room_number}}."
     - "Hold on, {{patient.full_name}}'s room is {{patient.room_number}}, not {{wrong_room_guess}}."
     - "Actually {{patient.full_name}} moved to {{patient.room_number}}, not {{wrong_room_guess}}."
+    - "Wrong room — {{patient.full_name}} is actually in {{patient.room_number}}."
+    - "Hold on, that's outdated — {{patient.full_name}} is now in {{patient.room_number}}."
+    - "No, {{wrong_room_guess}} isn't right — {{patient.full_name}} is in {{patient.room_number}}."
+    - "Actually, double check — {{patient.full_name}}'s in {{patient.room_number}}, not {{wrong_room_guess}}."
+    - "That's the old room — {{patient.full_name}} is in {{patient.room_number}} now."
+    - "Stop, {{patient.full_name}} isn't in {{wrong_room_guess}} — try {{patient.room_number}}."
 
   acknowledge_and_replan:
     - "Thanks for the correction — heading to {{patient.room_number}} instead."
@@ -31,6 +55,12 @@ variables:
     - "Thanks, updating my route to {{patient.room_number}} now."
     - "Appreciate the correction — heading to {{patient.room_number}}."
     - "Understood, redirecting now to {{patient.room_number}}."
+    - "Thanks for catching that — adjusting course to {{patient.room_number}}."
+    - "Got it, my mistake — heading to {{patient.room_number}} now."
+    - "Noted, correcting my route to {{patient.room_number}}."
+    - "Appreciate that — I'll go to {{patient.room_number}} instead."
+    - "Understood, changing direction to {{patient.room_number}} now."
+    - "Thanks, I'll head to {{patient.room_number}} right away."
 
   arrival_confirmation:
     - "Here now, with {{patient.full_name}} in {{patient.room_number}}."
@@ -39,3 +69,9 @@ variables:
     - "Confirmed, I'm with {{patient.full_name}} in {{patient.room_number}} now."
     - "That's sorted — I'm with {{patient.full_name}} in the correct room now."
     - "Here with {{patient.full_name}} in {{patient.room_number}}, thanks for the correction."
+    - "Made it — {{patient.full_name}} is here in {{patient.room_number}}."
+    - "Arrived correctly this time — {{patient.full_name}}, room {{patient.room_number}}."
+    - "I'm with {{patient.full_name}} now, in the right room, {{patient.room_number}}."
+    - "That's the right one — {{patient.full_name}} in {{patient.room_number}}, all set."
+    - "Here at {{patient.room_number}} with {{patient.full_name}}, no more confusion."
+    - "Confirmed correct — {{patient.full_name}}, {{patient.room_number}}, thanks again."

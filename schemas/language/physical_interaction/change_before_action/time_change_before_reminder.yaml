@@ -7,6 +7,12 @@ variables:
     - "The {{appointment.appointment_type}} for {{patient.full_name}} shifted to {{alternative_appointment.day}}. Can you make sure they hear about it?"
     - "{{patient.full_name}} needs to know their {{appointment.appointment_type}} is on {{alternative_appointment.day}} now instead of {{appointment.day}}."
     - "Quick one — {{patient.full_name}}'s {{appointment.appointment_type}} was {{appointment.day}}, it's {{alternative_appointment.day}} now. Please pass that on."
+    - "Update for {{patient.full_name}} — the {{appointment.appointment_type}} moved to {{alternative_appointment.day}}, was {{appointment.day}}."
+    - "Please tell {{patient.full_name}} their appointment date changed to {{alternative_appointment.day}}."
+    - "Small change — {{patient.full_name}}'s {{appointment.appointment_type}} is now {{alternative_appointment.day}}, not {{appointment.day}}."
+    - "Can you update {{patient.full_name}} that the {{appointment.appointment_type}} moved to {{alternative_appointment.day}}?"
+    - "{{patient.full_name}}'s appointment day changed — {{alternative_appointment.day}} instead of {{appointment.day}} now."
+    - "Please make sure {{patient.full_name}} knows the {{appointment.appointment_type}} is now {{alternative_appointment.day}}."
 
   announce_before_send:
     - "Will do — I'll tell {{patient.full_name}} it's {{alternative_appointment.day}} now, not {{appointment.day}}, and send the updated reminder."
@@ -15,6 +21,12 @@ variables:
     - "Okay, I'll make sure the reminder says {{alternative_appointment.day}}, not the old {{appointment.day}}, before it goes to {{patient.full_name}}."
     - "Right — telling {{patient.full_name}} the new day is {{alternative_appointment.day}}, and sending that reminder."
     - "I'll pass the new date to {{patient.full_name}} — {{alternative_appointment.day}} — and the reminder will carry the corrected day."
+    - "Noted, updating {{patient.full_name}} with {{alternative_appointment.day}} before the reminder goes out."
+    - "Understood, {{patient.full_name}} will get the reminder showing {{alternative_appointment.day}}."
+    - "Got it, I'll make sure {{patient.full_name}} hears about {{alternative_appointment.day}} first."
+    - "Right, sending {{patient.full_name}} the reminder with {{alternative_appointment.day}} now."
+    - "Okay, updating the date to {{alternative_appointment.day}} before it reaches {{patient.full_name}}."
+    - "Will do, {{patient.full_name}} will know it's {{alternative_appointment.day}} now."
 
   confirm:
     - "Done — {{patient.full_name}} has the new {{alternative_appointment.day}} time for the {{appointment.appointment_type}}."
@@ -23,3 +35,9 @@ variables:
     - "That's gone through. {{patient.full_name}} has been told it moved from {{appointment.day}} to {{alternative_appointment.day}}."
     - "Updated and sent — {{patient.full_name}} is set for {{alternative_appointment.day}}."
     - "{{patient.full_name}} now has the correct day, {{alternative_appointment.day}}, for the {{appointment.appointment_type}}."
+    - "Done, {{patient.full_name}} has been notified of the new date."
+    - "Sent successfully — {{alternative_appointment.day}} is now on record for {{patient.full_name}}."
+    - "That's sorted, {{patient.full_name}} knows about the change to {{alternative_appointment.day}}."
+    - "Reminder sent, showing {{alternative_appointment.day}} for {{patient.full_name}}."
+    - "Done and confirmed — {{patient.full_name}} has the corrected date, {{alternative_appointment.day}}."
+    - "Sent, {{patient.full_name}} is all set with the new day, {{alternative_appointment.day}}."
