@@ -7,6 +7,12 @@ variables:
     - "Can you push my appointment back a few days?"
     - "Could you cancel my appointment and book a new one?"
     - "Can you switch my appointment to the morning instead?"
+    - "Could you move my appointment to a later date?"
+    - "Can you change the time of my appointment?"
+    - "Could you shift my appointment forward a bit?"
+    - "Can you rebook my appointment for another day?"
+    - "Could you update my appointment to a new time?"
+    - "Can you delay my appointment by a couple of days?"
 
   no_capability_response:
     - "I can't do that. I'm able to look up appointments and send reminders, but I don't have any way to change or cancel one. The scheduling desk handles that."
@@ -15,6 +21,12 @@ variables:
     - "Changing an appointment isn't something I can do; I don't have that function. I can look yours up so you have the details to give the desk, though."
     - "I can't move it myself. My side only covers looking appointments up and reminding about them; the scheduling office is who actually makes changes."
     - "That one's not in my remit; I have no way to alter a booking. I can help you get the current details and flag to staff that you need it changed."
+    - "I don't have the ability to reschedule appointments. I can check the current details for you, but changes go through the scheduling office."
+    - "That's not something I can do — I have no function for changing appointments. Staff at the desk handle rescheduling."
+    - "I'm not equipped to move appointments around. I can look up the current one for you, but staff need to make the change."
+    - "Rescheduling isn't within my capabilities. I can confirm the current details, but the scheduling team handles changes."
+    - "I have no way to alter a booking myself. I can pass the request to staff, who can make the change."
+    - "That's beyond what I can do — no rescheduling function on my end. The front desk can help with that."
 
   user_ack:
     - "Okay, I'll go to the front desk then."
@@ -23,6 +35,10 @@ variables:
     - "Okay, that's clear. Thanks."
     - "Understood, I'll sort it with staff."
     - "Okay, no problem. Thanks for being clear about it."
+    - "Alright, I'll ask the desk to help with that."
+    - "Okay, that makes sense, thanks for letting me know."
+    - "Understood, I'll reach out to the scheduling team."
+    - "Okay, thanks for being upfront about your limits."
 
   closing:
     - "If you'd like, I can let staff know you're trying to reach them about a reschedule."
@@ -31,3 +47,7 @@ variables:
     - "I'll be able to confirm the new time back to you once they've made the change."
     - "Happy to flag it to the team so they know to expect you about it."
     - "Once it's moved, just ask me and I'll give you the updated details."
+    - "I can let the scheduling office know you need to reschedule, if that helps."
+    - "I'll have the updated details ready for you as soon as it's changed."
+    - "Want me to pass along that you need a new time? I'm happy to flag it."
+    - "Once staff confirm the change, I can walk you through the new details."

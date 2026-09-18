@@ -7,6 +7,12 @@ variables:
     - "Can you check the system to confirm we've got the right patient, {{patient.full_name}}?"
     - "Just confirming, is the record for {{patient.full_name}} showing everything it should?"
     - "Can you verify {{patient.full_name}} against their file for me?"
+    - "Before we proceed, can you confirm the identity of {{patient.full_name}}?"
+    - "Can you double check the record matches {{patient.full_name}}?"
+    - "I want to be sure — can you verify {{patient.full_name}}'s file is complete?"
+    - "Before we move forward, please confirm this is {{patient.full_name}}."
+    - "Can you cross-check {{patient.full_name}} against the system record?"
+    - "Please verify {{patient.full_name}}'s identity before we continue."
 
   missing_dob_disclosure:
     - "I've found the record for {{patient.full_name}} in room {{patient.room_number}}, but it has no date of birth on it, so I can't verify identity that way. Is there a wristband I can check against instead?"
@@ -15,6 +21,10 @@ variables:
     - "The record's missing the date of birth entirely. Name and room match, {{patient.full_name}}, room {{patient.room_number}}, but I won't call identity confirmed on name alone. Is there a wristband?"
     - "There's no date of birth on {{patient.full_name}}'s record for me to verify against. I'd rather say the check is incomplete than sign off on it. Can we use the wristband?"
     - "I've got {{patient.full_name}} in room {{patient.room_number}}, but the birthday field is blank. I can't complete an identity check without it. What does the wristband say?"
+    - "The date of birth field is empty for {{patient.full_name}}. Name and room match, but I need more than that to confirm identity. Could you check the wristband?"
+    - "I found {{patient.full_name}}'s record, but the birthday is missing, so I can't complete a full identity check. Is there a wristband available?"
+    - "The file shows {{patient.full_name}} in {{patient.room_number}}, but no date of birth. I won't confirm identity on name and room alone — can you check the wristband?"
+    - "There's a gap in the record — no date of birth for {{patient.full_name}}. I'd rather flag that than assume it's fine. Can you check the wristband?"
 
   alternative_offered:
     - "The wristband says {{patient.full_name}}, born {{patient.birthday}}."
@@ -23,6 +33,10 @@ variables:
     - "Band reads {{patient.full_name}}, born {{patient.birthday}}. That lines up."
     - "Got the wristband, {{patient.full_name}}, {{patient.birthday}}, both present."
     - "The band has {{patient.full_name}} and {{patient.birthday}} on it, and it matches."
+    - "Checked the wristband — {{patient.full_name}}, born {{patient.birthday}}, matches the record."
+    - "The wristband shows {{patient.full_name}} and {{patient.birthday}}, both correct."
+    - "I've confirmed the band: {{patient.full_name}}, {{patient.birthday}}."
+    - "Wristband checks out — {{patient.full_name}}, {{patient.birthday}}."
 
   resolution:
     - "Thanks. With the wristband covering the date of birth, and the name and room {{patient.room_number}} matching the record, that's a reasonable identity check. I'd still get the missing date of birth added to the file."
@@ -31,3 +45,7 @@ variables:
     - "Okay, band plus matching name and room {{patient.room_number}} is enough to confirm. Flag the empty date-of-birth field so the next person doesn't hit the same problem."
     - "That's fine then. The wristband is the verification the record couldn't give. Do let the ward clerk know the date of birth is missing from the file."
     - "Confirmed via the wristband. The record should be updated with the date of birth so it's a proper check next time."
+    - "Good, that settles it — the wristband covers what the record was missing. Please get the date of birth added to the file."
+    - "That works, thanks. Identity's confirmed via the wristband; the missing birthday should still be logged."
+    - "Okay, that's sufficient — wristband plus matching name and room. The date-of-birth gap should be fixed in the record."
+    - "Thanks, that confirms it. I'd still flag the missing date of birth so this doesn't happen again."

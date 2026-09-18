@@ -11,6 +11,10 @@ variables:
     - "Could you tell me what's on my schedule?"
     - "Can you check what appointment I have coming up?"
     - "I'd like to know about my appointment, please."
+    - "Could you pull up my appointment information?"
+    - "Do I have anything booked for today?"
+    - "Can you verify what I have scheduled?"
+    - "What's on my calendar for today?"
 
   appointment_answer:
     - "You have a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
@@ -21,6 +25,12 @@ variables:
     - "You're scheduled for a {{appointment.appointment_type}} on {{appointment.day}}, taking place in {{appointment.location}}."
     - "That's a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
     - "Your record shows a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "The system lists a {{appointment.appointment_type}} for {{appointment.day}}, in {{appointment.location}}."
+    - "You've got a {{appointment.appointment_type}} coming up on {{appointment.day}}, at {{appointment.location}}."
+    - "That would be a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
+    - "Confirmed on file — a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "It's a {{appointment.appointment_type}}, scheduled {{appointment.day}}, at {{appointment.location}}."
+    - "I have you down for a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
 
   distrust_statement:
     - "Are you sure that's right? That doesn't sound like my appointment."
@@ -33,6 +43,10 @@ variables:
     - "That doesn't sound like me, can you check that again?"
     - "I'm not convinced that's right, are you sure the system is accurate?"
     - "Hold on, are you sure that's actually mine and not mixed up with someone else's?"
+    - "That's surprising, are you positive it's for me?"
+    - "I'm skeptical, could that be someone else's record?"
+    - "Are you sure the system has the right person?"
+    - "That doesn't seem right, can you double check the name matches?"
 
   reassurance_with_basis:
     - "I understand the hesitation. That answer comes directly from the hospital scheduling system, matched to your patient ID, so I'm confident it's accurate. If you'd still like, staff can confirm it in person."
@@ -43,6 +57,8 @@ variables:
     - "That's a good instinct to check. What I told you is pulled live from your record, not assumed, so it should be correct. I can also flag it for staff to confirm in person."
     - "I understand the concern. This came directly from the system under your patient ID, not from anything I recalled on my own. If you'd like, staff can verify it as well."
     - "Fair enough to ask. That information is specific to your record and was just retrieved from the system, so it should be reliable. I'm also glad to have someone on staff confirm it."
+    - "That's understandable. This is matched to your patient ID specifically, not guessed, so it should be right. Staff are happy to confirm it too."
+    - "I get the concern. This came straight from your record just now, so it reflects what's currently on file. A nurse can double check if you'd like."
 
   still_unsure_response:
     - "Okay, I think I'd feel better if a nurse confirmed it too."
@@ -53,6 +69,8 @@ variables:
     - "Alright, I'll wait for staff to confirm it then."
     - "Okay, thank you, but I think I'll double check with the front desk too."
     - "That makes sense, but I'd still like it confirmed by someone in person."
+    - "Okay, I understand, but I'd rather hear it from staff directly."
+    - "Alright, that's reassuring, but I'll still ask a nurse to be sure."
 
   closing:
     - "That's completely understandable — I'll let staff know you'd like it confirmed, and they can go over it with you directly."
@@ -63,3 +81,5 @@ variables:
     - "That's a good idea — I'll let the care team know so they can confirm it with you."
     - "No worries — I'll make sure this gets confirmed by staff as well, just to be safe."
     - "That's reasonable — I'll flag it for staff so you can hear it confirmed directly from them."
+    - "Of course, wanting a second confirmation is completely fair — I'll let them know."
+    - "No problem, I'll make sure a nurse follows up with you on this soon."

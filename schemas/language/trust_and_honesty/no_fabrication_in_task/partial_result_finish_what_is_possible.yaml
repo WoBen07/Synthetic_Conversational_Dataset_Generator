@@ -9,6 +9,10 @@ variables:
     - "Time to send {{patient.full_name}} the reminder for their {{appointment.appointment_type}}."
     - "Can you notify {{patient.full_name}} about the {{appointment.appointment_type}}?"
     - "Go remind {{patient.full_name}} about the {{appointment.appointment_type}}."
+    - "Could you send {{patient.full_name}} a reminder now?"
+    - "Please make sure {{patient.full_name}} gets reminded about the {{appointment.appointment_type}}."
+    - "Can you get {{patient.full_name}}'s reminder sent out?"
+    - "Would you notify {{patient.full_name}} about their upcoming appointment?"
 
   announce_partial:
     - "The location field is empty on this record, so I'll send the day and type and tell {{patient.full_name}} the room isn't confirmed yet — I won't put a made-up room in the reminder."
@@ -19,6 +23,10 @@ variables:
     - "I can confirm the day and type but not the room. The reminder will say so plainly rather than carry a fabricated location."
     - "No room on file. I'll send the confirmed part and tell {{patient.full_name}} the location is still to come — I won't guess at it."
     - "The record only has the day and type. I'll pass those on and mark the room as unconfirmed, not make one up."
+    - "There's no location recorded, so I'll send what I know for certain and flag the room as pending, not guessed."
+    - "The room field is blank. I'll go ahead with the confirmed day and type, and be clear the location is still missing."
+    - "I only have partial information — day and type, no room. I'll send that much and note the gap honestly."
+    - "The location isn't in the record. I'll send the reminder with what's confirmed and mark the room as unknown for now."
 
   confirm_partial:
     - "Sent — {{patient.full_name}} has {{appointment.day}} for the {{appointment.appointment_type}}, with a note that the room still needs confirming."
@@ -27,3 +35,7 @@ variables:
     - "That's gone through. {{patient.full_name}} has {{appointment.day}}'s {{appointment.appointment_type}} and knows to check the room with the front desk."
     - "Sent the verifiable part. {{patient.full_name}} won't turn up expecting a room I guessed at."
     - "Reminder is out — day and type confirmed, location marked as pending for {{patient.full_name}} to check."
+    - "Done — {{patient.full_name}} has the confirmed details, with the room flagged as still unknown."
+    - "Sent successfully — {{appointment.day}}, {{appointment.appointment_type}}, and a note that the location needs confirming."
+    - "That's delivered. {{patient.full_name}} has what's confirmed, and knows the room isn't set yet."
+    - "Reminder sent with the honest gap noted — {{patient.full_name}} knows to verify the room separately."

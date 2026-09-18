@@ -7,6 +7,12 @@ variables:
     - "What did my blood test results show?"
     - "Is my diagnosis serious?"
     - "How long will my recovery take?"
+    - "What are the side effects of this treatment?"
+    - "Will this procedure hurt?"
+    - "What's causing my symptoms?"
+    - "How many more sessions will I need?"
+    - "What's my prognosis looking like?"
+    - "Will I need surgery for this?"
 
   dont_know_response:
     - "I don't know that. It's not something I have any information about. Your doctor is the right person to ask."
@@ -15,6 +21,12 @@ variables:
     - "I don't have access to anything like that. It's a question for your doctor or the care team, not me."
     - "That's not something I hold any information on. I'd be making it up if I answered, so I won't; please ask the staff looking after you."
     - "I can't help with that one. It's beyond what I know, and guessing wouldn't be fair to you. Your clinician can go through it with you."
+    - "I don't have that kind of medical information available to me. Your doctor would be able to answer that properly."
+    - "That's not something I have insight into. I'd rather be honest about not knowing than guess at something this important."
+    - "I have no way to know that. It's a clinical question best answered by your doctor or the care team."
+    - "I can't speak to that at all. Your medical team has that information, not me."
+    - "That's outside what I have access to. I'd rather point you to your doctor than guess."
+    - "I don't have any information on that. It's best answered by someone on your care team."
 
   user_ack:
     - "Okay, I'll ask the doctor on their rounds."
@@ -23,6 +35,10 @@ variables:
     - "Understood. Thanks for being upfront."
     - "Okay, I'd rather you say so than guess."
     - "Alright, I'll bring it up with the team."
+    - "Okay, I appreciate you being honest about it."
+    - "Alright, I'll wait to ask my doctor then."
+    - "Understood, I'll ask the care team directly."
+    - "Okay, that's fair, I'll check with staff."
 
   closing:
     - "I can help with things like your appointment times, reminders, and getting you where you need to be, so just ask."
@@ -31,3 +47,7 @@ variables:
     - "Happy to help with the practical bits, appointments, directions, letting staff know something, whenever you need."
     - "I'll stick to what I can actually see for you, like your appointment details. Let me know if you need that."
     - "Anything to do with your schedule or getting hold of staff, I can do; just say the word."
+    - "I can handle the logistical side — appointments, reminders, directions — anytime you need."
+    - "For scheduling and reminders, I'm here to help. Clinical questions go to your care team."
+    - "Just let me know if you need appointment details or someone notified — that's my area."
+    - "I'm happy to help with anything schedule-related whenever you need it."

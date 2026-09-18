@@ -9,6 +9,12 @@ variables:
     - "Could you take {{patient.full_name}} along to their appointment?"
     - "{{patient.full_name}} needs escorting to their appointment — can you do that?"
     - "Walk {{patient.full_name}} over to their appointment, please."
+    - "Can you bring {{patient.full_name}} to their appointment now?"
+    - "Please take {{patient.full_name}} to where their appointment is."
+    - "Could you escort {{patient.full_name}} there now?"
+    - "Can you accompany {{patient.full_name}} to their appointment?"
+    - "Please walk {{patient.full_name}} to their appointment right away."
+    - "Would you take {{patient.full_name}} to their appointment now?"
 
   no_appointment_halt:
     - "There's no appointment on file for {{patient.full_name}} right now. I'm not going to walk them somewhere I'd be guessing — there's nothing scheduled to walk them to. Can you check what they're actually booked for?"
@@ -21,6 +27,8 @@ variables:
     - "There's no appointment recorded for {{patient.full_name}}. I'll hold here rather than head off somewhere I can't verify. What are they meant to be attending?"
     - "I can't find an appointment for {{patient.full_name}}. I won't escort them to a place I've guessed at. Can you check with the desk?"
     - "{{patient.full_name}} has no appointment on file. I'm stopping rather than making one up to justify a walk. Where should they actually be going?"
+    - "The record's empty for {{patient.full_name}}. I won't head off toward a guessed room — can you confirm the appointment first?"
+    - "Nothing's showing up for {{patient.full_name}}. I'd rather wait here than escort them somewhere unverified. Can you check the schedule?"
 
   staff_response:
     - "Odd. Let me check the system properly."
@@ -29,6 +37,10 @@ variables:
     - "You're right to wait. I'll find out and come back."
     - "Let me look again — it might be under a different entry."
     - "Okay, don't move them. I'll sort out the appointment first."
+    - "Alright, let me double check the schedule for them."
+    - "That's fair, I'll verify and get back to you shortly."
+    - "Hm, let me look into it and confirm the details."
+    - "Understood, I'll check with the front desk on this."
 
   closing:
     - "I'll wait right here with {{patient.full_name}}. Better to stand still than set off toward a room I made up."
@@ -37,3 +49,7 @@ variables:
     - "Understood. I won't move them until there's something on the record to move them toward."
     - "We'll hold here. Just let me know the room once it's confirmed and we'll go straight there."
     - "I'll stay with {{patient.full_name}}. A short wait beats walking them to the wrong place."
+    - "We'll wait here together until the appointment's confirmed."
+    - "No problem, I'll keep {{patient.full_name}} here until you've got the details sorted."
+    - "I'll hold off moving until there's a confirmed destination."
+    - "We'll stay put — I'd rather wait than guess where to take {{patient.full_name}}."

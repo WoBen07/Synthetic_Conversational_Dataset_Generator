@@ -7,6 +7,14 @@ variables:
     - "Please bring up {{patient.full_name}}'s details."
     - "Could you check the record for {{patient.full_name}}?"
     - "Can you find {{patient.full_name}} so we can get them reminded?"
+    - "Could you search for {{patient.full_name}} in the system?"
+    - "Can you pull the file for {{patient.full_name}}?"
+    - "Please look up {{patient.full_name}}'s current record."
+    - "Could you check what's on file for {{patient.full_name}}?"
+    - "Can you verify {{patient.full_name}}'s record for me?"
+    - "Please find {{patient.full_name}} so I can confirm their room."
+    - "Could you locate {{patient.full_name}} in the system?"
+    - "Can you check the file on {{patient.full_name}}?"
 
   contradiction_disclosure:
     - "I've got two records back and they both use ID {{patient.patient_id}}, but one lists room {{target_patient.room_number}} and the other room {{alternative_patient.room_number}}. That contradiction means I can't safely act on either. Which room are they actually in?"
@@ -15,6 +23,10 @@ variables:
     - "Both results share ID {{patient.patient_id}}, but the room doesn't match between them: {{target_patient.room_number}} on one, {{alternative_patient.room_number}} on the other. That needs clearing up before I do anything. Do you know the room?"
     - "I'm seeing a conflict in the record: same ID, {{patient.patient_id}}, two different rooms, {{target_patient.room_number}} and {{alternative_patient.room_number}}. I can't tell which is current, so I won't assume. Which room are they in?"
     - "The two matches are inconsistent. They agree on ID {{patient.patient_id}} and name, but list rooms {{target_patient.room_number}} and {{alternative_patient.room_number}}. I'd like you to confirm the room before I continue."
+    - "There's a mismatch here — ID {{patient.patient_id}} appears twice, once with room {{target_patient.room_number}} and once with {{alternative_patient.room_number}}. I won't guess which is correct. Can you confirm?"
+    - "Two entries, same ID {{patient.patient_id}}, but they don't agree on the room — {{target_patient.room_number}} versus {{alternative_patient.room_number}}. I'd rather ask than assume. Which is right?"
+    - "The record is contradicting itself: ID {{patient.patient_id}} shows up with both {{target_patient.room_number}} and {{alternative_patient.room_number}}. Could you clarify which room is current?"
+    - "I found a conflict — same patient ID, {{patient.patient_id}}, but two different rooms listed: {{target_patient.room_number}} and {{alternative_patient.room_number}}. I don't want to guess. Which one is it?"
 
   room_clarification:
     - "They're in room {{target_patient.room_number}}."
@@ -23,6 +35,10 @@ variables:
     - "The right one is {{target_patient.room_number}}."
     - "They moved to {{target_patient.room_number}}, use that."
     - "{{target_patient.room_number}}, that's where they are now."
+    - "It's {{target_patient.room_number}}, that's correct."
+    - "The current room is {{target_patient.room_number}}."
+    - "Go with {{target_patient.room_number}}."
+    - "That would be {{target_patient.room_number}}."
 
   resolution_acknowledgment:
     - "Thanks. I'll go with room {{target_patient.room_number}} and leave a note that the record has a duplicate ID that needs cleaning up."
@@ -31,3 +47,7 @@ variables:
     - "Okay, {{target_patient.room_number}}. Thanks for confirming; that inconsistency is worth reporting so it doesn't trip someone else up."
     - "Right, I'll proceed with room {{target_patient.room_number}}, and I'd suggest the mismatched record gets sorted out."
     - "Thanks for clearing that up, room {{target_patient.room_number}}. The two-rooms-one-ID problem still needs a proper fix."
+    - "Noted, room {{target_patient.room_number}}. I'll flag the duplicate ID so it gets corrected."
+    - "Understood, using {{target_patient.room_number}} now. The record conflict is worth reporting to IT or records staff."
+    - "Thanks, room {{target_patient.room_number}} confirmed. I'll make a note about the duplicate ID issue."
+    - "Got it, {{target_patient.room_number}} it is — I'll flag the inconsistency for whoever manages the records."

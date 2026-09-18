@@ -10,6 +10,15 @@ variables:
     - "Can you check what appointment I have coming up?"
     - "I'd like to know about my appointment, please."
     - "What time and where is my appointment today?"
+    - "Do I have anything booked for today?"
+    - "Could you pull up my appointment information?"
+    - "Can you verify what I have scheduled?"
+    - "What's on my calendar for today?"
+    - "Could you double check my appointment details?"
+    - "Can you tell me what I'm booked for today?"
+    - "Do you know what time my appointment is?"
+    - "Could you look into my schedule for me?"
+    - "Can you confirm what's coming up for me today?"
 
   appointment_answer:
     - "You have a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
@@ -19,6 +28,13 @@ variables:
     - "Your appointment is a {{appointment.appointment_type}}, set for {{appointment.day}} in {{appointment.location}}."
     - "You're scheduled for a {{appointment.appointment_type}} on {{appointment.day}}, taking place in {{appointment.location}}."
     - "That's a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
+    - "According to the record, you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "The system shows a {{appointment.appointment_type}} for {{appointment.day}}, in {{appointment.location}}."
+    - "You've got a {{appointment.appointment_type}} coming up on {{appointment.day}}, at {{appointment.location}}."
+    - "That would be a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
+    - "Confirmed — a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "It's a {{appointment.appointment_type}}, scheduled {{appointment.day}}, at {{appointment.location}}."
+    - "I have you down for a {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
 
   dispute_statement:
     - "That's not right, I thought my appointment got moved."
@@ -31,6 +47,10 @@ variables:
     - "That seems outdated, can you make sure you're not looking at old information?"
     - "That's odd, staff told me something different just now."
     - "I don't think that's right anymore, can you check if it's been updated?"
+    - "That doesn't line up with what I heard this morning."
+    - "Are you certain that's current? Something feels off."
+    - "That's strange, I thought it had already been changed."
+    - "Hmm, that doesn't match what the front desk told me."
 
   cache_admission:
     - "You might be right — that could have been a few minutes old. Let me pull the very latest directly from the system just to be sure."
@@ -41,6 +61,10 @@ variables:
     - "Fair enough — let me re-fetch that just to make sure I'm not giving you stale information."
     - "You're right to question that, let me check the system again directly rather than assume what I had is current."
     - "Understood, let me refresh that now so I can give you the most current answer."
+    - "That's a good point — let me get the latest version rather than trust what I already had."
+    - "You may well be right, let me re-verify directly from the system now."
+    - "Fair — my copy could be stale. Let me pull a fresh one right now."
+    - "That's worth checking — let me get the current record instead of relying on the old one."
 
   refreshed_confirmation:
     - "Just refreshed it — the system currently shows the same {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}. That's the latest information on file."
@@ -50,6 +74,11 @@ variables:
     - "That's now been re-verified — the latest entry still shows {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Just double-checked directly — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}} is what the system currently has."
     - "I've pulled the up-to-date record — it confirms {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "Freshly checked — still {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, right now."
+    - "The current entry matches — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}."
+    - "Re-verified just now — {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}, unchanged."
+    - "That's the live version — {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
+    - "Confirmed fresh — {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}} is current as of now."
 
   closing_response:
     - "Okay, thanks for checking again, I appreciate it."
@@ -59,6 +88,11 @@ variables:
     - "Okay, appreciate you checking that a second time."
     - "Alright, thank you, sorry to make you check twice."
     - "Okay, thanks for being thorough about it."
+    - "Alright, that's reassuring, thanks for the recheck."
+    - "Okay, glad you looked into it again."
+    - "Thanks, that clears it up for me."
+    - "Alright, I appreciate the extra effort."
+    - "Okay, that's good, thank you for verifying."
 
   closing:
     - "No need to apologize — it's always worth double-checking, and I'd rather re-verify than risk giving you old information."
@@ -68,3 +102,8 @@ variables:
     - "No trouble at all, I'd rather confirm twice than leave you with the wrong information."
     - "Happy to double-check whenever you're unsure, that's what I'm here for."
     - "No apology needed, it's good practice to verify, especially with anything schedule-related."
+    - "Not at all, I'd rather refresh the data than let something stale slip through."
+    - "Of course, better to take a moment now than mislead you later."
+    - "No trouble, I'll always double-check when something feels off to you."
+    - "Anytime — accuracy is worth the extra few seconds."
+    - "No worries at all, I'd rather verify than assume."

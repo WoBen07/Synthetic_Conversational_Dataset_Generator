@@ -7,6 +7,12 @@ variables:
     - "When is my appointment this week?"
     - "Can you check what day I'm booked for?"
     - "Which day am I meant to come in?"
+    - "Can you confirm what day I'm scheduled for?"
+    - "What day should I expect my appointment?"
+    - "Could you tell me the exact day of my appointment?"
+    - "Can you verify which day I'm booked?"
+    - "Which day is my appointment scheduled for?"
+    - "Could you check the day for me again?"
 
   first_answer:
     - "The record shows your {{appointment.appointment_type}} is on {{appointment.day}}."
@@ -15,6 +21,10 @@ variables:
     - "I've got {{appointment.day}} for your {{appointment.appointment_type}}."
     - "The system says {{appointment.day}} for the {{appointment.appointment_type}}."
     - "Your {{appointment.appointment_type}} is listed for {{appointment.day}}."
+    - "That's scheduled for {{appointment.day}}, the {{appointment.appointment_type}}."
+    - "According to the record, it's {{appointment.day}} for the {{appointment.appointment_type}}."
+    - "You're set for {{appointment.day}} with the {{appointment.appointment_type}}."
+    - "The file shows {{appointment.day}} for your {{appointment.appointment_type}}."
 
   dispute:
     - "That's not what the nurse told me this morning."
@@ -23,6 +33,10 @@ variables:
     - "Hmm, I thought it had been moved. Could you look once more?"
     - "That's not the day I had written down. Can you double-check?"
     - "Someone told me something different earlier. Can you verify?"
+    - "That doesn't match what staff told me. Could you recheck?"
+    - "Hmm, I was told it was a different day. Can you confirm again?"
+    - "That's not what I remember hearing. Could you check once more?"
+    - "Are you certain? That contradicts what I was told earlier."
 
   recheck_intent:
     - "Let me pull it again directly, right now, so we're not going on something stale."
@@ -31,6 +45,10 @@ variables:
     - "Fair enough, I'll re-fetch it straight from the system."
     - "Let me check again properly rather than rely on what I just had."
     - "I'll run the lookup once more so we've got the current entry."
+    - "Understood, let me verify that again directly from the system."
+    - "Good point, let me re-check rather than assume it's still accurate."
+    - "Let me query it fresh, just to be certain."
+    - "Okay, I'll look it up again right now to confirm."
 
   contradiction_disclosure:
     - "Now I'm getting a different answer. The first lookup said {{appointment.day}}, this one says {{alternative_appointment.day}}. I can't tell you which is correct, and I won't just pick one; staff need to confirm the real day."
@@ -39,6 +57,8 @@ variables:
     - "That changed between checks. It read {{appointment.day}}, now it reads {{alternative_appointment.day}}. I don't know which reflects reality, so I won't commit to one. The care team should settle it."
     - "The record gave me two different days, {{appointment.day}}, then {{alternative_appointment.day}}. I'd rather tell you it's contradictory than pretend one is certain. Staff can confirm which stands."
     - "I'm seeing {{appointment.day}} and {{alternative_appointment.day}} from two back-to-back lookups. That's not something I can resolve myself; please check with the desk for the confirmed day."
+    - "The two answers don't match: {{appointment.day}} before, {{alternative_appointment.day}} now. I won't guess which one is right — staff should confirm."
+    - "That's inconsistent — {{appointment.day}} the first time, {{alternative_appointment.day}} the second. I'd rather flag that than pick one."
 
   closing_response:
     - "Okay, I'll ask them to confirm it. Thanks for being honest."
@@ -47,6 +67,10 @@ variables:
     - "Understood. Thanks for telling me it's unclear."
     - "Okay, I'd rather know it's uncertain than be told the wrong day."
     - "Alright, thanks for being straight with me about it."
+    - "Okay, I appreciate the honesty, I'll confirm with staff."
+    - "Alright, that's a bit annoying, but thanks for not guessing."
+    - "Okay, I'll double check with the front desk myself."
+    - "Understood, thanks for flagging the inconsistency."
 
   closing:
     - "I'll flag the conflicting record so it gets corrected; you shouldn't have to chase two different answers."
@@ -55,3 +79,5 @@ variables:
     - "The mismatch needs fixing at the source; the desk can do that and confirm the real day for you."
     - "Accuracy matters more here than giving you a quick reply. I'll note the discrepancy for the team."
     - "I'll make sure the inconsistency is reported. You deserve one reliable date, not two."
+    - "I'll flag this for records so it doesn't happen again. Staff can confirm the correct day meanwhile."
+    - "I'd rather report the conflict than leave it unresolved. The desk can sort out which day is right."

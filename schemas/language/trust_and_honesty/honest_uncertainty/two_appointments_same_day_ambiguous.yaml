@@ -7,6 +7,12 @@ variables:
     - "Could you check my appointment for {{appointment.day}}?"
     - "Where do I need to go for my appointment {{appointment.day}}?"
     - "Can you confirm my appointment for {{appointment.day}}?"
+    - "What am I scheduled for on {{appointment.day}}?"
+    - "Could you tell me what's happening {{appointment.day}}?"
+    - "Can you check what I've got booked for {{appointment.day}}?"
+    - "What's on my schedule for {{appointment.day}}?"
+    - "Could you confirm what I need to do on {{appointment.day}}?"
+    - "Can you tell me about {{appointment.day}}'s appointment?"
 
   ambiguity_disclosure:
     - "You've actually got two things on {{appointment.day}}: a {{appointment.appointment_type}} in {{appointment.location}} and a {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}}. I don't know which one you're asking about. Which did you mean?"
@@ -15,6 +21,10 @@ variables:
     - "I see two entries for {{appointment.day}}, a {{appointment.appointment_type}} and a {{alternative_appointment.appointment_type}}, in {{appointment.location}} and {{alternative_appointment.location}}. Which of those are you asking about?"
     - "That day has more than one: {{appointment.appointment_type}} in {{appointment.location}} and {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}}. I don't want to give you details for the wrong one. Can you say which?"
     - "You're booked twice on {{appointment.day}}: {{appointment.appointment_type}} in {{appointment.location}}, and {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}}. Tell me which one and I'll go through it."
+    - "It looks like there are two appointments on {{appointment.day}} — {{appointment.appointment_type}} in {{appointment.location}}, and {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}}. Which one did you need?"
+    - "There's actually two entries for that day: {{appointment.appointment_type}} at {{appointment.location}} and {{alternative_appointment.appointment_type}} at {{alternative_appointment.location}}. Could you clarify which one?"
+    - "I'm seeing double for {{appointment.day}} — a {{appointment.appointment_type}} and a {{alternative_appointment.appointment_type}}, at {{appointment.location}} and {{alternative_appointment.location}} respectively. Which did you mean?"
+    - "Two appointments show up for {{appointment.day}}: {{appointment.appointment_type}} in {{appointment.location}}, and {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}}. Can you specify which one?"
 
   which_one:
     - "The {{appointment.appointment_type}} one."
@@ -23,6 +33,10 @@ variables:
     - "The {{appointment.appointment_type}}, please."
     - "Oh, the {{appointment.appointment_type}} in {{appointment.location}}."
     - "The {{appointment.appointment_type}}, the one in {{appointment.location}}."
+    - "I need the {{appointment.appointment_type}} one."
+    - "The one at {{appointment.location}}."
+    - "I'm asking about the {{appointment.appointment_type}}."
+    - "The {{appointment.appointment_type}} appointment, that one."
 
   resolution:
     - "Got it. The {{appointment.appointment_type}} on {{appointment.day}} is in {{appointment.location}}. The other one's still on your schedule too, so don't forget it."
@@ -31,3 +45,7 @@ variables:
     - "Okay: {{appointment.appointment_type}}, {{appointment.location}}, on {{appointment.day}}. Don't lose track of the {{alternative_appointment.appointment_type}} in {{alternative_appointment.location}} either."
     - "The {{appointment.appointment_type}} is at {{appointment.location}}. Both appointments are on {{appointment.day}}, so plan for the {{alternative_appointment.appointment_type}} as well."
     - "For the {{appointment.appointment_type}}: {{appointment.location}}, {{appointment.day}}. The {{alternative_appointment.appointment_type}} is also booked that day."
+    - "Understood — the {{appointment.appointment_type}} is in {{appointment.location}} on {{appointment.day}}. Remember the {{alternative_appointment.appointment_type}} is also happening that day."
+    - "That one's the {{appointment.appointment_type}} at {{appointment.location}}. Keep in mind the {{alternative_appointment.appointment_type}} is also on {{appointment.day}}."
+    - "Confirmed — {{appointment.appointment_type}} at {{appointment.location}}, {{appointment.day}}. You've got the {{alternative_appointment.appointment_type}} that day too."
+    - "Got it, the {{appointment.appointment_type}} in {{appointment.location}}. Just a heads up, the {{alternative_appointment.appointment_type}} is also scheduled for {{appointment.day}}."

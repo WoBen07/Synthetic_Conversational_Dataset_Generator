@@ -7,6 +7,12 @@ variables:
     - "What's the location for my appointment?"
     - "Where am I meant to be for my appointment?"
     - "Could you check which room my appointment is in?"
+    - "Which room is my appointment in?"
+    - "Can you confirm where my appointment is?"
+    - "Do you know where I need to go today?"
+    - "What room should I head to?"
+    - "Could you tell me the location of my appointment?"
+    - "Where do I need to be for this appointment?"
 
   missing_location_disclosure:
     - "I can see your {{appointment.appointment_type}} is on {{appointment.day}}, but the location field in the record is blank. I don't want to guess a room, so I'd rather tell you it's missing."
@@ -15,6 +21,10 @@ variables:
     - "I've got the day, {{appointment.day}}, and the type, {{appointment.appointment_type}}, but the location entry is left blank. I can't reliably tell you the room from this."
     - "Everything's there except the room: {{appointment.appointment_type}} on {{appointment.day}}, location field empty. I'd rather be upfront about the gap than pick a room."
     - "The location for your {{appointment.day}} {{appointment.appointment_type}} hasn't been filled in on the record. I don't want to send you to the wrong place, so I won't guess."
+    - "I have the day and type confirmed, {{appointment.appointment_type}} on {{appointment.day}}, but the room field is empty. I won't guess at it."
+    - "Your appointment record shows {{appointment.appointment_type}}, {{appointment.day}}, but no location — that field is blank."
+    - "The room isn't listed for your {{appointment.appointment_type}} on {{appointment.day}}. I'd rather admit that than make one up."
+    - "There's a gap in the record — {{appointment.appointment_type}} and {{appointment.day}} are there, but no room."
 
   user_ack:
     - "Okay, I'll ask at the desk where to go."
@@ -23,6 +33,10 @@ variables:
     - "Okay, thank you for not just guessing."
     - "Understood, I'll find out from staff."
     - "Okay, appreciate you telling me straight."
+    - "Alright, I'll check with the front desk."
+    - "Okay, thanks for being upfront about the gap."
+    - "Understood, I'll ask staff for the room."
+    - "Okay, I'd rather know it's missing than get sent the wrong way."
 
   closing:
     - "The front desk can tell you the room and get the record updated; I'll have it for you next time once it's filled in."
@@ -31,3 +45,7 @@ variables:
     - "Staff will know where it is, and they can complete the record so it's there in future."
     - "Once the location's entered, I'll be able to give you clear directions to it."
     - "The care team can fill that gap in, and after that I can confirm the room whenever you ask."
+    - "The desk should be able to tell you the room, and I'll have it on file going forward."
+    - "Staff can confirm the location for you, and I'll be able to give it to you directly next time."
+    - "Once it's added to the record, I'll have the details ready for you."
+    - "The nursing station can help fill in the gap, and I can confirm it after that."

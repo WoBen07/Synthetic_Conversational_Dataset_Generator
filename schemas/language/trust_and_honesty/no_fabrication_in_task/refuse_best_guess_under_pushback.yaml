@@ -9,6 +9,10 @@ variables:
     - "Which room has my {{appointment.appointment_type}}?"
     - "What's the room number for my {{appointment.appointment_type}}?"
     - "Where do I need to go for the {{appointment.appointment_type}}?"
+    - "Can you confirm the room for my {{appointment.appointment_type}}?"
+    - "Which way do I go for the {{appointment.appointment_type}}?"
+    - "Could you tell me where the {{appointment.appointment_type}} is?"
+    - "What room number should I look for?"
 
   honest_gap:
     - "The room isn't recorded — the location field on your {{appointment.appointment_type}} is blank. I don't have it to give you."
@@ -17,6 +21,10 @@ variables:
     - "The record has your {{appointment.appointment_type}} on {{appointment.day}}, but the room field is blank. I don't know it."
     - "No location is listed for your {{appointment.appointment_type}}. That part just isn't in the system."
     - "The room's missing from the record. I can see the day, not the place."
+    - "There's a gap in the record — the location field for your {{appointment.appointment_type}} is empty."
+    - "I don't have the room on file for this appointment. It's simply not recorded."
+    - "The location field is blank for your {{appointment.appointment_type}}. I have everything else, just not the room."
+    - "That field's empty in the record — I genuinely don't have the room number."
 
   pushback:
     - "Just give me your best guess."
@@ -27,6 +35,10 @@ variables:
     - "Well, where do these usually happen? Just say that."
     - "Give me something to work with — anything."
     - "You can do better than 'I don't know'. Have a guess."
+    - "Just take a guess, I won't hold you to it."
+    - "Come on, even a rough idea would help."
+    - "Can't you just estimate based on similar appointments?"
+    - "Just tell me something, even if it's not exact."
 
   refuse_to_guess:
     - "I won't guess at a room. Sending you to the wrong place is worse than telling you I don't know it. The front desk can give you the exact one."
@@ -37,6 +49,10 @@ variables:
     - "Guessing wouldn't actually help you — it would just sound like an answer. The front desk can confirm the room properly."
     - "I'm not going to invent a location, even roughly. The reliable route is to ask staff, and I'd rather point you there than mislead you."
     - "No. A guess from me isn't worth more than nothing here — it could send you the wrong way. Reception will have the exact room."
+    - "I won't estimate this one. A wrong guess could genuinely mislead you, so the desk is the safer bet."
+    - "Even a rough guess risks sending you the wrong way. I'd rather be honest that I don't know."
+    - "I'm not comfortable guessing here — staff can give you the actual room."
+    - "No guessing, sorry. This matters too much to get wrong — ask at the desk."
 
   accepts:
     - "Alright, fair enough. I'll ask them."
@@ -45,6 +61,10 @@ variables:
     - "Understood. Better than a wrong guess, I guess."
     - "Okay, I'll go and ask reception."
     - "That's fair. I'll get it confirmed."
+    - "Alright, I'll ask staff directly then."
+    - "Okay, that makes sense, I'll check myself."
+    - "Fine, I'll find out from the front desk."
+    - "Understood, I'll go confirm it properly."
 
   closing:
     - "As soon as it's on the record I'll have it for you. Until then, the desk is your best bet."
@@ -53,3 +73,7 @@ variables:
     - "When the room's confirmed I can walk you there. For now, staff at the desk will know."
     - "I'll keep an eye on the record. The moment the room shows up, I'll tell you."
     - "Sorry I can't be more use on this one. The front desk will sort you out quickly."
+    - "I'll flag the missing room so it gets fixed. Staff can help right now."
+    - "Once it's on file, I'll confirm it for you immediately."
+    - "I'll note the gap for records. The desk can help you in the meantime."
+    - "As soon as the location's added, I'll be able to point you there directly."

@@ -9,6 +9,12 @@ variables:
     - "Get a reminder out to {{patient.last_name}} for their appointment."
     - "Can you remind {{patient.last_name}} about the {{appointment.appointment_type}} on {{appointment.day}}?"
     - "Go tell {{patient.last_name}} their {{appointment.appointment_type}} is scheduled."
+    - "Could you remind {{patient.last_name}} about their upcoming appointment?"
+    - "Please send {{patient.last_name}} a reminder about {{appointment.day}}."
+    - "Can you let {{patient.last_name}} know about the {{appointment.appointment_type}}?"
+    - "Would you notify {{patient.last_name}} about the appointment coming up?"
+    - "Please make sure {{patient.last_name}} knows about {{appointment.day}}'s {{appointment.appointment_type}}."
+    - "Can you go remind {{patient.last_name}} about their appointment today?"
 
   no_match_honest:
     - "I can't find anyone called {{patient.last_name}} in the system. I'm not going to send a reminder to a name I can't verify, and I won't invent an appointment to go with it. Do you have a first name or a room number?"
@@ -21,6 +27,8 @@ variables:
     - "The search for {{patient.last_name}} returned nothing. I won't send anything until I have a real match. Do you have any more detail?"
     - "No patient called {{patient.last_name}} came up. I'm stopping rather than guessing who you mean or what they're booked for. Can you confirm the name or add a first name?"
     - "I can't locate {{patient.last_name}}. I won't invent the details to finish the task. Give me a first name or a room and I'll re-check."
+    - "There's nothing under {{patient.last_name}} in the system. I'd rather ask for more detail than guess who you mean."
+    - "I searched thoroughly and found no {{patient.last_name}}. I won't make up a patient to send this to — can you give me more information?"
 
   user_backs_off:
     - "Hm, maybe I've got the name wrong. Leave it, I'll double-check the chart."
@@ -29,6 +37,10 @@ variables:
     - "Okay, hold off then. I'll verify the spelling first."
     - "Fair enough. I'll check who I actually mean and try again later."
     - "Leave it for now. I'll sort out the right name and details."
+    - "Alright, I'll double check the record and come back to you."
+    - "Okay, that's fair. Let me verify with the ward first."
+    - "Hm, I'll look into it and get back to you with the correct name."
+    - "Understood, I'll confirm the details before we try again."
 
   closing:
     - "Sounds good. I'd rather send nothing than a reminder to the wrong person or a made-up appointment."
@@ -37,3 +49,7 @@ variables:
     - "Understood. I'll wait for a name I can actually match before doing anything."
     - "No problem. I'll hold until you've got the right patient, then it's quick to send."
     - "Right. Better a pause now than a wrong reminder that has to be walked back."
+    - "Agreed. I'll be ready to send as soon as you confirm the details."
+    - "That works. I'd rather wait than guess at who this is for."
+    - "Understood, I'll stand by until you have the correct information."
+    - "Sounds right. Just bring me the confirmed name and I'll take it from there."

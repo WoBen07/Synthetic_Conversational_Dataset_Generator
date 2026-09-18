@@ -9,6 +9,10 @@ variables:
     - "Confirm my {{appointment.appointment_type}} for {{appointment.day}} like you said, and set the reminder."
     - "Wasn't it {{appointment.day}}? Check the record and remind me about the {{appointment.appointment_type}}."
     - "You told me {{appointment.day}} earlier — confirm and remind me, would you?"
+    - "Earlier it was {{appointment.day}}, right? Please verify and send the reminder."
+    - "Can you double check {{appointment.day}} for the {{appointment.appointment_type}} and set a reminder?"
+    - "You said {{appointment.day}} before — can you confirm and remind me now?"
+    - "Please verify what you told me earlier about {{appointment.day}}, and set the reminder."
 
   no_backfill_honest:
     - "The record didn't come back just now, so I can't confirm {{appointment.day}}. And I'm not going to treat what I said earlier as verified just to move this along — I'd rather re-check than set a reminder on an unconfirmed day."
@@ -21,6 +25,8 @@ variables:
     - "I can't confirm the day right now; the record came back empty. I'd rather tell you that than set a reminder based on an unverified detail."
     - "That returned nothing. I'm not going to reuse the earlier answer as if I'd confirmed it. Let me retry the lookup before setting the reminder."
     - "The system didn't give me the appointment. I won't fill the gap with what was said before — I'll re-check and only set the reminder once it's confirmed."
+    - "That lookup came back empty. I won't just repeat what I said earlier as if it's been verified — let me try again."
+    - "I can't get the record to load right now. Rather than assume the earlier answer still holds, I'll retry before doing anything."
 
   user_response:
     - "Okay, that's fair. Try again in a minute?"
@@ -29,6 +35,10 @@ variables:
     - "Okay, let me know when the record's back."
     - "That makes sense. No rush, just get it confirmed."
     - "Fair enough. I'll wait for you to re-check."
+    - "Okay, I appreciate you not just assuming."
+    - "Alright, take your time to verify it properly."
+    - "Understood, I'll wait for the confirmed answer."
+    - "Okay, thanks for being careful about it."
 
   closing:
     - "I'll try the lookup again shortly and only set the reminder once the day is confirmed."
@@ -37,3 +47,7 @@ variables:
     - "Give me a little while and I'll try again — I'll set nothing until it checks out."
     - "I'll keep trying the record. Once it's confirmed, the reminder takes a second."
     - "I'll follow up when the system's responsive. Better a short delay than a reminder on the wrong day."
+    - "I'll retry shortly and only proceed once I have a confirmed answer."
+    - "As soon as I can verify it, I'll set the reminder right away."
+    - "I'll keep attempting the lookup and update you the moment it's confirmed."
+    - "Give me a moment to retry — I won't set anything until it's verified."
