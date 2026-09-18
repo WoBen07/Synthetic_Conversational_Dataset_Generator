@@ -1,0 +1,76 @@
+variables:
+
+  # Topic-specific: sets the scene for the exchange.
+  opening_statement:
+    - "Have you noticed the new cafe that opened on the corner?"
+    - "How's the new job been treating you?"
+    - "Did you hear they're finally fixing that pothole down the street?"
+    - "How's the garden coming along this year?"
+    - "It's been ages, how have you been?"
+    - "Did you catch that storm last night? Quite something."
+    - "How's the family doing these days?"
+    - "I heard you're thinking about moving, is that true?"
+    - "How was the trip you were planning?"
+    - "Did you end up finishing that renovation?"
+
+  # Generic on purpose: picked independently of opening_statement, so it
+  # must read naturally after any of the lines above.
+  engaged_response:
+    - "Oh, it's been good, thanks for asking!"
+    - "Yeah, it's been quite the thing, hasn't it?"
+    - "Honestly, it's been a bit of a whirlwind, but good overall."
+    - "It's coming along, slowly but surely."
+    - "It's been good, can't complain at all."
+    - "Oh, don't get me started, it's been something else."
+    - "It's been alright, thanks for asking."
+    - "Yeah, it's true, still figuring out the details though."
+    - "It went really well, thanks for asking."
+    - "Almost there, just a few finishing touches left."
+
+  elaboration:
+    - "It's taken some getting used to, but I'm not complaining."
+    - "There's always something going on around here, that's for sure."
+    - "It's been a lot of work, but worth it in the end."
+    - "Little by little, it's coming together nicely."
+    - "Things have been busy, but good busy, if that makes sense."
+    - "You'd think we'd be used to it by now, but it still catches us off guard."
+    - "Everyone's doing well, keeping busy as always."
+    - "We're still weighing our options, nothing's set in stone yet."
+    - "It was exactly what we needed, honestly."
+    - "It's been a longer project than we expected, but we're close now."
+
+  follow_up:
+    - "That's great to hear, glad things are going well."
+    - "Well, hope it keeps going smoothly."
+    - "That sounds like a good outcome, glad to hear it."
+    - "Nice, sounds like it's really coming along."
+    - "Glad to hear it, that's always nice."
+    - "Well, at least it makes for a good story."
+    - "That's good to hear, glad everyone's doing well."
+    - "Well, let me know if you land on something."
+    - "That's wonderful, glad it went well."
+    - "Almost there is still progress, that's great."
+
+  closing_remark:
+    - "Thanks, it's been good catching up."
+    - "Yeah, it really has been something."
+    - "Appreciate you asking, means a lot."
+    - "Thanks, I'll let you know how it turns out."
+    - "It's good to be back in the swing of things."
+    - "Anyway, always good talking with you."
+    - "Thanks, I'll pass that along to everyone."
+    - "I'll definitely keep you posted either way."
+    - "Thanks, it really was a nice trip."
+    - "Thanks, can't wait to finally be done with it."
+
+  warm_closing:
+    - "Anyway, good catching up, take care!"
+    - "Great chatting with you, see you around!"
+    - "Take care, let's catch up again soon!"
+    - "Good talking to you, have a great day!"
+    - "Take it easy, see you soon!"
+    - "Alright, take care of yourself!"
+    - "Nice seeing you, talk again soon!"
+    - "Take care, good luck with everything!"
+    - "Great to hear, take care!"
+    - "Alright, catch you next time!"

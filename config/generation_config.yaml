@@ -38,6 +38,8 @@ category_amounts:
   patient_identity: 600
   tool_use: 600
 
+  general_conversation: 500
+
 random_seed_range:
   min: 1
   max: 999999

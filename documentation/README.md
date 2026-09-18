@@ -12,6 +12,7 @@ This folder is split into smaller docs so each part stays readable.
 - [Templates](templates.md)
 - [Validation](validation.md)
 - [Extending the Generator](extending.md)
+- [Publishing to HuggingFace Hub](publishing.md)
 
 ## Notes
 

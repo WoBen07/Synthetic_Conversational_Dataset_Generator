@@ -1,0 +1,12 @@
+# HuggingFace Hub target for engine/publish_to_hub.py
+#
+# Left blank on purpose: nothing can be pushed anywhere until you fill in
+# hf_repo_id yourself.
+hf_repo_id: Verox132/Medical_Conversational_Dataset   # e.g. "your-username/hospital-robot-hri"
+private: false
+
+# Only dataset folders listed here (under Datasets/) are eligible to be
+# published. Generating and merging a dataset does NOT add it here -
+# add a folder name only once you've reviewed Datasets/<name>/ and
+# decided it's ready to share publicly.
+approved_datasets: [Test_Dataset_9]

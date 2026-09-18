@@ -1,0 +1,76 @@
+variables:
+
+  # Topic-specific: these set the scene for the exchange.
+  opening_statement:
+    - "I used to bake a roast every Sunday for the whole family."
+    - "Nothing beats a good bowl of soup on a cold day, always has been my favorite."
+    - "I've always had a sweet tooth, I could never say no to a good cake."
+    - "My mother's stew recipe was the best thing I ever tasted."
+    - "I used to love trying new recipes, cooking was always relaxing for me."
+    - "There's a little bakery back home that made the best bread, I still think about it."
+    - "I was never much of a cook, but I loved a good meal out with friends."
+    - "Christmas dinner was always my favorite meal of the year."
+    - "I used to grow my own vegetables, nothing tastes better than that."
+    - "My husband made the best pancakes, every Sunday morning without fail."
+
+  # Generic on purpose: picked independently of opening_statement, so it
+  # must read naturally after any of the lines above.
+  engaged_response:
+    - "That sounds wonderful, food really does bring back good memories, doesn't it?"
+    - "That's lovely, I bet that was something to look forward to."
+    - "That sounds delicious, tell me more about it."
+    - "That's really nice, sounds like a special tradition."
+    - "That sounds comforting, I can imagine how nice that was."
+    - "That's wonderful, sounds like it meant a lot to the whole family."
+    - "That sounds lovely, food has a way of bringing people together."
+    - "That's really nice to hear, sounds like a cherished memory."
+    - "That sounds great, I bet it was worth waiting for."
+    - "That's a lovely thing to remember, tell me more."
+
+  elaboration:
+    - "It's one of those things that just makes a house feel like home."
+    - "I still think about it sometimes, it really was special."
+    - "Everyone always looked forward to it, every single time."
+    - "It took a bit of effort, but it was always worth it."
+    - "It was simple, but it always tasted like nothing else."
+    - "We didn't have much, but the food always made things feel festive."
+    - "It's funny the things you remember, but that one always stuck with me."
+    - "I've tried to recreate it since, but it's never quite the same."
+    - "It brought the whole family to the table, that was the best part."
+    - "Even just thinking about it now makes me a little hungry."
+
+  follow_up:
+    - "That sounds lovely, do you still get to enjoy something like that?"
+    - "I bet that still brings back good memories."
+    - "That's wonderful, food traditions like that are so special."
+    - "That sounds delicious, I bet it was worth every bit of effort."
+    - "That's a really nice memory to have."
+    - "That sounds like it brought a lot of joy to the table."
+    - "That's lovely, thanks for sharing that with me."
+    - "That sounds like such a comforting memory."
+    - "I really enjoy hearing about things like that."
+    - "That's a wonderful thing to hold onto."
+
+  closing_remark:
+    - "Not as often these days, but I remember it fondly."
+    - "Every now and then, when I get the chance."
+    - "It really was worth it, every time."
+    - "I do miss it, but the memories are good ones."
+    - "It really did bring everyone together."
+    - "I think about it more often than you'd expect."
+    - "It's one of my favorite memories, honestly."
+    - "I still smile thinking about it."
+    - "It really was something special."
+    - "I'd give anything for one more taste of it, honestly."
+
+  warm_closing:
+    - "Thanks for sharing that with me, it was nice hearing about it."
+    - "I really enjoyed hearing about that, thank you for sharing."
+    - "That was lovely to hear, thanks for telling me."
+    - "Thank you for sharing that, it sounds like a wonderful memory."
+    - "I loved hearing about that, thank you for sharing."
+    - "That was really nice to hear about, thanks for telling me."
+    - "Thanks for sharing, I enjoyed learning about that."
+    - "That was a joy to hear about, thank you."
+    - "Thank you for sharing that with me, it sounds wonderful."
+    - "I really enjoyed that story, thank you for sharing."

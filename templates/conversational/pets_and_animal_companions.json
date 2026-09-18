@@ -1,0 +1,10 @@
+{
+  "messages": [
+    { "role": "user", "content": "{{opening_statement}}" },
+    { "role": "assistant", "content": "{{engaged_response}}" },
+    { "role": "user", "content": "{{elaboration}}" },
+    { "role": "assistant", "content": "{{follow_up}}" },
+    { "role": "user", "content": "{{closing_remark}}" },
+    { "role": "assistant", "content": "{{warm_closing}}" }
+  ]
+}

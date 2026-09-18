@@ -1,3 +1,4 @@
+import argparse
 import os
 import random
 import subprocess
@@ -6,6 +7,7 @@ import yaml
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
 from synthetic_data_generator.engine import dataset_merger
 from synthetic_data_generator.engine import lint_templates
+from synthetic_data_generator.engine import publish_to_hub
 from pathlib import Path
 
 
@@ -125,7 +127,36 @@ def run_template(template_id, amount, seed):
 
 
 
+def parse_args():
+
+    parser = argparse.ArgumentParser(
+        description="Generate every template and merge the results."
+    )
+
+    parser.add_argument(
+        "--publish",
+        action="store_true",
+        help=(
+            "After merging, push whatever is listed in "
+            "approved_datasets in config/publish_config.yaml to "
+            "HuggingFace Hub. Generating a dataset does not approve it - "
+            "that list is edited by hand once a dataset's been reviewed."
+        ),
+    )
+
+    parser.add_argument(
+        "--dry-run-publish",
+        action="store_true",
+        help="With --publish, print what would be published without "
+             "uploading anything.",
+    )
+
+    return parser.parse_args()
+
+
 def main():
+
+    args = parse_args()
 
     # Surface templates that still encode consecutive same-role messages.
     # The renderer folds them automatically, so this is a warning, not a
@@ -177,6 +208,15 @@ def main():
     # IMPORTANT:
     # Only called once after everything finished
     dataset_merger.main()
+
+    if args.publish:
+
+        publish_args = ["--dry-run"] if args.dry_run_publish else []
+
+        exit_code = publish_to_hub.main(publish_args)
+
+        if exit_code:
+            raise SystemExit(exit_code)
 
 
 if __name__ == "__main__":

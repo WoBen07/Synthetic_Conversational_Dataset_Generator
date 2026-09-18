@@ -1,0 +1,76 @@
+variables:
+
+  # Topic-specific: sets the scene for the exchange.
+  opening_statement:
+    - "Any plans for the weekend?"
+    - "I'm thinking of going hiking this weekend if the weather holds up."
+    - "I might just stay in and catch up on some reading this weekend."
+    - "We're planning a family barbecue on Saturday, should be fun."
+    - "I'm finally getting around to repainting the fence this weekend."
+    - "I was thinking of checking out that new restaurant downtown."
+    - "I've got a few errands to run, but nothing too exciting planned."
+    - "We're thinking about a day trip to the coast if it's nice out."
+    - "I'm going to try and finish setting up the garden this weekend."
+    - "I might just take it easy and watch a few movies."
+
+  # Generic on purpose: picked independently of opening_statement, so it
+  # must read naturally after any of the lines above.
+  engaged_response:
+    - "That sounds great, hope it goes well!"
+    - "Nice, that sounds like a good way to spend it."
+    - "That sounds relaxing, honestly kind of jealous."
+    - "Sounds fun, let me know how it goes."
+    - "That's a good plan, weather permitting anyway."
+    - "Sounds like a solid weekend, enjoy it."
+    - "That sounds nice, hope you get some good weather for it."
+    - "That sounds like a lot of fun, hope it works out."
+    - "Nice, sounds like a well-earned break."
+    - "That sounds like a good time, hope it all goes smoothly."
+
+  elaboration:
+    - "Yeah, I've been looking forward to it all week."
+    - "We'll see how the weather looks closer to the day."
+    - "I could use the change of pace, it's been a busy week."
+    - "It's been on my list for a while now, finally getting to it."
+    - "Should be a nice change from the usual routine."
+    - "I'm hoping it all comes together, we'll see."
+    - "It's not much, but it's exactly what I need right now."
+    - "I've been meaning to do this for ages, so it'll be nice to finally get to it."
+    - "Fingers crossed everything goes as planned."
+    - "It's a small thing, but I'm actually pretty excited about it."
+
+  follow_up:
+    - "Well, I hope it all works out for you."
+    - "Let me know how it turns out."
+    - "You definitely deserve the break."
+    - "That sounds like a good balance, honestly."
+    - "Hope the weather cooperates for you."
+    - "That sounds like a nice way to recharge."
+    - "Well, enjoy every minute of it."
+    - "Sounds like you've got it all figured out."
+    - "That's the spirit, enjoy it."
+    - "Well, here's hoping it goes smoothly."
+
+  closing_remark:
+    - "Thanks, I'll let you know how it goes."
+    - "Yeah, fingers crossed it all works out."
+    - "Appreciate that, should be a good one."
+    - "Thanks, I'm looking forward to it."
+    - "Yeah, we'll see how it turns out."
+    - "Thanks, I'll fill you in next time we talk."
+    - "Appreciate it, should be a nice weekend either way."
+    - "Thanks, hope your weekend's just as good."
+    - "Yeah, really looking forward to it."
+    - "Thanks, same to you, enjoy your weekend too."
+
+  warm_closing:
+    - "Anyway, have a great weekend!"
+    - "Take care, talk soon!"
+    - "Enjoy your weekend, catch up later!"
+    - "Alright, have a good one!"
+    - "Talk soon, enjoy the weekend!"
+    - "Take it easy, see you next week!"
+    - "Have a great one, talk soon!"
+    - "Alright, enjoy the rest of your week!"
+    - "Catch you later, have a good weekend!"
+    - "Take care, enjoy your weekend!"

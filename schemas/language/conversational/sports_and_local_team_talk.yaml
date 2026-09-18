@@ -1,0 +1,77 @@
+variables:
+
+  # Topic-specific: these set the scene for the exchange.
+  opening_statement:
+    - "I used to go to every home game back when I could still get around easily."
+    - "My team's been having a rough season, but I never miss a match on the radio."
+    - "I still remember watching the local team win the championship years ago."
+    - "I used to play football myself when I was younger, local league."
+    - "My husband and I never missed a game, we had season tickets for years."
+    - "I've followed the same team since I was a boy, through thick and thin."
+    - "Did you catch the match last night? What a finish."
+    - "I used to love watching the Sunday league games down at the park."
+    - "Cycling was more my sport, I used to watch every big race."
+    - "My grandson plays for a local club now, I go watch when I can."
+
+  # Generic on purpose: picked independently of opening_statement, so it
+  # must read naturally after any of the lines above rather than assuming
+  # a specific sport or story.
+  engaged_response:
+    - "That's great, sounds like it's been a big part of your life."
+    - "I love hearing about that, do you still keep up with it?"
+    - "That sounds like a real passion, tell me more."
+    - "That's wonderful, sports can bring people together like nothing else."
+    - "That sounds exciting, I bet there are some good memories there."
+    - "That's lovely, it must have been a fun atmosphere."
+    - "That's great to hear, sounds like quite the following."
+    - "That sounds like a lot of fun, I can hear how much it means to you."
+    - "That's really nice, I bet you've seen some memorable moments."
+    - "That's wonderful, sounds like a great way to spend the time."
+
+  elaboration:
+    - "It's been that way for as long as I can remember."
+    - "There were some real highs and lows over the years, that's for sure."
+    - "It always brought the whole family together, that's what I loved most."
+    - "Some of my best memories are from back then."
+    - "It kept me busy and gave me something to look forward to every week."
+    - "I still get excited about it even now."
+    - "It wasn't always easy, but it was worth it."
+    - "I made a lot of good friends because of it."
+    - "Looking back, I wouldn't change a thing about it."
+    - "It's funny how much it still means to me."
+
+  follow_up:
+    - "That's really nice, do you still follow it these days?"
+    - "I love that, do you ever get to watch it now?"
+    - "That's great, it sounds like it gave you a lot of joy."
+    - "That's wonderful, those sound like special memories."
+    - "I bet that's something you still think about fondly."
+    - "That's lovely, sounds like it meant a lot to you."
+    - "That's great to hear, sounds like a real highlight."
+    - "That's really special, thanks for telling me about it."
+    - "That sounds like it was a wonderful part of your life."
+    - "I really enjoy hearing about that, it sounds meaningful."
+
+  closing_remark:
+    - "Yeah, I still think about it sometimes."
+    - "I do, whenever I get the chance."
+    - "It really was, good times."
+    - "I try to keep up when I can."
+    - "It meant a lot to me, still does."
+    - "I catch what I can on the radio or TV now."
+    - "Not as much these days, but I remember it fondly."
+    - "Every now and then, yeah."
+    - "It really was special."
+    - "I do, it always brings a smile to my face."
+
+  warm_closing:
+    - "Thanks for sharing that with me, it was nice hearing about it."
+    - "I really enjoyed hearing about that, thank you for sharing."
+    - "That was lovely to hear, thanks for telling me."
+    - "Thank you for sharing that, it sounds like a wonderful memory."
+    - "I loved hearing about that, thank you for sharing."
+    - "That was really nice to hear about, thanks for telling me."
+    - "Thanks for sharing, I enjoyed learning about that."
+    - "That was a joy to hear about, thank you."
+    - "Thank you for sharing that with me, it sounds wonderful."
+    - "I really enjoyed that story, thank you for sharing."

@@ -1,0 +1,71 @@
+variables:
+
+  robot_greets_patient:
+    - "Good afternoon, {{patient.first_name}}, how are you feeling today?"
+    - "Hi {{patient.first_name}}, how's your day going so far?"
+    - "Hello {{patient.first_name}}, everything going okay this afternoon?"
+    - "Good to see you, {{patient.first_name}}, how are you doing?"
+    - "Afternoon, {{patient.first_name}}, how are you holding up today?"
+    - "Hi {{patient.first_name}}, how are things going today?"
+    - "Hello there, {{patient.first_name}}, how's your day been?"
+    - "Good afternoon, {{patient.first_name}}, doing alright today?"
+
+  patient_reply:
+    - "I'm doing alright, thank you for asking."
+    - "Not bad at all, just relaxing a little."
+    - "Pretty good, thanks, just taking it easy."
+    - "I'm fine, thank you, just passing the time."
+    - "Doing okay, thanks, nothing much going on."
+    - "I'm well, thank you, just resting a bit."
+    - "Can't complain, just enjoying the quiet."
+    - "I'm alright, thanks, just waiting for a visitor actually."
+
+  robot_greets_visitor:
+    - "Oh, hello there! Welcome, come on in."
+    - "Hello! Lovely to see you, please come in."
+    - "Hi there, welcome, {{patient.first_name}} will be glad you're here."
+    - "Oh hello, come in, come in, it's good you could make it."
+    - "Hi, welcome! Please, come join us."
+    - "Hello and welcome, please make yourself at home."
+    - "Oh, hi there, come on in, glad you stopped by."
+    - "Hello! Great timing, please come in and sit down."
+
+  visitor_opener:
+    - "Thank you! Has {{patient.first_name}} been keeping busy today?"
+    - "Thanks so much. How has {{patient.first_name}} been doing today?"
+    - "Thank you, it's good to be here. Has today been a good day so far?"
+    - "Thanks! Has {{patient.first_name}} been in good spirits today?"
+    - "Thank you, it's nice to finally get here. How's the day been treating them?"
+    - "Thanks for that. Has it been a quiet day so far?"
+    - "Thank you, I've been looking forward to visiting. How's today been?"
+    - "Thanks! I hope they've been doing alright today."
+
+  robot_answer:
+    - "We've mostly just been chatting, it's lovely that you're here now."
+    - "It's been a nice quiet day, I'm glad you could stop by."
+    - "Nothing too eventful, just glad you made it here."
+    - "It's been a pleasant day, and now it's even better with you here."
+    - "We've just been passing the time, it's wonderful you could visit."
+    - "It's been calm and easy, I'm sure your visit will brighten things up."
+    - "Just a relaxed day so far, I'm sure they've been looking forward to seeing you."
+    - "Nothing much to report, but I know a visit means a lot."
+
+  patient_closing:
+    - "It's so good to see you, thank you for coming."
+    - "I'm really glad you're here, it means a lot."
+    - "Thanks for stopping by, it really made my day."
+    - "It's wonderful having you here, thank you for coming."
+    - "I've been looking forward to this all day, thank you."
+    - "It's so nice to have some company, thank you for visiting."
+    - "I really appreciate you coming by today."
+    - "This means so much to me, thank you for being here."
+
+  warm_closing_both:
+    - "I'll leave you two to catch up, just let me know if you need anything."
+    - "I'll give you both some time together, I'm nearby if you need me."
+    - "Enjoy your visit, I'll be around if either of you needs anything."
+    - "I'll step back and let you two chat, just call if you need me."
+    - "Take your time, I'll be close by if you need anything at all."
+    - "I'll leave you to it, it's lovely to see you both together."
+    - "Enjoy the time together, I'm just a call away if needed."
+    - "I'll let you two visit in peace, I'm here if anything comes up."

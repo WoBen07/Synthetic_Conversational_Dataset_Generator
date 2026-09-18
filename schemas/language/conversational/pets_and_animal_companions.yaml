@@ -1,0 +1,76 @@
+variables:
+
+  # Topic-specific: these set the scene for the exchange.
+  opening_statement:
+    - "I miss my dog, he used to greet me at the door every single day."
+    - "We had a cat growing up who thought she owned the whole house."
+    - "I used to keep chickens in the garden, gave the best eggs you ever tasted."
+    - "My daughter looks after my old dog now, I miss having him around."
+    - "I had a parrot for almost twenty years, he could say the funniest things."
+    - "We always had a dog in the house when the kids were growing up."
+    - "I used to ride horses when I was younger, loved being around them."
+    - "My cat used to sleep on my lap every evening without fail."
+    - "I had a little terrier who followed me everywhere I went."
+    - "We had rabbits in the garden when I was a child, I loved feeding them."
+
+  # Generic on purpose: picked independently of opening_statement, so it
+  # must read naturally after any of the lines above.
+  engaged_response:
+    - "That's lovely, animals really do become part of the family, don't they?"
+    - "That's so sweet, I bet you have some great stories about that."
+    - "That sounds wonderful, tell me more about that."
+    - "That's really nice, pets have such a special way about them."
+    - "That sounds lovely, I bet you still think about them fondly."
+    - "That's so nice to hear, animals can be such good company."
+    - "That sounds like a real character, tell me more."
+    - "That's really sweet, I bet that brought a lot of joy."
+    - "That's lovely, I can tell they meant a lot to you."
+    - "That's a wonderful thing to remember, tell me more."
+
+  elaboration:
+    - "It's funny the little things you remember, but that always stuck with me."
+    - "There was never a dull moment, that's for sure."
+    - "It really did feel like part of the family."
+    - "I still think about it sometimes, even now."
+    - "It was a lot of work, but I wouldn't trade it for anything."
+    - "It always knew exactly when I needed the company."
+    - "We had some good years together, that's for sure."
+    - "It had such a personality, always kept us laughing."
+    - "Looking back, those were some of my happiest times."
+    - "It's funny how much you miss the little routines."
+
+  follow_up:
+    - "That's lovely, do you get to see them much these days?"
+    - "I bet that still brings a smile to your face."
+    - "That's wonderful, it sounds like such good company."
+    - "That sounds like a really special bond."
+    - "I bet you still think about them fondly."
+    - "That's such a nice memory to have."
+    - "That sounds like it brought a lot of joy to the house."
+    - "That's lovely, thanks for telling me about that."
+    - "I really enjoy hearing stories like that."
+    - "That's a wonderful thing to hold onto."
+
+  closing_remark:
+    - "Not as often as I'd like, but I think about them a lot."
+    - "Every now and then, when I get the chance."
+    - "It really was a special bond, still is."
+    - "I do miss having them around, but the memories are good ones."
+    - "It really did bring a lot of happiness."
+    - "I think about it more often than you'd expect."
+    - "It's one of my favorite memories, honestly."
+    - "I still smile thinking about it."
+    - "It really was something special."
+    - "I'd love to have another one around someday."
+
+  warm_closing:
+    - "Thanks for sharing that with me, it was nice hearing about it."
+    - "I really enjoyed hearing about that, thank you for sharing."
+    - "That was lovely to hear, thanks for telling me."
+    - "Thank you for sharing that, it sounds like a wonderful memory."
+    - "I loved hearing about that, thank you for sharing."
+    - "That was really nice to hear about, thanks for telling me."
+    - "Thanks for sharing, I enjoyed learning about that."
+    - "That was a joy to hear about, thank you."
+    - "Thank you for sharing that with me, it sounds wonderful."
+    - "I really enjoyed that story, thank you for sharing."

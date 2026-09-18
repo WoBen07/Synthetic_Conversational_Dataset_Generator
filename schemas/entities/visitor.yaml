@@ -1,0 +1,19 @@
+entity: visitor
+
+
+fields:
+
+  first_name:
+    type: string
+    generator: first_name
+
+
+  last_name:
+    type: string
+    generator: last_name
+
+
+computed:
+
+  full_name:
+    template: "{{first_name}} {{last_name}}"

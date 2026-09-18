@@ -1,0 +1,15 @@
+name: visitor_joins_smalltalk
+
+entities:
+  patient:
+    type: patient
+  visitor:
+    type: visitor
+
+constraints:
+  - type: different
+    fields:
+      - patient.first_name
+      - visitor.first_name
+
+language_schema: visitor_joins_smalltalk

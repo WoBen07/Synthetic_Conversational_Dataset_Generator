@@ -1,0 +1,11 @@
+{
+  "messages": [
+    { "role": "assistant", "content": "{{robot_greets_patient}}" },
+    { "role": "user", "content": "{{patient.first_name}}: {{patient_reply}}" },
+    { "role": "assistant", "content": "{{robot_greets_visitor}}" },
+    { "role": "user", "content": "{{visitor.first_name}}: {{visitor_opener}}" },
+    { "role": "assistant", "content": "{{robot_answer}}" },
+    { "role": "user", "content": "{{patient.first_name}}: {{patient_closing}}" },
+    { "role": "assistant", "content": "{{warm_closing_both}}" }
+  ]
+}

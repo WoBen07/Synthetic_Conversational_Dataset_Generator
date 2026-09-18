@@ -1,0 +1,18 @@
+name: weekend_plans_chat
+
+# person_a and person_b are two ordinary people with no hospital or
+# robot framing at all - this category exists to broaden the assistant's
+# general conversational fluency beyond the patient-facing HRI scenarios.
+entities:
+  person_a:
+    type: visitor
+  person_b:
+    type: visitor
+
+constraints:
+  - type: different
+    fields:
+      - person_a.first_name
+      - person_b.first_name
+
+language_schema: weekend_plans_chat

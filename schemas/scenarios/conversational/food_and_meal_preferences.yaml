@@ -1,0 +1,7 @@
+name: food_and_meal_preferences
+
+entities:
+  patient:
+    type: patient
+
+language_schema: food_and_meal_preferences

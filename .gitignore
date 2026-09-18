@@ -1,2 +1,5 @@
 Datasets
 Synthetic_Data
+.env
+.venv
+config/publish_config.yaml

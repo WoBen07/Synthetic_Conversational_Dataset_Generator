@@ -1,0 +1,15 @@
+name: neighborhood_catch_up
+
+entities:
+  person_a:
+    type: visitor
+  person_b:
+    type: visitor
+
+constraints:
+  - type: different
+    fields:
+      - person_a.first_name
+      - person_b.first_name
+
+language_schema: neighborhood_catch_up

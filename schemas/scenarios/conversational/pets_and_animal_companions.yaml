@@ -1,0 +1,7 @@
+name: pets_and_animal_companions
+
+entities:
+  patient:
+    type: patient
+
+language_schema: pets_and_animal_companions
