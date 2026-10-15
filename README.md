@@ -48,6 +48,7 @@ Developed by **Benedict Wohlgemuth** under the guidance of
 Universität Augsburg
 Universitätsstraße 2
 86159 Augsburg, Germany
+Chair of Human Computer Interaction, Prof. Dr. Elisabeth André 
 
 The University of Augsburg has not claimed ownership of this project so
 far, but it retains the right to do so. Material already released under an
