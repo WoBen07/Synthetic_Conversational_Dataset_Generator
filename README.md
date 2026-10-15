@@ -59,7 +59,7 @@ open license stays available under that license.
   Copyright © 2026 Benedict Wohlgemuth, University of Augsburg.
 - **Datasets (Hugging Face):** [Creative Commons Attribution 4.0
   International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/),
-  Copyright © 2026 Benedict Wohlgemuth, University of Augsburg.
+  Copyright © 2026 Benedict Wohlgemuth, Dr. Matthias Kraus, Prof. Dr. Elisabeth André, University of Augsburg.
 
 When you use the code or the datasets, please give appropriate credit to
 the author and the University of Augsburg, and keep the copyright notice.
@@ -70,7 +70,7 @@ If you use this generator or the datasets, please cite:
 
 ```bibtex
 @software{wohlgemuth2026syntheticconversational,
-  author       = {Wohlgemuth, Benedict},
+  author       = {Wohlgemuth, Benedict, Dr. Matthias Kraus, Prof. Dr. Elisabeth André},
   title        = {Synthetic Conversational Dataset Generator},
   year         = {2026},
   publisher    = {University of Augsburg},
