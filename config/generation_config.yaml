@@ -69,6 +69,15 @@ tool_share_targets:
 
 tool_share_max_scale: 2.0
 
+# Settings for the optional engine/config_optimizer.py, which writes the
+# uniqueness_caps block at the end of this file (see its docstring).
+uniqueness_optimizer:
+  samples: 200              # valid datapoints sampled per template
+  max_duplicate_rate: 0.05  # accepted share of datapoints worded like another one
+  max_phrase_repeats: 100   # how often one phrase may be used per template
+  min_amount: 100           # never cap a template below this
+  seed: 1234
+
 random_seed_range:
   min: 1
   max: 999999

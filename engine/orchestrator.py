@@ -114,7 +114,36 @@ def tool_shares(amounts, calls):
     return {tool: total / overall for tool, total in totals.items()}
 
 
-def apply_tool_share_targets(amounts, config):
+def apply_uniqueness_caps(amounts, config):
+    """Lower every template to its uniqueness cap, if one is set.
+
+    The caps are written into the config by engine/config_optimizer.py
+    (uniqueness_caps block). Without that block nothing changes.
+    """
+
+    caps = config.get("uniqueness_caps") or {}
+
+    return {
+        template: min(amount, caps.get(template, amount))
+        for template, amount in amounts.items()
+    }
+
+
+def plan_amounts(templates, config, verbose=True):
+    """Final amount per template: configured amount, uniqueness cap,
+    then tool-share scaling (which never exceeds the cap either)."""
+
+    amounts = {
+        template: get_amount(template, config)
+        for template in templates
+    }
+
+    amounts = apply_uniqueness_caps(amounts, config)
+
+    return apply_tool_share_targets(amounts, config, verbose=verbose)
+
+
+def apply_tool_share_targets(amounts, config, verbose=True):
     """Scale up templates that use under-represented tools.
 
     Per-template amounts alone say nothing about how often each tool is
@@ -130,6 +159,8 @@ def apply_tool_share_targets(amounts, config):
         return amounts
 
     max_scale = config.get("tool_share_max_scale", 3.0)
+
+    caps = config.get("uniqueness_caps") or {}
 
     calls = {template: count_tool_calls(template) for template in amounts}
 
@@ -157,7 +188,10 @@ def apply_tool_share_targets(amounts, config):
                 if tool not in counts:
                     continue
 
-                ceiling = int(base[template] * max_scale)
+                ceiling = min(
+                    int(base[template] * max_scale),
+                    caps.get(template, float("inf"))
+                )
 
                 raised = min(ceiling, math.ceil(amounts[template] * 1.1))
 
@@ -167,6 +201,9 @@ def apply_tool_share_targets(amounts, config):
 
         if not changed:
             break
+
+    if not verbose:
+        return amounts
 
     shares = tool_shares(amounts, calls)
 
@@ -252,6 +289,17 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--optimize",
+        action="store_true",
+        help=(
+            "Before generating, run engine/config_optimizer.py and write "
+            "uniqueness caps into config/generation_config.yaml, so no "
+            "template is generated beyond what its phrase pools can make "
+            "without repeating itself."
+        ),
+    )
+
+    parser.add_argument(
         "--dry-run-publish",
         action="store_true",
         help="With --publish, print what would be published without "
@@ -282,6 +330,12 @@ def main():
 
         print()
 
+    if args.optimize:
+
+        from synthetic_data_generator.engine import config_optimizer
+
+        config_optimizer.main(["--write"])
+
     config = load_config()
 
     templates = get_templates()
@@ -294,12 +348,7 @@ def main():
         print(" -", t)
 
 
-    amounts = {
-        template: get_amount(template, config)
-        for template in templates
-    }
-
-    amounts = apply_tool_share_targets(amounts, config)
+    amounts = plan_amounts(templates, config)
 
     for template in templates:
 

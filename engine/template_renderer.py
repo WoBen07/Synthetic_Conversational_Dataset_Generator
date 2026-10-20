@@ -21,6 +21,10 @@ class TemplateRenderer:
 
         self.context = context
 
+        # Every placeholder path looked up while rendering, including
+        # those nested inside language phrases.
+        self.used_paths = set()
+
 
 
     def render(self, template):
@@ -165,6 +169,8 @@ class TemplateRenderer:
 
 
     def _lookup(self, path):
+
+        self.used_paths.add(path)
 
         parts = path.split(".")
 

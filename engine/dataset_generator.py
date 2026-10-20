@@ -60,6 +60,26 @@ class DatasetGenerator:
         language_schema_template
     ):
 
+        datapoint, _trace = self.generate_one_traced(
+            scenario,
+            template,
+            language_schema_template
+        )
+
+        return datapoint
+
+
+
+    def generate_one_traced(
+        self,
+        scenario,
+        template,
+        language_schema_template
+    ):
+        """Like generate_one, but also return which language option was
+        chosen per variable, which of them the template actually used,
+        and the size of every phrase pool."""
+
         #
         # Generate context
         #
@@ -121,9 +141,27 @@ class DatasetGenerator:
         # renders into strictly alternating chat-template turns.
         #
 
+        used_variables = {
+            path.split(".")[0]
+            for path in renderer.used_paths
+        } & set(language_generator.choices)
+
+        trace = {
+
+            "choices": {
+                name: language_generator.choices[name]
+                for name in used_variables
+            },
+
+            "pool_sizes": {
+                name: len(options)
+                for name, options in language_schema["variables"].items()
+            },
+        }
+
         return normalize_conversation(
             rendered
-        )
+        ), trace
 
 
 

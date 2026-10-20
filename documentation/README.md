@@ -11,6 +11,7 @@ This folder is split into smaller docs so each part stays readable.
 - [Schemas](schemas.md)
 - [Templates](templates.md)
 - [Validation](validation.md)
+- [Uniqueness Optimizer (optional)](uniqueness.md)
 - [Extending the Generator](extending.md)
 - [Publishing to HuggingFace Hub](publishing.md)
 
