@@ -53,7 +53,7 @@ variables:
   corrected_answer:
     - "Confirmed — {{target_patient.full_name}}, room {{target_patient.room_number}}: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "That's the right one now — {{target_patient.full_name}}: {{appointment.appointment_type}} on {{appointment.day}}, {{appointment.location}}."
-    - "{{target_patient.full_name}} in {{target_patient.room_number}} is booked for {{appointment.appointment_type}}, {{appointment.day}}, at {{appointment.location}}."
+    - "{{target_patient.full_name}} in {{target_patient.room_number}} is booked for a {{appointment.appointment_type}}, {{appointment.day}}, at {{appointment.location}}."
     - "Sorted: {{target_patient.full_name}}, {{appointment.day}} for the {{appointment.appointment_type}} in {{appointment.location}}."
     - "Right patient this time — {{target_patient.full_name}}, {{appointment.appointment_type}} on {{appointment.day}}, {{appointment.location}}."
     - "Here it is for {{target_patient.full_name}}, room {{target_patient.room_number}}: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."

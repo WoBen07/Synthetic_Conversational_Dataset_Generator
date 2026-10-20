@@ -14,7 +14,7 @@ variables:
     - "Weren't you saying it's a {{appointment.appointment_type}} before?"
     - "You mentioned {{appointment.location}} a moment ago, has that changed?"
     - "Just to confirm, is it still {{appointment.day}} like before?"
-    - "Earlier you said {{appointment.appointment_type}}, is that still accurate?"
+    - "Earlier you said the {{appointment.appointment_type}}, is that still accurate?"
 
   assistant_confirm_consistency:
     - "Yes, that's right — your {{appointment.appointment_type}} is still in {{appointment.location}} on {{appointment.day}}. Nothing has changed since we last spoke."

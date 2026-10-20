@@ -15,7 +15,7 @@ variables:
     - "Please send {{patient.full_name}} a reminder about {{appointment.day}}'s appointment."
 
   draft_readback:
-    - "Before I send — I have {{appointment.appointment_type}}, {{appointment.day}}, in {{appointment.location}}. That right?"
+    - "Before I send — I have the {{appointment.appointment_type}}, {{appointment.day}}, in {{appointment.location}}. That right?"
     - "Let me read it back first: {{appointment.appointment_type}} on {{appointment.day}}, location {{appointment.location}}. Confirm and I'll send."
     - "Checking before it goes out — {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}. Okay to send?"
     - "Draft is: your {{appointment.appointment_type}} is on {{appointment.day}} in {{appointment.location}}. Shall I send that?"

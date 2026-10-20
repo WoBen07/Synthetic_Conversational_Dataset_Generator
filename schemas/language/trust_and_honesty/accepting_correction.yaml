@@ -60,7 +60,7 @@ variables:
     - "I've gone through it again — {{appointment.day}} at {{appointment.location}} is what's on file for your {{appointment.appointment_type}}. Staff can confirm further if needed."
     - "Just re-checked — the system still lists {{appointment.day}} at {{appointment.location}}. Happy to have someone confirm it in person."
     - "I looked once more, and {{appointment.day}} at {{appointment.location}} still comes up. Let staff know if it still seems off."
-    - "Second check complete — it's {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, same as before."
+    - "Second check complete — it's the {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, same as before."
     - "I've confirmed it again: {{appointment.day}}, {{appointment.location}}. I can ask staff to double-check if you'd like."
     - "Verified once more — the record hasn't changed, still {{appointment.day}} at {{appointment.location}}."
 

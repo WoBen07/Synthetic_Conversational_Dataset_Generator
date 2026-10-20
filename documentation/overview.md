@@ -2,11 +2,12 @@
 
 The `synthetic_data_generator` package creates synthetic conversational datapoints from three inputs:
 
-1. A scenario YAML file that defines entities, aliases, and constraints.
+1. A scenario YAML file that defines entities, aliases, constraints, and
+   what the robot knows at the start (`robot_context`).
 2. A language-schema YAML file that supplies phrase pools for user and assistant text.
 3. A JSON template that defines the final message structure to render.
 
-The generator builds a context of entity data, injects randomized language variables, renders the template, validates the result, and writes accepted datapoints to disk.
+The generator builds a context of entity data, injects randomized language variables, renders the template, validates the result, and writes accepted, non-duplicate datapoints to disk.
 
 ## Folder Structure
 
@@ -14,6 +15,8 @@ The generator builds a context of entity data, injects randomized language varia
 - `generators/`: random value generators for entity fields.
 - `schemas/`: YAML definitions for entities, scenarios, tools, and language variables.
 - `templates/`: JSON templates for complete datapoints.
+- `config/`: amounts per template/category, tool-share targets, the
+  optional uniqueness caps, and publishing settings.
 - `scripts/`: currently empty.
 
 ## Template Grouping

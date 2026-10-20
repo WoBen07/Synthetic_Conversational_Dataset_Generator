@@ -11,7 +11,7 @@ variables:
     - "Let's flip the order for {{patient.full_name}} — {{appointment.location}} for the {{appointment.appointment_type}} first."
     - "New plan — {{appointment.appointment_type}} ahead of {{alternative_appointment.appointment_type}} for {{patient.full_name}}, starting at {{appointment.location}}."
     - "Please prioritize the {{appointment.appointment_type}} in {{appointment.location}} for {{patient.full_name}} today."
-    - "Move the {{appointment.appointment_type}} up for {{patient.full_name}} — head to {{appointment.location}} first."
+    - "Bring the {{appointment.appointment_type}} forward for {{patient.full_name}} — head to {{appointment.location}} first."
     - "The order's changed — {{appointment.appointment_type}} in {{appointment.location}} comes before the {{alternative_appointment.appointment_type}} now."
 
   announce_new_order:
