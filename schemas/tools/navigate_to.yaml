@@ -1,9 +1,13 @@
 tool: navigate_to
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: true
+
+description: Drives the robot to a room, together with whoever it is escorting.
 
 
 input:
@@ -11,6 +15,11 @@ input:
   room:
     type: string
     required: true
+    description: >
+      Bare room name or number as given in the conversation or a tool
+      result, e.g. "2004" or "Sunroom" - no article.
+    source: mentioned
+    format: name
 
 
 output:

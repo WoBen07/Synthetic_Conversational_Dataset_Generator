@@ -109,14 +109,24 @@ acts in `no_tool` conversations) and for the grouped split.
 
 ## `engine/tool_registry.py`
 
-Loads `schemas/tools/*.yaml`. `has_side_effects(name)` reads a tool's
-`side_effects` flag.
+Loads `schemas/tools/*.yaml` (cached). `has_side_effects(name)` reads a
+tool's `side_effects` flag.
+
+## `engine/tool_definitions.py`
+
+Exports the tool schemas as JSON-schema function definitions
+(`{"type": "function", "function": {name, description, parameters}}`),
+the format chat templates take via `apply_chat_template(..., tools=...)`.
+`requires_one_of` is stated in the description, since many chat
+templates do not understand `anyOf`. Generator-internal keys are
+dropped.
 
 ## `engine/dataset_merger.py`
 
 Loads `Synthetic_Data/`, checks role alternation and splits every
 template into train/validation, grouped by `wording_id`
-(`split_template`). `wording_overlap()` counts validation datapoints
+(`split_template`), and writes `tools.json` (all tool definitions) next
+to `train.jsonl`. `wording_overlap()` counts validation datapoints
 whose wording also appears in train. See [generation flow](workflow.md#9-merging).
 
 ## `engine/robot_context.py`

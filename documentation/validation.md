@@ -20,23 +20,28 @@ simply produces fewer valid datapoints, or none.
 | `WeatherRecommendationValidator` | clothing advice that does not fit the reported weather |
 | `WeatherConsistencyValidator` | weather claims that contradict the `get_weather` result |
 | `WeatherGroundingValidator` | weather claims without a `get_weather` call |
+| `ToolSchemaValidator` | tool calls and results that do not match `schemas/tools` (unknown tool or argument, missing required argument, wrong type or enum value, undeclared result field) |
 | `GroundingValidator` | tool arguments the robot could not know (below) |
 | `LanguageValidator` | doubled words and wrong indefinite articles (below) |
 
 ## GroundingValidator
 
-Prevents training the model to act on information nobody gave it:
+Prevents training the model to act on information nobody gave it. The
+rules are declared per argument in the tool schemas (`source`, `format`,
+see [tool schemas](schemas.md#tool-schemas)), so the validator itself
+knows nothing about patients and works for any domain:
 
-- every `patient_id` in a tool call must have appeared before, in the
-  system context, a user message or a tool result;
-- every `find_patient` argument must have been said by the user, stated
-  in the system context or returned by an earlier tool. All words of
-  the argument must occur, so a first and last name given in separate
-  turns count, and so does a room taken from an earlier match;
-- `reason` (`notify_staff`) and `note` (`log_patient_note`) must not be
-  a copy of a user message; the robot summarises in its own words;
-- `navigate_to` and `alert_staff` rooms must not start with an article
-  ("Sunroom", not "the Sunroom").
+- `known`: IDs such as `patient_id`, and the room an alert is sent to,
+  must have appeared verbatim before, in the system context, a user
+  message or a tool result (`p9` does not count for `p99`);
+- `mentioned`: search terms and navigation targets must consist of words
+  that appeared before. A first and last name given in separate turns
+  count, and so does a room from an earlier tool result;
+- `own_words`: `reason` and `note` must not copy a user message;
+- `format: name`: no leading article ("Sunroom", not "the Sunroom").
+
+The robot's own messages never count as a source: it cannot ground an
+argument in something it announced itself.
 
 ## LanguageValidator
 

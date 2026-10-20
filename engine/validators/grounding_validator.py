@@ -1,10 +1,12 @@
 import json
 import re
 
+from synthetic_data_generator.engine.tool_registry import load_tools
 
-PATIENT_ID = re.compile(r"\bp\d+\b")
 
 WHITESPACE = re.compile(r"\s+")
+
+ARTICLE = re.compile(r"^(the|a|an)\s", re.IGNORECASE)
 
 
 def _text(content):
@@ -23,111 +25,115 @@ def _normalize(text):
     return WHITESPACE.sub(" ", str(text)).strip().strip(".!?").lower()
 
 
-class GroundingValidator:
-    """Reject tool calls whose arguments the robot could not know.
+def _occurs(value, text):
+    """value appears in text as a whole token (IDs, room numbers)."""
 
-    - every ``patient_id`` must have appeared earlier, in the system
-      context, a user message or a tool response;
-    - every ``find_patient`` argument must have been said by the user,
-      stated in the system context or returned by an earlier tool (all
-      of its words, so a first and last name given in separate turns
-      still count, and a room taken from an earlier match is fine);
-    - ``reason`` / ``note`` must summarise the request, not repeat a
-      user message word for word;
-    - ``navigate_to`` targets are room names, not phrases ("the Sunroom").
+    return re.search(
+        rf"(?<![\w-]){re.escape(value)}(?![\w-])",
+        text
+    ) is not None
+
+
+class GroundingValidator:
+    """Reject tool arguments the robot could not know.
+
+    The rules come from the tool schemas (schemas/tools/*.yaml), so the
+    validator works for any domain. Per argument:
+
+    - ``source: known`` - the exact value (an ID, a room number) must
+      have appeared before, in the system context, a user message or a
+      tool result;
+    - ``source: mentioned`` - every word of the value must have appeared
+      before in those places (a first and last name given in separate
+      turns count, and so does a room taken from an earlier result);
+    - ``source: own_words`` - the value summarises the request and must
+      not repeat a user message word for word;
+    - ``format: name`` - a bare name, no leading article ("Sunroom",
+      not "the Sunroom").
+
+    The robot's own messages never count as a source: it cannot ground
+    an argument in something it made up itself.
     """
 
     def validate(self, datapoint):
 
+        tools = load_tools()
+
         errors = []
 
-        known_ids = set()
-        heard = ""
-        tool_text = ""
+        known_text = ""
         user_messages = []
 
         for index, message in enumerate(datapoint.get("messages", [])):
 
             role = message.get("role")
-            text = _text(message.get("content"))
 
             for call in self._tool_calls(message):
 
                 errors.extend(
-                    self._check_call(
-                        index,
-                        call,
-                        known_ids,
-                        heard + " " + tool_text,
-                        user_messages
-                    )
+                    self._check_call(index, call, tools, known_text, user_messages)
                 )
 
-            if role in ("system", "user"):
+            if role in ("system", "user", "tool"):
 
-                heard += " " + text.lower()
-                known_ids.update(PATIENT_ID.findall(text))
+                known_text += "\n" + _text(message.get("content"))
 
                 if role == "user":
-                    user_messages.append(_normalize(text))
-
-            elif role == "tool":
-
-                tool_text += " " + text.lower()
-                known_ids.update(PATIENT_ID.findall(text))
+                    user_messages.append(_normalize(_text(message.get("content"))))
 
         return errors
 
 
-    def _check_call(self, index, call, known_ids, known_text, user_messages):
-
-        errors = []
+    def _check_call(self, index, call, tools, known_text, user_messages):
 
         name = call.get("name")
+
+        schema = tools.get(name) or {}
+
+        inputs = schema.get("input") or {}
+
         arguments = call.get("arguments") or {}
 
         if isinstance(arguments, str):
             arguments = json.loads(arguments)
 
-        patient_id = arguments.get("patient_id")
+        errors = []
 
-        if patient_id and patient_id not in known_ids:
+        for key, value in arguments.items():
 
-            errors.append(
-                f"{name} at {index} uses patient_id {patient_id} "
-                f"that never appeared before"
-            )
+            spec = inputs.get(key) or {}
 
-        if name == "find_patient":
+            source = spec.get("source")
 
-            for key, value in arguments.items():
+            value = str(value)
 
-                words = str(value).lower().split()
+            if source == "known" and not _occurs(value, known_text):
 
-                if not all(word in known_text for word in words):
+                errors.append(
+                    f"{name} at {index} uses {key}={value!r}, "
+                    f"which never appeared before"
+                )
 
-                    errors.append(
-                        f"find_patient at {index} searches "
-                        f"{key}={value!r}, which nobody mentioned"
-                    )
+            elif source == "mentioned" and not all(
+                word in known_text.lower() for word in value.lower().split()
+            ):
 
-        for key in ("reason", "note"):
+                errors.append(
+                    f"{name} at {index} uses {key}={value!r}, "
+                    f"which nobody mentioned"
+                )
 
-            if key in arguments and _normalize(arguments[key]) in user_messages:
+            elif source == "own_words" and _normalize(value) in user_messages:
 
                 errors.append(
                     f"{name} at {index} copies a user message into {key}"
                 )
 
-        room = str(
-            arguments.get("room") or arguments.get("room_number") or ""
-        )
+            if spec.get("format") == "name" and ARTICLE.match(value):
 
-        if room.lower().startswith("the "):
-
-            errors.append(
-                f"{name} at {index} has an article in its room {room!r}"
-            )
+                errors.append(
+                    f"{name} at {index} has an article in {key}={value!r}"
+                )
 
         return errors
 

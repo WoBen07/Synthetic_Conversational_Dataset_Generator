@@ -1,16 +1,18 @@
 tool: notify_staff
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: true
 
-
 description: >
-  Flags a non-urgent request, complaint, or concern for hospital staff
-  follow-up. Used whenever the assistant tells a patient it will "let
-  staff know" or "pass this along" outside of a medical emergency.
-  For urgent/medical situations use alert_staff instead.
+  Passes a message to staff for follow-up; nobody has to come to the
+  room right away. Use it for questions for the care team, clinical
+  requests for the next round, complaints, preferences, scheduling,
+  language or dietary needs and mild, stable symptoms. When someone has
+  to come to the patient, use alert_staff instead.
 
 
 input:
@@ -22,6 +24,7 @@ input:
       Only when the request concerns a patient the robot has identified
       (from the context or an earlier tool result). Omit it otherwise,
       never guess an ID.
+    source: known
 
   reason:
     type: string
@@ -30,6 +33,7 @@ input:
       A short summary of the request for staff, written by the robot
       (e.g. "Patient asks for help opening a water bottle."). Only facts
       from the conversation; never a copy of the user's words.
+    source: own_words
 
 
 output:

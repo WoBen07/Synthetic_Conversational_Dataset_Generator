@@ -1,22 +1,21 @@
 tool: alert_staff
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: true
 
-
 description: >
-  Notifies staff that a patient needs attention, at a severity set by
-  urgency. Use "high" for life-threatening or rapidly worsening
-  situations (falls, chest pain, breathing trouble) needing an
-  immediate response. Use "medium" for situations needing prompt but
-  non-life-threatening attention, such as a patient needing physical
-  assistance to move safely. Use "low" for minor, non-urgent requests.
-  If the patient says a symptom has passed, do not escalate on your
-  own; offer to let a nurse know and act only if they agree. For non-physical
-  concerns such as complaints or capability questions, use
-  notify_staff instead.
+  Calls a member of staff to the patient, at a severity set by urgency.
+  "high": emergency needing an immediate response (breathing trouble,
+  chest pain, a fall, sudden weakness, heavy bleeding). "medium":
+  physical help needed to move safely (out of bed, walking). "low":
+  minor in-room help, such as a pillow or something out of reach. If
+  the patient says a symptom has passed, do not escalate on your own;
+  offer to let a nurse know and act only if they agree. For messages
+  that do not need anyone in the room, use notify_staff instead.
 
 
 input:
@@ -28,10 +27,14 @@ input:
       Only when the situation concerns a patient the robot has identified
       (from the context or an earlier tool result). Omit it otherwise,
       never guess an ID.
+    source: known
 
   room_number:
     type: string
     required: true
+    description: Room the staff member should come to.
+    source: known
+    format: name
 
   urgency:
     type: enum

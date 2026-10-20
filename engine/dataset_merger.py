@@ -5,6 +5,8 @@ import random
 from pathlib import Path
 from collections import defaultdict
 
+from synthetic_data_generator.engine.tool_definitions import tool_definitions
+
 
 # ==========================
 # Configuration
@@ -17,6 +19,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INPUT_FOLDER = PROJECT_ROOT / "Synthetic_Data"
 OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_9"
 TRAIN_OUTPUT = "train.jsonl"
+# Function definitions of all tools (engine/tool_definitions.py); the
+# model-specific preprocessors attach them to every example.
+TOOLS_OUTPUT = "tools.json"
 VALIDATION_OUTPUT = "validation.jsonl"
 
 VALIDATION_SPLIT = 0.1
@@ -371,6 +376,9 @@ def main():
         validation
     )
 
+    with open(output_folder / TOOLS_OUTPUT, "w", encoding="utf-8") as f:
+        json.dump(tool_definitions(), f, indent=2, ensure_ascii=False)
+
     metadata = {
         "generator": "dataset_merger",
         "input_folder": str(INPUT_FOLDER),
@@ -380,6 +388,8 @@ def main():
         "shuffle": SHUFFLE,
 
         "validation_split": VALIDATION_SPLIT,
+
+        "tools_file": TOOLS_OUTPUT,
 
         "split": "stratified by template, grouped by metadata.wording_id",
 

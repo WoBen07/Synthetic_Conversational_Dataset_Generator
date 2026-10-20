@@ -11,10 +11,33 @@ from pathlib import Path
 INPUT_FILE = Path("../Datasets/Test_Dataset_2/validation.jsonl")
 OUTPUT_FILE = Path("../Datasets/Test_Dataset_2/validation_gemma.jsonl")
 
+# Attach the tool definitions (tools.json from the dataset merger) to
+# every example.
+INCLUDE_TOOLS = True
+
 
 # ==========================
 # Conversion Logic
 # ==========================
+
+
+def load_tool_definitions():
+    """Tool definitions written by the dataset merger (tools.json next to
+    the input file). Attached to every example as "tools", so the chat
+    template renders the same tool list the model gets at inference
+    (tokenizer.apply_chat_template(messages, tools=example["tools"]))."""
+
+    if not INCLUDE_TOOLS:
+        return None
+
+    path = Path(INPUT_FILE).parent / "tools.json"
+
+    if not path.exists():
+        print(f"WARNING: {path} not found - examples are written without tools")
+        return None
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def extract_tool_calls(message):
     """
@@ -74,22 +97,29 @@ def convert_message(message):
     return message
 
 
-def convert_example(example):
+def convert_example(example, tools=None):
     """
     Convert a complete JSONL example.
     """
 
-    return {
+    converted = {
         "messages": [
             convert_message(message)
             for message in example["messages"]
         ]
     }
 
+    if tools:
+        converted["tools"] = tools
+
+    return converted
+
 
 def convert_jsonl(input_file, output_file):
 
     converted_count = 0
+
+    tools = load_tool_definitions()
 
     with open(input_file, "r", encoding="utf-8") as infile, \
          open(output_file, "w", encoding="utf-8") as outfile:
@@ -101,7 +131,7 @@ def convert_jsonl(input_file, output_file):
 
             example = json.loads(line)
 
-            converted = convert_example(example)
+            converted = convert_example(example, tools)
 
             outfile.write(
                 json.dumps(

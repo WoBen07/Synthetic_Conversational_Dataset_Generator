@@ -1,9 +1,13 @@
 tool: get_weather
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: false
+
+description: Returns the current weather condition and temperature.
 
 
 input:
@@ -11,6 +15,7 @@ input:
   location:
     type: string
     required: true
+    description: Where to check the weather, e.g. "hospital area".
 
 
 output:

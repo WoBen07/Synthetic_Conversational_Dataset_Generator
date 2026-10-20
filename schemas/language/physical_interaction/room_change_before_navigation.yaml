@@ -33,22 +33,6 @@ variables:
       room: "Room 15"
 
 
-  change_reason:
-    - "a technical issue with the equipment"
-    - "a maintenance problem"
-    - "the room being double-booked"
-    - "an equipment malfunction"
-    - "a scheduling mix-up"
-    - "an unexpected repair"
-    - "a plumbing issue"
-    - "a power outage in that wing"
-    - "a cleaning crew needing extra time"
-    - "an overrunning previous appointment"
-    - "a broken air conditioning unit"
-    - "an urgent staff meeting booked in there"
-    - "a flooring repair"
-    - "a fire alarm inspection"
-
   ask_to_go:
     - "Can you take {{patient.full_name}} to {{appointment.location}} for the {{appointment.appointment_type}}?"
     - "Could you bring {{patient.full_name}} to {{appointment.location}} for their appointment?"
@@ -65,19 +49,18 @@ variables:
     - "Could you guide {{patient.full_name}} over to {{appointment.location}} now?"
     - "Can you bring {{patient.full_name}} to {{appointment.location}} in time for the appointment?"
 
+  # The robot learns about the change from the appointment record it
+  # just looked up - it never announces news it has no source for.
   room_change_notice:
-    - "Actually, I just got word that {{appointment.location}} is unavailable due to {{change_reason}} — the appointment's been moved to {{new_location.phrase}}. I'll head there instead."
-    - "Before we go — {{appointment.location}} is out of use because of {{change_reason}}. The appointment is now in {{new_location.phrase}}, so I'll take {{patient.full_name}} there instead."
-    - "Quick update — {{appointment.location}} can't be used right now because of {{change_reason}}. I'll take {{patient.full_name}} to {{new_location.phrase}} instead."
-    - "Heads up — there's {{change_reason}} in {{appointment.location}}, so the appointment moved to {{new_location.phrase}}. Heading there now."
-    - "Just found out {{appointment.location}} is closed due to {{change_reason}} — I'll bring {{patient.full_name}} to {{new_location.phrase}} instead."
-    - "One update before we go — {{appointment.location}} is unavailable because of {{change_reason}}. The new location is {{new_location.phrase}}."
-    - "Before we head out — {{change_reason}} means {{appointment.location}} is closed, so we're going to {{new_location.phrase}} instead."
-    - "Small update — {{appointment.location}} is out due to {{change_reason}}, the new spot is {{new_location.phrase}}."
-    - "Just got notified — {{change_reason}} in {{appointment.location}}, so it's moved to {{new_location.phrase}} now."
-    - "I've just been told {{appointment.location}} is unavailable because of {{change_reason}} — redirecting to {{new_location.phrase}}."
-    - "Quick heads up — {{change_reason}} means we need {{new_location.phrase}} instead of {{appointment.location}}."
-    - "Before we set off — there's been {{change_reason}} in {{appointment.location}}, so it's now {{new_location.phrase}}."
+    - "Before we go, I checked the record: the {{appointment.appointment_type}} is now in {{new_location.phrase}}, not {{appointment.location}}. I'll take {{patient.full_name}} there instead."
+    - "The record shows the {{appointment.appointment_type}} has moved from {{appointment.location}} to {{new_location.phrase}}, so that's where we'll go."
+    - "Quick update from the record — the appointment is in {{new_location.phrase}} now, not {{appointment.location}}. Heading there with {{patient.full_name}}."
+    - "I just checked, and the {{appointment.appointment_type}} is listed in {{new_location.phrase}} rather than {{appointment.location}}. I'll take {{patient.full_name}} to {{new_location.phrase}}."
+    - "Good thing I looked it up: the room changed from {{appointment.location}} to {{new_location.phrase}}. We'll go there instead."
+    - "According to the record, {{patient.full_name}}'s {{appointment.appointment_type}} is now in {{new_location.phrase}}. {{appointment.location}} is no longer listed, so I'll head to {{new_location.phrase}}."
+    - "The appointment record has a new room — {{new_location.phrase}} instead of {{appointment.location}}. On our way there now."
+    - "Heads up — the record now says {{new_location.phrase}} for the {{appointment.appointment_type}}, not {{appointment.location}}. I'll take {{patient.full_name}} there."
+
 
   arrival_confirmation:
     - "We've arrived at {{new_location.phrase}} — {{patient.full_name}} is here for the {{appointment.appointment_type}}."

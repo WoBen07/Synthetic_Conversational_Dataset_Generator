@@ -1,9 +1,52 @@
 {
   "messages": [
-    { "role": "user", "content": "{{ask_to_go}}" },
-    { "role": "assistant", "content": "{{room_change_notice}}" },
+    {
+      "role": "user",
+      "content": "{{ask_to_go}}"
+    },
     {
       "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_patient_appointment",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_patient_appointment",
+      "content": {
+        "patient_id": "{{patient.patient_id}}",
+        "name": "{{patient.full_name}}",
+        "appointment": {
+          "day": "{{appointment.day}}",
+          "type": "{{appointment.appointment_type}}",
+          "location": "{{new_location.room}}"
+        }
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{room_change_notice}}",
       "tool_call": {
         "name": "navigate_to",
         "arguments": {
@@ -19,6 +62,9 @@
         "location": "{{new_location.room}}"
       }
     },
-    { "role": "assistant", "content": "{{arrival_confirmation}}" }
+    {
+      "role": "assistant",
+      "content": "{{arrival_confirmation}}"
+    }
   ]
 }

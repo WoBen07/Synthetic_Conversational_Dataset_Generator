@@ -1,9 +1,14 @@
 tool: get_patient_appointment
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: false
+
+description: >
+  Returns the next appointment of a patient: type, day and location.
 
 
 input:
@@ -11,6 +16,8 @@ input:
   patient_id:
     type: string
     required: true
+    description: ID from the context or an earlier find_patient result.
+    source: known
 
 
 output:
@@ -24,12 +31,21 @@ output:
   appointment:
     type: object
     item_type: appointment
+    nullable: true
+    description: >
+      null when the patient has no appointment on file. A missing field
+      inside (e.g. no location) means the record is incomplete.
 
+  appointments:
+    type: list
+    item_type: appointment
+    description: Instead of appointment when several are booked for the same day.
 
-# Placeholder convention used in templates/tool_error_recovery/ for the
-# "no appointment on file" case: appointment: null, with patient_id/name
-# still populated. This isn't formally declared above (the schema still
-# lists appointment as a required object) — it's an invented placeholder,
-# not a real contract. If the backend later returns something more
-# explicit (e.g. a "found: false" flag or a distinct not-found response),
-# update this schema and the affected templates to match.
+  status:
+    type: enum
+    values: [error]
+    description: Only present when the lookup failed.
+
+  error:
+    type: string
+    description: Error code when the lookup failed, e.g. "connection_timeout".

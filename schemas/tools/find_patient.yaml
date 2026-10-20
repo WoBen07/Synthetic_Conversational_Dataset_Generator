@@ -1,9 +1,17 @@
 tool: find_patient
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: false
+
+description: >
+  Searches the patient records by name and/or room number and returns
+  every matching patient. Give at least one of name or room_number.
+
+requires_one_of: [name, room_number]
 
 
 input:
@@ -11,29 +19,21 @@ input:
   name:
     type: string
     required: false
+    description: >
+      Full name, last name or first name - only what was actually said.
+    source: mentioned
 
   room_number:
     type: string
     required: false
+    description: Patient room number, e.g. "2004".
+    source: mentioned
+    format: name
 
 
 output:
 
-
   matches:
-
     type: list
-
-
-    constraints:
-
-      minimum_items: 0
-
-
-      item_type: patient
-
-
-# Placeholder convention used in templates/tool_error_recovery/ for the
-# "no matches" case: matches: [] (already covered by minimum_items: 0
-# above). If find_patient later gains a distinct not-found vs. no-input
-# error, update the affected templates accordingly.
+    item_type: patient
+    description: Matching patients; empty when nobody matches.

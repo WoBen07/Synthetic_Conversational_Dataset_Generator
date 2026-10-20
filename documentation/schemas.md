@@ -172,9 +172,62 @@ Use bundles for:
 
 ## Tool Schemas
 
-`schemas/tools/<tool>.yaml` documents the tools' inputs and outputs.
-`side_effects: true|false` marks whether a call changes something
-(sends, moves, records); it decides a datapoint's `behaviour` label.
+`schemas/tools/<tool>.yaml` is the single source for a tool. The
+generator validates every tool call and result against it, the grounding
+rules are read from it, and `engine/tool_definitions.py` exports it as
+the function definition the model is trained with.
+
+```yaml
+tool: alert_staff
+
+side_effects: true            # changes something -> behaviour "action"
+
+description: >                # shown to the model
+  Calls a member of staff to the patient, ...
+
+requires_one_of: [a, b]       # optional: at least one of these arguments
+
+input:
+
+  room_number:
+    type: string              # string | enum | integer | number | boolean | object | list
+    required: true
+    description: Room the staff member should come to.   # shown to the model
+    source: known             # where the value must come from (below)
+    format: name              # bare name, no article
+
+  urgency:
+    type: enum
+    values: [low, medium, high]
+    required: true
+
+output:
+
+  status:
+    type: enum
+    values: [notified]
+  appointment:                # (other tool)
+    type: object
+    nullable: true            # null is allowed
+```
+
+`source` (checked by the [GroundingValidator](validation.md#groundingvalidator)):
+
+| source | the value must ... | used for |
+|---|---|---|
+| `known` | appear verbatim before, in the system context, a user message or a tool result | IDs, the room an alert goes to |
+| `mentioned` | consist of words that appeared before in those places | search terms, navigation targets |
+| `own_words` | not repeat a user message word for word | `reason`, `note` |
+| (none) | anything | free text such as a reminder message |
+
+Every result field must be declared under `output`; undeclared fields
+and wrong enum values are rejected. `side_effects`, `source` and
+`format` are generator-internal and are not exported.
+
+Print the exported definitions with
+`python -m synthetic_data_generator.engine.tool_definitions`.
+
+The tools of the hospital domain:
 
 | tool | inputs |
 |---|---|

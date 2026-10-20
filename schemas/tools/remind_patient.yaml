@@ -1,9 +1,13 @@
 tool: remind_patient
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: true
+
+description: Delivers a reminder message to a patient.
 
 
 input:
@@ -11,10 +15,13 @@ input:
   patient_id:
     type: string
     required: true
+    description: ID from the context or an earlier find_patient result.
+    source: known
 
   message:
     type: string
     required: true
+    description: The reminder, addressed to the patient.
 
 
 output:
@@ -22,11 +29,6 @@ output:
   status:
     type: enum
     values: [success, failed]
-
-
-# Placeholder convention used in templates/tool_error_recovery/: "failed"
-# represents a rejected call with an invalid/stale patient_id (e.g. the
-# patient record changed between find_patient and remind_patient). No
-# separate error code exists yet. If the real backend returns a more
-# specific error (e.g. reason/error_code), update the affected templates
-# to match instead of the bare "failed" status.
+    description: >
+      "failed" when the reminder could not be delivered, e.g. because the
+      patient record changed since it was looked up.

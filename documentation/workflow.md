@@ -85,5 +85,16 @@ one by one, with a warning.
 Templates with very few distinct wordings may get no validation
 datapoints at all (a warning is printed); add phrases or accept it.
 
-The model-specific preprocessors keep only `messages`, so `metadata`
-never reaches training.
+Next to the split files the merger writes `tools.json`, the function
+definitions of all tools.
+
+## 10. Model-Specific Preprocessing
+
+`Model_Specific_Preprocessors/qwen_preprossor.py` and
+`Gemma_preprocessor.py` convert the merged files into the tool-call
+format of each model family. They keep only `messages`, so `metadata`
+never reaches training, and attach the definitions from `tools.json` to
+every example as `tools` (switch off with `INCLUDE_TOOLS = False`).
+The training script then renders each example with
+`tokenizer.apply_chat_template(example["messages"], tools=example["tools"])`,
+so the model is trained with the same tool list it gets at inference.

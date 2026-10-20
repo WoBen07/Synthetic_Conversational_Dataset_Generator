@@ -4,7 +4,7 @@ variables:
   # gets - tool arguments carry no articles ("Sunroom", not "the Sunroom").
   destination:
     - phrase: "the bathroom"
-      room: "Ward Bathroom"
+      room: "Bathroom"
     - phrase: "the day room"
       room: "Day Room"
     - phrase: "the cafeteria"

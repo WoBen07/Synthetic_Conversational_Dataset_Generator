@@ -13,6 +13,10 @@ OUTPUT_FILE = "../Datasets/Test_Dataset_9/train_qwen_61k.jsonl"
 
 ENCODING = "utf-8"
 
+# Attach the tool definitions (tools.json from the dataset merger) to
+# every example.
+INCLUDE_TOOLS = True
+
 
 # ============================================================
 # HELPER FUNCTIONS
@@ -193,12 +197,32 @@ def convert_tool_message(message, pending_tool_id):
 
 
 
+def load_tool_definitions():
+    """Tool definitions written by the dataset merger (tools.json next to
+    the input file). Attached to every example as "tools", so the chat
+    template renders the same tool list the model gets at inference
+    (tokenizer.apply_chat_template(messages, tools=example["tools"]))."""
+
+    if not INCLUDE_TOOLS:
+        return None
+
+    path = Path(INPUT_FILE).parent / "tools.json"
+
+    if not path.exists():
+        print(f"WARNING: {path} not found - examples are written without tools")
+        return None
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+
 # ============================================================
 # DATASET PROCESSING
 # ============================================================
 
 
-def process_example(example):
+def process_example(example, tools=None):
 
     processed_messages = []
 
@@ -249,15 +273,22 @@ def process_example(example):
             )
 
 
-    return {
+    processed = {
         "messages": processed_messages
     }
+
+    if tools:
+        processed["tools"] = tools
+
+    return processed
 
 
 
 def process_dataset():
 
     processed = 0
+
+    tools = load_tool_definitions()
 
 
     with open(
@@ -283,7 +314,8 @@ def process_dataset():
 
 
             example = process_example(
-                example
+                example,
+                tools
             )
 
 

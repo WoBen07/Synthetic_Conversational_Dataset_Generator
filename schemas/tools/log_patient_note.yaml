@@ -1,15 +1,16 @@
 tool: log_patient_note
 
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
 
-# Whether a call changes something in the world (sends, moves, records).
-# Datapoints without such a call are labelled lookup_only / no_tool.
 side_effects: true
 
-
 description: >
-  Records a note in the patient's chart for care-team continuity. Used
-  whenever the assistant discloses that it is noting or logging
-  something a patient said.
+  Records a note in the patient's chart for care-team continuity. Use
+  it whenever you tell a patient that you are noting or logging
+  something they said.
 
 
 input:
@@ -17,6 +18,8 @@ input:
   patient_id:
     type: string
     required: true
+    description: ID from the context or an earlier find_patient result.
+    source: known
 
   note:
     type: string
@@ -25,6 +28,7 @@ input:
       A short summary in the robot's words of what the patient said.
       Only facts from the conversation; never a copy of the user's
       message.
+    source: own_words
 
 
 output:

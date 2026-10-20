@@ -7,6 +7,7 @@ from .weather_consistency_validator import WeatherConsistencyValidator
 from .weather_recommendation_validator import WeatherRecommendationValidator
 from .weather_grounding_validator import WeatherGroundingValidator
 from .grounding_validator import GroundingValidator
+from .tool_schema_validator import ToolSchemaValidator
 from .language_validator import LanguageValidator
 
 class Validator:
@@ -30,6 +31,8 @@ class Validator:
             WeatherConsistencyValidator(),
 
             WeatherGroundingValidator(),
+
+            ToolSchemaValidator(),
 
             GroundingValidator(),
 

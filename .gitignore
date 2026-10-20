@@ -3,3 +3,4 @@ Synthetic_Data
 .env
 .venv
 config/publish_config.yaml
+__pycache__/
