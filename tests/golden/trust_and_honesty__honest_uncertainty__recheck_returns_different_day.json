@@ -1,0 +1,233 @@
+[
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Today is Thursday. You are in room 2005. Patient: Elisabeth Hahn (patient_id: p001, room 2005). You are speaking with the patient."
+      },
+      {
+        "role": "user",
+        "content": "Which day am I meant to come in?"
+      },
+      {
+        "role": "assistant",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p001"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p001",
+          "name": "Elisabeth Hahn",
+          "appointment": {
+            "day": "Thursday",
+            "type": "physical rehabilitation session",
+            "location": "Physiotherapy Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "That's scheduled for Thursday, the physical rehabilitation session."
+      },
+      {
+        "role": "user",
+        "content": "That's not what I remember hearing. Could you check once more?"
+      },
+      {
+        "role": "assistant",
+        "content": "Okay, I'll look it up again right now to confirm.",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p001"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p001",
+          "name": "Elisabeth Hahn",
+          "appointment": {
+            "day": "Friday",
+            "type": "physical rehabilitation session",
+            "location": "Physiotherapy Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "That changed between checks. It read Thursday, now it reads Friday. I don't know which reflects reality, so I won't commit to one. The care team should settle it."
+      },
+      {
+        "role": "user",
+        "content": "Okay, I'd rather know it's uncertain than be told the wrong day."
+      },
+      {
+        "role": "assistant",
+        "content": "I'll make sure the inconsistency is reported. You deserve one reliable date, not two."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Today is Monday. You are in room 2015. Patient: Stefan Schmitz (patient_id: p007, room 2015). You are speaking with the patient."
+      },
+      {
+        "role": "user",
+        "content": "Which day am I meant to come in?"
+      },
+      {
+        "role": "assistant",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p007"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p007",
+          "name": "Stefan Schmitz",
+          "appointment": {
+            "day": "Monday",
+            "type": "minor procedure",
+            "location": "Treatment Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "Your minor procedure is listed for Monday."
+      },
+      {
+        "role": "user",
+        "content": "Hmm, I thought it had been moved. Could you look once more?"
+      },
+      {
+        "role": "assistant",
+        "content": "I'll run the lookup once more so we've got the current entry.",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p007"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p007",
+          "name": "Stefan Schmitz",
+          "appointment": {
+            "day": "Sunday",
+            "type": "minor procedure",
+            "location": "Treatment Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "The two answers don't match: Monday before, Sunday now. I won't guess which one is right — staff should confirm."
+      },
+      {
+        "role": "user",
+        "content": "Okay, I appreciate the honesty, I'll confirm with staff."
+      },
+      {
+        "role": "assistant",
+        "content": "I'll make sure the inconsistency is reported. You deserve one reliable date, not two."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "Today is Friday. You are in room 1015. Patient: Claudia Schmitz (patient_id: p010, room 1015). You are speaking with the patient."
+      },
+      {
+        "role": "user",
+        "content": "Could you tell me the exact day of my appointment?"
+      },
+      {
+        "role": "assistant",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p010"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p010",
+          "name": "Claudia Schmitz",
+          "appointment": {
+            "day": "Friday",
+            "type": "minor procedure",
+            "location": "Treatment Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "Your minor procedure is listed for Friday."
+      },
+      {
+        "role": "user",
+        "content": "Are you certain? That contradicts what I was told earlier."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood, let me verify that again directly from the system.",
+        "tool_call": {
+          "name": "get_patient_appointment",
+          "arguments": {
+            "patient_id": "p010"
+          }
+        }
+      },
+      {
+        "role": "tool",
+        "name": "get_patient_appointment",
+        "content": {
+          "patient_id": "p010",
+          "name": "Claudia Schmitz",
+          "appointment": {
+            "day": "Sunday",
+            "type": "minor procedure",
+            "location": "Treatment Room 1"
+          }
+        }
+      },
+      {
+        "role": "assistant",
+        "content": "The two checks don't agree: Friday the first time, Sunday just now. That inconsistency means I shouldn't give you a definite day. Please have the desk confirm it."
+      },
+      {
+        "role": "user",
+        "content": "Alright, thanks for being straight with me about it."
+      },
+      {
+        "role": "assistant",
+        "content": "The mismatch needs fixing at the source; the desk can do that and confirm the real day for you."
+      }
+    ]
+  }
+]

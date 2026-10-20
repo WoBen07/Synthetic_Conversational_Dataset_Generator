@@ -1,6 +1,11 @@
 tool: alert_staff
 
 
+# Whether a call changes something in the world (sends, moves, records).
+# Datapoints without such a call are labelled lookup_only / no_tool.
+side_effects: true
+
+
 description: >
   Notifies staff that a patient needs attention, at a severity set by
   urgency. Use "high" for life-threatening or rapidly worsening

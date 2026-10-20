@@ -1,6 +1,11 @@
 tool: log_patient_note
 
 
+# Whether a call changes something in the world (sends, moves, records).
+# Datapoints without such a call are labelled lookup_only / no_tool.
+side_effects: true
+
+
 description: >
   Records a note in the patient's chart for care-team continuity. Used
   whenever the assistant discloses that it is noting or logging

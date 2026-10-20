@@ -1,0 +1,23 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      # The code imports itself as synthetic_data_generator.*, so the
+      # repository is checked out into a folder of that name.
+      - uses: actions/checkout@v4
+        with:
+          path: synthetic_data_generator
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r synthetic_data_generator/requirements.txt
+
+      - run: python -m unittest discover -s synthetic_data_generator/tests

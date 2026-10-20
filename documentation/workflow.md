@@ -59,7 +59,9 @@ Consecutive assistant messages are folded into one
 
 ## 8. Writing Output
 
-Valid datapoints that are not duplicates of earlier ones are written as
+Valid datapoints that are not duplicates of earlier ones get a
+`metadata` block (template, category, behaviour, tools, tags, wording
+ID; see [engine](engine.md#enginedatapoint_metadatapy)) and are written as
 `example_00000.json`, `example_00001.json`, ... in
 `Synthetic_Data/<template name>/`, followed by a `metadata.json`. If 5
 datapoints in a row cannot be generated, the template is stopped early
@@ -68,6 +70,20 @@ and the metadata records how many were generated.
 ## 9. Merging
 
 `engine/dataset_merger.py` loads all template folders, checks strict
-role alternation, splits every template into train and validation
-(stratified) and writes `train.jsonl`, `validation.jsonl` and
-`metadata.json`.
+role alternation, splits every template into train and validation and
+writes `train.jsonl`, `validation.jsonl` and `metadata.json`.
+
+The split is stratified by template and grouped by
+`metadata.wording_id`: all datapoints with the same wording go to the
+same side. With a plain random split, a large part of the validation set
+had a training twin that differed only in names, rooms and days, so
+validation scores measured memorised wording. The merger prints the
+remaining overlap (0 for current data) and records it in its
+`metadata.json`. Datapoints generated before metadata existed are split
+one by one, with a warning.
+
+Templates with very few distinct wordings may get no validation
+datapoints at all (a warning is printed); add phrases or accept it.
+
+The model-specific preprocessors keep only `messages`, so `metadata`
+never reaches training.

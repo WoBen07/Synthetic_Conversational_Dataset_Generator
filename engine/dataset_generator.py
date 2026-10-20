@@ -14,6 +14,7 @@ from synthetic_data_generator.engine.scenario_builder import ScenarioBuilder
 from synthetic_data_generator.engine.template_loader import TemplateLoader
 from synthetic_data_generator.engine.template_renderer import TemplateRenderer
 from synthetic_data_generator.engine.conversation_normalizer import normalize_conversation
+from synthetic_data_generator.engine.datapoint_metadata import build_metadata
 from synthetic_data_generator.engine.validators.validator import Validator
 
 
@@ -199,6 +200,8 @@ class DatasetGenerator:
 
         seen = set()
 
+        tags = self.schemaloader.load(scenario).get("tags", [])
+
 
         while index < amount:
 
@@ -212,7 +215,7 @@ class DatasetGenerator:
 
                 try:
 
-                    datapoint = self.generate_one(
+                    datapoint, trace = self.generate_one_traced(
                         scenario,
                         template,
                         language_schema
@@ -257,6 +260,16 @@ class DatasetGenerator:
 
 
                 seen.add(fingerprint)
+
+
+                # Added after validation, so validators only ever see
+                # the conversation itself.
+                datapoint["metadata"] = build_metadata(
+                    datapoint,
+                    template,
+                    trace["choices"],
+                    tags
+                )
 
 
                 # Valid datapoint found

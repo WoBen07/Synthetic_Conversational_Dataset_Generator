@@ -47,3 +47,7 @@ constraints:
 # into the system message by engine/robot_context.py.
 robot_context:
   speaker: staff
+
+
+# Copied into every datapoint's metadata (see engine/datapoint_metadata.py).
+tags: [no_clarification]

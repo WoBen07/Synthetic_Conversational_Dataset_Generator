@@ -69,6 +69,9 @@ robot_context:
   `equal: [today, appointment.day]`, as the **first** constraint, so
   later constraints that copy `appointment.day` see the final value.
 - `robot_context`: see below.
+- `tags` (optional): labels copied into every datapoint's metadata,
+  e.g. `[offer_declined]` or `[urgency_contrast, urgent]`, to select
+  groups of datapoints during evaluation.
 
 ### Robot context
 
@@ -170,6 +173,8 @@ Use bundles for:
 ## Tool Schemas
 
 `schemas/tools/<tool>.yaml` documents the tools' inputs and outputs.
+`side_effects: true|false` marks whether a call changes something
+(sends, moves, records); it decides a datapoint's `behaviour` label.
 
 | tool | inputs |
 |---|---|

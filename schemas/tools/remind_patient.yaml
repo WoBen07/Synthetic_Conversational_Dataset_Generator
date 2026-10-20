@@ -1,6 +1,11 @@
 tool: remind_patient
 
 
+# Whether a call changes something in the world (sends, moves, records).
+# Datapoints without such a call are labelled lookup_only / no_tool.
+side_effects: true
+
+
 input:
 
   patient_id:

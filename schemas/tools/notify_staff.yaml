@@ -1,6 +1,11 @@
 tool: notify_staff
 
 
+# Whether a call changes something in the world (sends, moves, records).
+# Datapoints without such a call are labelled lookup_only / no_tool.
+side_effects: true
+
+
 description: >
   Flags a non-urgent request, complaint, or concern for hospital staff
   follow-up. Used whenever the assistant tells a patient it will "let

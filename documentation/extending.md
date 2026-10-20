@@ -16,7 +16,10 @@ To add a new synthetic scenario:
    the [rules for conversations](templates.md#rules-for-conversations).
 5. Register any new field generator in `generators/__init__.py`.
 6. Render a few datapoints and check them (see
-   [checking a template](templates.md#checking-a-template)).
+   [checking a template](templates.md#checking-a-template)), then run
+   the [tests](testing.md); `test_templates.py` covers the new template
+   automatically. Add `tags` to the scenario if evaluation should be
+   able to select the template's datapoints.
 7. Optionally set an amount in `config/generation_config.yaml`
    (otherwise the category amount applies) and run the
    [uniqueness optimizer](uniqueness.md) to see whether the phrase pools

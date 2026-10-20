@@ -13,3 +13,7 @@ robot_context:
   location: patient.room_number
   patient: patient
   speaker: patient
+
+
+# Copied into every datapoint's metadata (see engine/datapoint_metadata.py).
+tags: [offer_accepted]

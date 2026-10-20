@@ -80,6 +80,45 @@ Builds the context for one datapoint:
 6. renders `robot_context` if the scenario declares one (see
    `engine/robot_context.py`).
 
+## `engine/datapoint_metadata.py`
+
+Builds the `metadata` block every written datapoint carries:
+
+```json
+"metadata": {
+  "template": "tool_use/patient_reminder",
+  "category": "tool_use",
+  "behaviour": "action",
+  "tools": ["find_patient", "get_patient_appointment", "navigate_to", "remind_patient"],
+  "tags": ["clarification"],
+  "wording_id": "e51e4baa2f07",
+  "generator_version": "0.2.0"
+}
+```
+
+- `behaviour`: `action` if a tool with `side_effects: true` is called,
+  `lookup_only` if only read-only tools are called, `no_tool` otherwise.
+  Tools without the flag count as actions.
+- `tags`: the scenario's optional `tags` list.
+- `wording_id`: hash of the template and the language option chosen
+  for every variable it used. Same id means the same text apart from
+  names, rooms and days.
+
+Use it to filter or evaluate by behaviour (e.g. how often the model
+acts in `no_tool` conversations) and for the grouped split.
+
+## `engine/tool_registry.py`
+
+Loads `schemas/tools/*.yaml`. `has_side_effects(name)` reads a tool's
+`side_effects` flag.
+
+## `engine/dataset_merger.py`
+
+Loads `Synthetic_Data/`, checks role alternation and splits every
+template into train/validation, grouped by `wording_id`
+(`split_template`). `wording_overlap()` counts validation datapoints
+whose wording also appears in train. See [generation flow](workflow.md#9-merging).
+
 ## `engine/robot_context.py`
 
 Turns the scenario's `robot_context` block into the text of the
