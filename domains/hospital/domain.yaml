@@ -1,0 +1,36 @@
+# The hospital domain: SereMate, a service robot on a hospital ward,
+# talking to patients, visitors and staff. See documentation/domains.md.
+
+name: hospital
+
+description: >
+  Hospital service robot reminding patients of appointments, escorting
+  them, and passing requests and emergencies on to staff.
+
+# Generated IDs in this domain ("p12", "a7"). They differ in every
+# datapoint, so they are masked before datapoints are compared for
+# duplicates.
+generated_id_pattern: '\b[pa]\d+\b'
+
+# Wording of the opening system message (engine/robot_context.py).
+# A scenario's robot_context block picks the parts; see
+# documentation/schemas.md#robot-context.
+robot_context:
+
+  today: "Today is {today}."
+
+  # {location} is a context value; numbers are written as "room 2004"
+  location: "You are in {location}."
+  numeric_location: "room {value}"
+
+  # robot_context key -> sentence describing the record of that entity
+  records:
+    patient: "Patient: {full_name} (patient_id: {patient_id}, room {room_number})."
+
+  speakers:
+    patient: "You are speaking with the patient."
+    unidentified: "You are speaking with a patient whose identity you have not confirmed yet."
+    visitor: "You are speaking with a visitor of the patient."
+    relative: "You are speaking with a relative of the patient."
+    staff: "You are speaking with a member of staff."
+    patient_and_visitor: "You are speaking with the patient, who has a visitor with them."

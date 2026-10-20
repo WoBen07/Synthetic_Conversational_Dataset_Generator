@@ -4,6 +4,7 @@ Every datapoint written by DatasetGenerator.generate_many carries a
 ``metadata`` block next to ``messages``::
 
     "metadata": {
+      "domain": "hospital",
       "template": "tool_use/patient_reminder",
       "category": "tool_use",
       "behaviour": "action",
@@ -14,10 +15,10 @@ Every datapoint written by DatasetGenerator.generate_many carries a
     }
 
 - behaviour: "action" if a tool with side effects is called (see
-  ``side_effects`` in schemas/tools), "lookup_only" if only read-only
+  ``side_effects`` in the domain's tool schemas), "lookup_only" if only read-only
   tools are called, "no_tool" otherwise.
 - tags: the scenario's optional ``tags`` list.
-- wording_id: the template plus the language option chosen for every
+- wording_id: domain and template plus the language option chosen for every
   variable it used. Datapoints with the same wording_id read the same
   apart from names, rooms and days; the merger keeps them on one side of
   the train/validation split.
@@ -45,16 +46,17 @@ def tool_calls(message):
     return [singular] if singular else []
 
 
-def wording_id(template, choices):
+def wording_id(template, choices, domain=""):
 
-    key = json.dumps([template, sorted(choices.items())], ensure_ascii=False)
+    key = json.dumps([domain, template, sorted(choices.items())], ensure_ascii=False)
 
     return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
 
 
-def behaviour(tools):
+def behaviour(tools, schemas):
+    """Label from the called ``tools`` and the domain's tool ``schemas``."""
 
-    if any(has_side_effects(tool) for tool in tools):
+    if any(has_side_effects(tool, schemas) for tool in tools):
         return "action"
 
     if tools:
@@ -63,7 +65,7 @@ def behaviour(tools):
     return "no_tool"
 
 
-def build_metadata(datapoint, template, choices, tags=()):
+def build_metadata(datapoint, domain, template, choices, tags=()):
 
     tools = [
         call["name"]
@@ -72,11 +74,12 @@ def build_metadata(datapoint, template, choices, tags=()):
     ]
 
     return {
+        "domain": domain.name,
         "template": template,
         "category": template.split("/")[0],
-        "behaviour": behaviour(tools),
+        "behaviour": behaviour(tools, domain.tools),
         "tools": tools,
         "tags": list(tags),
-        "wording_id": wording_id(template, choices),
+        "wording_id": wording_id(template, choices, domain.name),
         "generator_version": GENERATOR_VERSION,
     }

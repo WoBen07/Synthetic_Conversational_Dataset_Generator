@@ -5,6 +5,7 @@ This folder is split into smaller docs so each part stays readable.
 ## Start Here
 
 - [Overview](overview.md)
+- [Domains](domains.md)
 - [Generation Flow](workflow.md)
 - [Engine Modules](engine.md)
 - [Generators](generators.md)

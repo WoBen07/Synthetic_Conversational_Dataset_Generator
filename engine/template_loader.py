@@ -4,20 +4,15 @@ import json
 
 class TemplateLoader:
 
-    def __init__(self):
+    def __init__(self, template_dir):
 
-        # synthetic_data_generator/
-        self.base_path = (
-            Path(__file__)
-            .resolve()
-            .parent
-            .parent
-        )
+        # domains/<name>/templates/
+        self.template_dir = Path(template_dir)
 
 
     def load(self, name):
 
-        path = self.base_path / "templates" / f"{name}.json"
+        path = self.template_dir / f"{name}.json"
 
         if not path.exists():
             raise FileNotFoundError(

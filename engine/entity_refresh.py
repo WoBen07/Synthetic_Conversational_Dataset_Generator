@@ -1,12 +1,13 @@
-import random
-
-from synthetic_data_generator.generators.appointments import (
-    TYPE_LOCATIONS,
-    locations_for,
-)
-
-
 class EntityRefresher:
+    """Recompute derived fields after constraints changed an entity."""
+
+
+    def __init__(self, domain_hook=None):
+
+        # The domain's refresh_entity(entity), e.g. the hospital domain
+        # redraws an appointment location that no longer fits its type.
+        self.domain_hook = domain_hook
+
 
 
     def refresh(self, context):
@@ -37,18 +38,5 @@ class EntityRefresher:
             )
 
 
-        # An "equal" constraint can copy one appointment's type onto
-        # another whose location was drawn for a different type. Draw a
-        # fitting location again so type and room never contradict.
-        appointment_type = entity.get("appointment_type")
-
-        if (
-            appointment_type in TYPE_LOCATIONS
-            and "location" in entity
-        ):
-
-            allowed = locations_for(appointment_type)
-
-            if entity["location"] not in allowed:
-
-                entity["location"] = random.choice(allowed)
+        if self.domain_hook:
+            self.domain_hook(entity)

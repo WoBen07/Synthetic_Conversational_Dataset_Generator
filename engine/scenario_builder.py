@@ -4,7 +4,8 @@ from synthetic_data_generator.engine.constraint_resolver import ConstraintResolv
 from synthetic_data_generator.engine.entity_refresh import EntityRefresher
 from synthetic_data_generator.engine.linguistic_resolver import LinguisticResolver
 from synthetic_data_generator.engine.robot_context import build_robot_context
-from synthetic_data_generator.generators.appointments import weekday
+from synthetic_data_generator.engine.domain import resolve_domain
+from synthetic_data_generator.generators.days import weekday
 
 
 
@@ -14,11 +15,12 @@ from synthetic_data_generator.generators.appointments import weekday
 class ScenarioBuilder:
 
 
-    def __init__(self, scenario_path):
+    def __init__(self, scenario_path, domain=None):
 
+        self.domain = resolve_domain(domain)
         self.loader = SchemaLoader()
         self.constraint_resolver = ConstraintResolver()
-        self.entity_refresher = EntityRefresher()
+        self.entity_refresher = EntityRefresher(self.domain.refresh_entity)
         self.linguistic_resolver = LinguisticResolver()
         self.scenario = (
             self.loader.load(
@@ -43,10 +45,10 @@ class ScenarioBuilder:
         for name, entity in self.scenario["entities"].items():
 
             entity_schema = self.loader.load(
-                f"schemas/entities/{entity['type']}.yaml"
+                self.domain.entity_path(entity["type"])
             )
 
-            builder = EntityBuilder(entity_schema)
+            builder = EntityBuilder(entity_schema, self.domain.generators)
 
             context[name] = builder.create()
 
@@ -97,7 +99,8 @@ class ScenarioBuilder:
 
             context["robot_context"] = build_robot_context(
                 context,
-                robot_context
+                robot_context,
+                self.domain.robot_context
             )
 
 

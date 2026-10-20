@@ -10,9 +10,9 @@ import yaml
 import helpers
 
 from synthetic_data_generator.engine import lint_templates
-from synthetic_data_generator.engine.tool_registry import load_tools
 
 
+DOMAIN = helpers.HOSPITAL
 ROOT = helpers.PACKAGE_ROOT
 PLACEHOLDER = re.compile(r"\{\{(.*?)\}\}")
 
@@ -26,11 +26,12 @@ GOLDEN_TEMPLATES = [
 
 
 def load_template(template_id):
-    return json.loads((ROOT / "templates" / f"{template_id}.json").read_text(encoding="utf-8"))
+    return json.loads(DOMAIN.template_path(template_id).read_text(encoding="utf-8"))
 
 
 def load_yaml(kind, template_id):
-    return yaml.safe_load((ROOT / "schemas" / kind / f"{template_id}.yaml").read_text(encoding="utf-8"))
+    path = DOMAIN.scenario_path(template_id) if kind == "scenarios" else DOMAIN.language_path(template_id)
+    return yaml.safe_load(path.read_text(encoding="utf-8"))
 
 
 class TemplateFilesTest(unittest.TestCase):
@@ -39,8 +40,8 @@ class TemplateFilesTest(unittest.TestCase):
 
         for template_id in helpers.all_templates():
             with self.subTest(template=template_id):
-                self.assertTrue((ROOT / "schemas/scenarios" / f"{template_id}.yaml").exists())
-                self.assertTrue((ROOT / "schemas/language" / f"{template_id}.yaml").exists())
+                self.assertTrue(DOMAIN.scenario_path(template_id).exists())
+                self.assertTrue(DOMAIN.language_path(template_id).exists())
 
     def test_placeholders_resolve_to_known_names(self):
 
@@ -72,7 +73,7 @@ class TemplateFilesTest(unittest.TestCase):
 
     def test_tools_exist(self):
 
-        tools = load_tools()
+        tools = DOMAIN.tools
 
         for template_id in helpers.all_templates():
             for message in load_template(template_id)["messages"]:
@@ -118,7 +119,7 @@ class GoldenOutputTest(unittest.TestCase):
         for template_id in GOLDEN_TEMPLATES:
 
             helpers.reset_generators(2024)
-            generator = helpers.DatasetGenerator(None)
+            generator = helpers.DatasetGenerator(None, domain=DOMAIN)
             produced = [helpers.generate_valid(generator, template_id) for _ in range(3)]
 
             path = ROOT / "tests" / "golden" / f"{template_id.replace('/', '__')}.json"

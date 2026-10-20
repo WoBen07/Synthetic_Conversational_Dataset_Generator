@@ -1,4 +1,3 @@
-from synthetic_data_generator.generators import REGISTRY
 import re
 
 
@@ -6,9 +5,12 @@ import re
 class EntityBuilder:
 
 
-    def __init__(self, schema):
+    def __init__(self, schema, generators):
 
         self.schema = schema
+
+        # {key: function} - the shared generators plus the domain's
+        self.generators = generators
 
 
 
@@ -21,7 +23,7 @@ class EntityBuilder:
 
         for field, config in self.schema["fields"].items():
 
-            generator = REGISTRY[
+            generator = self.generators[
                 config["generator"]
             ]
 

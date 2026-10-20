@@ -1,10 +1,13 @@
-from .names import *
-from .ids import *
-from .rooms import *
-from .appointments import *
-from .weather import *
-from .birthday import *
+"""Generators shared by all domains.
 
+A domain adds its own generators in domains/<name>/generators/ (its
+GENERATORS dict); domain entries override shared ones with the same key.
+See documentation/domains.md.
+"""
+
+from .names import first_name, last_name
+from .days import weekday
+from .birthday import birthday
 
 
 REGISTRY = {
@@ -12,19 +15,7 @@ REGISTRY = {
     "first_name": first_name,
     "last_name": last_name,
 
-    "patient_id": patient_id,
-    "appointment_id": appointment_id,
-
-    "room_number": room_number,
-    "patient_room": patient_room,
-    "facility_room": facility_room,
-
-    "appointment_type": appointment_type,
     "weekday": weekday,
 
-    "temperature": temperature,
-    "condition": condition,
-
-    "birthday": birthday
-    
+    "birthday": birthday,
 }

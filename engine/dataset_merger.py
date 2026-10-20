@@ -19,8 +19,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 INPUT_FOLDER = PROJECT_ROOT / "Synthetic_Data"
 OUTPUT_FOLDER = PROJECT_ROOT / "Datasets" / "Test_Dataset_9"
 TRAIN_OUTPUT = "train.jsonl"
-# Function definitions of all tools (engine/tool_definitions.py); the
-# model-specific preprocessors attach them to every example.
+# Function definitions per domain, {domain: [definitions]}
+# (engine/tool_definitions.py); the model-specific preprocessors attach
+# the list of each example's domain.
 TOOLS_OUTPUT = "tools.json"
 VALIDATION_OUTPUT = "validation.jsonl"
 
@@ -40,73 +41,96 @@ def load_json(path):
         return json.load(f)
 
 
-def load_dataset_by_template(input_folder):
+def load_dataset_by_template(input_folder, domains=None):
+    """Load Synthetic_Data/<domain>/<template>/ into {"<domain>/<template>": [...]}.
+
+    ``domains`` limits loading to those domains (default: every domain
+    folder present). Template folders directly in ``input_folder`` come
+    from the layout before domain packs; they are skipped with a warning,
+    since they would mix old data into the merge.
+    """
 
     root = Path(input_folder)
 
     datasets = defaultdict(list)
 
-    folders = [
-        f for f in root.iterdir()
-        if f.is_dir()
-    ]
+    legacy = sorted(
+        folder.name for folder in root.iterdir()
+        if (folder / "metadata.json").exists()
+    )
 
-    for folder in folders:
+    if legacy:
+        print(
+            f"Skipping {len(legacy)} folder(s) in the old flat layout "
+            f"(before domain packs), e.g. {legacy[0]} - regenerate them "
+            f"or move them to {root}/<domain>/."
+        )
 
-        metadata_file = folder / "metadata.json"
+    domain_folders = sorted(
+        folder for folder in root.iterdir()
+        if folder.is_dir()
+        and not (folder / "metadata.json").exists()
+        and (domains is None or folder.name in domains)
+    )
 
-        if not metadata_file.exists():
-            print(
-                f"Skipping {folder}: no metadata.json"
-            )
-            continue
+    for domain_folder in domain_folders:
 
-        metadata = load_json(metadata_file)
+        for folder in sorted(f for f in domain_folder.iterdir() if f.is_dir()):
 
-        template = metadata.get("template")
+            metadata_file = folder / "metadata.json"
 
-        if template is None:
-            print(
-                f"Skipping {folder}: no template field"
-            )
-            continue
+            if not metadata_file.exists():
+                print(
+                    f"Skipping {folder}: no metadata.json"
+                )
+                continue
 
-        json_files = [
-            f for f in folder.glob("*.json")
-            if f.name != "metadata.json"
-        ]
+            metadata = load_json(metadata_file)
 
-        for json_file in json_files:
+            template = metadata.get("template")
 
-            try:
-                datapoint = load_json(json_file)
+            if template is None:
+                print(
+                    f"Skipping {folder}: no template field"
+                )
+                continue
 
-                if "messages" not in datapoint:
+            key = f"{metadata.get('domain', domain_folder.name)}/{template}"
+
+            json_files = [
+                f for f in folder.glob("*.json")
+                if f.name != "metadata.json"
+            ]
+
+            for json_file in json_files:
+
+                try:
+                    datapoint = load_json(json_file)
+
+                    if "messages" not in datapoint:
+                        print(
+                            f"Skipping {json_file}: no messages"
+                        )
+                        continue
+
+                    datasets[key].append(datapoint)
+
+                except Exception as e:
                     print(
-                        f"Skipping {json_file}: no messages"
+                        f"Failed loading {json_file}: {e}"
                     )
-                    continue
 
-                datasets[template].append(datapoint)
+            expected = metadata.get("amount")
 
-            except Exception as e:
-                print(
-                    f"Failed loading {json_file}: {e}"
-                )
+            if expected is not None:
+                actual = len(datasets[key])
 
-
-        expected = metadata.get("amount")
-
-        if expected is not None:
-            actual = len(datasets[template])
-
-            if actual != expected:
-                print(
-                    f"WARNING: {template}: "
-                    f"metadata says {expected}, "
-                    f"found {actual}"
-                )
-
+                if actual != expected:
+                    print(
+                        f"WARNING: {key}: "
+                        f"metadata says {expected}, "
+                        f"found {actual}"
+                    )
 
     return datasets
 
@@ -129,7 +153,9 @@ def assert_strict_role_alternation(datasets):
 
     for template, samples in datasets.items():
 
-        template_file = f"templates/{template}.json"
+        domain, _, template_id = template.partition("/")
+
+        template_file = f"domains/{domain}/templates/{template_id}.json"
 
         for sample_index, datapoint in enumerate(samples):
 
@@ -317,7 +343,13 @@ def write_jsonl(path, data):
 # Main
 # ==========================
 
-def main():
+def domains_of(datasets):
+    """Domains present in the loaded data ("<domain>/<template>" keys)."""
+
+    return sorted({key.split("/")[0] for key in datasets})
+
+
+def main(domains=None):
 
     output_folder = Path(OUTPUT_FOLDER)
 
@@ -332,7 +364,8 @@ def main():
 
     print("Loading datasets...")
     datasets = load_dataset_by_template(
-        INPUT_FOLDER
+        INPUT_FOLDER,
+        domains
     )
 
 
@@ -376,8 +409,14 @@ def main():
         validation
     )
 
+    # {domain: [definitions]} - each example gets its own domain's tools
     with open(output_folder / TOOLS_OUTPUT, "w", encoding="utf-8") as f:
-        json.dump(tool_definitions(), f, indent=2, ensure_ascii=False)
+        json.dump(
+            {domain: tool_definitions(domain) for domain in domains_of(datasets)},
+            f,
+            indent=2,
+            ensure_ascii=False
+        )
 
     metadata = {
         "generator": "dataset_merger",
@@ -388,6 +427,8 @@ def main():
         "shuffle": SHUFFLE,
 
         "validation_split": VALIDATION_SPLIT,
+
+        "domains": domains_of(datasets),
 
         "tools_file": TOOLS_OUTPUT,
 

@@ -3,16 +3,17 @@ from .structure_validator import StructureValidator
 from .tool_validator import ToolValidator
 from .conversation_flow_validator import ConversationFlowValidator
 from .pronoun_validator import PronounValidator
-from .weather_consistency_validator import WeatherConsistencyValidator
-from .weather_recommendation_validator import WeatherRecommendationValidator
-from .weather_grounding_validator import WeatherGroundingValidator
-from .grounding_validator import GroundingValidator
 from .tool_schema_validator import ToolSchemaValidator
+from .grounding_validator import GroundingValidator
 from .language_validator import LanguageValidator
 
-class Validator:
 
-    def __init__(self):
+class Validator:
+    """Engine validators plus the domain's own (domain.create_validators)."""
+
+    def __init__(self, domain):
+
+        tools = domain.tools
 
         self.validators = [
 
@@ -26,15 +27,11 @@ class Validator:
 
             PronounValidator(),
 
-            WeatherRecommendationValidator(),
+            *domain.create_validators(),
 
-            WeatherConsistencyValidator(),
+            ToolSchemaValidator(tools),
 
-            WeatherGroundingValidator(),
-
-            ToolSchemaValidator(),
-
-            GroundingValidator(),
+            GroundingValidator(tools),
 
             LanguageValidator()
 

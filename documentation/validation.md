@@ -8,7 +8,8 @@ simply produces fewer valid datapoints, or none.
 
 ## Combined Validators
 
-`engine/validators/validator.py` runs, in this order:
+`engine/validators/validator.py` runs the engine's validators plus the
+domain's own (from its `create_validators()` hook), in this order:
 
 | validator | rejects |
 |---|---|
@@ -17,10 +18,8 @@ simply produces fewer valid datapoints, or none.
 | `ToolValidator` | a tool call not followed by a tool response of the same name |
 | `ConversationFlowValidator` | two consecutive messages with the same role (guard behind the normaliser) |
 | `PronounValidator` | simple gender/pronoun mismatches |
-| `WeatherRecommendationValidator` | clothing advice that does not fit the reported weather |
-| `WeatherConsistencyValidator` | weather claims that contradict the `get_weather` result |
-| `WeatherGroundingValidator` | weather claims without a `get_weather` call |
-| `ToolSchemaValidator` | tool calls and results that do not match `schemas/tools` (unknown tool or argument, missing required argument, wrong type or enum value, undeclared result field) |
+| *domain validators* | hospital: `WeatherRecommendationValidator` (clothing advice must fit the reported weather), `WeatherConsistencyValidator` (no weather claims contradicting `get_weather`), `WeatherGroundingValidator` (no weather claims without a `get_weather` call), in `domains/hospital/validators/` |
+| `ToolSchemaValidator` | tool calls and results that do not match the domain's `tools/` (unknown tool or argument, missing required argument, wrong type or enum value, undeclared result field) |
 | `GroundingValidator` | tool arguments the robot could not know (below) |
 | `LanguageValidator` | doubled words and wrong indefinite articles (below) |
 

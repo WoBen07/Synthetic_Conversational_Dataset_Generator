@@ -3,7 +3,7 @@
 
 Optional step. It samples every template, measures how many differently
 worded datapoints the template can actually produce, and writes a
-``uniqueness_caps`` block into config/generation_config.yaml. The
+``uniqueness_caps`` block into the domain's config.yaml. The
 orchestrator never generates more datapoints of a template than its cap,
 including after tool_share_targets scaling.
 
@@ -29,11 +29,13 @@ limits are derived from it:
 
 The cap is the smaller of the two, but never below ``min_amount``, so
 every template stays represented. Settings live in the
-``uniqueness_optimizer`` section of the config; flags override them.
+``uniqueness_optimizer`` section of config/generation_config.yaml; flags
+override them.
 
 Usage (from the directory that contains synthetic_data_generator/)::
 
-    python -m synthetic_data_generator.engine.config_optimizer            # report only
+    python -m synthetic_data_generator.engine.config_optimizer            # report only (default domain)
+    python -m synthetic_data_generator.engine.config_optimizer --domain hospital
     python -m synthetic_data_generator.engine.config_optimizer --write    # write the caps
     python -m synthetic_data_generator.engine.config_optimizer --clear    # remove them
     python -m synthetic_data_generator.engine.orchestrator --optimize     # optimise, then generate
@@ -52,9 +54,7 @@ import yaml
 
 from synthetic_data_generator.engine import orchestrator
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-
-
-CONFIG_FILE = orchestrator.CONFIG_FILE
+from synthetic_data_generator.engine.domain import resolve_domain
 
 BLOCK_START = "# >>> uniqueness_caps"
 BLOCK_END = "# <<< uniqueness_caps"
@@ -128,8 +128,7 @@ def chao1(counts):
 def sample_template(generator, template_id, samples):
     """Render up to ``samples`` valid datapoints and collect skeletons."""
 
-    scenario = f"{orchestrator.SCENARIO_DIR}/{template_id}.yaml"
-    language = f"{orchestrator.LANGUAGE_DIR}/{template_id}.yaml"
+    scenario, _, language = generator.domain.paths(template_id)
 
     skeletons = Counter()
     used_pools = {}
@@ -267,9 +266,9 @@ def render_block(caps, details, settings, merged_from_previous):
     return "\n".join(lines) + "\n"
 
 
-def write_block(block):
+def write_block(block, config_file):
 
-    text = CONFIG_FILE.read_text(encoding="utf-8")
+    text = config_file.read_text(encoding="utf-8") if config_file.exists() else ""
 
     text = BLOCK_PATTERN.sub("\n", text).rstrip("\n") + "\n"
 
@@ -279,7 +278,7 @@ def write_block(block):
     # Never leave a broken config behind.
     yaml.safe_load(text)
 
-    CONFIG_FILE.write_text(text, encoding="utf-8")
+    config_file.write_text(text, encoding="utf-8")
 
 
 # ==========================
@@ -295,6 +294,8 @@ def parse_args(argv):
         )
     )
 
+    parser.add_argument("--domain", metavar="NAME",
+                        help="domain to optimise (default: the first configured domain)")
     parser.add_argument("--samples", type=int,
                         help="valid datapoints sampled per template")
     parser.add_argument("--max-duplicate-rate", type=float,
@@ -308,9 +309,9 @@ def parse_args(argv):
     parser.add_argument("--templates", nargs="+", metavar="PREFIX",
                         help="only these templates (path prefixes); other caps are kept")
     parser.add_argument("--write", action="store_true",
-                        help="write the caps into the config (default: report only)")
+                        help="write the caps into the domain's config.yaml (default: report only)")
     parser.add_argument("--clear", action="store_true",
-                        help="remove the uniqueness_caps block and exit")
+                        help="remove the domain's uniqueness_caps block and exit")
     parser.add_argument("--report", metavar="FILE",
                         help="also save the per-template analysis as JSON")
 
@@ -321,22 +322,25 @@ def main(argv=None):
 
     args = parse_args(sys.argv[1:] if argv is None else argv)
 
+    domain = resolve_domain(args.domain)
+
     if args.clear:
-        write_block(None)
-        print(f"Removed uniqueness_caps from {CONFIG_FILE}.")
+        write_block(None, domain.config_file)
+        print(f"Removed uniqueness_caps from {domain.config_file}.")
         return 0
 
-    config = orchestrator.load_config()
+    # Settings are engine-wide, caps and amounts belong to the domain.
+    config = domain.load_config()
 
     settings = dict(DEFAULTS)
-    settings.update(config.get("uniqueness_optimizer") or {})
+    settings.update(orchestrator.load_config().get("uniqueness_optimizer") or {})
 
     for key in DEFAULTS:
         value = getattr(args, key)
         if value is not None:
             settings[key] = value
 
-    templates = orchestrator.get_templates()
+    templates = domain.templates()
 
     selected = [
         template for template in templates
@@ -345,13 +349,13 @@ def main(argv=None):
     ]
 
     print(
-        f"Sampling {len(selected)} template(s), up to "
+        f"Sampling {len(selected)} template(s) of domain {domain.name}, up to "
         f"{settings['samples']} valid datapoints each..."
     )
 
     random.seed(settings["seed"])
 
-    generator = DatasetGenerator(random_seed=None)
+    generator = DatasetGenerator(random_seed=None, domain=domain)
 
     details = {}
     broken = []
@@ -385,8 +389,8 @@ def main(argv=None):
     capped_config = dict(uncapped_config)
     capped_config["uniqueness_caps"] = caps
 
-    before = orchestrator.plan_amounts(templates, uncapped_config, verbose=False)
-    after = orchestrator.plan_amounts(templates, capped_config, verbose=False)
+    before = orchestrator.plan_amounts(domain, uncapped_config, verbose=False)
+    after = orchestrator.plan_amounts(domain, capped_config, verbose=False)
 
     print(
         f"\n{'template':<62} {'distinct':>10} {'planned':>8} {'capped':>7}"
@@ -442,7 +446,8 @@ def main(argv=None):
             {t: orchestrator.get_amount(t, capped_config) for t in templates},
             capped_config
         ),
-        capped_config
+        capped_config,
+        domain
     )
 
     if args.report:
@@ -456,8 +461,8 @@ def main(argv=None):
         print(f"\nReport written to {args.report}")
 
     if args.write:
-        write_block(render_block(caps, details, settings, len(previous)))
-        print(f"\nWrote {len(caps)} uniqueness cap(s) to {CONFIG_FILE}.")
+        write_block(render_block(caps, details, settings, len(previous)), domain.config_file)
+        print(f"\nWrote {len(caps)} uniqueness cap(s) to {domain.config_file}.")
     else:
         print("\nReport only - run with --write to store the caps in the config.")
 

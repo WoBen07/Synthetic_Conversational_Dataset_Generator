@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import conversation
+from helpers import HOSPITAL, conversation
 
 from synthetic_data_generator.engine.validators.grounding_validator import GroundingValidator
 from synthetic_data_generator.engine.validators.language_validator import LanguageValidator
@@ -18,7 +18,7 @@ def tool(name, content):
 class GroundingTest(unittest.TestCase):
 
     def errors(self, *messages):
-        return GroundingValidator().validate(conversation(*messages))
+        return GroundingValidator(HOSPITAL.tools).validate(conversation(*messages))
 
     def test_unknown_patient_id(self):
 

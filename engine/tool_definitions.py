@@ -6,20 +6,21 @@ messages, tools=...)``). Training with the same list the model gets at
 inference teaches it to pick from the tools it is offered, instead of
 memorising tool names.
 
-The merger writes this list as ``tools.json`` next to train.jsonl, and
-the model-specific preprocessors attach it to every example. Generator-
+Each domain has its own tools. The merger writes ``tools.json`` next to
+train.jsonl as {domain: [definitions]}, and the model-specific
+preprocessors attach the list of each example's domain. Generator-
 internal keys (``source``, ``format``, ``side_effects``) are not
 exported.
 
 Run directly to print the definitions::
 
-    python -m synthetic_data_generator.engine.tool_definitions
+    python -m synthetic_data_generator.engine.tool_definitions [domain]
 """
 
 import json
 import sys
 
-from synthetic_data_generator.engine.tool_registry import load_tools
+from synthetic_data_generator.engine.domain import resolve_domain
 
 
 JSON_TYPES = {
@@ -83,10 +84,10 @@ def function_definition(schema):
     }
 
 
-def tool_definitions(names=None):
-    """Definitions for the given tool names (default: all tools)."""
+def tool_definitions(domain=None, names=None):
+    """Definitions of a domain's tools (default: all of them)."""
 
-    tools = load_tools()
+    tools = resolve_domain(domain).tools
 
     return [
         function_definition(tools[name])
@@ -95,5 +96,5 @@ def tool_definitions(names=None):
 
 
 if __name__ == "__main__":
-    json.dump(tool_definitions(), sys.stdout, indent=2, ensure_ascii=False)
+    json.dump(tool_definitions(sys.argv[1] if len(sys.argv) > 1 else None), sys.stdout, indent=2, ensure_ascii=False)
     print()

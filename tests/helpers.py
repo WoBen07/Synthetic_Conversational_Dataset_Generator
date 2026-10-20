@@ -23,9 +23,12 @@ PACKAGE_ROOT = Path(__file__).resolve().parents[1]
 if str(PACKAGE_ROOT.parent) not in sys.path:
     sys.path.insert(0, str(PACKAGE_ROOT.parent))
 
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator  # noqa: E402
-from synthetic_data_generator.engine import orchestrator  # noqa: E402
-from synthetic_data_generator.generators import ids, weather  # noqa: E402
+from synthetic_data_generator.engine.dataset_generator import DatasetGenerator  # noqa: E402,F401
+from synthetic_data_generator.engine.domain import load_domain  # noqa: E402
+from synthetic_data_generator.domains.hospital.generators import ids, weather  # noqa: E402
+
+# The domain most tests run against
+HOSPITAL = load_domain("hospital")
 
 
 def reset_generators(seed):
@@ -36,18 +39,14 @@ def reset_generators(seed):
     weather._current_profile = None
 
 
-def paths(template_id):
+def paths(template_id, domain=HOSPITAL):
 
-    return (
-        f"schemas/scenarios/{template_id}.yaml",
-        template_id,
-        f"schemas/language/{template_id}.yaml",
-    )
+    return domain.paths(template_id)
 
 
 def generate(generator, template_id):
 
-    return generator.generate_one(*paths(template_id))
+    return generator.generate_one(*paths(template_id, generator.domain))
 
 
 def generate_valid(generator, template_id, attempts=150):
@@ -67,9 +66,9 @@ def generate_valid(generator, template_id, attempts=150):
     return None
 
 
-def all_templates():
+def all_templates(domain=HOSPITAL):
 
-    return orchestrator.get_templates()
+    return domain.templates()
 
 
 def conversation(*messages):

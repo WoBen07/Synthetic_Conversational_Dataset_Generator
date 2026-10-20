@@ -1,6 +1,6 @@
 # Templates
 
-A template (`templates/<category>/<name>.json`) is the message structure
+A template (`domains/<domain>/templates/<category>/<name>.json`) is the message structure
 of one datapoint. Every string may contain placeholders that are filled
 from the scenario's entities and the language schema.
 
@@ -93,8 +93,8 @@ answers without refusing and without a tool call.
 # from the directory that contains synthetic_data_generator/
 python -c "
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-g = DatasetGenerator(1); t = 'tool_use/patient_reminder'
-dp = g.generate_one(f'schemas/scenarios/{t}.yaml', t, f'schemas/language/{t}.yaml')
+g = DatasetGenerator(1, domain='hospital'); t = 'tool_use/patient_reminder'
+dp = g.generate_one(*g.domain.paths(t))
 print(dp); print(g.validator.validate(dp))"
 ```
 

@@ -1,8 +1,6 @@
 import json
 import re
 
-from synthetic_data_generator.engine.tool_registry import load_tools
-
 
 WHITESPACE = re.compile(r"\s+")
 
@@ -37,7 +35,7 @@ def _occurs(value, text):
 class GroundingValidator:
     """Reject tool arguments the robot could not know.
 
-    The rules come from the tool schemas (schemas/tools/*.yaml), so the
+    The rules come from the domain's tool schemas (domains/<name>/tools/), so the
     validator works for any domain. Per argument:
 
     - ``source: known`` - the exact value (an ID, a room number) must
@@ -55,9 +53,15 @@ class GroundingValidator:
     an argument in something it made up itself.
     """
 
+    def __init__(self, tools):
+
+        # {tool name: schema} of the domain
+        self.tools = tools
+
+
     def validate(self, datapoint):
 
-        tools = load_tools()
+        tools = self.tools
 
         errors = []
 

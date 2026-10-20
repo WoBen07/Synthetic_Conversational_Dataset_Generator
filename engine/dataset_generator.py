@@ -15,16 +15,17 @@ from synthetic_data_generator.engine.template_loader import TemplateLoader
 from synthetic_data_generator.engine.template_renderer import TemplateRenderer
 from synthetic_data_generator.engine.conversation_normalizer import normalize_conversation
 from synthetic_data_generator.engine.datapoint_metadata import build_metadata
+from synthetic_data_generator.engine.domain import resolve_domain
 from synthetic_data_generator.engine.validators.validator import Validator
 
 
-# Generated IDs differ in every datapoint, so they are masked before
-# comparing conversations - otherwise no two datapoints would ever count
-# as duplicates.
-GENERATED_ID = re.compile(r"\b[pa]\d+\b")
+def conversation_fingerprint(datapoint, generated_id):
+    """Hash of the conversation with generated IDs masked.
 
-
-def conversation_fingerprint(datapoint):
+    Generated IDs differ in every datapoint (the domain's
+    generated_id_pattern), so they are masked - otherwise no two
+    datapoints would ever count as duplicates.
+    """
 
     text = json.dumps(
         datapoint.get("messages", []),
@@ -33,25 +34,28 @@ def conversation_fingerprint(datapoint):
     )
 
     return hashlib.sha1(
-        GENERATED_ID.sub("<id>", text).encode("utf-8")
+        generated_id.sub("<id>", text).encode("utf-8")
     ).hexdigest()
 
 
 class DatasetGenerator:
 
 
-    def __init__(self, random_seed):
+    def __init__(self, random_seed, domain=None):
 
         self.random_seed = random_seed
 
         if random_seed is not None:
             random.seed(random_seed)
 
-        self.template_loader = TemplateLoader()
+        # A Domain, a domain name, or None for the default domain
+        self.domain = resolve_domain(domain)
+
+        self.template_loader = TemplateLoader(self.domain.template_dir)
 
         self.metadata_writer = MetadataWriter()
         self.schemaloader = SchemaLoader()
-        self.validator = Validator()
+        self.validator = Validator(self.domain)
 
 
     def generate_one(
@@ -86,7 +90,8 @@ class DatasetGenerator:
         #
 
         scenario_builder = ScenarioBuilder(
-            scenario
+            scenario,
+            self.domain
         )
 
         context = scenario_builder.generate()
@@ -247,7 +252,10 @@ class DatasetGenerator:
                     continue
 
 
-                fingerprint = conversation_fingerprint(datapoint)
+                fingerprint = conversation_fingerprint(
+                    datapoint,
+                    self.domain.generated_id_pattern
+                )
 
                 if fingerprint in seen:
 
@@ -266,6 +274,7 @@ class DatasetGenerator:
                 # the conversation itself.
                 datapoint["metadata"] = build_metadata(
                     datapoint,
+                    self.domain,
                     template,
                     trace["choices"],
                     tags
@@ -345,6 +354,8 @@ class DatasetGenerator:
             "generator_version": GENERATOR_VERSION,
 
             "generated_at": datetime.now().isoformat(),
+
+            "domain": self.domain.name,
 
             "scenario": scenario,
 

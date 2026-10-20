@@ -54,15 +54,18 @@ class MetadataTest(unittest.TestCase):
 
     def test_behaviour_follows_side_effects(self):
 
-        self.assertEqual(behaviour(["find_patient", "remind_patient"]), "action")
-        self.assertEqual(behaviour(["find_patient", "get_patient_appointment"]), "lookup_only")
-        self.assertEqual(behaviour([]), "no_tool")
-        self.assertEqual(behaviour(["unknown_tool"]), "action")
+        tools = helpers.HOSPITAL.tools
+
+        self.assertEqual(behaviour(["find_patient", "remind_patient"], tools), "action")
+        self.assertEqual(behaviour(["find_patient", "get_patient_appointment"], tools), "lookup_only")
+        self.assertEqual(behaviour([], tools), "no_tool")
+        self.assertEqual(behaviour(["unknown_tool"], tools), "action")
 
     def test_wording_id_ignores_choice_order(self):
 
         self.assertEqual(wording_id("t", {"a": 1, "b": 2}), wording_id("t", {"b": 2, "a": 1}))
         self.assertNotEqual(wording_id("t", {"a": 1}), wording_id("u", {"a": 1}))
+        self.assertNotEqual(wording_id("t", {"a": 1}, "x"), wording_id("t", {"a": 1}, "y"))
 
     def test_build_metadata(self):
 
@@ -71,8 +74,9 @@ class MetadataTest(unittest.TestCase):
             ("assistant", {"tool_call": {"name": "find_patient", "arguments": {}}}),
         )
 
-        metadata = build_metadata(datapoint, "tool_use/x", {"a": 0}, ["tag"])
+        metadata = build_metadata(datapoint, helpers.HOSPITAL, "tool_use/x", {"a": 0}, ["tag"])
 
+        self.assertEqual(metadata["domain"], "hospital")
         self.assertEqual(metadata["category"], "tool_use")
         self.assertEqual(metadata["tools"], ["find_patient"])
         self.assertEqual(metadata["behaviour"], "lookup_only")
@@ -130,9 +134,11 @@ class GenerateManyTest(unittest.TestCase):
 
         self.assertEqual(len(datapoints), 20)
         self.assertEqual(summary["generated"], 20)
+        self.assertEqual(summary["domain"], "hospital")
 
         for datapoint in datapoints:
             self.assertEqual(datapoint["metadata"]["template"], template)
+            self.assertEqual(datapoint["metadata"]["domain"], "hospital")
             self.assertEqual(datapoint["metadata"]["behaviour"], "action")
             self.assertEqual(datapoint["metadata"]["tags"], ["offer_accepted"])
 

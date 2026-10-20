@@ -4,8 +4,10 @@
 
 - **Full run:** `python -m synthetic_data_generator.engine.orchestrator`
   (from the directory that contains `synthetic_data_generator/`) lints
-  the templates, plans the amounts, generates every template and merges
-  the result into train/validation files. `--optimize` first runs the
+  the templates, plans the amounts, generates every template of the
+  selected [domains](domains.md) (`--domain`, default from
+  `config/generation_config.yaml`) and merges the result into
+  train/validation files. `--optimize` first runs the
   [uniqueness optimizer](uniqueness.md).
 - **Single template:** `engine/runner.py` instantiates `DatasetGenerator`
   and calls `generate_many(...)` for one scenario, template and language
@@ -13,8 +15,8 @@
 
 ## 2. Planning Amounts
 
-`orchestrator.plan_amounts()` takes the configured amount of each
-template (`config/generation_config.yaml`), lowers it to the template's
+`orchestrator.plan_amounts(domain)` takes the configured amount of each
+template (the domain's `config.yaml`), lowers it to the template's
 uniqueness cap if one is set, and raises templates that use rare tools
 until `tool_share_targets` is met. See [engine](engine.md#engineorchestratorpy).
 
@@ -23,11 +25,12 @@ until `tool_share_targets` is met. See [engine](engine.md#engineorchestratorpy).
 `engine/scenario_builder.py` loads the scenario YAML and:
 
 - sets `today` to a random weekday,
-- creates each entity from `schemas/entities/<type>.yaml`,
+- creates each entity from the domain's `entities/<type>.yaml`, with
+  the shared and the domain's generators,
 - applies aliases,
 - resolves constraints,
-- refreshes derived fields (full name, a location that fits the
-  appointment type) and re-checks `different` constraints,
+- refreshes derived fields (full name, the domain's `refresh_entity`
+  hook) and re-checks `different` constraints,
 - adds linguistic fields (pronouns, titles),
 - renders the `robot_context` system text if the scenario declares one.
 
@@ -63,13 +66,14 @@ Valid datapoints that are not duplicates of earlier ones get a
 `metadata` block (template, category, behaviour, tools, tags, wording
 ID; see [engine](engine.md#enginedatapoint_metadatapy)) and are written as
 `example_00000.json`, `example_00001.json`, ... in
-`Synthetic_Data/<template name>/`, followed by a `metadata.json`. If 5
+`Synthetic_Data/<domain>/<template name>/`, followed by a `metadata.json`. If 5
 datapoints in a row cannot be generated, the template is stopped early
 and the metadata records how many were generated.
 
 ## 9. Merging
 
-`engine/dataset_merger.py` loads all template folders, checks strict
+`engine/dataset_merger.py` loads the template folders of the generated
+domains, checks strict
 role alternation, splits every template into train and validation and
 writes `train.jsonl`, `validation.jsonl` and `metadata.json`.
 
@@ -85,16 +89,17 @@ one by one, with a warning.
 Templates with very few distinct wordings may get no validation
 datapoints at all (a warning is printed); add phrases or accept it.
 
-Next to the split files the merger writes `tools.json`, the function
-definitions of all tools.
+Next to the split files the merger writes `tools.json`: the function
+definitions of each domain's tools, as `{domain: [definitions]}`.
 
 ## 10. Model-Specific Preprocessing
 
 `Model_Specific_Preprocessors/qwen_preprossor.py` and
 `Gemma_preprocessor.py` convert the merged files into the tool-call
 format of each model family. They keep only `messages`, so `metadata`
-never reaches training, and attach the definitions from `tools.json` to
-every example as `tools` (switch off with `INCLUDE_TOOLS = False`).
+never reaches training, and attach the tool definitions of each
+example's domain (`metadata.domain`) from `tools.json` as `tools`
+(switch off with `INCLUDE_TOOLS = False`).
 The training script then renders each example with
 `tokenizer.apply_chat_template(example["messages"], tools=example["tools"])`,
 so the model is trained with the same tool list it gets at inference.

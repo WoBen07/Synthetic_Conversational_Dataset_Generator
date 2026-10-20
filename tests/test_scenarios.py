@@ -6,8 +6,8 @@ from synthetic_data_generator.engine.constraint_resolver import ConstraintResolv
 from synthetic_data_generator.engine.entity_refresh import EntityRefresher
 from synthetic_data_generator.engine.robot_context import build_robot_context
 from synthetic_data_generator.engine.scenario_builder import ScenarioBuilder
-from synthetic_data_generator.generators.appointments import TYPE_LOCATIONS, locations_for
-from synthetic_data_generator.generators.rooms import ALL_FACILITY_ROOMS, PATIENT_ROOMS
+from synthetic_data_generator.domains.hospital.generators.appointments import TYPE_LOCATIONS, locations_for
+from synthetic_data_generator.domains.hospital.generators.rooms import ALL_FACILITY_ROOMS, PATIENT_ROOMS
 
 
 class ConstraintTest(unittest.TestCase):
@@ -34,7 +34,7 @@ class ConstraintTest(unittest.TestCase):
 
         appointment = {"appointment_type": "blood test", "location": "MRI Room 1"}
 
-        EntityRefresher().refresh({"appointment": appointment})
+        EntityRefresher(helpers.HOSPITAL.refresh_entity).refresh({"appointment": appointment})
 
         self.assertIn(appointment["location"], locations_for("blood test"))
 
@@ -60,7 +60,8 @@ class ScenarioBuilderTest(unittest.TestCase):
         helpers.reset_generators(3)
 
         context = ScenarioBuilder(
-            "schemas/scenarios/trust_and_honesty/appointment_trust_dispute.yaml"
+            helpers.HOSPITAL.scenario_path("trust_and_honesty/appointment_trust_dispute"),
+            helpers.HOSPITAL
         ).generate()
 
         self.assertEqual(context["appointment"]["day"], context["today"])
@@ -72,7 +73,10 @@ class ScenarioBuilderTest(unittest.TestCase):
         helpers.reset_generators(4)
 
         for _ in range(30):
-            context = ScenarioBuilder("schemas/scenarios/tool_use/appointment_escort.yaml").generate()
+            context = ScenarioBuilder(
+                helpers.HOSPITAL.scenario_path("tool_use/appointment_escort"),
+                helpers.HOSPITAL
+            ).generate()
             appointment = context["appointment"]
             self.assertIn(appointment["location"], locations_for(appointment["appointment_type"]))
             self.assertIn(context["patient"]["room_number"], PATIENT_ROOMS)
@@ -92,7 +96,7 @@ class RobotContextTest(unittest.TestCase):
             "patient": "patient",
             "speaker": "patient",
             "note": "You have just entered the room.",
-        })
+        }, helpers.HOSPITAL.robot_context)
 
         self.assertEqual(
             text,
@@ -105,11 +109,23 @@ class RobotContextTest(unittest.TestCase):
 
         context = {"today": "Friday"}
 
+        wording = helpers.HOSPITAL.robot_context
+
         self.assertEqual(
-            build_robot_context(context, {"location": "the nurses' station", "speaker": "staff"}),
+            build_robot_context(context, {"location": "the nurses' station", "speaker": "staff"}, wording),
             "Today is Friday. You are in the nurses' station. You are speaking with a member of staff."
         )
-        self.assertEqual(build_robot_context(context, {}), "Today is Friday.")
+        self.assertEqual(build_robot_context(context, {}, wording), "Today is Friday.")
+
+    def test_unknown_speaker_or_record_kind(self):
+
+        context = {"today": "Friday", "x": {}}
+
+        with self.assertRaises(ValueError):
+            build_robot_context(context, {"speaker": "pirate"}, helpers.HOSPITAL.robot_context)
+
+        with self.assertRaises(ValueError):
+            build_robot_context(context, {"customer": "x"}, helpers.HOSPITAL.robot_context)
 
 
 if __name__ == "__main__":

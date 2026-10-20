@@ -1,8 +1,11 @@
 # Schemas
 
+All schema files belong to a [domain pack](domains.md); paths below are
+relative to `domains/<domain>/`. Examples are from the hospital domain.
+
 ## Entity Schemas
 
-`schemas/entities/<type>.yaml` lists an entity's fields and the
+`entities/<type>.yaml` lists an entity's fields and the
 [generator](generators.md) for each.
 
 ### `patient.yaml`
@@ -25,7 +28,7 @@ Visitor names; weather `condition` and `temperature`.
 
 ## Scenario Schemas
 
-`schemas/scenarios/<category>/<name>.yaml` defines the context of one
+`scenarios/<category>/<name>.yaml` defines the context of one
 template:
 
 ```yaml
@@ -76,13 +79,14 @@ robot_context:
 ### Robot context
 
 What the robot knows before the conversation starts. It is rendered by
-`engine/robot_context.py` and inserted by the template's opening
+`engine/robot_context.py`, in the wording of the domain's `domain.yaml`
+(see [domains](domains.md#domainyaml)), and inserted by the template's opening
 `{"role": "system", "content": "{{robot_context}}"}` message.
 
 ```yaml
 robot_context:
   location: patient.room_number   # context path or literal text
-  patient: patient                # entity whose record the robot knows
+  patient: patient                # record kind: entity whose record the robot knows
   speaker: patient                # see below
   note: "You have just entered the patient's room."
 ```
@@ -92,6 +96,9 @@ All keys are optional. The rendered message always starts with the day:
 > Today is Tuesday. You are in room 2004. Patient: Anna Weber
 > (patient_id: p123, room 2004). You are speaking with the patient. You
 > have just entered the patient's room.
+
+Record kinds and speakers are defined per domain; the hospital domain has
+the record kind `patient` and these speakers:
 
 | speaker | sentence |
 |---|---|
@@ -113,7 +120,7 @@ the conversation (see the [GroundingValidator](validation.md#groundingvalidator)
 
 ## Language Schemas
 
-`schemas/language/<category>/<name>.yaml` holds the phrase pools:
+`language/<category>/<name>.yaml` holds the phrase pools:
 
 ```yaml
 variables:
@@ -172,7 +179,7 @@ Use bundles for:
 
 ## Tool Schemas
 
-`schemas/tools/<tool>.yaml` is the single source for a tool. The
+`tools/<tool>.yaml` is the single source for a tool. The
 generator validates every tool call and result against it, the grounding
 rules are read from it, and `engine/tool_definitions.py` exports it as
 the function definition the model is trained with.

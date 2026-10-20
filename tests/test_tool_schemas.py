@@ -1,9 +1,8 @@
 import unittest
 
-from helpers import conversation
+from helpers import HOSPITAL, conversation
 
 from synthetic_data_generator.engine.tool_definitions import tool_definitions
-from synthetic_data_generator.engine.tool_registry import load_tools
 from synthetic_data_generator.engine.validators.grounding_validator import GroundingValidator
 from synthetic_data_generator.engine.validators.tool_schema_validator import ToolSchemaValidator
 
@@ -22,7 +21,7 @@ CONTEXT = ("system", "Today is Monday. Patient: Anna Weber (patient_id: p9, room
 class ToolSchemaValidatorTest(unittest.TestCase):
 
     def errors(self, *messages):
-        return ToolSchemaValidator().validate(conversation(*messages))
+        return ToolSchemaValidator(HOSPITAL.tools).validate(conversation(*messages))
 
     def test_valid_call_and_result(self):
 
@@ -69,7 +68,7 @@ class ToolSchemaValidatorTest(unittest.TestCase):
 class SchemaDrivenGroundingTest(unittest.TestCase):
 
     def errors(self, *messages):
-        return GroundingValidator().validate(conversation(*messages))
+        return GroundingValidator(HOSPITAL.tools).validate(conversation(*messages))
 
     def test_known_values_must_match_exactly(self):
 
@@ -109,9 +108,9 @@ class ToolDefinitionsTest(unittest.TestCase):
 
     def test_every_tool_is_exported(self):
 
-        definitions = {d["function"]["name"]: d for d in tool_definitions()}
+        definitions = {d["function"]["name"]: d for d in tool_definitions(HOSPITAL)}
 
-        self.assertEqual(set(definitions), set(load_tools()))
+        self.assertEqual(set(definitions), set(HOSPITAL.tools))
 
         for name, definition in definitions.items():
             with self.subTest(tool=name):
@@ -121,7 +120,7 @@ class ToolDefinitionsTest(unittest.TestCase):
 
     def test_parameters(self):
 
-        alert = next(d for d in tool_definitions(["alert_staff"]))["function"]
+        alert = tool_definitions(HOSPITAL, ["alert_staff"])[0]["function"]
         properties = alert["parameters"]["properties"]
 
         self.assertEqual(alert["parameters"]["required"], ["room_number", "urgency"])
@@ -132,7 +131,7 @@ class ToolDefinitionsTest(unittest.TestCase):
 
     def test_requires_one_of_is_stated(self):
 
-        find = tool_definitions(["find_patient"])[0]["function"]
+        find = tool_definitions(HOSPITAL, ["find_patient"])[0]["function"]
 
         self.assertEqual(find["parameters"]["required"], [])
         self.assertIn("at least one of", find["description"].lower())

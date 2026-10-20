@@ -1,54 +1,53 @@
+"""Generate every template of the selected domains, then merge.
+
+    python -m synthetic_data_generator.engine.orchestrator                 # domains from config
+    python -m synthetic_data_generator.engine.orchestrator --domain hospital
+    python -m synthetic_data_generator.engine.orchestrator --optimize      # uniqueness caps first
+
+Engine-wide settings come from config/generation_config.yaml, amounts
+and tool-share targets from each domain's config.yaml. Output goes to
+Synthetic_Data/<domain>/<template name>/.
+"""
+
 import argparse
 import json
 import math
-import os
 import random
-import subprocess
-import yaml
+from pathlib import Path
 
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
 from synthetic_data_generator.engine import dataset_merger
 from synthetic_data_generator.engine import lint_templates
 from synthetic_data_generator.engine import publish_to_hub
-from pathlib import Path
+from synthetic_data_generator.engine.domain import (
+    GLOBAL_CONFIG_FILE,
+    PROJECT_ROOT,
+    configured_domains,
+    load_global_config,
+    resolve_domain,
+)
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-
-
-TEMPLATE_DIR = PROJECT_ROOT / "templates"
-CONFIG_FILE = PROJECT_ROOT / "config" / "generation_config.yaml"
-
-SCENARIO_DIR = PROJECT_ROOT / "schemas" / "scenarios"
-LANGUAGE_DIR = PROJECT_ROOT / "schemas" / "language"
+CONFIG_FILE = GLOBAL_CONFIG_FILE
 
 OUTPUT_ROOT = PROJECT_ROOT / "Synthetic_Data"
 
-GENERATOR_VERSION = "0.2.0"
-
 
 def load_config():
-    with open(CONFIG_FILE, "r") as f:
-        return yaml.safe_load(f)
+    """Engine-wide settings (config/generation_config.yaml)."""
+
+    return load_global_config()
 
 
-def get_templates():
+def get_templates(domain=None):
+    """Template ids of a domain, e.g. "safety_and_refusals/consent_seeking"."""
 
-    templates = []
-
-    for file in sorted(TEMPLATE_DIR.rglob("*.json")):
-
-        relative = file.relative_to(TEMPLATE_DIR).with_suffix("")
-
-        # POSIX-style id so it works the same as a lookup path
-        # regardless of the subfolder it lives in, e.g.
-        # "safety_and_refusals/medical_advice_refusal"
-        templates.append(relative.as_posix())
-
-    return templates
+    return resolve_domain(domain).templates()
 
 
 def get_amount(template_id, config):
+    """Configured amount of a template; ``config`` is the domain's
+    config.yaml."""
 
     important = config.get("important_templates", {})
 
@@ -78,13 +77,13 @@ def get_amount(template_id, config):
     if best_prefix is not None:
         return best_amount
 
-    return config["default_amount"]
+    return config.get("default_amount", 0)
 
 
-def count_tool_calls(template_id):
+def count_tool_calls(template_id, domain=None):
     """Count the tool calls one datapoint of a template makes, by tool."""
 
-    path = TEMPLATE_DIR / f"{template_id}.json"
+    path = resolve_domain(domain).template_path(template_id)
 
     messages = json.loads(path.read_text(encoding="utf-8")).get("messages", [])
 
@@ -129,21 +128,27 @@ def apply_uniqueness_caps(amounts, config):
     }
 
 
-def plan_amounts(templates, config, verbose=True):
-    """Final amount per template: configured amount, uniqueness cap,
-    then tool-share scaling (which never exceeds the cap either)."""
+def plan_amounts(domain=None, config=None, verbose=True):
+    """Final amount per template of a domain: configured amount,
+    uniqueness cap, then tool-share scaling (which never exceeds the cap
+    either). ``config`` defaults to the domain's config.yaml."""
+
+    domain = resolve_domain(domain)
+
+    if config is None:
+        config = domain.load_config()
 
     amounts = {
         template: get_amount(template, config)
-        for template in templates
+        for template in domain.templates()
     }
 
     amounts = apply_uniqueness_caps(amounts, config)
 
-    return apply_tool_share_targets(amounts, config, verbose=verbose)
+    return apply_tool_share_targets(amounts, config, domain, verbose=verbose)
 
 
-def apply_tool_share_targets(amounts, config, verbose=True):
+def apply_tool_share_targets(amounts, config, domain=None, verbose=True):
     """Scale up templates that use under-represented tools.
 
     Per-template amounts alone say nothing about how often each tool is
@@ -162,7 +167,7 @@ def apply_tool_share_targets(amounts, config, verbose=True):
 
     caps = config.get("uniqueness_caps") or {}
 
-    calls = {template: count_tool_calls(template) for template in amounts}
+    calls = {template: count_tool_calls(template, domain) for template in amounts}
 
     base = dict(amounts)
     amounts = dict(amounts)
@@ -207,7 +212,10 @@ def apply_tool_share_targets(amounts, config, verbose=True):
 
     shares = tool_shares(amounts, calls)
 
-    print("\nTool share after applying tool_share_targets:")
+    print(
+        f"\nTool share after applying tool_share_targets"
+        f"{f' ({resolve_domain(domain).name})' if domain else ''}:"
+    )
 
     for tool, share in sorted(shares.items(), key=lambda item: -item[1]):
 
@@ -233,38 +241,36 @@ def create_seed(config):
     )
 
 
-def run_template(template_id, amount, seed):
+def run_template(domain, template_id, amount, seed):
 
     print(
-        f"\nGenerating {template_id}"
+        f"\nGenerating {domain.name}/{template_id}"
         f" | amount={amount}"
         f" | seed={seed}"
     )
 
     generator = DatasetGenerator(
-        random_seed=seed
+        random_seed=seed,
+        domain=domain
     )
 
-    # Output stays flat, keyed by the template's own name, so the
-    # subfolder grouping under templates/ and schemas/ doesn't
-    # ripple into Synthetic_Data/ or the merger step.
-    name = Path(template_id).name
+    # One folder per template, keyed by its own name, below the domain:
+    # the category subfolders do not ripple into Synthetic_Data/.
+    output_dir = OUTPUT_ROOT / domain.name / template_id.split("/")[-1]
 
-    output_dir = (
-        f"{OUTPUT_ROOT}/{name}"
-    )
+    scenario, template, language = domain.paths(template_id)
 
     generator.generate_many(
 
-        scenario=f"{SCENARIO_DIR}/{template_id}.yaml",
+        scenario=scenario,
 
-        template=template_id,
+        template=template,
 
         amount=amount,
 
-        output_dir=output_dir,
+        output_dir=str(output_dir),
 
-        language_schema=f"{LANGUAGE_DIR}/{template_id}.yaml",
+        language_schema=language,
 
     )
 
@@ -275,6 +281,17 @@ def parse_args():
 
     parser = argparse.ArgumentParser(
         description="Generate every template and merge the results."
+    )
+
+    parser.add_argument(
+        "--domain",
+        action="append",
+        metavar="NAME",
+        help=(
+            "Domain to generate (repeat for several). Default: the "
+            "domains list in config/generation_config.yaml, or all "
+            "domains under domains/."
+        ),
     )
 
     parser.add_argument(
@@ -293,7 +310,7 @@ def parse_args():
         action="store_true",
         help=(
             "Before generating, run engine/config_optimizer.py and write "
-            "uniqueness caps into config/generation_config.yaml, so no "
+            "uniqueness caps into each domain's config.yaml, so no "
             "template is generated beyond what its phrase pools can make "
             "without repeating itself."
         ),
@@ -313,10 +330,19 @@ def main():
 
     args = parse_args()
 
+    domains = [
+        resolve_domain(name)
+        for name in (args.domain or configured_domains())
+    ]
+
     # Surface templates that still encode consecutive same-role messages.
     # The renderer folds them automatically, so this is a warning, not a
     # gate - but it keeps sloppy templates visible so they get cleaned up.
-    template_problems = lint_templates.lint()
+    template_problems = [
+        problem
+        for domain in domains
+        for problem in lint_templates.lint(domain.template_dir)
+    ]
 
     if template_problems:
 
@@ -334,40 +360,43 @@ def main():
 
         from synthetic_data_generator.engine import config_optimizer
 
-        config_optimizer.main(["--write"])
+        for domain in domains:
+            config_optimizer.main(["--write", "--domain", domain.name])
 
     config = load_config()
 
-    templates = get_templates()
+    for domain in domains:
 
-    print(
-        f"Found {len(templates)} templates:"
-    )
+        templates = domain.templates()
 
-    for t in templates:
-        print(" -", t)
-
-
-    amounts = plan_amounts(templates, config)
-
-    for template in templates:
-
-        amount = amounts[template]
-
-        seed = create_seed(
-            config
+        print(
+            f"\nDomain {domain.name}: {len(templates)} templates"
         )
 
-        run_template(
-            template,
-            amount,
-            seed
-        )
+        for t in templates:
+            print(" -", t)
+
+        amounts = plan_amounts(domain)
+
+        for template in templates:
+
+            seed = create_seed(
+                config
+            )
+
+            run_template(
+                domain,
+                template,
+                amounts[template],
+                seed
+            )
 
 
     # IMPORTANT:
     # Only called once after everything finished
-    dataset_merger.main()
+    dataset_merger.main(
+        domains=[domain.name for domain in domains]
+    )
 
     if args.publish:
 

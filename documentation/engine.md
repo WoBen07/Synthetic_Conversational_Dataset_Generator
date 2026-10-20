@@ -14,26 +14,42 @@ timestamp, scenario path, template name, requested and generated amount,
 skipped datapoints, rejected duplicates (`duplicates_rejected`) and the
 random seed.
 
+## `engine/domain.py`
+
+Loads [domain packs](domains.md). `load_domain(name)` returns a cached
+`Domain` with the pack's paths (`template_path()`, `scenario_path()`,
+`language_path()`, `entity_path()`, `paths(template_id)` for
+`generate_one`), its `templates()`, `tools`, `generators` (shared plus
+the domain's), `robot_context` wording, `generated_id_pattern`, its
+`config.yaml` (`load_config()`) and its Python hooks
+(`create_validators()`, `refresh_entity()`). `list_domains()`,
+`configured_domains()` (from `config/generation_config.yaml`) and
+`default_domain()` (the first configured one) select domains;
+`resolve_domain()` accepts a `Domain`, a name or `None`.
+
+## `engine/new_domain.py`
+
+Creates a new domain pack with one working example template:
+`python -m synthetic_data_generator.engine.new_domain <name>`.
+
 ## `engine/template_loader.py`
 
-Loads a template by id from `templates/<id>.json`, where `<id>` is the
-path relative to `templates/` without the extension (e.g.
-`tool_use/patient_reminder`), so category subfolders resolve
-transparently.
+Loads a template by id from the domain's `templates/<id>.json`, where
+`<id>` is the path relative to `templates/` without the extension (e.g.
+`tool_use/patient_reminder`).
 
 ## `engine/orchestrator.py`
 
 Entry point for a full run (`python -m synthetic_data_generator.engine.orchestrator`).
+Generates every template of the selected domains (`--domain`, repeatable;
+default: `domains` in `config/generation_config.yaml`).
 
-- `get_templates()` recursively walks `templates/` and returns each
-  template's id (path relative to `templates/` without `.json`). The id
-  is used to build the matching `schemas/scenarios/<id>.yaml` and
-  `schemas/language/<id>.yaml` paths.
-- `get_amount()` reads `config/generation_config.yaml`:
+- `get_templates(domain)` returns a domain's template ids.
+- `get_amount()` reads the domain's `config.yaml`:
   `important_templates` (keyed by the leaf name) wins over
   `category_amounts` (longest matching path prefix), which wins over
   `default_amount`.
-- `plan_amounts()` produces the final amount per template:
+- `plan_amounts(domain)` produces the final amount per template:
   1. the configured amount from `get_amount()`,
   2. lowered to the template's `uniqueness_caps` entry, if the optional
      [uniqueness optimizer](uniqueness.md) wrote one,
@@ -43,8 +59,7 @@ Entry point for a full run (`python -m synthetic_data_generator.engine.orchestra
      amount or above its uniqueness cap. The tool calls per template are
      counted statically from the template JSON. The resulting shares are
      printed, with a note for every target that could not be reached.
-- Output under `Synthetic_Data/` is written flat, keyed by the
-  template's leaf name.
+- Output goes to `Synthetic_Data/<domain>/<template leaf name>/`.
 
 Flags: `--optimize` runs the uniqueness optimizer (with `--write`)
 before generating, `--publish` / `--dry-run-publish` push approved
@@ -71,7 +86,9 @@ datasets afterwards (see [publishing](publishing.md)).
 Builds the context for one datapoint:
 
 1. sets `today` to a random weekday;
-2. creates every entity of the scenario and applies the aliases;
+2. creates every entity of the scenario from the domain's
+   `entities/<type>.yaml`, with the domain's generators, and applies the
+   aliases;
 3. resolves the constraints;
 4. refreshes derived fields (`EntityRefresher`) and checks the
    `different` constraints again, since refreshing can redraw a
@@ -109,12 +126,12 @@ acts in `no_tool` conversations) and for the grouped split.
 
 ## `engine/tool_registry.py`
 
-Loads `schemas/tools/*.yaml` (cached). `has_side_effects(name)` reads a
-tool's `side_effects` flag.
+`load_tools(tool_dir)` loads a domain's tool schemas (cached);
+`has_side_effects(name, tools)` reads a tool's `side_effects` flag.
 
 ## `engine/tool_definitions.py`
 
-Exports the tool schemas as JSON-schema function definitions
+Exports a domain's tool schemas as JSON-schema function definitions
 (`{"type": "function", "function": {name, description, parameters}}`),
 the format chat templates take via `apply_chat_template(..., tools=...)`.
 `requires_one_of` is stated in the description, since many chat
@@ -123,19 +140,21 @@ dropped.
 
 ## `engine/dataset_merger.py`
 
-Loads `Synthetic_Data/`, checks role alternation and splits every
-template into train/validation, grouped by `wording_id`
-(`split_template`), and writes `tools.json` (all tool definitions) next
-to `train.jsonl`. `wording_overlap()` counts validation datapoints
+Loads `Synthetic_Data/<domain>/<template>/` (all domains, or the ones
+passed to `main(domains=...)`; folders of the old flat layout are
+skipped), checks role alternation and splits every template into
+train/validation, grouped by `wording_id` (`split_template`). Writes
+`tools.json` as `{domain: [definitions]}` next to `train.jsonl`. `wording_overlap()` counts validation datapoints
 whose wording also appears in train. See [generation flow](workflow.md#9-merging).
 
 ## `engine/robot_context.py`
 
 Turns the scenario's `robot_context` block into the text of the
 template's opening system message: the current day, where the robot is,
-which patient record it knows (with `patient_id`), who it is talking to
-and an optional note. All templates share this wording, so the model
-sees a single format. Details in [schemas](schemas.md#robot-context).
+which records it knows (in the hospital: the patient with
+`patient_id`), who it is talking to and an optional note. The wording
+comes from the domain's `domain.yaml`, so all templates of a domain
+share one format. Details in [schemas](schemas.md#robot-context).
 
 ## `engine/schemaloader.py`
 
@@ -163,12 +182,11 @@ Supports two constraint types:
 
 ## `engine/entity_refresh.py`
 
-Adds derived fields after constraint resolution:
-
-- `full_name` when both `first_name` and `last_name` are present;
-- for appointments, redraws `location` if it does not fit the
-  `appointment_type`. This happens when an `equal` constraint copied one
-  appointment's type onto another.
+Adds derived fields after constraint resolution: `full_name` when both
+`first_name` and `last_name` are present, then the domain's
+`refresh_entity` hook (the hospital domain redraws an appointment
+`location` that no longer fits the `appointment_type`, which happens
+when an `equal` constraint copied one appointment's type onto another).
 
 ## `engine/linguistic_resolver.py`
 

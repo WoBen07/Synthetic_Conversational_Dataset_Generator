@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Static lint for conversation templates.
 
-Flags every ``templates/**/*.json`` message list that contains two
+Flags every ``domains/*/templates/**/*.json`` message list that contains two
 consecutive entries with the same ``role`` - the shape that renders into
 back-to-back ``<|im_start|>assistant`` blocks. The renderer's
 ``normalize_conversation`` step folds these automatically at generation
@@ -19,7 +19,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-TEMPLATE_DIR = PROJECT_ROOT / "templates"
+DOMAINS_DIR = PROJECT_ROOT / "domains"
 
 
 def _role_line_numbers(path):
@@ -66,12 +66,19 @@ def find_consecutive_roles(path):
     return findings
 
 
-def lint(template_dir=TEMPLATE_DIR):
-    """Return a list of ``(path, message_index, description)`` problems."""
+def lint(template_dir=None):
+    """Return a list of ``(path, message_index, description)`` problems,
+    for one template directory or (default) every domain's templates."""
 
     problems = []
 
-    for path in sorted(Path(template_dir).rglob("*.json")):
+    paths = (
+        sorted(Path(template_dir).rglob("*.json"))
+        if template_dir is not None
+        else sorted(DOMAINS_DIR.glob("*/templates/**/*.json"))
+    )
+
+    for path in paths:
 
         try:
             findings = find_consecutive_roles(path)

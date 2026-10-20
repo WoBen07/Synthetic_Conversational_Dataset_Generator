@@ -24,7 +24,8 @@ push and pull request (`.github/workflows/tests.yml`).
 | `test_scenarios.py` | constraints, location redraw, separate room pools, `today` constraint, `robot_context` wording |
 | `test_validators.py` | grounding (IDs, search terms, copied reasons, articles in rooms), structure rules, language validator |
 | `test_dataset.py` | uniqueness optimizer maths, datapoint metadata, grouped split without overlap, `generate_many` output |
-| `test_templates.py` | every template has its scenario and language file, all placeholders and tools exist, `robot_context` declared where used, no two user/tool messages in a row, every template produces a valid datapoint, fixed-seed output |
+| `test_domains.py` | domain loading, a scaffolded domain generating valid data without hospital code, merger layout per domain, per-domain tools in the preprocessors |
+| `test_templates.py` | every hospital template has its scenario and language file, all placeholders and tools exist, `robot_context` declared where used, no two user/tool messages in a row, every template produces a valid datapoint, fixed-seed output |
 
 ## Golden outputs
 

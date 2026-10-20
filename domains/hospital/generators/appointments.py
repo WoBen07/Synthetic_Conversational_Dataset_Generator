@@ -1,5 +1,7 @@
 import random
 
+from synthetic_data_generator.generators.days import DAYS, weekday  # noqa: F401  (re-exported)
+
 from .rooms import rooms_for
 
 
@@ -85,17 +87,6 @@ TYPE_LOCATIONS = {
 TYPES = list(TYPE_LOCATIONS)
 
 
-DAYS = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
-]
-
-
 def locations_for(appointment_type):
     return rooms_for(
         TYPE_LOCATIONS[appointment_type]
@@ -116,9 +107,3 @@ def appointment_type():
             locations_for(chosen)
         )
     }
-
-
-def weekday():
-    return random.choice(
-        DAYS
-    )

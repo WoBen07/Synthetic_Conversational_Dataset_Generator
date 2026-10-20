@@ -1,7 +1,5 @@
 import json
 
-from synthetic_data_generator.engine.tool_registry import load_tools
-
 
 PYTHON_TYPES = {
     "string": str,
@@ -38,7 +36,8 @@ def _type_error(spec, value):
 
 
 class ToolSchemaValidator:
-    """Check every tool call and tool result against schemas/tools.
+    """Check every tool call and tool result against the domain's tool
+    schemas (domains/<name>/tools/).
 
     Calls: the tool exists; every argument is declared; required
     arguments are present; requires_one_of is met; types and enum values
@@ -46,9 +45,15 @@ class ToolSchemaValidator:
     the declared type and enum value.
     """
 
+    def __init__(self, tools):
+
+        # {tool name: schema} of the domain
+        self.tools = tools
+
+
     def validate(self, datapoint):
 
-        tools = load_tools()
+        tools = self.tools
 
         errors = []
 

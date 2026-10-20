@@ -199,7 +199,8 @@ def convert_tool_message(message, pending_tool_id):
 
 def load_tool_definitions():
     """Tool definitions written by the dataset merger (tools.json next to
-    the input file). Attached to every example as "tools", so the chat
+    the input file, {domain: [definitions]}). Each example gets its
+    domain's list as "tools", so the chat
     template renders the same tool list the model gets at inference
     (tokenizer.apply_chat_template(messages, tools=example["tools"]))."""
 
@@ -214,6 +215,31 @@ def load_tool_definitions():
 
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def tools_for(example, tools):
+    """The tool definitions of the example's domain.
+
+    tools.json maps {domain: [definitions]}; an example names its domain
+    in metadata.domain. If the file holds a single domain, or is a plain
+    list (older merger), every example gets that list.
+    """
+
+    if not tools or isinstance(tools, list):
+        return tools
+
+    domain = (example.get("metadata") or {}).get("domain")
+
+    if domain in tools:
+        return tools[domain]
+
+    if len(tools) == 1:
+        return next(iter(tools.values()))
+
+    raise ValueError(
+        f"Example without a known domain ({domain!r}); tools.json has "
+        f"{sorted(tools)}"
+    )
 
 
 
@@ -277,8 +303,10 @@ def process_example(example, tools=None):
         "messages": processed_messages
     }
 
-    if tools:
-        processed["tools"] = tools
+    example_tools = tools_for(example, tools)
+
+    if example_tools:
+        processed["tools"] = example_tools
 
     return processed
 

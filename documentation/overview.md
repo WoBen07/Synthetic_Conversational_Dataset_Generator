@@ -1,42 +1,51 @@
 # Overview
 
-The `synthetic_data_generator` package creates synthetic conversational datapoints from three inputs:
+The `synthetic_data_generator` package creates synthetic conversational
+datapoints. Each template combines three inputs:
 
 1. A scenario YAML file that defines entities, aliases, constraints, and
    what the robot knows at the start (`robot_context`).
-2. A language-schema YAML file that supplies phrase pools for user and assistant text.
+2. A language-schema YAML file that supplies phrase pools for user and
+   assistant text.
 3. A JSON template that defines the final message structure to render.
 
-The generator builds a context of entity data, injects randomized language variables, renders the template, validates the result, and writes accepted, non-duplicate datapoints to disk.
+The generator builds a context of entity data, injects randomized
+language variables, renders the template, validates the result, and
+writes accepted, non-duplicate datapoints to disk.
+
+## Domains
+
+All application-specific content lives in a [domain pack](domains.md)
+under `domains/<name>/`. The engine itself is domain-neutral; the
+hospital robot is the domain `hospital`.
 
 ## Folder Structure
 
-- `engine/`: orchestration, rendering, validation, and loading logic.
-- `generators/`: random value generators for entity fields.
-- `schemas/`: YAML definitions for entities, scenarios, tools, and language variables.
-- `templates/`: JSON templates for complete datapoints.
-- `config/`: amounts per template/category, tool-share targets, the
-  optional uniqueness caps, and publishing settings.
-- `scripts/`: currently empty.
+- `engine/`: orchestration, rendering, validation, loading, merging.
+- `generators/`: value generators shared by all domains (names,
+  birthdays, weekdays).
+- `domains/<name>/`: one domain pack: templates, scenarios, language
+  schemas, entities, tools, config and optional Python hooks.
+- `config/`: engine-wide settings (`generation_config.yaml`) and
+  publishing settings.
+- `Model_Specific_Preprocessors/`: conversion into the tool-call format
+  of Qwen and Gemma.
+- `tests/`: the test suite (see [tests](testing.md)).
 
 ## Template Grouping
 
-`templates/`, `schemas/scenarios/`, and `schemas/language/` are each split into
-the same set of category subfolders (e.g. `conversational/`,
-`safety_and_refusals/`, `tool_use/`), and a template's three files always
-live at the matching path within each, e.g.:
+Inside a domain, `templates/`, `scenarios/` and `language/` are each
+split into the same category subfolders (e.g. `conversational/`,
+`safety_and_refusals/`, `tool_use/`), and a template's three files
+always live at the matching path:
 
 ```
-templates/tool_use/patient_reminder.json
-schemas/scenarios/tool_use/patient_reminder.yaml
-schemas/language/tool_use/patient_reminder.yaml
+domains/hospital/templates/tool_use/patient_reminder.json
+domains/hospital/scenarios/tool_use/patient_reminder.yaml
+domains/hospital/language/tool_use/patient_reminder.yaml
 ```
 
-`engine/orchestrator.py` discovers templates by recursively walking
-`templates/` (`Path.rglob("*.json")`), so new categories just need a new
-subfolder — nothing else to register. The template's id used everywhere
-downstream is its path relative to `templates/` without the `.json`
-extension, e.g. `tool_use/patient_reminder`. Generated output under
-`Synthetic_Data/` stays flat and keyed by the template's own name only
-(the category isn't part of the output path), so the merger step is
-unaffected by this grouping.
+The template id used everywhere downstream is the path relative to
+`templates/` without `.json`, e.g. `tool_use/patient_reminder`. New
+categories just need a new subfolder. Generated output goes to
+`Synthetic_Data/<domain>/<template name>/`.
