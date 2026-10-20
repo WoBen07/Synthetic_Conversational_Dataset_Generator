@@ -13,6 +13,12 @@ entities:
 
 constraints:
 
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
   - type: equal
     fields:
       - patient.last_name
@@ -29,3 +35,9 @@ constraints:
       - alternative_patient.first_name
 
 language_schema: unable_to_assist
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff

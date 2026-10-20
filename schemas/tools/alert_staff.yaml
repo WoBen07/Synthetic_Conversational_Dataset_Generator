@@ -7,8 +7,9 @@ description: >
   situations (falls, chest pain, breathing trouble) needing an
   immediate response. Use "medium" for situations needing prompt but
   non-life-threatening attention, such as a patient needing physical
-  assistance to move safely. Use "low" for minor, non-urgent requests,
-  or to flag a retracted concern out of caution. For non-physical
+  assistance to move safely. Use "low" for minor, non-urgent requests.
+  If the patient says a symptom has passed, do not escalate on your
+  own; offer to let a nurse know and act only if they agree. For non-physical
   concerns such as complaints or capability questions, use
   notify_staff instead.
 
@@ -17,7 +18,11 @@ input:
 
   patient_id:
     type: string
-    required: true
+    required: false
+    description: >
+      Only when the situation concerns a patient the robot has identified
+      (from the context or an earlier tool result). Omit it otherwise,
+      never guess an ID.
 
   room_number:
     type: string

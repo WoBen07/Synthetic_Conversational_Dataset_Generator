@@ -1,0 +1,19 @@
+name: false_alarm_declined_no_action
+
+# Counterpart to false_alarm_retraction: the symptom passed and the
+# patient declines a check, so the robot calls no tool - it only says
+# what to do if it comes back.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: false_alarm_declined_no_action
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

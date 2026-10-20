@@ -12,11 +12,19 @@ input:
 
   patient_id:
     type: string
-    required: true
+    required: false
+    description: >
+      Only when the request concerns a patient the robot has identified
+      (from the context or an earlier tool result). Omit it otherwise,
+      never guess an ID.
 
   reason:
     type: string
     required: true
+    description: >
+      A short summary of the request for staff, written by the robot
+      (e.g. "Patient asks for help opening a water bottle."). Only facts
+      from the conversation; never a copy of the user's words.
 
 
 output:

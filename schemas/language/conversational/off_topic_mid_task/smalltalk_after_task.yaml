@@ -11,11 +11,11 @@ variables:
     - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} appointment coming up on {{appointment.day}}."
 
   reminder_message:
-    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder: you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
-    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "Don't forget your {{appointment.appointment_type}} on {{appointment.day}}."
     - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
-    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Heads up — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
     - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."

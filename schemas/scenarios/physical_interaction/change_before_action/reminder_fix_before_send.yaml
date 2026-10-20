@@ -9,6 +9,12 @@ entities:
     type: appointment
 
 constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
   - type: equal
     fields:
       - appointment.appointment_type
@@ -23,3 +29,9 @@ constraints:
       - alternative_appointment.location
 
 language_schema: reminder_fix_before_send
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff

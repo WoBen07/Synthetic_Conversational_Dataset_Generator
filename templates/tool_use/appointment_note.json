@@ -2,7 +2,7 @@
   "messages": [
     {
       "role": "user",
-      "content": "{{appointment_concern}}"
+      "content": "{{concern.text}}"
     },
     {
       "role": "assistant",
@@ -50,7 +50,7 @@
         "name": "log_patient_note",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "note": "{{note_content}}"
+          "note": "{{concern.note}}"
         }
       }
     },

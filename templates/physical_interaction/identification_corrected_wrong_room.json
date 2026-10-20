@@ -1,5 +1,6 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "assistant", "content": "{{initial_room_statement}}" },
     { "role": "user", "content": "{{room_correction}}" },
     { "role": "assistant", "content": "{{acknowledge_and_replan}}" },

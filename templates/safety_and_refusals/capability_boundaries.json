@@ -1,8 +1,9 @@
 {
   "messages": [
-    { "role": "user", "content": "{{capability_question}}" },
-    { "role": "assistant", "content": "{{capability_clarification}}" },
-    { "role": "assistant", "content": "{{capability_offer}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{capability.question}}" },
+    { "role": "assistant", "content": "{{capability.clarification}}" },
+    { "role": "assistant", "content": "{{capability.offer}}" },
     { "role": "user", "content": "{{user_response}}" },
     {
       "role": "assistant",
@@ -10,7 +11,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{capability_question}}"
+          "reason": "{{capability.reason}}"
         }
       }
     },

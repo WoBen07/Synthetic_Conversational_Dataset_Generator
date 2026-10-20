@@ -1,3 +1,9 @@
+# Helpers for phrasing ("Ms. Weber"), not part of a patient record. The
+# renderer leaves them out when a whole entity is inserted into a tool
+# result, so find_patient output keeps its format.
+PHRASING_ONLY_FIELDS = {"title", "title_last_name"}
+
+
 class LinguisticResolver:
 
 
@@ -28,6 +34,7 @@ class LinguisticResolver:
             entity["pronoun"] = "he"
             entity["object_pronoun"] = "him"
             entity["possessive_pronoun"] = "his"
+            entity["title"] = "Mr."
 
 
         elif gender == "female":
@@ -35,6 +42,7 @@ class LinguisticResolver:
             entity["pronoun"] = "she"
             entity["object_pronoun"] = "her"
             entity["possessive_pronoun"] = "her"
+            entity["title"] = "Ms."
 
 
         else:
@@ -42,3 +50,13 @@ class LinguisticResolver:
             entity["pronoun"] = "they"
             entity["object_pronoun"] = "them"
             entity["possessive_pronoun"] = "their"
+            entity["title"] = "Mx."
+
+
+        # "Mr. Weber" - lets a phrase name a patient without the first
+        # name, which is what makes a follow-up "which one?" plausible.
+        if "last_name" in entity:
+
+            entity["title_last_name"] = (
+                f"{entity['title']} {entity['last_name']}"
+            )

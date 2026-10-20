@@ -17,20 +17,20 @@ variables:
     - "Hello {{patient.first_name}}, one second, I want to be certain before I go on."
 
   correction_statement:
-    - "Thanks for waiting — to confirm, your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Thanks for waiting — to confirm, your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Okay, I've checked — your appointment is a {{appointment.appointment_type}} on {{appointment.day}}, in {{appointment.location}}."
-    - "Sorry about the pause — I can now confirm your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Sorry about the pause — I can now confirm your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Alright, that's confirmed now: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Good, I've double-checked — your appointment is on {{appointment.day}} at {{appointment.location}}."
-    - "Thanks for your patience — your {{appointment.appointment_type}} appointment is confirmed for {{appointment.day}} at {{appointment.location}}."
-    - "Okay, that's verified now. {{appointment.day}}, {{appointment.location}}, {{appointment.appointment_type}} appointment."
+    - "Thanks for your patience — your {{appointment.appointment_type}} is confirmed for {{appointment.day}} at {{appointment.location}}."
+    - "Okay, that's verified now. {{appointment.day}}, {{appointment.location}}, {{appointment.appointment_type}}."
     - "I've confirmed it now — your appointment is on {{appointment.day}} at {{appointment.location}}."
-    - "Okay, now I can confirm: your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Okay, now I can confirm: your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Thanks for bearing with me — it's a {{appointment.appointment_type}} on {{appointment.day}}, at {{appointment.location}}."
     - "Alright, I've got it right now: {{appointment.day}} at {{appointment.location}} for your {{appointment.appointment_type}}."
     - "Good news, that's confirmed — {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Now I'm sure — your appointment is on {{appointment.day}} at {{appointment.location}}."
-    - "Okay, verified: {{appointment.appointment_type}} appointment, {{appointment.day}}, {{appointment.location}}."
+    - "Okay, verified: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}."
 
   user_acknowledgment:
     - "Oh, no worries, thanks for double-checking!"

@@ -1,6 +1,9 @@
 {
   "messages": [
-    { "role": "user", "content": "{{task_request}}" },
+    {
+      "role": "user",
+      "content": "{{task_request}}"
+    },
     {
       "role": "assistant",
       "tool_call": {
@@ -41,8 +44,18 @@
         }
       }
     },
-    { "role": "user", "content": "{{offtopic_question}}" },
-    { "role": "assistant", "content": "{{offtopic_reply_bridge}}" },
+    {
+      "role": "assistant",
+      "content": "{{progress_update}}"
+    },
+    {
+      "role": "user",
+      "content": "{{offtopic_question}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{offtopic_reply_bridge}}"
+    },
     {
       "role": "assistant",
       "tool_call": {
@@ -60,6 +73,9 @@
         "status": "success"
       }
     },
-    { "role": "assistant", "content": "{{task_confirmation}}" }
+    {
+      "role": "assistant",
+      "content": "{{task_confirmation}}"
+    }
   ]
 }

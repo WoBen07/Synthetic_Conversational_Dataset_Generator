@@ -23,3 +23,9 @@ constraints:
       - alternative_appointment.day
 
 language_schema: time_change_before_reminder
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff

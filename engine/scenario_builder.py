@@ -3,6 +3,8 @@ from synthetic_data_generator.engine.entity import EntityBuilder
 from synthetic_data_generator.engine.constraint_resolver import ConstraintResolver
 from synthetic_data_generator.engine.entity_refresh import EntityRefresher
 from synthetic_data_generator.engine.linguistic_resolver import LinguisticResolver
+from synthetic_data_generator.engine.robot_context import build_robot_context
+from synthetic_data_generator.generators.appointments import weekday
 
 
 
@@ -29,6 +31,11 @@ class ScenarioBuilder:
     def generate(self):
 
         context = {}
+
+        # The current weekday. Scenarios whose phrases say "today" tie
+        # an appointment to it with an equal constraint
+        # ([today, appointment.day]); robot_context states it.
+        context["today"] = weekday()
 
         #
         # Generate all entities
@@ -73,9 +80,25 @@ class ScenarioBuilder:
             context
         )
 
+        # Refreshing can redraw a location, so check the "different"
+        # constraints once more.
+        self.constraint_resolver.check_different(
+            context,
+            constraints
+        )
+
         context = self.linguistic_resolver.resolve(
             context
         )
+
+        robot_context = self.scenario.get("robot_context")
+
+        if robot_context is not None:
+
+            context["robot_context"] = build_robot_context(
+                context,
+                robot_context
+            )
 
 
         return context

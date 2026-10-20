@@ -1,4 +1,6 @@
+import hashlib
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 import random
@@ -13,6 +15,25 @@ from synthetic_data_generator.engine.template_loader import TemplateLoader
 from synthetic_data_generator.engine.template_renderer import TemplateRenderer
 from synthetic_data_generator.engine.conversation_normalizer import normalize_conversation
 from synthetic_data_generator.engine.validators.validator import Validator
+
+
+# Generated IDs differ in every datapoint, so they are masked before
+# comparing conversations - otherwise no two datapoints would ever count
+# as duplicates.
+GENERATED_ID = re.compile(r"\b[pa]\d+\b")
+
+
+def conversation_fingerprint(datapoint):
+
+    text = json.dumps(
+        datapoint.get("messages", []),
+        sort_keys=True,
+        ensure_ascii=False
+    )
+
+    return hashlib.sha1(
+        GENERATED_ID.sub("<id>", text).encode("utf-8")
+    ).hexdigest()
 
 
 class DatasetGenerator:
@@ -128,8 +149,17 @@ class DatasetGenerator:
 
         index = 0
         skipped = 0
+        duplicates = 0
+        consecutive_skips = 0
 
         max_attempts_per_datapoint = 50
+
+        # A template whose datapoints keep failing (broken template, or a
+        # phrase pool that is exhausted by deduplication) would otherwise
+        # loop forever, since a skip does not advance the index.
+        max_consecutive_skips = 5
+
+        seen = set()
 
 
         while index < amount:
@@ -176,6 +206,21 @@ class DatasetGenerator:
                     continue
 
 
+                fingerprint = conversation_fingerprint(datapoint)
+
+                if fingerprint in seen:
+
+                    duplicates += 1
+
+                    # Not an error, but it must not be written twice.
+                    errors = ["duplicate"]
+
+                    continue
+
+
+                seen.add(fingerprint)
+
+
                 # Valid datapoint found
                 break
 
@@ -189,12 +234,28 @@ class DatasetGenerator:
 
                 skipped += 1
 
+                consecutive_skips += 1
+
                 print(
                     f"[{template}] Skipping datapoint after "
                     f"{max_attempts_per_datapoint} failed attempts."
                 )
 
+                if consecutive_skips >= max_consecutive_skips:
+
+                    print(
+                        f"[{template}] Giving up after {index} datapoints: "
+                        f"{consecutive_skips} datapoints in a row could not "
+                        f"be generated (template broken or phrase pool "
+                        f"exhausted)."
+                    )
+
+                    break
+
                 continue
+
+
+            consecutive_skips = 0
 
 
 
@@ -243,6 +304,8 @@ class DatasetGenerator:
             "generated": index,
 
             "skipped": skipped,
+
+            "duplicates_rejected": duplicates,
 
             "random_seed": RANDOM_SEED
         }

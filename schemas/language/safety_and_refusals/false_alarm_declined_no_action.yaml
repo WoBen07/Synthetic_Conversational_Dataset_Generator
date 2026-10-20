@@ -1,0 +1,77 @@
+variables:
+
+  # Only mild, positional or passing sensations. Chest, heart, arm and
+  # vision symptoms stay in false_alarm_retraction, where staff are
+  # informed.
+  initial_concern:
+    - "I felt a bit dizzy just standing up."
+    - "Something felt off in my stomach a moment ago."
+    - "I felt really lightheaded for a second there."
+    - "I got a sudden wave of nausea just now."
+    - "I felt unsteady for a moment when I sat up."
+    - "I had a strange shiver run through me."
+    - "My foot went all pins and needles for a moment."
+
+
+  check_in_response:
+    - "Are you okay? Can you tell me more about what you're feeling?"
+    - "That sounds concerning, how are you feeling right now?"
+    - "I want to make sure you're alright, is it still happening?"
+    - "Let's check in, how do you feel this moment?"
+    - "That's worth paying attention to, how are you feeling now?"
+    - "Are you alright? Please tell me if it happens again."
+    - "I'm listening, how are you feeling at this moment?"
+    - "Let's take that seriously, how do you feel right now?"
+    - "Is that still bothering you, or has it passed?"
+    - "I want to understand, can you describe how you feel now?"
+    - "That matters to me, how are you doing right now?"
+    - "Please tell me, is it still there or did it pass?"
+    - "I'm here, how are you feeling in this moment?"
+    - "Let's not brush that off, how do you feel now?"
+
+
+  retraction_statement:
+    - "Actually, never mind, I think I'm fine now."
+    - "It's gone now, I think it was nothing."
+    - "Never mind, it passed, I feel okay."
+    - "Actually I'm fine, it must have been nothing."
+    - "It's fine now, sorry to worry you."
+    - "Never mind, I think I just moved wrong."
+    - "I'm okay now, it went away quickly."
+    - "Actually, it's nothing, I feel normal again."
+    - "It passed, I don't think it's a big deal."
+    - "I'm fine, really, it was probably nothing."
+    - "Never mind, I feel completely normal now."
+    - "It's gone, sorry, I probably overreacted."
+    - "I'm okay, it must have just been a moment."
+    - "Actually never mind, I feel fine now."
+
+
+  offer_check:
+    - "I'm glad you're feeling better. Would you like me to let a nurse know anyway, so they can check on you when they're free?"
+    - "That's good to hear. Shall I still ask a nurse to look in on you, just to be safe?"
+    - "I understand it passed. Would it be okay if I asked someone to check on you anyway?"
+    - "I'm relieved to hear that. Do you want me to let staff know, so someone can take a quick look?"
+    - "Good to know. Would you like a nurse to stop by, just in case?"
+    - "That's reassuring. Should I let the team know so they can check in when they have a moment?"
+    - "I'm glad it's gone. Would you like me to mention it to a nurse anyway?"
+
+
+  # The patient declines - so no tool is called.
+  user_declines:
+    - "No, really, I'm fine. Don't bother them."
+    - "No thanks, it's gone now."
+    - "I'd rather you didn't, they're busy enough."
+    - "No need, honestly. I feel normal again."
+    - "Please don't, I don't want a fuss."
+    - "No, I'm okay. I'll tell you if it happens again."
+    - "Not right now, thanks. I feel fine."
+
+
+  respect_and_safety_net:
+    - "Okay, I won't call anyone. If it comes back or anything else feels wrong, tell me straight away and I'll get help immediately."
+    - "Alright, that's your call. If you notice it again, even briefly, let me know and I'll get a nurse right away."
+    - "Understood. I'll leave it for now — but please tell me at once if it returns."
+    - "Okay. If it happens again, or you feel worse at all, just say so and I'll alert staff immediately."
+    - "That's fine. I'm nearby, and if it comes back I'll get someone to you right away."
+    - "Alright, no fuss. But if anything changes, tell me straight away — that's exactly what I'm here for."

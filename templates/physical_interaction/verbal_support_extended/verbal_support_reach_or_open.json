@@ -1,23 +1,26 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "user", "content": "{{reach_open_request}}" },
     {
       "role": "assistant",
       "content": "{{cant_do_but_can_notify}}",
       "tool_call": {
-        "name": "notify_staff",
+        "name": "alert_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{reach_open_request}}"
+          "room_number": "{{patient.room_number}}",
+          "urgency": "low"
         }
       }
     },
     {
       "role": "tool",
-      "name": "notify_staff",
-      "content": { "status": "notified" }
+      "name": "alert_staff",
+      "content": { "status": "notified", "eta": "within the hour" }
     },
+    { "role": "assistant", "content": "{{closing}}" },
     { "role": "user", "content": "{{user_response}}" },
-    { "role": "assistant", "content": "{{closing}}" }
+    { "role": "assistant", "content": "{{sign_off}}" }
   ]
 }

@@ -11,7 +11,7 @@ variables:
     - "Tell {{patient.first_name}} about {{patient.possessive_pronoun}} appointment"
     - "Go inform {{patient.last_name}} about {{appointment.appointment_type}}"
     - "Please notify {{patient.full_name}} that {{appointment.appointment_type}} is coming up"
-    - "Can you remind {{patient.first_name}} about {{appointment.appointment_type}} on {{appointment.day}}?"
+    - "Can you remind {{patient.first_name}} about the {{appointment.appointment_type}} on {{appointment.day}}?"
     - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} appointment"
     - "Go tell {{patient.full_name}} about {{appointment.appointment_type}} on {{appointment.day}}"
     - "Could you let {{patient.first_name}} know about {{patient.possessive_pronoun}} upcoming appointment?"

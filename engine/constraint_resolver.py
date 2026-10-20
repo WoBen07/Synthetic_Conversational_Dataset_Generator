@@ -29,6 +29,23 @@ class ConstraintResolver:
 
 
 
+    def check_different(
+        self,
+        context,
+        constraints
+    ):
+
+        for constraint in constraints:
+
+            if constraint["type"] == "different":
+
+                self._resolve_different(
+                    context,
+                    constraint["fields"]
+                )
+
+
+
     def _resolve_equal(
         self,
         context,

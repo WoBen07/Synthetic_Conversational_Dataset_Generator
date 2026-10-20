@@ -9,3 +9,18 @@ entities:
     type: appointment
 
 language_schema: appointment_reschedule_request
+
+
+constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py. The robot does
+# not know who it is talking to yet, so it asks for the name.
+robot_context:
+  speaker: unidentified

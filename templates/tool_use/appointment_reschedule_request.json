@@ -1,8 +1,9 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     {
       "role": "user",
-      "content": "{{cannot_attend_request}}"
+      "content": "{{cannot_attend.text}}"
     },
     {
       "role": "assistant",
@@ -58,7 +59,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{reschedule_reason}}"
+          "reason": "{{cannot_attend.reason}}"
         }
       }
     },

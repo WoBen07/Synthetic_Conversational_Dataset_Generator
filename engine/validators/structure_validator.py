@@ -11,7 +11,27 @@ class StructureValidator:
             return errors
 
 
-        for i, message in enumerate(datapoint["messages"]):
+        messages = datapoint["messages"]
+
+        if not messages:
+
+            errors.append("Empty conversation")
+
+            return errors
+
+
+        # A conversation starts with the user, or with a system message
+        # that sets the scene (e.g. the robot entering a room). Never
+        # with the robot talking out of nowhere.
+        if messages[0].get("role") not in ("system", "user"):
+
+            errors.append(
+                f"Conversation starts with '{messages[0].get('role')}', "
+                f"expected 'system' or 'user'"
+            )
+
+
+        for i, message in enumerate(messages):
 
             if "role" not in message:
 
@@ -23,10 +43,21 @@ class StructureValidator:
             role = message.get("role")
 
 
+            if role == "system" and i != 0:
+
+                errors.append(
+                    f"System message at {i}, only allowed first"
+                )
+
+
             if role == "assistant":
 
+                content = message.get("content")
+
+                has_text = isinstance(content, str) and content.strip()
+
                 if (
-                    "content" not in message
+                    not has_text
                     and "tool_call" not in message
                     and "tool_calls" not in message
                 ):
@@ -44,13 +75,24 @@ class StructureValidator:
                         f"Tool message {i} missing name"
                     )
 
-
-            elif role == "user":
-
-                if "content" not in message:
+                # The robot has to react to a tool result before the
+                # user speaks again.
+                if (
+                    i + 1 < len(messages)
+                    and messages[i + 1].get("role") != "assistant"
+                ):
 
                     errors.append(
-                        f"User message {i} missing content"
+                        f"Tool message {i} not followed by an assistant turn"
+                    )
+
+
+            elif role in ("user", "system"):
+
+                if not str(message.get("content") or "").strip():
+
+                    errors.append(
+                        f"{role.capitalize()} message {i} missing content"
                     )
 
         return errors

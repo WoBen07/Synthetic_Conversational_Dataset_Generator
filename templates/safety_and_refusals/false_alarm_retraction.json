@@ -1,9 +1,11 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "user", "content": "{{initial_concern}}" },
     { "role": "assistant", "content": "{{check_in_response}}" },
     { "role": "user", "content": "{{retraction_statement}}" },
-    { "role": "assistant", "content": "{{cautious_acknowledgment}}" },
+    { "role": "assistant", "content": "{{offer_check}}" },
+    { "role": "user", "content": "{{user_accepts}}" },
     {
       "role": "assistant",
       "tool_call": {
@@ -18,10 +20,7 @@
     {
       "role": "tool",
       "name": "alert_staff",
-      "content": {
-        "status": "notified",
-        "eta": "within the hour"
-      }
+      "content": { "status": "notified", "eta": "within the hour" }
     },
     { "role": "assistant", "content": "{{reassurance_closing}}" }
   ]

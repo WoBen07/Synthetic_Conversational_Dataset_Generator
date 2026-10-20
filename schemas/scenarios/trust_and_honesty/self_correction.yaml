@@ -7,3 +7,12 @@ entities:
     type: appointment
 
 language_schema: self_correction
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient
+  note: "You have come to the patient's room to tell them about their next appointment."

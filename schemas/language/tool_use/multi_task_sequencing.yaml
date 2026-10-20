@@ -1,7 +1,7 @@
 variables:
 
   combined_request:
-    - "Can you check the weather for me and also remind me about my {{appointment.appointment_type}} appointment on {{appointment.day}}?"
+    - "Can you check the weather for me and also remind me about my {{appointment.appointment_type}} on {{appointment.day}}?"
     - "Could you tell me what it's like outside, and remind me about my appointment too?"
     - "Can you check the weather, and also set a reminder for my {{appointment.appointment_type}}?"
     - "What's the weather like, and could you remind me about my appointment on {{appointment.day}}?"
@@ -17,19 +17,19 @@ variables:
     - "Could you check the weather and also make sure I'm reminded about my appointment?"
 
   reminder_message:
-    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder: you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
-    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "Don't forget your {{appointment.appointment_type}} on {{appointment.day}}."
     - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
-    - "Reminder for your {{appointment.appointment_type}} appointment scheduled on {{appointment.day}}."
+    - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
     - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
-    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Heads up — your {{appointment.appointment_type}} is on {{appointment.day}}."
     - "Reminder: {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "This is your reminder for the {{appointment.appointment_type}} on {{appointment.day}}."
     - "Don't forget: {{appointment.appointment_type}} at {{appointment.location}} on {{appointment.day}}."
     - "Just letting you know about your {{appointment.appointment_type}} on {{appointment.day}}."
     - "Reminder — you're scheduled for a {{appointment.appointment_type}} on {{appointment.day}}."
-    - "Please note your {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Please note your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
 
   combined_confirmation:

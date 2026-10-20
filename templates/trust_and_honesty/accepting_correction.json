@@ -1,5 +1,6 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "assistant", "content": "{{initial_statement}}" },
     { "role": "user", "content": "{{user_correction}}" },
     { "role": "assistant", "content": "{{verification_response}}" },

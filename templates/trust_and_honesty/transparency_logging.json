@@ -1,6 +1,7 @@
 {
   "messages": [
-    { "role": "user", "content": "{{patient_mentions_something}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{mention.text}}" },
     { "role": "assistant", "content": "{{proactive_disclosure}}" },
     { "role": "user", "content": "{{user_acknowledgment}}" },
     {
@@ -9,7 +10,7 @@
         "name": "log_patient_note",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "note": "{{patient_mentions_something}}"
+          "note": "{{mention.note}}"
         }
       }
     },

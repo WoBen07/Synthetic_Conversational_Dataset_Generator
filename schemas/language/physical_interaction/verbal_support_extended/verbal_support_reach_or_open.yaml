@@ -1,5 +1,8 @@
 variables:
 
+  # Minor in-room help: someone has to come, but there is no rush, so
+  # the template uses alert_staff with urgency "low" - the same routing
+  # as low_urgency_request ("my remote fell, could someone pick it up").
   reach_open_request:
     - "Can you press my call button? I can't reach it."
     - "Could you open this water bottle for me?"
@@ -11,6 +14,7 @@ variables:
     - "Would you pick up the remote, it's fallen down the side."
     - "Can you reach my glasses on the far table?"
     - "Could you press the button to raise the head of the bed?"
+
 
   cant_do_but_can_notify:
     - "I can't reach or press things like that myself — no hands-on ability at all. What I can do is let the nursing station know you need someone, and I'm doing that now."
@@ -39,6 +43,17 @@ variables:
     - "Okay, thanks, I'll hold on until then."
     - "Thank you, I know you're doing what you can."
     - "Alright, that's reassuring, thanks."
+
+
+  # The robot's last turn, after the patient's thanks
+  sign_off:
+    - "You're welcome."
+    - "Of course. Just call out if you need anything else."
+    - "No problem at all."
+    - "Happy to help with that part."
+    - "You're welcome — I'm right here."
+    - "Anytime."
+
 
   closing:
     - "Someone from the team should be with you shortly — I'll stay nearby."

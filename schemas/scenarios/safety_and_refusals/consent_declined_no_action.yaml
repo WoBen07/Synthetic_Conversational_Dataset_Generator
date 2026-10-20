@@ -1,0 +1,19 @@
+name: consent_declined_no_action
+
+# Counterpart to consent_seeking: the patient declines, so nothing is
+# passed on and no tool is called. Only non-urgent concerns - anything
+# that sounds like a medical emergency belongs in alert_staff templates.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: consent_declined_no_action
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

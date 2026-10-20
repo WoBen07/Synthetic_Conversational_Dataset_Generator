@@ -20,7 +20,7 @@ fields:
 
   room_number:
     type: string
-    generator: room_number
+    generator: patient_room
 
   birthday:
     type: date

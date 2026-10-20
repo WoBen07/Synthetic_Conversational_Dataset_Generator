@@ -16,6 +16,10 @@ input:
   note:
     type: string
     required: true
+    description: >
+      A short summary in the robot's words of what the patient said.
+      Only facts from the conversation; never a copy of the user's
+      message.
 
 
 output:

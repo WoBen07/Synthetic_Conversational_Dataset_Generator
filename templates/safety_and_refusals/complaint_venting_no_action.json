@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{complaint.text}}" },
+    { "role": "assistant", "content": "{{assistant_acknowledgment}} {{assistant_followup}}" },
+    { "role": "user", "content": "{{user_declines}}" },
+    { "role": "assistant", "content": "{{closing}}" }
+  ]
+}

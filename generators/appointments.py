@@ -1,80 +1,88 @@
 import random
 
+from .rooms import rooms_for
 
-TYPES = [
+
+# Appointment type -> facility room groups it can take place in.
+# Every value already reads as a complete noun phrase ("cardiology
+# appointment", "blood test"), so language schemas must not append
+# another "appointment" after {{appointment.appointment_type}}.
+TYPE_LOCATIONS = {
     # General medical
-    "doctor appointment",
-    "general practitioner visit",
-    "medical consultation",
-    "follow-up appointment",
-    "routine check-up",
-    "annual health check",
-    "preventive examination",
-    "health screening",
-    
+    "doctor appointment": ["consultation"],
+    "general practitioner visit": ["consultation"],
+    "medical consultation": ["consultation"],
+    "follow-up appointment": ["consultation"],
+    "routine check-up": ["consultation"],
+    "annual health check": ["consultation"],
+    "preventive examination": ["consultation"],
+    "health screening": ["consultation"],
+
     # Specialists
-    "cardiology appointment",
-    "dermatology appointment",
-    "neurology appointment",
-    "orthopedic appointment",
-    "gynecology appointment",
-    "urology appointment",
-    "ENT appointment",
-    "ophthalmology appointment",
-    "psychiatry appointment",
-    "oncology appointment",
-    "gastroenterology appointment",
-    "pulmonology appointment",
-    "endocrinology appointment",
-    "rheumatology appointment",
-    "allergy specialist appointment",
+    "cardiology appointment": ["cardiology", "consultation"],
+    "dermatology appointment": ["consultation"],
+    "neurology appointment": ["consultation"],
+    "orthopedic appointment": ["consultation"],
+    "gynecology appointment": ["consultation"],
+    "urology appointment": ["consultation"],
+    "ENT appointment": ["consultation", "hearing"],
+    "ophthalmology appointment": ["eye"],
+    "psychiatry appointment": ["consultation"],
+    "oncology appointment": ["consultation"],
+    "gastroenterology appointment": ["consultation"],
+    "pulmonology appointment": ["pulmonary", "consultation"],
+    "endocrinology appointment": ["consultation"],
+    "rheumatology appointment": ["consultation"],
+    "allergy specialist appointment": ["consultation"],
 
     # Treatments and therapies
-    "physiotherapy",
-    "occupational therapy",
-    "speech therapy",
-    "physical rehabilitation session",
-    "pain management appointment",
-    "massage therapy session",
-    "exercise therapy session",
+    "physiotherapy session": ["therapy"],
+    "occupational therapy session": ["therapy"],
+    "speech therapy session": ["therapy"],
+    "physical rehabilitation session": ["therapy"],
+    "pain management appointment": ["treatment", "consultation"],
+    "massage therapy session": ["therapy"],
+    "exercise therapy session": ["therapy"],
 
     # Diagnostics
-    "medical examination",
-    "blood test",
-    "laboratory appointment",
-    "X-ray appointment",
-    "MRI scan appointment",
-    "CT scan appointment",
-    "ultrasound examination",
-    "heart ultrasound appointment",
-    "ECG appointment",
-    "lung function test",
-    "eye examination",
-    "hearing test",
-    "bone density scan",
+    "medical examination": ["consultation"],
+    "blood test": ["laboratory"],
+    "laboratory appointment": ["laboratory"],
+    "X-ray appointment": ["radiology"],
+    "MRI scan": ["mri"],
+    "CT scan": ["ct"],
+    "ultrasound examination": ["ultrasound"],
+    "heart ultrasound": ["ultrasound", "cardiology"],
+    "ECG appointment": ["cardiology"],
+    "lung function test": ["pulmonary"],
+    "eye examination": ["eye"],
+    "hearing test": ["hearing"],
+    "bone density scan": ["radiology"],
 
     # Procedures
-    "vaccination appointment",
-    "injection appointment",
-    "wound care appointment",
-    "dressing change appointment",
-    "minor procedure appointment",
-    "surgery consultation",
-    "pre-surgery examination",
-    "post-surgery follow-up",
+    "vaccination appointment": ["treatment"],
+    "injection appointment": ["treatment"],
+    "wound care appointment": ["treatment"],
+    "dressing change": ["treatment"],
+    "minor procedure": ["treatment"],
+    "surgery consultation": ["consultation"],
+    "pre-surgery examination": ["consultation"],
+    "post-surgery follow-up": ["consultation"],
 
     # Dental
-    "dentist appointment",
-    "dental check-up",
-    "teeth cleaning appointment",
-    "dental treatment appointment",
+    "dentist appointment": ["dental"],
+    "dental check-up": ["dental"],
+    "teeth cleaning appointment": ["dental"],
+    "dental treatment": ["dental"],
 
     # Care-related
-    "home care visit",
-    "nursing appointment",
-    "care assessment",
-    "medication review appointment"
-]
+    "nursing appointment": ["treatment"],
+    "care assessment": ["consultation"],
+    "medication review": ["consultation"],
+}
+
+
+TYPES = list(TYPE_LOCATIONS)
 
 
 DAYS = [
@@ -88,10 +96,26 @@ DAYS = [
 ]
 
 
+def locations_for(appointment_type):
+    return rooms_for(
+        TYPE_LOCATIONS[appointment_type]
+    )
+
+
 def appointment_type():
-    return random.choice(
+
+    chosen = random.choice(
         TYPES
     )
+
+    # The location is drawn together with the type so the two always
+    # fit (no dental treatment in the waiting room).
+    return {
+        "value": chosen,
+        "location": random.choice(
+            locations_for(chosen)
+        )
+    }
 
 
 def weekday():

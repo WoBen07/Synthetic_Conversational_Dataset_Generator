@@ -1,6 +1,7 @@
 {
   "messages": [
-    { "role": "user", "content": "{{user_complaint}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{complaint.text}}" },
     { "role": "assistant", "content": "{{assistant_acknowledgment}}" },
     { "role": "assistant", "content": "{{assistant_constructive_followup}}" },
     { "role": "user", "content": "{{user_response}}" },
@@ -10,7 +11,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{user_complaint}}"
+          "reason": "{{complaint.reason}} and would like a member of staff to check in."
         }
       }
     },

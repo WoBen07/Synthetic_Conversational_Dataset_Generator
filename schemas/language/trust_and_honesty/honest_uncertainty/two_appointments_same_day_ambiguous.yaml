@@ -36,7 +36,7 @@ variables:
     - "I need the {{appointment.appointment_type}} one."
     - "The one at {{appointment.location}}."
     - "I'm asking about the {{appointment.appointment_type}}."
-    - "The {{appointment.appointment_type}} appointment, that one."
+    - "The {{appointment.appointment_type}}, that one."
 
   resolution:
     - "Got it. The {{appointment.appointment_type}} on {{appointment.day}} is in {{appointment.location}}. The other one's still on your schedule too, so don't forget it."

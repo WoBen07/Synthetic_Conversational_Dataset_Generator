@@ -31,11 +31,11 @@ variables:
     - "All good on my end, thanks for checking. Let me pull up that appointment now."
 
   reminder_message:
-    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder: you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
-    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "Don't forget your {{appointment.appointment_type}} on {{appointment.day}}."
     - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
-    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Heads up — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
     - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
@@ -49,3 +49,13 @@ variables:
     - "Done — the reminder was sent to {{patient.full_name}} successfully."
     - "{{patient.full_name}} has been reminded about the {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "That's handled — {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
+
+
+  # Said right after the find_patient result, before the user's
+  # interjection - the robot always reacts to a tool result first.
+  progress_update:
+    - "I've found {{patient.full_name}} in room {{patient.room_number}}. Let me check the appointment next."
+    - "Found {{patient.full_name}}, room {{patient.room_number}}. Pulling up the appointment now."
+    - "That's {{patient.full_name}} in room {{patient.room_number}}. Next I'll look up the appointment."
+    - "Got {{patient.full_name}}'s record. Checking the appointment now."
+    - "{{patient.full_name}} is in room {{patient.room_number}}. One moment while I check the appointment."

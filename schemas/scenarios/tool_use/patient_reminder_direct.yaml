@@ -1,0 +1,49 @@
+scenario: patient_reminder_direct
+
+
+entities:
+
+  target_patient:
+    type: patient
+
+  alternative_patient:
+    type: patient
+
+  appointment:
+    type: appointment
+
+
+aliases:
+
+  patient: target_patient
+
+
+constraints:
+
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
+  - type: equal
+    fields:
+      - target_patient.last_name
+      - alternative_patient.last_name
+
+
+  - type: different
+    fields:
+      - target_patient.patient_id
+      - alternative_patient.patient_id
+
+  - type: different
+    fields:
+      - target_patient.first_name
+      - alternative_patient.first_name
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff

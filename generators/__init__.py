@@ -16,6 +16,8 @@ REGISTRY = {
     "appointment_id": appointment_id,
 
     "room_number": room_number,
+    "patient_room": patient_room,
+    "facility_room": facility_room,
 
     "appointment_type": appointment_type,
     "weekday": weekday,

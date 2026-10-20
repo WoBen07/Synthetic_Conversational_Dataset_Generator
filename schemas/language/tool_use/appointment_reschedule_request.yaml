@@ -1,21 +1,41 @@
 variables:
 
-  cannot_attend_request:
-    - "I don't think I can make my appointment, can you let someone know?"
-    - "I'm not feeling well enough to go to my appointment. Can you tell staff?"
-    - "Something came up and I won't be able to make my appointment. Can you pass that along?"
-    - "Can you let staff know I need to reschedule my appointment?"
-    - "I need to cancel my appointment, could you notify someone?"
-    - "I don't think I'll make it to my appointment today, can you flag that?"
-    - "Could you tell the staff I have to reschedule my appointment?"
-    - "I'm going to miss my appointment, can you let them know?"
-    - "Can you inform staff that I won't be able to attend my appointment?"
-    - "I need to skip my appointment today. Could you let someone know?"
-    - "Something's come up, so I can't make it to my appointment. Can you notify staff?"
-    - "Can you pass along that I need to reschedule my appointment, please?"
-    - "I'm unable to attend my appointment. Could you let staff know for me?"
-    - "Please let staff know I won't be at my appointment today."
-    - "I don't feel up to going to my appointment, can you tell someone?"
+  # The reason passed to staff must only contain what the patient said:
+  # "something came up" must not become "not feeling well".
+  # The reason passed to staff only says what the patient said:
+  # "something came up" must not turn into "not feeling well".
+  cannot_attend:
+    - text: "I don't think I can make my appointment, can you let someone know?"
+      reason: "{{patient.full_name}} does not think they can make the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I'm not feeling well enough to go to my appointment. Can you tell staff?"
+      reason: "{{patient.full_name}} is not feeling well enough to attend the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "Something came up and I won't be able to make my appointment. Can you pass that along?"
+      reason: "{{patient.full_name}} cannot attend the {{appointment.appointment_type}} on {{appointment.day}} because something came up."
+    - text: "Can you let staff know I need to reschedule my appointment?"
+      reason: "{{patient.full_name}} needs to reschedule the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I need to cancel my appointment, could you notify someone?"
+      reason: "{{patient.full_name}} wants to cancel the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I don't think I'll make it to my appointment today, can you flag that?"
+      reason: "{{patient.full_name}} does not expect to make it to the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "Could you tell the staff I have to reschedule my appointment?"
+      reason: "{{patient.full_name}} has to reschedule the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I'm going to miss my appointment, can you let them know?"
+      reason: "{{patient.full_name}} is going to miss the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "Can you inform staff that I won't be able to attend my appointment?"
+      reason: "{{patient.full_name}} will not be able to attend the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I need to skip my appointment today. Could you let someone know?"
+      reason: "{{patient.full_name}} needs to skip the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "Something's come up, so I can't make it to my appointment. Can you notify staff?"
+      reason: "{{patient.full_name}} cannot make it to the {{appointment.appointment_type}} on {{appointment.day}} because something has come up."
+    - text: "Can you pass along that I need to reschedule my appointment, please?"
+      reason: "{{patient.full_name}} needs to reschedule the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I'm unable to attend my appointment. Could you let staff know for me?"
+      reason: "{{patient.full_name}} is unable to attend the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "Please let staff know I won't be at my appointment today."
+      reason: "{{patient.full_name}} will not be at the {{appointment.appointment_type}} on {{appointment.day}}."
+    - text: "I don't feel up to going to my appointment, can you tell someone?"
+      reason: "{{patient.full_name}} does not feel up to going to the {{appointment.appointment_type}} on {{appointment.day}}."
+
 
   name_request:
     - "Of course. Could you tell me your name so I can look into this?"
@@ -38,13 +58,8 @@ variables:
     - "That would be {{patient.full_name}}."
     - "{{patient.full_name}}, that's me."
 
-  reschedule_reason:
-    - "Patient {{patient.full_name}} is unable to attend the {{appointment.appointment_type}} scheduled for {{appointment.day}} and needs to reschedule."
-    - "{{patient.full_name}} will miss the {{appointment.appointment_type}} on {{appointment.day}} and has requested a reschedule."
-    - "{{patient.full_name}} cannot make the {{appointment.appointment_type}} on {{appointment.day}}; please arrange a new time."
-    - "Please note that {{patient.full_name}} needs to cancel or reschedule the {{appointment.appointment_type}} on {{appointment.day}}."
-    - "{{patient.full_name}} is not feeling well enough to attend the {{appointment.appointment_type}} on {{appointment.day}}."
-
+  # Completed by cannot_attend.reason ("needs to reschedule", "cannot
+  # attend because something came up", ...).
   reschedule_confirmation:
     - "I've let staff know that you won't be able to make your {{appointment.appointment_type}} on {{appointment.day}}. They'll follow up about rescheduling."
     - "Staff has been notified about your {{appointment.appointment_type}} on {{appointment.day}}. Someone will reach out to reschedule."

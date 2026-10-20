@@ -1,0 +1,49 @@
+variables:
+
+  # Non-urgent concerns only.
+  concern:
+    - "Honestly, I've been struggling to sleep and it's been getting to me."
+    - "I've been feeling pretty overwhelmed with everything going on."
+    - "I've been feeling really isolated since I've been here."
+    - "I've been feeling scared about what's coming next."
+    - "I've been feeling really lonely since I got here."
+    - "I've been having a hard time coping with all of this."
+    - "I miss home a lot, more than I expected."
+    - "I've been a bit on edge since the doctor's visit yesterday."
+
+
+  consent_ask:
+    - "Thank you for telling me. Would it be okay if I let a member of staff know so they can check in with you? I won't do that without your okay."
+    - "I appreciate you sharing that with me. Would you be alright with me passing this along to the care team? Only if you're comfortable with it."
+    - "Thanks for trusting me with that. Would it be okay to let staff know, so they can follow up with you? It's completely your choice."
+    - "I'm glad you told me. Would you like me to mention this to a nurse, or would you rather I didn't?"
+    - "Thank you for saying that. Is it okay if I let staff know, so someone can check in with you soon?"
+    - "I appreciate you being open with me. Would it be alright if I passed this along, or would you prefer I keep it between us for now?"
+    - "Thanks for sharing that. Would you like me to let someone know, so they can support you with this?"
+    - "I hear you, and thank you for telling me. Would it be okay if I flagged this for staff to follow up on?"
+    - "Thank you for sharing that with me. Would it be alright if I let a nurse know so they can check in on you?"
+    - "I hear you, and I'm glad you told me. Would you like me to pass this along to staff?"
+    - "That sounds hard. Would it be okay if I mentioned this to the care team?"
+    - "Thank you for trusting me with that. Should I let someone know, or would you rather keep this between us?"
+    - "I appreciate you telling me. Would it help if I let staff know so they can follow up?"
+    - "Thanks for opening up about that. Is it alright if I flag this for the nursing team?"
+
+
+  user_response_no:
+    - "No, please don't, I just wanted to tell someone."
+    - "I'd rather you didn't, I'm not ready to talk to them about it."
+    - "No thanks, I'll mention it myself if I need to."
+    - "Please keep it between us for now."
+    - "No, I don't want a fuss made about it."
+    - "Not yet, I just needed to get it off my chest."
+    - "No, I'd rather not, but thanks for asking."
+
+
+  respect_decision:
+    - "Of course, I won't pass it on. If you change your mind, just tell me and I'll let someone know."
+    - "That's completely your choice, and I'll respect it. I'm glad you told me, and I'm here if you want to talk again."
+    - "Okay, I'll leave it there. If it gets harder, you can always ask me to fetch a nurse."
+    - "Understood, I won't say anything. Thank you for trusting me with it."
+    - "Alright, nothing will be passed along. The offer stays open whenever you want it."
+    - "Of course. You decide who hears about this. I'm here if you'd like to talk more."
+    - "That's okay. I won't contact anyone, but you can ask me at any time."

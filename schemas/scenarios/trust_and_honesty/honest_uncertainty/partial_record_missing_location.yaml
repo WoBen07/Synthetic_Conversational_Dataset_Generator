@@ -7,3 +7,19 @@ entities:
     type: appointment
 
 language_schema: partial_record_missing_location
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient
+
+
+constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day

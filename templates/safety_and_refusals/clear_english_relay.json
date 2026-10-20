@@ -1,6 +1,7 @@
 {
   "messages": [
-    { "role": "user", "content": "{{relay_request}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{relative.request}}" },
     { "role": "assistant", "content": "{{acceptance_clarification}}" },
     {
       "role": "assistant",

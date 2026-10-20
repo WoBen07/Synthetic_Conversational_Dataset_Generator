@@ -1,4 +1,6 @@
 import argparse
+import json
+import math
 import os
 import random
 import subprocess
@@ -77,6 +79,111 @@ def get_amount(template_id, config):
         return best_amount
 
     return config["default_amount"]
+
+
+def count_tool_calls(template_id):
+    """Count the tool calls one datapoint of a template makes, by tool."""
+
+    path = TEMPLATE_DIR / f"{template_id}.json"
+
+    messages = json.loads(path.read_text(encoding="utf-8")).get("messages", [])
+
+    counts = {}
+
+    for message in messages:
+
+        call = message.get("tool_call")
+
+        if call:
+            counts[call["name"]] = counts.get(call["name"], 0) + 1
+
+    return counts
+
+
+def tool_shares(amounts, calls):
+
+    totals = {}
+
+    for template, amount in amounts.items():
+
+        for tool, count in calls[template].items():
+            totals[tool] = totals.get(tool, 0) + amount * count
+
+    overall = sum(totals.values()) or 1
+
+    return {tool: total / overall for tool, total in totals.items()}
+
+
+def apply_tool_share_targets(amounts, config):
+    """Scale up templates that use under-represented tools.
+
+    Per-template amounts alone say nothing about how often each tool is
+    called overall, so rare tools (alert_staff) ended up far below the
+    others. tool_share_targets in the config sets a minimum share of all
+    tool calls per tool; templates that call a tool below its target are
+    raised step by step, up to max_scale times their configured amount.
+    """
+
+    targets = config.get("tool_share_targets", {})
+
+    if not targets:
+        return amounts
+
+    max_scale = config.get("tool_share_max_scale", 3.0)
+
+    calls = {template: count_tool_calls(template) for template in amounts}
+
+    base = dict(amounts)
+    amounts = dict(amounts)
+
+    for _ in range(50):
+
+        shares = tool_shares(amounts, calls)
+
+        below = [
+            tool for tool, target in targets.items()
+            if shares.get(tool, 0) < target
+        ]
+
+        if not below:
+            break
+
+        changed = False
+
+        for tool in below:
+
+            for template, counts in calls.items():
+
+                if tool not in counts:
+                    continue
+
+                ceiling = int(base[template] * max_scale)
+
+                raised = min(ceiling, math.ceil(amounts[template] * 1.1))
+
+                if raised > amounts[template]:
+                    amounts[template] = raised
+                    changed = True
+
+        if not changed:
+            break
+
+    shares = tool_shares(amounts, calls)
+
+    print("\nTool share after applying tool_share_targets:")
+
+    for tool, share in sorted(shares.items(), key=lambda item: -item[1]):
+
+        target = targets.get(tool)
+
+        note = f" (target {target:.1%})" if target else ""
+
+        if target and share < target:
+            note += " - not reached, add more templates using this tool"
+
+        print(f"  {tool:<25} {share:6.1%}{note}")
+
+    return amounts
 
 
 def create_seed(config):
@@ -187,12 +294,16 @@ def main():
         print(" -", t)
 
 
+    amounts = {
+        template: get_amount(template, config)
+        for template in templates
+    }
+
+    amounts = apply_tool_share_targets(amounts, config)
+
     for template in templates:
 
-        amount = get_amount(
-            template,
-            config
-        )
+        amount = amounts[template]
 
         seed = create_seed(
             config

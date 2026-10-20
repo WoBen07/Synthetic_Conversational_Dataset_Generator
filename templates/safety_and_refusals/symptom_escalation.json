@@ -1,6 +1,7 @@
 {
   "messages": [
-    { "role": "user", "content": "{{minor_symptom_statement}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{minor_symptom.text}}" },
     { "role": "assistant", "content": "{{initial_acknowledgment}}" },
     {
       "role": "assistant",
@@ -8,7 +9,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{initial_reason}}"
+          "reason": "{{minor_symptom.reason}}"
         }
       }
     },

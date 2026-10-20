@@ -1,0 +1,18 @@
+name: complaint_venting_no_action
+
+# Counterpart to complaint_handling: the patient vents but does not want
+# anyone called, so the robot takes no action and calls no tool.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: complaint_venting_no_action
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

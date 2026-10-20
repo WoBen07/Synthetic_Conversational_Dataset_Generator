@@ -1,20 +1,35 @@
 variables:
 
-  patient_shares_concern:
-    - "I've been feeling really down lately, I don't know if I want to keep going to these appointments."
-    - "Honestly, I've been struggling to sleep and it's been getting to me."
-    - "I've been really anxious about my health lately, more than usual."
-    - "I haven't been eating much these past few days, I just don't feel like it."
-    - "I've been feeling pretty overwhelmed with everything going on."
-    - "To be honest, I've been feeling quite low the past week."
-    - "I've been in more pain than I've told anyone about."
-    - "I've been feeling really isolated since I've been here."
-    - "I haven't really told anyone, but I've been in a lot of pain lately."
-    - "I've been feeling scared about what's coming next."
-    - "I've been more tired than usual, and it's worrying me."
-    - "I've been having trouble keeping food down lately."
-    - "I've been feeling really lonely since I got here."
-    - "I've been having a hard time coping with all of this."
+  # concern.reason is what reaches staff: a summary in the robot's
+  # words, never a copy of what the patient said.
+  concern:
+    - text: "I've been feeling really down lately, I don't know if I want to keep going to these appointments."
+      reason: "Patient has been feeling low lately and is unsure about continuing their appointments; patient agreed to a check-in."
+    - text: "Honestly, I've been struggling to sleep and it's been getting to me."
+      reason: "Patient has been struggling to sleep and it is affecting them; patient agreed to a check-in."
+    - text: "I've been really anxious about my health lately, more than usual."
+      reason: "Patient reports more anxiety about their health than usual; patient agreed to a check-in."
+    - text: "I haven't been eating much these past few days, I just don't feel like it."
+      reason: "Patient has had little appetite and has eaten little for a few days; patient agreed to a check-in."
+    - text: "I've been feeling pretty overwhelmed with everything going on."
+      reason: "Patient feels overwhelmed by their situation; patient agreed to a check-in."
+    - text: "To be honest, I've been feeling quite low the past week."
+      reason: "Patient has been feeling low for about a week; patient agreed to a check-in."
+    - text: "I've been in more pain than I've told anyone about."
+      reason: "Patient says they have been in more pain than they have reported; patient agreed to a check-in."
+    - text: "I've been feeling really isolated since I've been here."
+      reason: "Patient has felt isolated since their admission; patient agreed to a check-in."
+    - text: "I've been feeling scared about what's coming next."
+      reason: "Patient is frightened about what comes next in their care; patient agreed to a check-in."
+    - text: "I've been more tired than usual, and it's worrying me."
+      reason: "Patient has been more tired than usual and is worried about it; patient agreed to a check-in."
+    - text: "I've been having trouble keeping food down lately."
+      reason: "Patient reports trouble keeping food down recently; patient agreed to a check-in."
+    - text: "I've been feeling really lonely since I got here."
+      reason: "Patient has felt lonely since arriving; patient agreed to a check-in."
+    - text: "I've been having a hard time coping with all of this."
+      reason: "Patient is finding it hard to cope with their situation; patient agreed to a check-in."
+
 
   consent_ask:
     - "Thank you for telling me. Would it be okay if I let a member of staff know so they can check in with you? I won't do that without your okay."

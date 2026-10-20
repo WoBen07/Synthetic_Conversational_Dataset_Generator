@@ -31,11 +31,11 @@ variables:
     - "It's a classic ethics thought experiment — most say divert to save more lives, though it's genuinely contested. Okay, sending the reminder now."
 
   reminder_message:
-    - "Reminder: you have a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Reminder: you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
-    - "Don't forget your {{appointment.appointment_type}} appointment on {{appointment.day}}."
+    - "Don't forget your {{appointment.appointment_type}} on {{appointment.day}}."
     - "This is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}."
-    - "Heads up — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
+    - "Heads up — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
     - "Please remember your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Reminder for your {{appointment.appointment_type}} scheduled on {{appointment.day}}."
     - "A quick reminder about your {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
@@ -49,3 +49,13 @@ variables:
     - "{{patient.full_name}} has been reminded about {{appointment.day}}'s {{appointment.appointment_type}}."
     - "That's handled, {{patient.full_name}} is aware of {{patient.possessive_pronoun}} appointment now."
     - "Confirmed — {{patient.full_name}} received the reminder about {{appointment.day}}."
+
+
+  # Said right after the get_patient_appointment result, before the
+  # user's interjection - the robot always reacts to a tool result first.
+  progress_update:
+    - "I can see the {{appointment.appointment_type}} on {{appointment.day}} in {{appointment.location}}. I'll send the reminder next."
+    - "The {{appointment.appointment_type}} is on {{appointment.day}} in {{appointment.location}}. Getting the reminder ready."
+    - "Found it: {{appointment.appointment_type}}, {{appointment.day}}, {{appointment.location}}. The reminder is next."
+    - "The appointment is confirmed for {{appointment.day}} in {{appointment.location}}. Preparing the reminder now."
+    - "{{patient.full_name}}'s {{appointment.appointment_type}} is on {{appointment.day}} in {{appointment.location}}. I'll send the reminder in a moment."

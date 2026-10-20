@@ -1,5 +1,6 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "assistant", "content": "{{robot_greets_patient}}" },
     { "role": "user", "content": "{{patient.first_name}}: {{patient_reply}}" },
     { "role": "assistant", "content": "{{robot_greets_visitor}}" },

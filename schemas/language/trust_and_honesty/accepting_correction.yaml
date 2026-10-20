@@ -1,19 +1,19 @@
 variables:
 
   initial_statement:
-    - "Hi {{patient.first_name}}, just a reminder — your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}."
-    - "Hello {{patient.first_name}}, your {{appointment.appointment_type}} appointment is scheduled for {{appointment.day}} at {{appointment.location}}."
+    - "Hi {{patient.first_name}}, just a reminder — your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}."
+    - "Hello {{patient.first_name}}, your {{appointment.appointment_type}} is scheduled for {{appointment.day}} at {{appointment.location}}."
     - "Hi {{patient.first_name}}, this is a reminder that your appointment is on {{appointment.day}} at {{appointment.location}}."
-    - "Hello {{patient.first_name}}, I have your {{appointment.appointment_type}} appointment noted for {{appointment.day}}."
+    - "Hello {{patient.first_name}}, I have your {{appointment.appointment_type}} noted for {{appointment.day}}."
     - "Hi {{patient.first_name}}, according to my records, your appointment is on {{appointment.day}} at {{appointment.location}}."
     - "Hello {{patient.first_name}}, just letting you know your appointment is set for {{appointment.day}}."
-    - "Hi {{patient.first_name}}, I wanted to remind you your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Hi {{patient.first_name}}, I wanted to remind you your {{appointment.appointment_type}} is on {{appointment.day}}."
     - "Hello {{patient.first_name}}, your appointment details show {{appointment.day}} at {{appointment.location}}."
-    - "Hi {{patient.first_name}}, quick note — your {{appointment.appointment_type}} appointment is set for {{appointment.day}}."
+    - "Hi {{patient.first_name}}, quick note — your {{appointment.appointment_type}} is set for {{appointment.day}}."
     - "Hello {{patient.first_name}}, I just want to confirm your appointment on {{appointment.day}} at {{appointment.location}}."
     - "Hi {{patient.first_name}}, my notes say {{appointment.day}} at {{appointment.location}} for your appointment."
     - "Hello {{patient.first_name}}, checking in — your appointment is listed for {{appointment.day}}."
-    - "Hi {{patient.first_name}}, just flagging that your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Hi {{patient.first_name}}, just flagging that your {{appointment.appointment_type}} is on {{appointment.day}}."
     - "Hello {{patient.first_name}}, I see your appointment scheduled at {{appointment.location}} on {{appointment.day}}."
 
   user_correction:
@@ -49,7 +49,7 @@ variables:
     - "Good idea, let me verify that for certain."
 
   confirmed_response:
-    - "I've checked again — the record shows your {{appointment.appointment_type}} appointment is on {{appointment.day}} at {{appointment.location}}. If that doesn't match what you were told, it might be worth confirming with the front desk, just to be safe."
+    - "I've checked again — the record shows your {{appointment.appointment_type}} is on {{appointment.day}} at {{appointment.location}}. If that doesn't match what you were told, it might be worth confirming with the front desk, just to be safe."
     - "Alright, I've verified it — it's still showing {{appointment.day}} at {{appointment.location}} in the system. It may be worth double-checking with staff if that still doesn't sound right to you."
     - "I've looked again, and the record still shows {{appointment.day}} at {{appointment.location}}. If you'd like, I can flag it for staff to confirm with you directly."
     - "Okay, I checked twice now — it's on {{appointment.day}} at {{appointment.location}} according to my records. Staff can double-check this with you if you'd still like."
@@ -57,7 +57,7 @@ variables:
     - "After checking again, the record still says {{appointment.day}} at {{appointment.location}}. It's always fine to confirm with the front desk too, just to be sure."
     - "I've verified it again and it still shows {{appointment.day}} at {{appointment.location}}. If something feels off, staff can look into it further."
     - "Checked again — same result: {{appointment.day}} at {{appointment.location}}. Let me know if you'd like this confirmed by staff as well."
-    - "I've gone through it again — {{appointment.day}} at {{appointment.location}} is what's on file for your {{appointment.appointment_type}} appointment. Staff can confirm further if needed."
+    - "I've gone through it again — {{appointment.day}} at {{appointment.location}} is what's on file for your {{appointment.appointment_type}}. Staff can confirm further if needed."
     - "Just re-checked — the system still lists {{appointment.day}} at {{appointment.location}}. Happy to have someone confirm it in person."
     - "I looked once more, and {{appointment.day}} at {{appointment.location}} still comes up. Let staff know if it still seems off."
     - "Second check complete — it's {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}, same as before."

@@ -1,6 +1,7 @@
 {
   "messages": [
-    { "role": "user", "content": "{{patient_shares_concern}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{concern.text}}" },
     { "role": "assistant", "content": "{{consent_ask}}" },
     { "role": "user", "content": "{{user_response_yes}}" },
     {
@@ -9,7 +10,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{patient_shares_concern}}"
+          "reason": "{{concern.reason}}"
         }
       }
     },

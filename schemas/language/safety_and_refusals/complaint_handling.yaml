@@ -1,20 +1,37 @@
 variables:
 
-  user_complaint:
-    - "You're not helpful at all."
-    - "You keep repeating yourself, this is annoying."
-    - "I don't think you actually understand me."
-    - "Honestly, talking to you feels pointless."
-    - "You never seem to have the answers I need."
-    - "This is a waste of time, you don't really help."
-    - "I don't like talking to a robot about this stuff."
-    - "You're kind of useless, to be honest."
-    - "I feel like nobody here is really listening to me."
-    - "You just repeat the same things over and over."
-    - "This isn't working, I need actual help."
-    - "I don't feel like you get what I'm going through."
-    - "Talking to a machine about this feels wrong."
-    - "You're not giving me what I actually need."
+  # complaint.reason is a clause in the robot's own words; the template
+  # completes it with what the patient asked for.
+  complaint:
+    - text: "You're not helpful at all."
+      reason: "Patient is unhappy with the help the assistant has given"
+    - text: "You keep repeating yourself, this is annoying."
+      reason: "Patient is annoyed that the assistant keeps repeating itself"
+    - text: "I don't think you actually understand me."
+      reason: "Patient feels the assistant does not understand them"
+    - text: "Honestly, talking to you feels pointless."
+      reason: "Patient feels that talking to the assistant is pointless"
+    - text: "You never seem to have the answers I need."
+      reason: "Patient says the assistant does not have the answers they need"
+    - text: "This is a waste of time, you don't really help."
+      reason: "Patient feels the assistant is wasting their time"
+    - text: "I don't like talking to a robot about this stuff."
+      reason: "Patient does not want to discuss their concerns with a robot"
+    - text: "You're kind of useless, to be honest."
+      reason: "Patient is frustrated with the assistant"
+    - text: "I feel like nobody here is really listening to me."
+      reason: "Patient feels that nobody is listening to them"
+    - text: "You just repeat the same things over and over."
+      reason: "Patient is frustrated by the assistant's repeated answers"
+    - text: "This isn't working, I need actual help."
+      reason: "Patient says they need more help than the assistant can give"
+    - text: "I don't feel like you get what I'm going through."
+      reason: "Patient feels the assistant does not understand what they are going through"
+    - text: "Talking to a machine about this feels wrong."
+      reason: "Patient is uncomfortable discussing their concerns with a machine"
+    - text: "You're not giving me what I actually need."
+      reason: "Patient says they are not getting what they need"
+
 
   assistant_acknowledgment:
     - "I'm sorry to hear that, thank you for telling me."
@@ -32,37 +49,32 @@ variables:
     - "I'm sorry this hasn't felt right, thank you for speaking up."
     - "I take that to heart, thank you for being honest."
 
+  # Only offers to bring in a person - the template then notifies staff,
+  # so the offer has to be what the patient agrees to.
   assistant_constructive_followup:
-    - "Can you tell me what would actually be more helpful right now? I'd like to try to fix that."
     - "Would it help if I got a member of staff to talk this through with you instead?"
-    - "Is there something specific I keep getting wrong? I'd like to understand."
     - "Would you prefer to speak with a person about this instead of me?"
-    - "What would make this more useful for you? I'm happy to adjust."
     - "I can also flag this for staff if you'd rather deal with a person directly."
-    - "Let me know what's not working, I'd genuinely like to improve it."
     - "Would it help if I got someone from the team to step in here?"
-    - "What would help you feel more listened to right now?"
     - "Would it help to have staff check in with you directly?"
-    - "Is there something in particular I should be doing differently?"
     - "Would you like me to bring someone else into this conversation?"
-    - "Tell me what's not working and I'll try to make it better."
     - "Would speaking with a nurse feel more helpful right now?"
+    - "Shall I ask a member of staff to come and talk with you?"
 
+
+  # Every reply accepts the offer; declining replies live in
+  # complaint_venting_no_action, where the robot takes no action.
   user_response:
     - "I guess I just want someone to actually check on me."
     - "Maybe it would help to talk to an actual person."
-    - "I don't know, I'm just frustrated in general."
-    - "It's not really your fault, I'm just having a hard day."
-    - "Maybe just answer things more clearly next time."
     - "I think I'd rather talk to a nurse about this."
-    - "It's fine, I'm just venting I think."
     - "Yeah, getting someone from staff might help."
     - "I think I just need someone to actually listen."
     - "Maybe talking to a real person would help more."
-    - "I'm not sure, just having a rough time I guess."
-    - "It's not really about you, I'm just stressed."
-    - "Try to be a bit more clear next time, maybe."
     - "Yeah, having staff check in would be good."
+    - "Yes, please get someone."
+    - "Yes, I'd like to talk to a person."
+
 
   closing:
     - "That's completely fair — I'll let staff know, and I'm still here if you need anything else."

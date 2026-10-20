@@ -13,3 +13,12 @@ constraints:
       - visitor.first_name
 
 language_schema: visitor_joins_smalltalk
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient_and_visitor
+  note: "You have just entered the patient's room."

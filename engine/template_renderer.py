@@ -1,8 +1,16 @@
 import re
 
+from synthetic_data_generator.engine.linguistic_resolver import PHRASING_ONLY_FIELDS
+from synthetic_data_generator.engine.text_utils import article_for
+
 
 PLACEHOLDER_PATTERN = re.compile(
     r"\{\{(.*?)\}\}"
+)
+
+# A standalone "a"/"an" directly in front of a placeholder
+ARTICLE_BEFORE_PLACEHOLDER = re.compile(
+    r"(?:^|(?<=[\s(\"“'—–-]))([Aa]n?) $"
 )
 
 
@@ -85,16 +93,26 @@ class TemplateRenderer:
                     depth + 1
                 )
 
+            # A whole entity (e.g. a find_patient match) carries only
+            # its record fields, not the phrasing helpers.
+            if isinstance(result, dict):
+                return {
+                    key: value
+                    for key, value in result.items()
+                    if key not in PHRASING_ONLY_FIELDS
+                }
+
             return result
 
 
 
-        result = value
+        parts = []
+        position = 0
 
 
-        for match in matches:
+        for found in PLACEHOLDER_PATTERN.finditer(value):
 
-            replacement = self._lookup(match)
+            replacement = self._lookup(found.group(1))
 
 
             if isinstance(replacement, str):
@@ -105,13 +123,44 @@ class TemplateRenderer:
                 )
 
 
-            result = result.replace(
-                "{{" + match + "}}",
-                str(replacement)
-            )
+            replacement = str(replacement)
+
+            parts.append(value[position:found.start()])
+
+            parts = self._fix_article(parts, replacement)
+
+            parts.append(replacement)
+
+            position = found.end()
 
 
-        return result
+        parts.append(value[position:])
+
+
+        return "".join(parts)
+
+
+
+    def _fix_article(self, parts, replacement):
+
+        # Phrases are written as "a {{appointment.appointment_type}}",
+        # so the article has to follow whatever gets inserted
+        # ("an MRI scan", "an eye examination").
+        before = "".join(parts)
+
+        article = ARTICLE_BEFORE_PLACEHOLDER.search(before)
+
+        if not article or not replacement:
+            return parts
+
+        fitting = article_for(
+            replacement,
+            capitalized=article.group(1)[0] == "A"
+        )
+
+        return [
+            before[:article.start(1)] + fitting + before[article.end(1):]
+        ]
 
 
 

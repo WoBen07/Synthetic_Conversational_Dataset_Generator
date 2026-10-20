@@ -5,3 +5,11 @@ entities:
     type: patient
 
 language_schema: identification_confirmed
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  speaker: staff
+  note: "A member of staff asked you to find out which patient is in this room."

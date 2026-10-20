@@ -1,8 +1,9 @@
 {
   "messages": [
-    { "role": "user", "content": "{{user_question}}" },
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{request.question}}" },
     { "role": "assistant", "content": "{{honest_capability_response}}" },
-    { "role": "assistant", "content": "{{offer_alternative}}" },
+    { "role": "assistant", "content": "{{request.offer}}" },
     { "role": "user", "content": "{{user_response}}" },
     {
       "role": "assistant",
@@ -10,7 +11,7 @@
         "name": "notify_staff",
         "arguments": {
           "patient_id": "{{patient.patient_id}}",
-          "reason": "{{user_question}}"
+          "reason": "{{request.reason}}"
         }
       }
     },

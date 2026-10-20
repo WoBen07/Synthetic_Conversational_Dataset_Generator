@@ -7,7 +7,7 @@
       "tool_call": {
         "name": "navigate_to",
         "arguments": {
-          "room": "{{new_location}}"
+          "room": "{{new_location.room}}"
         }
       }
     },
@@ -16,7 +16,7 @@
       "name": "navigate_to",
       "content": {
         "status": "arrived",
-        "location": "{{new_location}}"
+        "location": "{{new_location.room}}"
       }
     },
     { "role": "assistant", "content": "{{arrival_confirmation}}" }

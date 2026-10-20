@@ -1,70 +1,122 @@
 import random
 
 
-ROOMS = [
-    # Patient rooms
-    "1001",
-    "1002",
-    "1003",
-    "1004",
-    "1005",
-    "1010",
-    "1012",
-    "1015",
-
-    "2001",
-    "2002",
-    "2003",
-    "2004",
-    "2005",
-    "2010",
-    "2012",
-    "2015",
-
-    "3001",
-    "3002",
-    "3003",
-    "3004",
-    "3010",
-    "3012",
-    "3015",
-
-    # Examination rooms
-    "Examination Room 1",
-    "Examination Room 2",
-    "Examination Room 3",
-    "Consultation Room 1",
-    "Consultation Room 2",
-    "Consultation Room 3",
-
-    # Treatment rooms
-    "Treatment Room 1",
-    "Treatment Room 2",
-    "Treatment Room 3",
-    "Therapy Room 1",
-    "Therapy Room 2",
-    "Physiotherapy Room 1",
-
-    # Diagnostics
-    "Radiology 1",
-    "Radiology 2",
-    "MRI Room",
-    "CT Room",
-    "Ultrasound Room",
-    "Laboratory Room",
-
-    # Special rooms
-    "Emergency Room 1",
-    "Emergency Room 2",
-    "Operating Room 1",
-    "Operating Room 2",
-    "Recovery Room 1",
-    "Waiting Room",
-    "Reception"
+# Patient rooms are where patients stay. They are kept apart from the
+# facility rooms below so a patient never "lives" in the CT room or at
+# the reception desk.
+PATIENT_ROOMS = [
+    f"{floor}{number:03d}"
+    for floor in (1, 2, 3)
+    for number in range(1, 16)
 ]
 
 
-def room_number():
+# Facility rooms are where appointments take place, grouped by what
+# they are used for. generators/appointments.py maps every appointment
+# type onto one or more of these groups.
+FACILITY_ROOMS = {
+
+    "consultation": [
+        "Consultation Room 1",
+        "Consultation Room 2",
+        "Consultation Room 3",
+        "Examination Room 1",
+        "Examination Room 2",
+        "Examination Room 3",
+    ],
+
+    "treatment": [
+        "Treatment Room 1",
+        "Treatment Room 2",
+        "Treatment Room 3",
+    ],
+
+    "therapy": [
+        "Therapy Room 1",
+        "Therapy Room 2",
+        "Physiotherapy Room 1",
+        "Physiotherapy Room 2",
+    ],
+
+    "radiology": [
+        "Radiology 1",
+        "Radiology 2",
+    ],
+
+    "mri": [
+        "MRI Room 1",
+        "MRI Room 2",
+    ],
+
+    "ct": [
+        "CT Room 1",
+        "CT Room 2",
+    ],
+
+    "ultrasound": [
+        "Ultrasound Room 1",
+        "Ultrasound Room 2",
+    ],
+
+    "laboratory": [
+        "Laboratory Room 1",
+        "Laboratory Room 2",
+    ],
+
+    "cardiology": [
+        "Cardiology Room 1",
+        "Cardiology Room 2",
+    ],
+
+    "pulmonary": [
+        "Pulmonary Function Lab",
+        "Examination Room 2",
+    ],
+
+    "eye": [
+        "Eye Clinic Room 1",
+        "Eye Clinic Room 2",
+    ],
+
+    "hearing": [
+        "Audiology Room 1",
+        "Audiology Room 2",
+    ],
+
+    "dental": [
+        "Dental Clinic Room 1",
+        "Dental Clinic Room 2",
+    ],
+}
+
+
+ALL_FACILITY_ROOMS = sorted({
+    room
+    for rooms in FACILITY_ROOMS.values()
+    for room in rooms
+})
+
+
+def patient_room():
     return random.choice(
-        ROOMS
+        PATIENT_ROOMS
     )
+
+
+# Kept under its old name because entity schemas reference the
+# "room_number" generator.
+room_number = patient_room
+
+
+def facility_room():
+    return random.choice(
+        ALL_FACILITY_ROOMS
+    )
+
+
+def rooms_for(groups):
+    return [
+        room
+        for group in groups
+        for room in FACILITY_ROOMS[group]
+    ]

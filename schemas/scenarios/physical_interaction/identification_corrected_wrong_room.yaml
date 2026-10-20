@@ -5,3 +5,10 @@ entities:
     type: patient
 
 language_schema: identification_corrected_wrong_room
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff
+  note: "A member of staff asked you to check on {{patient.full_name}} and told you they were in {{wrong_room_guess}}."

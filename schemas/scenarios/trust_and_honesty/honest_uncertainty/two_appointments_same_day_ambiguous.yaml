@@ -9,6 +9,12 @@ entities:
     type: appointment
 
 constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
   - type: equal
     fields:
       - appointment.day
@@ -25,3 +31,11 @@ constraints:
       - alternative_appointment.location
 
 language_schema: two_appointments_same_day_ambiguous
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

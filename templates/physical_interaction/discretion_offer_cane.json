@@ -1,5 +1,6 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "assistant", "content": "{{observation_offer}}" },
     { "role": "user", "content": "{{patient_response}}" },
     { "role": "assistant", "content": "{{closing_ack}}" }

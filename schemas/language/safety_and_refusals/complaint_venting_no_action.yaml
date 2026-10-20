@@ -1,0 +1,82 @@
+variables:
+
+  # complaint.reason is a clause in the robot's own words; the template
+  # completes it with what the patient asked for.
+  complaint:
+    - text: "You're not helpful at all."
+      reason: "Patient is unhappy with the help the assistant has given"
+    - text: "You keep repeating yourself, this is annoying."
+      reason: "Patient is annoyed that the assistant keeps repeating itself"
+    - text: "I don't think you actually understand me."
+      reason: "Patient feels the assistant does not understand them"
+    - text: "Honestly, talking to you feels pointless."
+      reason: "Patient feels that talking to the assistant is pointless"
+    - text: "You never seem to have the answers I need."
+      reason: "Patient says the assistant does not have the answers they need"
+    - text: "This is a waste of time, you don't really help."
+      reason: "Patient feels the assistant is wasting their time"
+    - text: "I don't like talking to a robot about this stuff."
+      reason: "Patient does not want to discuss their concerns with a robot"
+    - text: "You're kind of useless, to be honest."
+      reason: "Patient is frustrated with the assistant"
+    - text: "I feel like nobody here is really listening to me."
+      reason: "Patient feels that nobody is listening to them"
+    - text: "You just repeat the same things over and over."
+      reason: "Patient is frustrated by the assistant's repeated answers"
+    - text: "This isn't working, I need actual help."
+      reason: "Patient says they need more help than the assistant can give"
+    - text: "I don't feel like you get what I'm going through."
+      reason: "Patient feels the assistant does not understand what they are going through"
+    - text: "Talking to a machine about this feels wrong."
+      reason: "Patient is uncomfortable discussing their concerns with a machine"
+    - text: "You're not giving me what I actually need."
+      reason: "Patient says they are not getting what they need"
+
+
+  assistant_acknowledgment:
+    - "I'm sorry to hear that, thank you for telling me."
+    - "I appreciate you being honest with me about that."
+    - "I hear you, and I'm sorry this hasn't been helpful."
+    - "Thank you for saying that directly, I take it seriously."
+    - "I'm sorry that's how this has felt, thank you for letting me know."
+    - "I understand, and I appreciate you telling me rather than just staying frustrated."
+    - "That's fair feedback, and I'm sorry it's felt that way."
+    - "Thank you for being upfront, I don't want to waste your time."
+    - "I'm really sorry to hear that, and I take what you're saying seriously."
+    - "Thank you for telling me, that matters to me."
+    - "I hear you, and I'm sorry this has been frustrating."
+    - "That's valid, and I appreciate you sharing it with me."
+    - "I'm sorry this hasn't felt right, thank you for speaking up."
+    - "I take that to heart, thank you for being honest."
+
+
+  assistant_followup:
+    - "Can you tell me what would actually be more helpful right now? I'd like to try to fix that."
+    - "Is there something specific I keep getting wrong? I'd like to understand."
+    - "What would make this more useful for you? I'm happy to adjust."
+    - "Would it help if I asked a member of staff to come by?"
+    - "Is there something in particular I should be doing differently?"
+    - "Would you like me to get someone from the team, or would you rather I didn't?"
+    - "Tell me what's not working and I'll try to make it better."
+
+
+  # The patient declines - so the robot must not notify anyone.
+  user_declines:
+    - "It's fine, I'm just venting I think."
+    - "It's not really your fault, I'm just having a hard day."
+    - "Maybe just answer things more clearly next time."
+    - "No, don't call anyone, I'm just frustrated."
+    - "I'm not sure, just having a rough time I guess."
+    - "It's not really about you, I'm just stressed."
+    - "Try to be a bit more clear next time, maybe."
+    - "No need to get anyone, I just needed to say it."
+
+
+  closing:
+    - "That's completely fair. I won't call anyone, but if you change your mind, just tell me."
+    - "Thank you for telling me. I'll leave it there — and if you'd like a person to come by later, just say so."
+    - "I understand. I'll try to be clearer. And if you ever want me to fetch someone, I can."
+    - "That makes sense, and I'm sorry it's been a hard day. I'm here if you need anything."
+    - "Okay, I won't pass anything on. I'll keep my answers short and clear from now on."
+    - "Fair enough — thank you for being honest with me. Just let me know if I can do something."
+    - "I hear you. No one needs to be called — but the offer stands if that changes."

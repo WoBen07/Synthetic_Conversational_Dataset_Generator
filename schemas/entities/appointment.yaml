@@ -14,11 +14,8 @@ fields:
     generator: weekday
 
 
+  # The appointment_type generator also sets "location" to a facility
+  # room that fits the type (see generators/appointments.py).
   appointment_type:
     type: semantic_string
     generator: appointment_type
-
-
-  location:
-    type: string
-    generator: room_number

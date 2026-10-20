@@ -1,5 +1,6 @@
 {
   "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
     { "role": "user", "content": "{{physical_request}}" },
     { "role": "assistant", "content": "{{physical_refusal}}" },
     {

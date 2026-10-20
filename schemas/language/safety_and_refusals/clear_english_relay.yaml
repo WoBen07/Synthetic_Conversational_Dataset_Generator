@@ -1,16 +1,30 @@
 variables:
 
-  relay_request:
-    - "My mother doesn't speak much English, can you say my appointment time slowly and clearly so she can understand?"
-    - "Can you repeat that a bit slower for my son? English isn't his first language."
-    - "Could you say the appointment details plainly? My husband is still learning English."
-    - "My daughter is only starting to learn English, can you say it slowly for her?"
-    - "Can you speak clearly and slowly? My visitor understands English but not when it's spoken fast."
-    - "Could you say that again, nice and slow? My wife has trouble following quick English."
-    - "My brother's English is basic, could you keep it simple and slow when you explain?"
-    - "Can you say it plainly and slowly for my father? He's still getting used to English."
-    - "Could you repeat the appointment info clearly? My grandson is learning English at school."
-    - "My friend understands some English but needs it said slowly, could you do that?"
+  # The patient asks the robot to speak slowly for a relative or friend
+  # who is with them. pronoun refers to that person, so the thanks at
+  # the end ("she understood") matches the request ("my mother").
+  relative:
+    - request: "My mother doesn't speak much English, can you say my appointment details slowly and clearly so she can understand?"
+      pronoun: "she"
+    - request: "Can you repeat my appointment a bit slower for my son? English isn't his first language."
+      pronoun: "he"
+    - request: "Could you say my appointment details plainly? My husband is still learning English."
+      pronoun: "he"
+    - request: "My daughter is only starting to learn English, can you tell her about my appointment slowly?"
+      pronoun: "she"
+    - request: "Can you speak clearly and slowly about my appointment? My visitor understands English but not when it's spoken fast."
+      pronoun: "they"
+    - request: "Could you go through my appointment nice and slow? My wife has trouble following quick English."
+      pronoun: "she"
+    - request: "My brother's English is basic, could you keep it simple and slow when you explain my appointment?"
+      pronoun: "he"
+    - request: "Can you say my appointment details plainly and slowly for my father? He's still getting used to English."
+      pronoun: "he"
+    - request: "Could you repeat my appointment info clearly? My grandson is learning English at school."
+      pronoun: "he"
+    - request: "My friend understands some English but needs it said slowly, could you go over my appointment like that?"
+      pronoun: "they"
+
 
   acceptance_clarification:
     - "Of course, I can say it slowly and clearly in English for them. I should mention I can't translate into another language, but I'm glad to make the English as clear as possible."
@@ -34,13 +48,14 @@ variables:
 
   user_thanks:
     - "Thank you, that was much easier to follow."
-    - "Thanks, that helped a lot, she understood that."
+    - "Thanks, that helped a lot, {{relative.pronoun}} understood that."
     - "That's great, thank you for slowing down."
-    - "Thank you, he could follow that clearly."
+    - "Thank you, {{relative.pronoun}} could follow that clearly."
     - "Thanks so much, that was much clearer."
     - "That helped, thank you for being patient with it."
-    - "Thank you, she got it that time."
+    - "Thank you, {{relative.pronoun}} got it that time."
     - "Thanks, that was a lot easier to understand."
+
 
   closing:
     - "Of course — I'm always glad to slow down and keep things clear in English whenever that helps."

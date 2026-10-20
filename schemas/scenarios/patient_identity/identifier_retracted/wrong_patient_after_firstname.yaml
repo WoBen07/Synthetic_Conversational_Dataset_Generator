@@ -12,6 +12,12 @@ aliases:
   patient: target_patient
 
 constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day
+
   - type: equal
     fields:
       - target_patient.last_name
@@ -30,3 +36,9 @@ constraints:
       - alternative_patient.room_number
 
 language_schema: wrong_patient_after_firstname
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: staff

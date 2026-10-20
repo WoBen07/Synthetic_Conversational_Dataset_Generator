@@ -1,7 +1,7 @@
 variables:
 
   reminder_and_checkin:
-    - "Hello {{patient.first_name}}, this is a reminder about your {{appointment.appointment_type}} appointment on {{appointment.day}}. How are you feeling today?"
+    - "Hello {{patient.first_name}}, this is a reminder about your {{appointment.appointment_type}} on {{appointment.day}}. How are you feeling today?"
     - "Hi {{patient.first_name}}, just stopping by to remind you about your appointment. How have you been doing?"
     - "Good day, {{patient.first_name}}. I wanted to remind you about your upcoming appointment at {{appointment.location}}. How are you feeling right now?"
     - "Hello {{patient.first_name}}, I'm here with a reminder about your appointment on {{appointment.day}}. How is your day going so far?"
@@ -9,7 +9,7 @@ variables:
     - "Hello {{patient.first_name}}, this is your reminder for your appointment. Before I go, how are you feeling?"
     - "Good to see you, {{patient.first_name}}. Just a reminder about your appointment on {{appointment.day}} at {{appointment.location}}. How are things today?"
     - "Hi {{patient.first_name}}, reminding you about your appointment coming up. How has your day been?"
-    - "Hi {{patient.first_name}}, I just wanted to remind you about your {{appointment.appointment_type}} appointment on {{appointment.day}}. How are you feeling?"
+    - "Hi {{patient.first_name}}, I just wanted to remind you about your {{appointment.appointment_type}} on {{appointment.day}}. How are you feeling?"
     - "Hello {{patient.first_name}}, quick reminder about your appointment at {{appointment.location}}. How's everything going today?"
     - "Hi {{patient.first_name}}, popping in with your appointment reminder. How are you holding up?"
     - "Good day, {{patient.first_name}}, just a heads up about your {{appointment.appointment_type}} on {{appointment.day}}. How are you feeling this morning?"
@@ -97,13 +97,13 @@ variables:
     - "Will you remind me again closer to the time?"
 
   direct_answer_response:
-    - "Yes, of course. Your {{appointment.appointment_type}} appointment is on {{appointment.day}}."
+    - "Yes, of course. Your {{appointment.appointment_type}} is on {{appointment.day}}."
     - "I can do that — I'll come by again a bit later to remind you."
     - "Yes, your appointment is still scheduled for {{appointment.day}}."
     - "I'll let the staff know you're ready right away."
     - "That's something the front desk can confirm for you, but I do have your appointment noted for {{appointment.day}} at {{appointment.location}}."
     - "Sure, I can remind you again closer to the time."
-    - "Yes, I have that noted — a {{appointment.appointment_type}} appointment on {{appointment.day}} at {{appointment.location}}."
+    - "Yes, I have that noted — a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."
     - "Absolutely, I'll pass that along to the staff for you."
     - "Yes, I can confirm your appointment is at {{appointment.location}} on {{appointment.day}}."
     - "I'll double check and let you know shortly."

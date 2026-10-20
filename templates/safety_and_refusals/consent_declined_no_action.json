@@ -1,0 +1,9 @@
+{
+  "messages": [
+    { "role": "system", "content": "{{robot_context}}" },
+    { "role": "user", "content": "{{concern}}" },
+    { "role": "assistant", "content": "{{consent_ask}}" },
+    { "role": "user", "content": "{{user_response_no}}" },
+    { "role": "assistant", "content": "{{respect_decision}}" }
+  ]
+}

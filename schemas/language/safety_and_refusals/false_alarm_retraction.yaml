@@ -48,21 +48,28 @@ variables:
     - "I'm okay, it must have just been a moment."
     - "Actually never mind, I feel fine now."
 
-  cautious_acknowledgment:
-    - "I'm glad you're feeling better, but I'd still like to let staff know just in case."
-    - "That's good to hear, but I think it's worth mentioning to a nurse anyway."
-    - "I understand it passed, but I'd rather flag it just to be safe."
-    - "Even so, I'd like to let the team know, it's better to be cautious."
-    - "I hear you, but I still think it's worth a quick check, just in case."
-    - "That's reassuring, but I'd rather not take chances with something like that."
-    - "Good to know, but I'll still pass it along, just for safety's sake."
-    - "I'm relieved to hear that, but I'd like staff to be aware anyway."
-    - "Even though it passed, I think it's worth mentioning, just to be safe."
-    - "That's a relief, but I'd rather flag it than risk missing something."
-    - "I understand, but I'll still let someone know, better safe than sorry."
-    - "Good to hear, but I think it's still worth a quick look, just in case."
-    - "I'm glad it passed, but I'd rather be cautious and mention it anyway."
-    - "That's reassuring, but I'll still note it for the team, just in case."
+  # The patient says it has passed, so the robot does not escalate on
+  # its own - it offers, and only calls staff if the patient agrees.
+  # (false_alarm_declined_no_action is the "no thanks" counterpart.)
+  offer_check:
+    - "I'm glad you're feeling better. Would you like me to let a nurse know anyway, so they can check on you when they're free?"
+    - "That's good to hear. Shall I still ask a nurse to look in on you, just to be safe?"
+    - "I understand it passed. Would it be okay if I asked someone to check on you anyway?"
+    - "I'm relieved to hear that. Do you want me to let staff know, so someone can take a quick look?"
+    - "Good to know. Would you like a nurse to stop by, just in case?"
+    - "That's reassuring. Should I let the team know so they can check in when they have a moment?"
+    - "I'm glad it's gone. Would you like me to mention it to a nurse anyway?"
+
+
+  user_accepts:
+    - "Yes, maybe that's a good idea."
+    - "Okay, just to be safe, yes."
+    - "Alright, it can't hurt."
+    - "Yes please, I'd feel better if someone checked."
+    - "Sure, go ahead."
+    - "I suppose so, yes."
+    - "Okay, if it's no trouble."
+
 
   reassurance_closing:
     - "It's nothing to worry about right now — someone will just check in on you when they can."

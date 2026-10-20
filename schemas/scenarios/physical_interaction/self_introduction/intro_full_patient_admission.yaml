@@ -5,3 +5,12 @@ entities:
     type: patient
 
 language_schema: intro_full_patient_admission
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient
+  note: "The patient was admitted today. You are meeting the patient for the first time."
