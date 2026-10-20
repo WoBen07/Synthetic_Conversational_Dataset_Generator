@@ -10,7 +10,7 @@ variables:
     - "What's usually involved in a {{appointment.appointment_type}}, in general terms?"
     - "Do most people need to prepare anything beforehand for a {{appointment.appointment_type}}?"
     - "How long do people usually stay for a {{appointment.appointment_type}}?"
-    - "What time of day are {{appointment.appointment_type}} appointments usually held?"
+    - "What time of day is a {{appointment.appointment_type}} usually held?"
     - "Is it typical for these kinds of appointments to run a bit long?"
     - "Do I need to change into anything special for a {{appointment.appointment_type}}?"
     - "Is it normal to have some paperwork to fill out before a {{appointment.appointment_type}}?"

@@ -1,7 +1,31 @@
 {
   "messages": [
-    { "role": "system", "content": "{{robot_context}}" },
-    { "role": "user", "content": "{{staff_informs_time_change}}" },
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{staff_informs_time_change}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "find_patient",
+        "arguments": {
+          "name": "{{patient.last_name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "find_patient",
+      "content": {
+        "matches": [
+          "{{patient}}"
+        ]
+      }
+    },
     {
       "role": "assistant",
       "content": "{{announce_before_send}}",
@@ -16,8 +40,13 @@
     {
       "role": "tool",
       "name": "remind_patient",
-      "content": { "status": "success" }
+      "content": {
+        "status": "success"
+      }
     },
-    { "role": "assistant", "content": "{{confirm}}" }
+    {
+      "role": "assistant",
+      "content": "{{confirm}}"
+    }
   ]
 }

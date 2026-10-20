@@ -28,9 +28,10 @@ class GroundingValidator:
 
     - every ``patient_id`` must have appeared earlier, in the system
       context, a user message or a tool response;
-    - every ``find_patient`` argument must have been said by the user or
-      stated in the system context (all of its words, so a first and
-      last name given in separate turns still count);
+    - every ``find_patient`` argument must have been said by the user,
+      stated in the system context or returned by an earlier tool (all
+      of its words, so a first and last name given in separate turns
+      still count, and a room taken from an earlier match is fine);
     - ``reason`` / ``note`` must summarise the request, not repeat a
       user message word for word;
     - ``navigate_to`` targets are room names, not phrases ("the Sunroom").
@@ -42,6 +43,7 @@ class GroundingValidator:
 
         known_ids = set()
         heard = ""
+        tool_text = ""
         user_messages = []
 
         for index, message in enumerate(datapoint.get("messages", [])):
@@ -56,7 +58,7 @@ class GroundingValidator:
                         index,
                         call,
                         known_ids,
-                        heard,
+                        heard + " " + tool_text,
                         user_messages
                     )
                 )
@@ -71,12 +73,13 @@ class GroundingValidator:
 
             elif role == "tool":
 
+                tool_text += " " + text.lower()
                 known_ids.update(PATIENT_ID.findall(text))
 
         return errors
 
 
-    def _check_call(self, index, call, known_ids, heard, user_messages):
+    def _check_call(self, index, call, known_ids, known_text, user_messages):
 
         errors = []
 
@@ -101,7 +104,7 @@ class GroundingValidator:
 
                 words = str(value).lower().split()
 
-                if not all(word in heard for word in words):
+                if not all(word in known_text for word in words):
 
                     errors.append(
                         f"find_patient at {index} searches "

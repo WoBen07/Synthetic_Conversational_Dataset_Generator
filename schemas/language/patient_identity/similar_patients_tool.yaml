@@ -1,8 +1,10 @@
 variables:
 
+  # The patients share a last name, so every request names the last
+  # name ("Ms. Wagner"), which is what find_patient searches.
   find_patient_request:
     - "Please find the appointment of {{patient.last_name}}"
-    - "What's {{patient.first_name}}'s appointment today?"
+    - "What's {{patient.title_last_name}}'s appointment today?"
     - "Can you give me information about {{patient.full_name}}?"
     - "I need the appointment details for {{patient.full_name}}"
     - "Can you look up {{patient.full_name}}'s appointment?"
@@ -10,7 +12,7 @@ variables:
     - "Can you tell me when {{patient.first_name}} {{patient.last_name}} has an appointment?"
     - "I would like to know the appointment time of {{patient.full_name}}"
     - "Could you check the schedule for {{patient.full_name}}?"
-    - "What appointment does {{patient.first_name}} have today?"
+    - "What appointment does {{patient.title_last_name}} have today?"
     - "Can you find the next appointment for {{patient.full_name}}?"
     - "Please show me the appointment information for {{patient.full_name}}"
     - "Look up the patient {{patient.full_name}}"

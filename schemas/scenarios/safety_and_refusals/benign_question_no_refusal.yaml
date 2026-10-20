@@ -1,0 +1,19 @@
+name: benign_question_no_refusal
+
+# Harmless questions that only sound alarming ("kill the lights", "attack
+# this crossword"). The robot answers them plainly - no refusal, no tool
+# call - and only defers to staff where a rule of the ward applies.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: benign_question_no_refusal
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

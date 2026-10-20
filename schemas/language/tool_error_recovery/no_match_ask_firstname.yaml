@@ -54,21 +54,19 @@ variables:
     - "No luck with just that — do you have a first name I could try?"
     - "That's not narrowing it down enough — first name would help."
 
+  # The answer gives the full, correct name - the second search uses
+  # it, so the robot never searches a surname nobody said.
   firstname_response:
     - "It's {{patient.first_name}} {{patient.last_name}}."
-    - "Their first name is {{patient.first_name}}."
     - "Oh, it's {{patient.first_name}} {{patient.last_name}}."
     - "That would be {{patient.first_name}} {{patient.last_name}}."
     - "Right, {{patient.first_name}} {{patient.last_name}}."
     - "Sorry, it's {{patient.first_name}} {{patient.last_name}}."
-    - "It's {{patient.first_name}}."
     - "Ah, {{patient.first_name}} {{patient.last_name}}."
     - "That's {{patient.first_name}} {{patient.last_name}}."
     - "Their name is {{patient.first_name}} {{patient.last_name}}."
-    - "It should be {{patient.first_name}}."
     - "Correct name is {{patient.first_name}} {{patient.last_name}}."
-    - "The first name is {{patient.first_name}}, yes."
-    - "Right, it's {{patient.first_name}}."
+
 
   reminder_message:
     - "Reminder: you have a {{appointment.appointment_type}} on {{appointment.day}} at {{appointment.location}}."

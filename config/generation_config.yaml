@@ -13,6 +13,22 @@ important_templates:
   patient_toolcall3:
     amount: 1250
 
+  # Full-name counterpart to patient_reminder (no clarification needed)
+  patient_reminder_direct:
+    amount: 1000
+
+  # No-action counterparts. tool_share_targets scales complaint_handling,
+  # consent_seeking and false_alarm_retraction up to ~800-1000; these
+  # keep "decline -> no tool call" from becoming the rare case again.
+  complaint_venting_no_action:
+    amount: 800
+
+  consent_declined_no_action:
+    amount: 800
+
+  false_alarm_declined_no_action:
+    amount: 800
+
 # Per-category amounts, keyed by a template-path prefix (top-level
 # category or a nested sub-folder). Longest matching prefix wins, so a
 # sub-folder overrides its parent. Consulted after important_templates
@@ -39,6 +55,19 @@ category_amounts:
   tool_use: 600
 
   general_conversation: 500
+
+# Minimum share of all tool calls per tool. Template amounts alone say
+# nothing about how often each tool is called overall, and rare tools
+# (alert_staff, 67 % confused with notify_staff in the evaluation) came
+# out far below the rest. Templates that call a tool below its target
+# are scaled up, at most tool_share_max_scale times their amount above
+# (higher factors only repeat the same phrases - add templates instead).
+tool_share_targets:
+  alert_staff: 0.06
+  notify_staff: 0.06
+  log_patient_note: 0.02
+
+tool_share_max_scale: 2.0
 
 random_seed_range:
   min: 1

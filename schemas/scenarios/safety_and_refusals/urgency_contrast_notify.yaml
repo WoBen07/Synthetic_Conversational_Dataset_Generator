@@ -1,0 +1,19 @@
+name: urgency_contrast_notify
+
+# Contrast pair with urgency_contrast_alert: the same body areas, but
+# mild and stable, so the robot passes it on with notify_staff and
+# nobody is called to the room urgently.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: urgency_contrast_notify
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

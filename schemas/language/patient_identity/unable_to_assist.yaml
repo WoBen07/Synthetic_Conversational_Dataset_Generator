@@ -1,32 +1,35 @@
 variables:
 
+  # The patients share a last name, so every request names the last
+  # name ("Ms. Wagner"), which is what find_patient searches.
   reminder_request:
     - "Please go and remind {{patient.last_name}} about {{patient.possessive_pronoun}} medication"
     - "Remind {{patient.full_name}} about {{patient.possessive_pronoun}} appointment later on"
-    - "Go and tell {{patient.first_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
+    - "Go and tell {{patient.title_last_name}} about {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
     - "Please remind {{patient.full_name}} that it's time for {{patient.possessive_pronoun}} medication"
-    - "Could you remind {{patient.first_name}} about {{patient.possessive_pronoun}} scheduled appointment?"
+    - "Could you remind {{patient.title_last_name}} about {{patient.possessive_pronoun}} scheduled appointment?"
     - "Please let {{patient.full_name}} know about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}"
-    - "Go remind {{patient.first_name}} that {{patient.possessive_pronoun}} medication is due"
+    - "Go remind {{patient.title_last_name}} that {{patient.possessive_pronoun}} medication is due"
     - "Can you notify {{patient.last_name}} about {{patient.possessive_pronoun}} appointment?"
     - "Please inform {{patient.full_name}} about {{patient.possessive_pronoun}} next {{appointment.appointment_type}}"
-    - "Don't forget to remind {{patient.first_name}} about {{patient.possessive_pronoun}} medication schedule"
+    - "Don't forget to remind {{patient.title_last_name}} about {{patient.possessive_pronoun}} medication schedule"
     - "Please check in with {{patient.full_name}} and remind {{patient.object_pronoun}} about {{patient.possessive_pronoun}} appointment"
-    - "Go let {{patient.first_name}} know that {{patient.possessive_pronoun}} {{appointment.appointment_type}} is coming up"
+    - "Go let {{patient.title_last_name}} know that {{patient.possessive_pronoun}} {{appointment.appointment_type}} is coming up"
     - "Please make sure {{patient.full_name}} remembers {{patient.possessive_pronoun}} medication"
     - "Can you go and remind {{patient.last_name}} about {{patient.possessive_pronoun}} treatment?"
     - "Please notify {{patient.full_name}} that {{patient.possessive_pronoun}} {{appointment.appointment_type}} is scheduled soon"
-    - "Could you let {{patient.first_name}} know about {{patient.possessive_pronoun}} medication time?"
+    - "Could you let {{patient.title_last_name}} know about {{patient.possessive_pronoun}} medication time?"
     - "Please tell {{patient.full_name}} about {{patient.possessive_pronoun}} upcoming appointment"
     - "Go remind {{patient.last_name}} that {{patient.possessive_pronoun}} medication should be taken soon"
-    - "Please give {{patient.first_name}} a reminder about {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
+    - "Please give {{patient.title_last_name}} a reminder about {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
     - "Can you make sure {{patient.full_name}} knows about {{patient.possessive_pronoun}} appointment today?"
     - "Please head over and remind {{patient.full_name}} about {{patient.possessive_pronoun}} medication schedule"
-    - "Could you go check on {{patient.first_name}} and remind {{patient.object_pronoun}} about the {{appointment.appointment_type}}?"
+    - "Could you go check on {{patient.title_last_name}} and remind {{patient.object_pronoun}} about the {{appointment.appointment_type}}?"
     - "Go let {{patient.last_name}} know {{patient.possessive_pronoun}} appointment is coming up soon"
     - "Please remind {{patient.full_name}} not to forget {{patient.possessive_pronoun}} {{appointment.appointment_type}}"
-    - "Can you swing by and remind {{patient.first_name}} about {{patient.possessive_pronoun}} medication?"
+    - "Can you swing by and remind {{patient.title_last_name}} about {{patient.possessive_pronoun}} medication?"
     - "Please make sure {{patient.last_name}} is reminded about {{patient.possessive_pronoun}} upcoming {{appointment.appointment_type}}"
+
 
   additional_information_request:
     - "Please give me more Information about {{patient.last_name}}"

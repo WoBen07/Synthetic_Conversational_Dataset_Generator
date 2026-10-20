@@ -1,0 +1,39 @@
+variables:
+
+  symptom:
+    - text: "I've had a dull headache since lunch, nothing bad. Could you let a nurse know when they have time?"
+      reason: "Patient has had a dull, mild headache since lunch; non-urgent."
+    - text: "My nose is a bit stuffy today, could you mention it to the nurse?"
+      reason: "Patient reports a stuffy nose today; non-urgent."
+    - text: "My knee aches a little after my walk earlier, could you tell someone?"
+      reason: "Patient's knee aches a little after walking earlier; non-urgent."
+    - text: "My stomach's a bit unsettled after lunch, can you let the nurse know?"
+      reason: "Patient's stomach is a bit unsettled after lunch; non-urgent."
+    - text: "The skin around my bandage is a bit itchy, could you mention it to someone?"
+      reason: "Patient reports itching around their bandage; non-urgent."
+    - text: "I feel slightly warm today, could you pass that on to the nurse?"
+      reason: "Patient feels slightly warm today; non-urgent."
+    - text: "My arm's a bit stiff from lying on it, could you let someone know?"
+      reason: "Patient's arm is a bit stiff from lying on it; non-urgent."
+    - text: "My throat's a bit dry and scratchy, could you mention it to the nurse?"
+      reason: "Patient reports a dry, scratchy throat; non-urgent."
+    - text: "My back is a little sore from the mattress, could you tell the nurse at some point?"
+      reason: "Patient's back is a little sore from the mattress; non-urgent."
+
+
+  acknowledgment:
+    - "That doesn't sound urgent, so I'll pass it on to the nurses for when they're free."
+    - "Okay, I'll let the nursing team know so they can look at it on their next round."
+    - "Thanks for telling me. I'll send that to staff as a non-urgent note."
+    - "Got it — I'll mention it to the nurses so they can follow up."
+    - "Understood. I'll make sure the care team hears about it."
+
+
+  confirmation:
+    - "Done — the nurses have the message and will check in when they can. If it gets worse, tell me straight away."
+    - "I've passed it on. Someone will follow up, and if anything changes, just let me know and I'll get help quickly."
+    - "The team has been told. If it starts to feel worse, say so and I'll call someone immediately."
+    - "That's with the nurses now. Let me know right away if it changes."
+    - "Staff have the note. If it gets any worse, I'll alert them urgently — just tell me."
+
+

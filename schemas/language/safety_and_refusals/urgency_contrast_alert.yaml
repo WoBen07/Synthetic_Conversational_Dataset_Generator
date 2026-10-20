@@ -1,0 +1,30 @@
+variables:
+
+  symptom:
+    - "I've suddenly got the worst headache of my life and I feel sick."
+    - "I can't get enough air, my breathing is really fast and shallow."
+    - "I just fell getting out of bed and I can't get up, my leg hurts badly."
+    - "I've just thrown up blood and my stomach really hurts."
+    - "My wound has started bleeding a lot and it's soaking through the bandage."
+    - "I'm shaking all over, I'm burning up and I can't think straight."
+    - "My arm suddenly went numb and weak and I can't lift it."
+    - "My throat is swelling up and it's getting hard to swallow."
+    - "There's a sudden, tearing pain in my back and I feel faint."
+
+
+  acknowledgment:
+    - "That needs help right now — I'm calling staff to you immediately."
+    - "Okay, this is urgent. I'm alerting the nurses this second."
+    - "I hear you. I'm getting someone to you right away — please stay as still as you can."
+    - "That sounds serious, so I'm sending an urgent alert now."
+    - "I'm calling for help immediately. Try to stay calm, I'm right here."
+
+
+  confirmation:
+    - "Staff are on their way to room {{patient.room_number}} now. I'll stay with you until they arrive."
+    - "The alert has gone out and someone is coming immediately. I'm not leaving."
+    - "Help is on the way right now. I can't treat this myself, but I'll stay right here with you."
+    - "The nurses have been alerted and are coming straight to you. Keep talking to me if you can."
+    - "Someone is coming immediately. I'm staying with you until they're here."
+
+

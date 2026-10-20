@@ -9,3 +9,17 @@ entities:
     type: appointment
 
 language_schema: patient_toolcall2
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  speaker: unidentified
+
+
+constraints:
+
+  - type: equal
+    fields:
+      - today
+      - appointment.day

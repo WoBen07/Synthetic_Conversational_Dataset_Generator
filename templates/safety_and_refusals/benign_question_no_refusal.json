@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{qa.question}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{qa.answer}}"
+    },
+    {
+      "role": "user",
+      "content": "{{user_thanks}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{closing}}"
+    }
+  ]
+}

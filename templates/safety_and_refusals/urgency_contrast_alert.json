@@ -1,0 +1,36 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{symptom}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{acknowledgment}}",
+      "tool_call": {
+        "name": "alert_staff",
+        "arguments": {
+          "patient_id": "{{patient.patient_id}}",
+          "room_number": "{{patient.room_number}}",
+          "urgency": "high"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "alert_staff",
+      "content": {
+        "status": "notified",
+        "eta": "immediate"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

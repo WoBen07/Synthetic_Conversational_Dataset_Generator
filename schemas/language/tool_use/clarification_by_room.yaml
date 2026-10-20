@@ -26,24 +26,20 @@ variables:
     - "Can you make sure {{patient.first_name}} doesn't forget {{patient.possessive_pronoun}} appointment?"
 
 
+  # The robot has not searched yet, so it must not claim to have found
+  # several matches - it only asks for something to search by.
   clarification_request:
-
-    # Asking for more information
     - "Could you please give me some additional information about {{patient.first_name}}?"
-    - "There are multiple patients with that first name. Could you specify which one?"
     - "Can you tell me which {{patient.first_name}} you mean?"
-    - "I found several patients named {{patient.first_name}}. Could you provide more details?"
     - "Which patient named {{patient.first_name}} should I remind?"
     - "Could you provide the patient's full name?"
     - "Do you know the patient's room number?"
     - "Can you tell me the patient's room or last name?"
     - "I need some more information to identify the correct patient."
-    - "There are multiple people with this name. Who should I look for?"
     - "Could you clarify which patient you are referring to?"
     - "Please provide another identifier for the patient."
     - "I need either the room number or the patient's full name."
     - "Can you confirm which {{patient.first_name}} you mean?"
-    - "I found more than one patient with that name, can you narrow it down?"
     - "Could you give me a room number to be sure?"
     - "Sorry, which {{patient.first_name}} are you referring to exactly?"
     - "Can you tell me more to help me find the right patient?"
@@ -51,20 +47,11 @@ variables:
     - "Is there a last name or room number you can give me?"
 
 
+  # Every answer contains the room, because the template searches by room.
   user_clarification:
-
-    # Full name
     - "I mean {{patient.full_name}} in room {{patient.room_number}}."
     - "{{patient.full_name}}, room {{patient.room_number}}."
     - "The patient in room {{patient.room_number}}."
-    - "I'm talking about {{patient.full_name}}."
-    - "The {{patient.first_name}} with the last name {{patient.last_name}}."
-    - "{{patient.full_name}} is the one I mean."
-    - "Please remind {{patient.full_name}}."
-    - "It's {{patient.full_name}}, that's who I mean."
-    - "{{patient.first_name}} {{patient.last_name}} is the patient."
-
-    # Room-based identification
     - "The patient in room {{patient.room_number}}."
     - "The person staying in room {{patient.room_number}}."
     - "The patient from room {{patient.room_number}}."
@@ -72,8 +59,6 @@ variables:
     - "I mean the patient located in {{patient.room_number}}."
     - "It's the patient staying in room {{patient.room_number}}."
     - "Whoever is in room {{patient.room_number}}."
-
-    # Mixed identifiers
     - "{{patient.first_name}}, the patient in room {{patient.room_number}}."
     - "{{patient.full_name}}, they are staying in room {{patient.room_number}}."
     - "The {{patient.first_name}} {{patient.last_name}} in room {{patient.room_number}}."

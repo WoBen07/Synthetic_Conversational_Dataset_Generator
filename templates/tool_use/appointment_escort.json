@@ -2,14 +2,14 @@
   "messages": [
     {
       "role": "user",
-      "content": "{{escort_request}}"
+      "content": "{{escort.text}}"
     },
     {
       "role": "assistant",
       "tool_call": {
         "name": "find_patient",
         "arguments": {
-          "name": "{{patient.last_name}}"
+          "name": "{{escort.search}}"
         }
       }
     },

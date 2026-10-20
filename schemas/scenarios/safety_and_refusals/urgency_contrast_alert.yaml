@@ -1,0 +1,19 @@
+name: urgency_contrast_alert
+
+# Contrast pair with urgency_contrast_notify: the same body areas, but
+# with red-flag symptoms, so the robot calls staff to the room at once
+# with alert_staff (urgency high) instead of leaving a note.
+
+entities:
+  patient:
+    type: patient
+
+language_schema: urgency_contrast_alert
+
+
+# What the robot knows before the conversation starts; rendered
+# into the system message by engine/robot_context.py.
+robot_context:
+  location: patient.room_number
+  patient: patient
+  speaker: patient

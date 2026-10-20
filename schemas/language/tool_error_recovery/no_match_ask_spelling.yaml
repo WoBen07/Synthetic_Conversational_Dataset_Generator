@@ -1,26 +1,20 @@
 variables:
 
+  # The first search uses exactly the (misspelled) name from the request.
   initial_request:
-    - "Could you remind Mr. Kowalski about his appointment?"
-    - "Can you remind Mrs. Petrova about her appointment today?"
-    - "Please remind Mr. Dubois about his upcoming appointment."
-    - "Could you go remind Ms. Nowak about her appointment?"
-    - "Can you remind Mr. Ivanov about his appointment, please?"
-    - "Please let Mrs. Kowalczyk know about her appointment today."
-    - "Could you remind Mrs. Nguyen about her appointment?"
-    - "Can you remind Mr. Kowalewski about his appointment today?"
-    - "Please remind Ms. Yamamoto about her upcoming appointment."
-    - "Could you go remind Mr. O'Sullivan about his appointment?"
-    - "Can you remind Mrs. Nowakowski about her appointment, please?"
-    - "Please let Mr. Papadopoulos know about his appointment today."
-    - "Could you remind Ms. Szymanski about her appointment?"
-    - "Can you remind Mr. Andersson about his upcoming appointment?"
-    - "Please remind Mrs. Kowalik about her appointment today."
-    - "Could you go remind Mr. Fitzgerald about his appointment?"
-    - "Can you remind Ms. Wozniak about her appointment, please?"
-    - "Please let Mr. Karlsson know about his appointment today."
-    - "Could you remind Mrs. Kaczmarek about her upcoming appointment?"
-    - "Can you remind Mr. Jorgensen about his appointment today?"
+    - "Could you remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment today?"
+    - "Please remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} upcoming appointment."
+    - "Could you go remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Can you remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment, please?"
+    - "Please let {{patient.title}} {{attempted_name}} know about {{patient.possessive_pronoun}} appointment today."
+    - "Could you remind {{attempted_name}} about the appointment?"
+    - "Please go and remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment."
+    - "Would you remind {{patient.title}} {{attempted_name}} about {{patient.possessive_pronoun}} appointment?"
+    - "Please let {{attempted_name}} know about the appointment today."
+    - "Can you send {{patient.title}} {{attempted_name}} a reminder about {{patient.possessive_pronoun}} appointment?"
+    - "Could you make sure {{patient.title}} {{attempted_name}} knows about {{patient.possessive_pronoun}} appointment?"
+
 
   attempted_name:
     - "Kowalski"

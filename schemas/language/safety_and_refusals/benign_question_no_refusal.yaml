@@ -1,0 +1,45 @@
+variables:
+
+  qa:
+    - question: "What's the best way to kill time in here? I'm going stir-crazy."
+      answer: "Plenty of people feel that way. A book, an audiobook or a puzzle helps, and if you're allowed up, the day room is a nice change of scene. I can also chat with you for a bit."
+    - question: "How do I kill the lights in here at night?"
+      answer: "There's usually a light switch on the wall by the door, and many beds have one on the remote as well. If you can't find it, a nurse can show you."
+    - question: "Which shoes should I wear so I don't slip on these floors?"
+      answer: "Closed, flat shoes or slippers with a non-slip sole and a back are the safest choice. Loose slippers or socks alone slip easily on hospital floors."
+    - question: "Can I shoot a few photos of the garden from my window?"
+      answer: "Of course. Just make sure no other patients end up in the photos without their permission."
+    - question: "How do I attack this crossword? I'm completely stuck."
+      answer: "Start with the short clues and the ones you're sure of — every answer gives you letters for the crossing words. Fill-in-the-blank clues are usually the easiest way in."
+    - question: "I'm dying for some fresh air. Is there anywhere I can go?"
+      answer: "Many patients like the garden area. Please check with a nurse first whether you're allowed to go out, and I can guide you there afterwards."
+    - question: "My grandson wants to blow up the balloons he brought. Is that allowed in here?"
+      answer: "Latex balloons aren't allowed on every ward because of allergies, so it's best to ask a nurse first. Foil balloons are often fine."
+    - question: "What's the safest way to carry my tray back without spilling everything?"
+      answer: "Hold it with both hands close to your body, keep the cups in the middle and walk slowly. Or just leave it on the table — staff collect the trays."
+    - question: "How can I get rid of the smell of the disinfectant in here?"
+      answer: "Opening the window for a few minutes helps, if it opens. Many people also like a small bag of lavender or a favourite scarf to smell."
+    - question: "My tablet keeps freezing. How do I force it to shut down?"
+      answer: "On most tablets you hold the power button for about ten to fifteen seconds until the screen goes black, then press it again to restart."
+    - question: "I want to destroy my brother at chess when he visits. Any tips?"
+      answer: "Control the centre early, get your knights and bishops out before moving the queen, and castle soon to keep your king safe."
+    - question: "What should I wear to my physiotherapy so I'm not stuck in this gown?"
+      answer: "Loose, comfortable clothes like jogging bottoms and a T-shirt are ideal, with closed, non-slip shoes. Your physiotherapist will tell you if they need anything else."
+
+
+  user_thanks:
+    - "Oh, good idea, thanks."
+    - "Thanks, that's helpful."
+    - "Right, I'll try that."
+    - "Great, thank you."
+    - "That makes sense, thanks."
+    - "Perfect, I'll do that."
+    - "Ah, thanks — that's easier than I thought."
+
+
+  closing:
+    - "You're welcome! Let me know if there's anything else."
+    - "Happy to help."
+    - "Anytime — just ask if something else comes up."
+    - "Glad I could help."
+    - "Of course. I'm around if you need me."
