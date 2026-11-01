@@ -1,0 +1,61 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_light_power",
+        "arguments": {
+          "room": "{{light.room}}",
+          "light": "{{light.fixture}}",
+          "state": "{{power.state}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_light_power",
+      "content": {
+        "status": "ok",
+        "state": "{{power.state}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    },
+    {
+      "role": "user",
+      "content": "{{followup}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_light_power",
+        "arguments": {
+          "room": "{{second.name}}",
+          "state": "{{power.state}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_light_power",
+      "content": {
+        "status": "ok",
+        "state": "{{power.state}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{second_confirmation}}"
+    }
+  ]
+}

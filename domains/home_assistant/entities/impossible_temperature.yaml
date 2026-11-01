@@ -1,0 +1,9 @@
+entity: impossible_temperature
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  value:
+    type: string
+    generator: impossible_temperature

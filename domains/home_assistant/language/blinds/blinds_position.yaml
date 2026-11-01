@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Stell die Rollläden {{room.in_room}} auf {{position.pct}} Prozent.
+  - Fahr die Rollläden {{room.in_room}} auf {{position.pct}}%.
+  - Rollläden {{room.in_room}} auf {{position.pct}} Prozent, bitte.
+  - Kannst du die Rollläden {{room.in_room}} auf {{position.pct}} Prozent stellen?
+  - Die Rollos {{room.in_room}} bitte auf {{position.pct}} Prozent.
+  - Setz die Jalousien {{room.in_room}} auf {{position.pct}}%.
+  confirmation:
+  - Die Rollläden {{room.in_room}} stehen auf {{position.pct}} Prozent.
+  - Alles klar, {{position.pct}} Prozent {{room.in_room}}.
+  - Erledigt, die Rollläden {{room.in_room}} sind auf {{position.pct}} Prozent.
+  - Okay, ich habe die Rollläden {{room.in_room}} auf {{position.pct}} Prozent gestellt.

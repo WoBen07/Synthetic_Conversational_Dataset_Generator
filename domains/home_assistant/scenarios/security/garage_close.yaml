@@ -1,0 +1,12 @@
+name: garage_close
+entities:
+  home:
+    type: home
+language_schema: garage_close
+home:
+  require_home:
+  - garage
+robot_context:
+  home: home
+tags:
+- security

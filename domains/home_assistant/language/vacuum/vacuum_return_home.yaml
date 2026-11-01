@@ -1,21 +1,19 @@
 variables:
-
   request:
-    - "Schicke {{vacuum.accusative}} nach Hause."
-    - "Schick {{vacuum.accusative}} bitte nach Hause."
-    - "Schick {{vacuum.accusative}} zurück zur Ladestation."
-    - "Schick {{vacuum.accusative}} heim."
-    - "Lass {{vacuum.accusative}} zurück zur Ladestation fahren."
-    - "{{vacuum.nominative_cap}} soll nach Hause fahren."
-    - "{{vacuum.nominative_cap}} soll zurück in die Ladestation."
-    - "{{vacuum.nominative_cap}} soll heimfahren."
-    - "Ruf {{vacuum.accusative}} zurück."
-    - "Kannst du {{vacuum.accusative}} nach Hause schicken?"
-    - "Das reicht für heute, schick {{vacuum.accusative}} nach Hause."
-
+  - Schicke {{vacuum.acc}} nach Hause.
+  - Schick {{vacuum.acc}} bitte nach Hause.
+  - Schick {{vacuum.acc}} zurück zur Ladestation.
+  - Schick {{vacuum.acc}} heim.
+  - Lass {{vacuum.acc}} zurück zur Ladestation fahren.
+  - '{{vacuum.nom_cap}} soll nach Hause fahren.'
+  - '{{vacuum.nom_cap}} soll zurück in die Ladestation.'
+  - '{{vacuum.nom_cap}} soll heimfahren.'
+  - Ruf {{vacuum.acc}} zurück.
+  - Kannst du {{vacuum.acc}} nach Hause schicken?
+  - Das reicht für heute, schick {{vacuum.acc}} nach Hause.
   confirmation:
-    - "Fridolin fährt nach Hause."
-    - "Alles klar, Fridolin ist auf dem Weg zur Ladestation."
-    - "Erledigt, Fridolin fährt zurück."
-    - "Okay, Fridolin macht sich auf den Heimweg."
-    - "Gemacht, Fridolin fährt zur Ladestation."
+  - '{{vacuum.reply_cap}} fährt nach Hause.'
+  - Alles klar, {{vacuum.reply}} ist auf dem Weg zur Ladestation.
+  - Erledigt, {{vacuum.reply}} fährt zurück.
+  - Okay, {{vacuum.reply}} macht sich auf den Heimweg.
+  - Gemacht, {{vacuum.reply}} fährt zur Ladestation.

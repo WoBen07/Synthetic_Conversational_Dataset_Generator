@@ -1,0 +1,12 @@
+name: unknown_scene
+entities:
+  home:
+    type: home
+  scene:
+    type: missing_scene
+language_schema: unknown_scene
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

@@ -1,0 +1,15 @@
+name: media_control
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: media_control
+home:
+  require:
+    room:
+    - media
+robot_context:
+  home: home
+tags:
+- media

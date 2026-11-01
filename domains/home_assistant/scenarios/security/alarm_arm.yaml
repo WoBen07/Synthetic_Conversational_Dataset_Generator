@@ -1,0 +1,12 @@
+name: alarm_arm
+entities:
+  home:
+    type: home
+language_schema: alarm_arm
+home:
+  require_home:
+  - alarm
+robot_context:
+  home: home
+tags:
+- security

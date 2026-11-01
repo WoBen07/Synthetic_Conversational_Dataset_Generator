@@ -1,0 +1,16 @@
+variables:
+  request:
+  - Aktiviere die Szene {{scene.name}}.
+  - Starte die Szene {{scene.name}}.
+  - Mach mal die Szene {{scene.name}} an.
+  - Stell die Szene {{scene.name}} ein.
+  - Szene {{scene.name}}, bitte.
+  - Kannst du die Szene {{scene.name}} aktivieren?
+  - Bitte die Szene {{scene.name}} starten.
+  - Schalte auf die Szene {{scene.name}}.
+  - Wir wollen die Szene {{scene.name}}.
+  confirmation:
+  - Die Szene {{scene.name}} ist aktiv.
+  - Alles klar, {{scene.name}} läuft.
+  - Erledigt, die Szene {{scene.name}} ist an.
+  - Okay, ich habe die Szene {{scene.name}} aktiviert.

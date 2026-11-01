@@ -15,6 +15,7 @@ import argparse
 import json
 import math
 import random
+import shutil
 from pathlib import Path
 
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
@@ -255,6 +256,24 @@ def create_seed(config):
     )
 
 
+def remove_stale_output(domain):
+    """Remove the output of templates the domain no longer has: the merger
+    reads every template folder of a domain."""
+
+    folder = OUTPUT_ROOT / domain.name
+
+    if not folder.is_dir():
+        return
+
+    current = {template_id.split("/")[-1] for template_id in domain.templates()}
+
+    for output in sorted(folder.iterdir()):
+
+        if output.is_dir() and output.name not in current:
+            print(f"Removing output of a removed template: {output}")
+            shutil.rmtree(output)
+
+
 def run_template(domain, template_id, amount, seed):
 
     print(
@@ -406,6 +425,8 @@ def main():
             print(" -", t)
 
         amounts = plan_amounts(domain)
+
+        remove_stale_output(domain)
 
         for template in templates:
 

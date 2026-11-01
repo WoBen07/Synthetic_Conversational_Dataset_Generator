@@ -1,10 +1,9 @@
 name: unsupported_device
-
-entities: {}
-
+entities:
+  home:
+    type: home
 language_schema: unsupported_device
-
 robot_context:
-  speaker: resident
-
-tags: [no_tool]
+  home: home
+tags:
+- no_tool

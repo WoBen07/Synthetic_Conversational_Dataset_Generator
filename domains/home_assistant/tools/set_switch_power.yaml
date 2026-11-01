@@ -1,0 +1,47 @@
+tool: set_switch_power
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Schaltet ein Gerät an einer schaltbaren Steckdose ein oder aus.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
+    format: name
+
+  switch:
+    type: string
+    required: true
+    description: Name des Geräts aus der Geräteliste.
+    source: known
+    format: name
+
+  state:
+    type: enum
+    values: ["on", "off"]
+    required: true
+    description: Der gewünschte Zustand.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  state:
+    type: enum
+    values: ["on", "off"]

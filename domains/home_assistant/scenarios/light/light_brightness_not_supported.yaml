@@ -1,0 +1,14 @@
+name: light_brightness_not_supported
+entities:
+  home:
+    type: home
+  light:
+    type: light
+  brightness:
+    type: brightness
+language_schema: light_brightness_not_supported
+robot_context:
+  home: home
+tags:
+- brightness
+- not_supported

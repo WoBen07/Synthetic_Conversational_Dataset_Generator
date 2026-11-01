@@ -1,0 +1,14 @@
+name: multi_leaving_home
+entities:
+  home:
+    type: home
+language_schema: multi_leaving_home
+home:
+  require_some:
+  - heating
+  - light
+robot_context:
+  home: home
+tags:
+- multi
+- whole_home

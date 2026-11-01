@@ -1,0 +1,12 @@
+name: followup_thanks
+entities:
+  home:
+    type: home
+  light:
+    type: light
+language_schema: followup_thanks
+robot_context:
+  home: home
+tags:
+- followup
+- no_tool

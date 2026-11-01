@@ -1,0 +1,15 @@
+name: implied_too_bright
+entities:
+  home:
+    type: home
+  light:
+    type: generic_light
+language_schema: implied_too_bright
+home:
+  min_light_rooms: 2
+robot_context:
+  location: light.room
+  home: home
+tags:
+- implied
+- known_room

@@ -1,0 +1,11 @@
+name: followup_brighter
+entities:
+  home:
+    type: home
+  light:
+    type: light
+language_schema: followup_brighter
+robot_context:
+  home: home
+tags:
+- followup

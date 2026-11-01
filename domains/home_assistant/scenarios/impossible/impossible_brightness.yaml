@@ -1,0 +1,14 @@
+name: impossible_brightness
+entities:
+  home:
+    type: home
+  light:
+    type: light
+  too_bright:
+    type: impossible_brightness
+language_schema: impossible_brightness
+robot_context:
+  home: home
+tags:
+- impossible
+- no_tool

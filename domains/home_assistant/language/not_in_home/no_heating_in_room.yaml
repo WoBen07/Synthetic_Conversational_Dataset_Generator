@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Stelle die Heizung {{room.in_room}} auf 21 Grad.
+  - Heize {{room.accusative}} auf 22 Grad.
+  - Mach die Heizung {{room.in_room}} an.
+  - Mach es {{room.in_room}} wärmer.
+  - Wie warm ist es {{room.in_room}}?
+  refusal:
+  - '{{room.in_room_cap}} gibt es keine Heizung, die ich steuern kann.'
+  - Das geht leider nicht, {{room.in_room}} ist keine Heizung eingerichtet.
+  - Eine Heizung kenne ich {{room.in_room}} nicht.
+  - '{{room.in_room_cap}} habe ich keine Heizung in der Liste.'

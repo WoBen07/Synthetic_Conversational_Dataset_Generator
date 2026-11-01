@@ -384,6 +384,23 @@ class Domain:
 
         return factory(self) if factory else []
 
+    def finish_context(self, context, scenario):
+        """After all entities exist, before the system message is built:
+        for what depends on several entities (a home that contains them)."""
+
+        hook = getattr(self.module, "finish_context", None)
+
+        if hook:
+            hook(context, scenario)
+
+    def postprocess(self, datapoint):
+        """The rendered conversation, before validation. May raise ValueError
+        for a draw this domain cannot use; it is redrawn."""
+
+        hook = getattr(self.module, "postprocess", None)
+
+        return hook(datapoint, self) if hook else datapoint
+
     def refresh_entity(self, entity):
 
         hook = getattr(self.module, "refresh_entity", None)

@@ -1,0 +1,12 @@
+name: light_power_named
+entities:
+  home:
+    type: home
+  light:
+    type: named_light
+language_schema: light_power_named
+robot_context:
+  home: home
+tags:
+- power
+- room_from_list

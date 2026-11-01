@@ -1,0 +1,33 @@
+tool: HassVacuumReturnToBase
+side_effects: true
+description: Schickt den Saugroboter zurück zur Ladestation.
+input: {}
+output:
+  status:
+    type: enum
+    values:
+    - ok
+    - unavailable
+    - not_supported
+    - stuck
+    - bin_full
+    - not_found
+  state:
+    type: enum
+    values:
+    - 'on'
+    - 'off'
+  brightness_pct:
+    type: integer
+  color:
+    type: string
+  temperature:
+    type: number
+  current_temperature:
+    type: number
+  target_temperature:
+    type: number
+  humidity_pct:
+    type: integer
+  window_open:
+    type: boolean

@@ -1,0 +1,23 @@
+variables:
+  mode:
+  - value: vacuum
+    infinitive: saugen
+    present: saugt
+    noun: Saugen
+  - value: mop
+    infinitive: wischen
+    present: wischt
+    noun: Wischen
+  - value: vacuum_and_mop
+    infinitive: saugen und wischen
+    present: saugt und wischt
+    noun: Saugen und Wischen
+  request:
+  - Ich gehe jetzt, mach alle Lichter aus und lass {{vacuum.acc}} alles {{mode.infinitive}}.
+  - Mach alle Lichter aus und {{vacuum.nom}} soll überall {{mode.infinitive}}.
+  - Alle Lichter aus, und {{vacuum.nom}} soll alles {{mode.infinitive}}.
+  - Wir sind weg, mach das Licht aus und schick {{vacuum.acc}} zum {{mode.noun}} los.
+  confirmation:
+  - Alle Lichter sind aus und {{vacuum.reply}} {{mode.present}} jetzt überall.
+  - Alles klar, das Licht ist aus und {{vacuum.reply}} legt los.
+  - Erledigt, Lichter aus, {{vacuum.reply}} {{mode.present}} alles.

@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Schalte die Alarmanlage scharf.
+  - Mach die Alarmanlage an.
+  - Alarmanlage an, bitte.
+  - Kannst du die Alarmanlage scharf schalten?
+  - Aktiviere die Alarmanlage.
+  - Bitte die Alarmanlage einschalten.
+  confirmation:
+  - Die Alarmanlage ist scharf.
+  - Alles klar, die Alarmanlage ist an.
+  - Erledigt, die Alarmanlage ist aktiv.
+  - Okay, ich habe die Alarmanlage scharf geschaltet.

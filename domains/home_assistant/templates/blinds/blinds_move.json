@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_blinds",
+        "arguments": {
+          "room": "{{room.name}}",
+          "action": "{{action.value}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_blinds",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

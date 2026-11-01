@@ -1,0 +1,15 @@
+name: sensor_window
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: sensor_window
+home:
+  require:
+    room:
+    - window
+robot_context:
+  home: home
+tags:
+- state

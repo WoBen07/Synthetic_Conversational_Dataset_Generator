@@ -1,0 +1,23 @@
+variables:
+  power:
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
+  request:
+  - Mach alle Lichter {{power.word}}.
+  - Schalte alle Lichter {{power.word}}.
+  - Alle Lampen {{power.word}}, bitte.
+  - Mach überall das Licht {{power.word}}.
+  - Kannst du alle Lichter {{power.word}}machen?
+  - Bitte überall das Licht {{power.word}}schalten.
+  - Schalt mal das ganze Licht {{power.word}}.
+  - Im ganzen Haus das Licht {{power.word}}, bitte.
+  - Alle Lichter {{power.word}}.
+  - Mach bitte das Licht in allen Räumen {{power.word}}.
+  confirmation:
+  - Alle Lichter sind jetzt {{power.word}}.
+  - Alles klar, überall ist das Licht {{power.word}}.
+  - Erledigt, alle Lichter sind {{power.word}}.
+  - Okay, ich habe alle Lichter {{power.word}}geschaltet.
+  - Gemacht, das Licht ist überall {{power.word}}.

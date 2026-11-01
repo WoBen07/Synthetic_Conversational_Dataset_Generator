@@ -23,9 +23,8 @@ input:
     type: string
     required: false
     description: >
-      Raum ohne Präposition und Artikel. Weglassen, wenn kein Raum genannt
-      wurde; dann gilt der Modus für die ganze Wohnung.
-    source: mentioned
+      Raum genau so, wie er in der Geräteliste steht. Weglassen, wenn kein Raum genannt wurde; dann gilt der Modus für das ganze Zuhause.
+    source: known
     format: name
 
 

@@ -1,0 +1,34 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_sensor",
+        "arguments": {
+          "room": "{{room.name}}",
+          "sensor": "window"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_sensor",
+      "content": {
+        "status": "ok",
+        "window_open": "{{reading.open}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

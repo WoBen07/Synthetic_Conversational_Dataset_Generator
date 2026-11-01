@@ -77,6 +77,8 @@ optional names from it:
 | `GENERATORS` | `{key: function}` value generators, added to the shared ones (domain keys win) | rooms, appointment types with fitting locations, weather, patient IDs |
 | `create_validators(domain)` | validator instances, run after the engine's structural checks; `domain` tells them the variant and language | weather advice must match the `get_weather` result |
 | `refresh_entity(entity)` | called for every entity after constraints, to keep derived fields consistent | redraw an appointment location that no longer fits its type |
+| `finish_context(context, scenario)` | called once all entities exist, before the system message is built, for what depends on several of them | home_assistant: build a home that contains the conversation's devices |
+| `postprocess(datapoint, domain)` | the rendered conversation, before validation; may raise `ValueError` to redraw | home_assistant: drop empty arguments, speech-recognizer text, map tools to HA intents |
 
 Shared generators (`generators/`): `first_name`, `last_name`,
 `birthday`, `weekday`. A domain without Python uses only these plus
@@ -184,6 +186,53 @@ against the variant's schemas, so a template still using the old schema
 produces no data. Use `remove_templates` for behaviour the variant does not
 have. A domain validator that names tools needs the new names as well.
 
+### The home_assistant domain
+
+German, for any home. Every conversation draws its own home, listed in the
+system message, and everything the assistant does has to fit that list:
+
+```
+Du bist der Sprachassistent dieses Zuhauses ... Du sprichst mit einer Person, die hier wohnt.
+Geräte im Zuhause:
+- Wohnzimmer: Licht (Stehlampe, Lichterkette), Heizung, Rollläden
+- Küche: Licht, Heizung, Schalter (Kaffeemaschine)
+- Saugroboter: Fridolin
+- Szenen: Filmabend
+```
+
+`domains/home_assistant/home.py` builds the list after the entities are drawn: the
+conversation's own devices are always in it, the rest is random. A scenario asks
+for more in a `home` block, see the module's docstring. Rooms, device names,
+scenes and the robot's name vary, and a robot may have no name at all.
+
+Tool arguments name what is on the list (`source: known`). `light` is optional:
+"das Licht im Wohnzimmer" has none, "die Stehlampe" has one, and its room comes
+from the list when the user does not say it.
+
+About a third of the conversations have user text as a speech recognizer writes it
+(lowercase, no punctuation, sometimes a filler word), see `postprocess.py`.
+
+| category | teaches |
+|---|---|
+| `light`, `heating`, `vacuum`, `blinds`, `switches`, `scenes`, `media`, `sensors` | the devices, including reading their state |
+| `security` | opening a lock, the garage or disarming the alarm asks first; a no calls nothing |
+| `known_room` | the system message says where the user is, so no question back |
+| `implied` | "Mir ist kalt" |
+| `multi` | several tool calls for one request |
+| `followup` | "Und im Büro auch", "Noch heller", a correction, a thank-you |
+| `clarification` | a question back only when it is really open; a home of one room has none |
+| `impossible` | values outside the range: no call, the limit is named |
+| `not_in_home`, `no_tool` | what the list does not have, and what no tool can do |
+| `error_handling` | a tool reports a failure; the assistant says so |
+
+The variant `home_assistant@hass` has the same conversations with Home Assistant's
+built-in intents as tools (`hass_mapping.py`, names from
+[intents.yaml](https://github.com/OHF-Voice/intents/blob/main/intents.yaml)).
+HA has no intent for some things, so 25 templates are left out (security, relative
+adjustments, the heating mode, capability checks with a negative answer) and a draw
+such as mopping is redrawn. Tool results keep this domain's format, not HA's own
+response format.
+
 ### Languages
 
 `engine/languages.py` holds what the engine has to know about a language;
@@ -196,6 +245,7 @@ a new language is one entry there, an unknown code is an error.
 | `wording` | default `today` and `location` sentences of the system message |
 | `name_prefixes` | words a `format: name` tool argument must not start with |
 | `allowed_doubles` | words the doubled-word check accepts |
+| `decimal_separator` | how a number argument is written in text (21.5 is grounded by "21,5") |
 | `english_articles` | whether the renderer's `a`/`an` fix and its validator run |
 
 ## Generating and merging several domains
@@ -205,7 +255,9 @@ python -m synthetic_data_generator.engine.orchestrator                          
 python -m synthetic_data_generator.engine.orchestrator --domain hospital --domain retail_store
 ```
 
-Output goes to `Synthetic_Data/<domain>/<template name>/`. The merger
+Output goes to `Synthetic_Data/<domain>/<template name>/`, replacing what a
+template generated before; the output of templates the domain no longer has is
+removed, so old conversations never reach the merge. The merger
 combines all generated domains into one train/validation split
 (stratified per domain and template), and writes `tools.json` as
 `{domain: [definitions]}`. Every datapoint's `metadata.domain` tells the

@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Stelle {{light.acc}} {{light.in_room}} auf {{too_bright.pct}} Prozent.
+  - Mach {{light.acc}} {{light.in_room}} auf {{too_bright.pct}}%.
+  - Dimme {{light.acc}} {{light.in_room}} auf {{too_bright.pct}} Prozent.
+  - Kannst du {{light.acc}} {{light.in_room}} auf {{too_bright.pct}} Prozent stellen?
+  - '{{light.nom_cap}} {{light.in_room}} bitte auf {{too_bright.pct}}%.'
+  refusal:
+  - '{{too_bright.pct}} Prozent geht nicht, möglich sind 1 bis 100 Prozent.'
+  - Mehr als 100 Prozent geht leider nicht.
+  - Das geht leider nicht, {{light.nom}} {{light.in_room}} kann höchstens 100 Prozent.
+  - Das kann ich nicht einstellen, die Helligkeit geht nur bis 100 Prozent.

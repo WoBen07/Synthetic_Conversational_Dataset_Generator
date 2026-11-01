@@ -3,6 +3,7 @@ entity: temperature
 
 fields:
 
+  # See generators/devices.py for the fields the generator adds.
   value:
-    type: integer
+    type: string
     generator: target_temperature

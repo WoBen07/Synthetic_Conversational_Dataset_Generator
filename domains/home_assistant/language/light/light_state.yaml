@@ -1,0 +1,20 @@
+variables:
+  current:
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
+  request:
+  - Ist {{light.nom}} {{light.in_room}} noch an?
+  - Ist {{light.nom}} {{light.in_room}} an?
+  - Brennt {{light.nom}} {{light.in_room}} noch?
+  - Hab ich {{light.acc}} {{light.in_room}} angelassen?
+  - Ist {{light.nom}} {{light.in_room}} aus?
+  - Kannst du nachsehen, ob {{light.nom}} {{light.in_room}} an ist?
+  - Weißt du, ob {{light.nom}} {{light.in_room}} noch an ist?
+  - Sag mal, ist {{light.nom}} {{light.in_room}} an oder aus?
+  confirmation:
+  - '{{light.nom_cap}} {{light.in_room}} ist gerade {{current.word}}.'
+  - '{{light.in_room_cap}} ist {{light.nom}} {{current.word}}.'
+  - 'Ich habe nachgesehen: {{light.nom}} {{light.in_room}} ist {{current.word}}.'
+  - Gerade ist {{light.nom}} {{light.in_room}} {{current.word}}.

@@ -1,14 +1,17 @@
 name: clarify_temperature_room
-
 entities:
+  home:
+    type: home
   room:
-    type: room
+    type: indoor_room
   temperature:
     type: temperature
-
 language_schema: clarify_temperature_room
-
+home:
+  require:
+    room:
+    - heating
 robot_context:
-  speaker: resident
-
-tags: [clarification]
+  home: home
+tags:
+- clarification

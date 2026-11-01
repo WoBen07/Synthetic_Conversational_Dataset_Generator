@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Hier ist es zu dunkel.
+  - Ich sehe hier nichts.
+  - Es ist so dunkel hier.
+  - Hier ist es aber finster.
+  - Ganz schön dunkel hier.
+  - Ich kann hier kaum was sehen.
+  confirmation:
+  - Ich habe {{light.acc}} {{light.in_room}} angemacht.
+  - Dann mache ich {{light.acc}} {{light.in_room}} an.
+  - Alles klar, {{light.nom}} {{light.in_room}} ist jetzt an.
+  - '{{light.nom_cap}} {{light.in_room}} ist an, jetzt ist es heller.'

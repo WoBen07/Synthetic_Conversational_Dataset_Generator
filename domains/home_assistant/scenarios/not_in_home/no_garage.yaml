@@ -1,0 +1,13 @@
+name: no_garage
+entities:
+  home:
+    type: home
+language_schema: no_garage
+home:
+  absent:
+  - garage
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

@@ -1,0 +1,12 @@
+name: unknown_switch
+entities:
+  home:
+    type: home
+  switch:
+    type: missing_switch
+language_schema: unknown_switch
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

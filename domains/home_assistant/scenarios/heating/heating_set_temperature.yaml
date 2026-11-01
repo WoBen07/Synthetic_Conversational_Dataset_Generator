@@ -1,14 +1,17 @@
 name: heating_set_temperature
-
 entities:
+  home:
+    type: home
   room:
-    type: room
+    type: indoor_room
   temperature:
     type: temperature
-
 language_schema: heating_set_temperature
-
+home:
+  require:
+    room:
+    - heating
 robot_context:
-  speaker: resident
-
-tags: [temperature]
+  home: home
+tags:
+- temperature

@@ -1,0 +1,15 @@
+variables:
+  request:
+  - Starte die Automation {{automation.name}}.
+  - Führ die Automation {{automation.name}} aus.
+  - Lass die Automation {{automation.name}} laufen.
+  - Automation {{automation.name}}, bitte.
+  - Kannst du die Automation {{automation.name}} starten?
+  - Bitte die Automation {{automation.name}} ausführen.
+  - Mach mal die Automation {{automation.name}}.
+  - Wirf die Automation {{automation.name}} an.
+  confirmation:
+  - Die Automation {{automation.name}} läuft.
+  - Alles klar, {{automation.name}} ist gestartet.
+  - Erledigt, die Automation {{automation.name}} läuft.
+  - Okay, ich habe die Automation {{automation.name}} gestartet.

@@ -1,0 +1,26 @@
+variables:
+  mode:
+  - value: vacuum
+    infinitive: saugen
+    present: saugt
+    noun: Saugen
+  - value: mop
+    infinitive: wischen
+    present: wischt
+    noun: Wischen
+  - value: vacuum_and_mop
+    infinitive: saugen und wischen
+    present: saugt und wischt
+    noun: Saugen und Wischen
+  request:
+  - Lass {{vacuum.acc}} hier {{mode.infinitive}}.
+  - '{{vacuum.nom_cap}} soll hier {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll mal hier {{mode.infinitive}}.'
+  - Hier muss {{vacuum.nom}} {{mode.infinitive}}.
+  - Kannst du {{vacuum.acc}} hier {{mode.infinitive}} lassen?
+  - Schick {{vacuum.acc}} zum {{mode.noun}} hierher.
+  confirmation:
+  - '{{vacuum.reply_cap}} kommt und {{mode.present}} {{room.accusative}}.'
+  - Alles klar, {{vacuum.reply}} {{mode.present}} jetzt {{room.accusative}}.
+  - Okay, {{vacuum.reply}} fährt {{room.into_room}} zum {{mode.noun}}.
+  - Erledigt, {{vacuum.reply}} ist unterwegs {{room.into_room}}.

@@ -1,0 +1,13 @@
+name: vacuum_status
+entities:
+  home:
+    type: home
+  vacuum:
+    type: vacuum
+  room:
+    type: indoor_room
+language_schema: vacuum_status
+robot_context:
+  home: home
+tags:
+- state

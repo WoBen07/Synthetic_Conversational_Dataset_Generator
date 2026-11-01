@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Stopp die Rollläden {{room.in_room}}.
+  - Halt die Rollläden {{room.in_room}} an.
+  - Rollläden {{room.in_room}} stopp!
+  - Kannst du die Rollläden {{room.in_room}} anhalten?
+  - Die Rollos {{room.in_room}} sollen stehen bleiben.
+  - Halt, die Rollläden {{room.in_room}} sollen anhalten.
+  confirmation:
+  - Die Rollläden {{room.in_room}} sind angehalten.
+  - Alles klar, die Rollläden {{room.in_room}} stehen.
+  - Erledigt, die Rollläden {{room.in_room}} bleiben so.
+  - Okay, gestoppt.

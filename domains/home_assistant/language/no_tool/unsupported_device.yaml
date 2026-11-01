@@ -1,52 +1,35 @@
 variables:
-
-  # Devices this assistant has no tool for: it says so, and calls nothing.
   device:
-    - request: "Mach den Fernseher an."
-      refusal: "Den Fernseher kann ich leider nicht steuern."
-    - request: "Schalte die Kaffeemaschine ein."
-      refusal: "Die Kaffeemaschine kann ich leider nicht steuern."
-    - request: "Starte die Spülmaschine."
-      refusal: "Die Spülmaschine kann ich leider nicht starten."
-    - request: "Starte bitte die Waschmaschine."
-      refusal: "Die Waschmaschine kann ich leider nicht starten."
-    - request: "Fahr die Rollläden im Wohnzimmer runter."
-      refusal: "Die Rollläden kann ich leider nicht steuern."
-    - request: "Mach die Rollos im Schlafzimmer hoch."
-      refusal: "Die Rollos kann ich leider nicht steuern."
-    - request: "Schließ die Haustür ab."
-      refusal: "Die Haustür kann ich leider nicht abschließen."
-    - request: "Heiz den Backofen auf 200 Grad vor."
-      refusal: "Den Backofen kann ich leider nicht steuern."
-    - request: "Spiel Musik im Wohnzimmer."
-      refusal: "Musik abspielen kann ich leider nicht."
-    - request: "Mach die Musik in der Küche lauter."
-      refusal: "Die Musik kann ich leider nicht steuern."
-    - request: "Öffne das Garagentor."
-      refusal: "Das Garagentor kann ich leider nicht öffnen."
-    - request: "Schalte die Alarmanlage scharf."
-      refusal: "Die Alarmanlage kann ich leider nicht steuern."
-    - request: "Mach die Klimaanlage im Büro an."
-      refusal: "Die Klimaanlage kann ich leider nicht steuern."
-    - request: "Schalte die Lüftung im Bad ein."
-      refusal: "Die Lüftung kann ich leider nicht steuern."
-    - request: "Stell den Rasensprenger an."
-      refusal: "Den Rasensprenger kann ich leider nicht steuern."
-    - request: "Lass den Rasenmäher mähen."
-      refusal: "Den Rasenmäher kann ich leider nicht steuern."
-    - request: "Mach das Radio an."
-      refusal: "Das Radio kann ich leider nicht steuern."
-    - request: "Schalte den Trockner ein."
-      refusal: "Den Trockner kann ich leider nicht steuern."
-    - request: "Stell den Wecker auf sieben Uhr."
-      refusal: "Einen Wecker kann ich leider nicht stellen."
-    - request: "Mach den Wasserkocher an."
-      refusal: "Den Wasserkocher kann ich leider nicht steuern."
-
+  - request: Schalte die Spülmaschine ein.
+    refusal: Die Spülmaschine kann ich leider nicht steuern.
+  - request: Starte die Waschmaschine.
+    refusal: Die Waschmaschine kann ich leider nicht starten.
+  - request: Heiz den Backofen auf 200 Grad vor.
+    refusal: Den Backofen kann ich leider nicht steuern.
+  - request: Lass den Rasenmäher mähen.
+    refusal: Den Rasenmäher kann ich leider nicht steuern.
+  - request: Stell den Rasensprenger an.
+    refusal: Den Rasensprenger kann ich leider nicht steuern.
+  - request: Schalte den Trockner ein.
+    refusal: Den Trockner kann ich leider nicht steuern.
+  - request: Stell den Wecker auf sieben Uhr.
+    refusal: Einen Wecker kann ich leider nicht stellen.
+  - request: Mach die Klimaanlage im Büro an.
+    refusal: Die Klimaanlage kann ich leider nicht steuern.
+  - request: Schalte die Lüftung im Bad ein.
+    refusal: Die Lüftung kann ich leider nicht steuern.
+  - request: Mach den Herd an.
+    refusal: Den Herd kann ich leider nicht steuern.
+  - request: Lass die Badewanne ein.
+    refusal: Die Badewanne kann ich leider nicht steuern.
+  - request: Bestell eine Pizza.
+    refusal: Bestellen kann ich leider nichts.
+  - request: Ruf meine Mutter an.
+    refusal: Anrufe kann ich leider nicht machen.
+  - request: Schick eine Nachricht an Tom.
+    refusal: Nachrichten kann ich leider nicht schicken.
   scope:
-    - "Ich kann Licht, Heizung und Fridolin steuern."
-    - "Ich kümmere mich nur um Licht, Heizung und Fridolin."
-    - "Licht, Heizung und Fridolin gehen aber."
-    - "Bei Licht, Heizung und Fridolin helfe ich dir gerne."
-    - "Steuern kann ich Licht, Heizung und Fridolin."
-    - "Für Licht, Heizung und Fridolin bin ich aber da."
+  - Ich kann nur die Geräte steuern, die hier eingerichtet sind.
+  - Ich kümmere mich nur um die eingerichteten Geräte.
+  - Das gehört nicht zu den Geräten, die hier eingerichtet sind.
+  - Die Geräte aus der Liste kann ich aber gerne steuern.

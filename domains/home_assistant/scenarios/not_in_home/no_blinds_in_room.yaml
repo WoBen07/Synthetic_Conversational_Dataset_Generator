@@ -1,0 +1,16 @@
+name: no_blinds_in_room
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: no_blinds_in_room
+home:
+  room_absent:
+    room:
+    - blinds
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

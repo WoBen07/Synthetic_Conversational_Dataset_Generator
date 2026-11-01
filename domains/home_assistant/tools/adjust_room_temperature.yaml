@@ -1,0 +1,36 @@
+tool: adjust_room_temperature
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Macht es in einem Raum etwas wärmer oder kühler, wenn keine Temperatur genannt wurde. Für die Farbe des Lichts ist adjust_light_color_temperature da.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
+    format: name
+
+  direction:
+    type: enum
+    values: [warmer, cooler]
+    required: true
+    description: warmer für wärmer, cooler für kühler.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]

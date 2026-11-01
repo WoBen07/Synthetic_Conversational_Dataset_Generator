@@ -1,0 +1,13 @@
+name: no_lock
+entities:
+  home:
+    type: home
+language_schema: no_lock
+home:
+  absent:
+  - locks
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

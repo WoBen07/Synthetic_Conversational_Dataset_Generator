@@ -1,12 +1,11 @@
 name: error_vacuum_unavailable
-
 entities:
+  home:
+    type: home
   vacuum:
     type: vacuum
-
 language_schema: error_vacuum_unavailable
-
 robot_context:
-  speaker: resident
-
-tags: [unavailable]
+  home: home
+tags:
+- unavailable

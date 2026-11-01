@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Mach das Garagentor zu.
+  - Schließ das Garagentor.
+  - Garagentor zu, bitte.
+  - Kannst du das Garagentor schließen?
+  - Bitte das Garagentor zumachen.
+  - Fahr das Garagentor runter.
+  confirmation:
+  - Das Garagentor schließt.
+  - Alles klar, das Garagentor geht zu.
+  - Erledigt, das Garagentor ist zu.
+  - Okay, ich habe das Garagentor geschlossen.

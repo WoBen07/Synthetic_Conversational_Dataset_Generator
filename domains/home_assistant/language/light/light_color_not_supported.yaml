@@ -1,29 +1,29 @@
 variables:
-
-  # A white-only light; what the assistant can still say depends on whether
-  # its white can be changed.
   alternative:
-    - supports_color_temperature: true
-      hint: " Das Weiß kann ich dort aber wärmer oder kälter stellen."
-    - supports_color_temperature: false
-      hint: ""
-
+  - supports_color_temperature: true
+    brightness: true
+    hint: ' Das Weiß kann ich dort aber wärmer oder kälter stellen.'
+  - supports_color_temperature: false
+    brightness: true
+    hint: ''
+  - supports_color_temperature: false
+    brightness: false
+    hint: ''
   request:
-    - "Ändere {{light.color_subject}} {{light.in_room}} zu {{color.german}}."
-    - "Ändere {{light.color_subject}} {{light.in_room}} auf {{color.german}}."
-    - "Stelle {{light.color_subject}} {{light.in_room}} auf {{color.german}}."
-    - "Mach {{light.phrase}} {{light.in_room}} {{color.german}}."
-    - "Mach {{light.phrase}} {{light.in_room}} bitte {{color.german}}."
-    - "Kannst du {{light.phrase}} {{light.in_room}} {{color.german}} machen?"
-    - "{{light.phrase_cap}} {{light.in_room}} soll {{color.german}} leuchten."
-    - "Lass {{light.phrase}} {{light.in_room}} {{color.german}} leuchten."
-    - "Ich hätte {{light.phrase}} {{light.in_room}} gern in {{color.german}}."
-    - "Stell {{light.phrase}} {{light.in_room}} mal auf {{color.german}}."
-    - "Kannst du {{light.color_subject}} {{light.in_room}} auf {{color.german}} stellen?"
-
+  - Ändere {{light.color_subject}} {{light.in_room}} zu {{color.german}}.
+  - Ändere {{light.color_subject}} {{light.in_room}} auf {{color.german}}.
+  - Stelle {{light.color_subject}} {{light.in_room}} auf {{color.german}}.
+  - Mach {{light.acc}} {{light.in_room}} {{color.german}}.
+  - Mach {{light.acc}} {{light.in_room}} bitte {{color.german}}.
+  - Kannst du {{light.acc}} {{light.in_room}} {{color.german}} machen?
+  - '{{light.nom_cap}} {{light.in_room}} soll {{color.german}} leuchten.'
+  - Lass {{light.acc}} {{light.in_room}} {{color.german}} leuchten.
+  - Ich hätte {{light.acc}} {{light.in_room}} gern in {{color.german}}.
+  - Stell {{light.acc}} {{light.in_room}} mal auf {{color.german}}.
+  - Kannst du {{light.color_subject}} {{light.in_room}} auf {{color.german}} stellen?
   refusal:
-    - "{{light.phrase_cap}} {{light.in_room}} kann nur weiß leuchten, {{color.german}} geht dort leider nicht."
-    - "Leider geht {{color.german}} nicht, {{light.phrase}} {{light.in_room}} ist keine Farbleuchte."
-    - "Das geht leider nicht: {{light.phrase}} {{light.in_room}} leuchtet nur weiß."
-    - "Leider nein, {{light.phrase}} {{light.in_room}} kann keine Farben, nur Weiß."
-    - "{{light.phrase_cap}} {{light.in_room}} ist keine Farbleuchte, deshalb kann ich {{light.pronoun_acc}} nicht {{color.german}} machen."
+  - '{{light.nom_cap}} {{light.in_room}} kann nur weiß leuchten, {{color.german}} geht dort leider nicht.'
+  - Leider geht {{color.german}} nicht, {{light.nom}} {{light.in_room}} ist keine Farbleuchte.
+  - 'Das geht leider nicht: {{light.nom}} {{light.in_room}} leuchtet nur weiß.'
+  - Leider nein, {{light.nom}} {{light.in_room}} kann keine Farben, nur Weiß.
+  - '{{light.nom_cap}} {{light.in_room}} ist keine Farbleuchte, deshalb kann ich {{light.pron_acc}} nicht {{color.german}} machen.'

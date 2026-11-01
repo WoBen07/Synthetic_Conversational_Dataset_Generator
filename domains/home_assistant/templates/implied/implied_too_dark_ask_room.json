@@ -1,0 +1,43 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "content": "{{ask_room}}"
+    },
+    {
+      "role": "user",
+      "content": "{{room_reply}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_light_power",
+        "arguments": {
+          "room": "{{light.room}}",
+          "light": "{{light.fixture}}",
+          "state": "on"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_light_power",
+      "content": {
+        "status": "ok",
+        "state": "on"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

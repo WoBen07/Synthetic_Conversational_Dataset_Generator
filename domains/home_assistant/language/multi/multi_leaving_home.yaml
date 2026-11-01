@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Ich gehe jetzt, mach alle Lichter und die Heizung aus.
+  - Wir fahren weg, mach bitte alle Lichter und die Heizung aus.
+  - Alle Lichter und die Heizung aus, bitte.
+  - Mach überall das Licht und die Heizung aus.
+  - Schalte alle Lichter und die Heizung aus.
+  - Ich bin dann weg, Licht und Heizung bitte aus.
+  confirmation:
+  - Alle Lichter sind aus und die Heizung läuft nur noch im Frostschutz.
+  - Alles klar, das Licht ist überall aus, die Heizung steht auf Frostschutz.
+  - Erledigt, alles aus, die Heizung hält den Frostschutz.
+  - Okay, Lichter aus und Heizung auf Frostschutz. Bis später!

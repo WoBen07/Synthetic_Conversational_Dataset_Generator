@@ -94,6 +94,11 @@ class ScenarioBuilder:
             context
         )
 
+        self.domain.finish_context(
+            context,
+            self.scenario
+        )
+
         robot_context = self.scenario.get("robot_context")
 
         if robot_context is not None:

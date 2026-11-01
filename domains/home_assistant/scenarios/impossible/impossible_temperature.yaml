@@ -1,0 +1,18 @@
+name: impossible_temperature
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+  hot:
+    type: impossible_temperature
+language_schema: impossible_temperature
+home:
+  require:
+    room:
+    - heating
+robot_context:
+  home: home
+tags:
+- impossible
+- no_tool

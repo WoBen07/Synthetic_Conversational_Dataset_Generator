@@ -1,0 +1,9 @@
+entity: missing_room
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  name:
+    type: string
+    generator: missing_room

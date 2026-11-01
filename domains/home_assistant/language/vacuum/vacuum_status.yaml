@@ -1,0 +1,36 @@
+variables:
+  battery:
+  - pct: 12
+  - pct: 34
+  - pct: 56
+  - pct: 78
+  - pct: 91
+  - pct: 100
+  state:
+  - activity: cleaning
+    where: '{{room.name}}'
+    text: '{{vacuum.reply_cap}} ist gerade {{room.in_room}} und putzt.'
+  - activity: paused
+    where: '{{room.name}}'
+    text: '{{vacuum.reply_cap}} macht gerade Pause, {{vacuum.reply_pronoun}} steht {{room.in_room}}.'
+  - activity: returning
+    where: '{{room.name}}'
+    text: '{{vacuum.reply_cap}} ist auf dem Rückweg zur Ladestation.'
+  - activity: docked
+    where: Ladestation
+    text: '{{vacuum.reply_cap}} steht in der Ladestation.'
+  - activity: stuck
+    where: '{{room.name}}'
+    text: '{{vacuum.reply_cap}} steckt {{room.in_room}} fest und braucht Hilfe.'
+  request:
+  - Wo ist {{vacuum.nom}}?
+  - Was macht {{vacuum.nom}} gerade?
+  - Wo steckt {{vacuum.nom}}?
+  - Ist {{vacuum.nom}} fertig?
+  - Wie weit ist {{vacuum.nom}}?
+  - Sag mal, was macht {{vacuum.nom}}?
+  - Kannst du nachsehen, wo {{vacuum.nom}} ist?
+  - Läuft {{vacuum.nom}} gerade?
+  answer:
+  - '{{state.text}}'
+  - '{{state.text}} Der Akku steht bei {{battery.pct}} Prozent.'

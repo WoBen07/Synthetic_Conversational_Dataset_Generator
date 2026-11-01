@@ -1,0 +1,13 @@
+name: garage_open_declined
+entities:
+  home:
+    type: home
+language_schema: garage_open_declined
+home:
+  require_home:
+  - garage
+robot_context:
+  home: home
+tags:
+- security
+- declined

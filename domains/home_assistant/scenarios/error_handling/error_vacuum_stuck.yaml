@@ -1,0 +1,11 @@
+name: error_vacuum_stuck
+entities:
+  home:
+    type: home
+  vacuum:
+    type: vacuum
+language_schema: error_vacuum_stuck
+robot_context:
+  home: home
+tags:
+- failure

@@ -3,6 +3,7 @@ entity: brightness
 
 fields:
 
+  # See generators/devices.py for the fields the generator adds.
   pct:
-    type: integer
+    type: string
     generator: brightness_pct

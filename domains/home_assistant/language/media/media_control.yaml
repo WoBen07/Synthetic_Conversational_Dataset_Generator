@@ -1,0 +1,38 @@
+variables:
+  command:
+  - value: pause
+    request: Pausiere die Musik {{room.in_room}}.
+    done: Die Musik {{room.in_room}} ist pausiert.
+  - value: pause
+    request: Mach mal die Musik {{room.in_room}} kurz still.
+    done: Alles klar, {{room.in_room}} ist Pause.
+  - value: stop
+    request: Mach die Musik {{room.in_room}} aus.
+    done: Die Musik {{room.in_room}} ist aus.
+  - value: stop
+    request: Stopp die Musik {{room.in_room}}.
+    done: Okay, die Musik {{room.in_room}} ist gestoppt.
+  - value: play
+    request: Spiel die Musik {{room.in_room}} weiter.
+    done: Die Musik {{room.in_room}} läuft weiter.
+  - value: play
+    request: Mach die Musik {{room.in_room}} wieder an.
+    done: Erledigt, {{room.in_room}} läuft wieder Musik.
+  - value: next
+    request: Nächstes Lied {{room.in_room}}, bitte.
+    done: Hier kommt das nächste Lied.
+  - value: next
+    request: Spring zum nächsten Titel {{room.in_room}}.
+    done: Alles klar, nächster Titel {{room.in_room}}.
+  - value: volume_up
+    request: Mach die Musik {{room.in_room}} lauter.
+    done: Die Musik {{room.in_room}} ist jetzt lauter.
+  - value: volume_up
+    request: Dreh {{room.in_room}} etwas auf.
+    done: Erledigt, {{room.in_room}} ist es lauter.
+  - value: volume_down
+    request: Mach die Musik {{room.in_room}} leiser.
+    done: Die Musik {{room.in_room}} ist jetzt leiser.
+  - value: volume_down
+    request: Dreh die Musik {{room.in_room}} etwas runter.
+    done: Okay, {{room.in_room}} ist es leiser.

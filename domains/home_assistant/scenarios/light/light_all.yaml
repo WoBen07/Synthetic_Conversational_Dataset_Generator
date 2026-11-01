@@ -1,0 +1,13 @@
+name: light_all
+entities:
+  home:
+    type: home
+language_schema: light_all
+home:
+  require_some:
+  - light
+robot_context:
+  home: home
+tags:
+- power
+- whole_home

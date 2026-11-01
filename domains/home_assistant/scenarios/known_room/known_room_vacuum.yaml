@@ -1,0 +1,14 @@
+name: known_room_vacuum
+entities:
+  home:
+    type: home
+  vacuum:
+    type: vacuum
+  room:
+    type: indoor_room
+language_schema: known_room_vacuum
+robot_context:
+  location: room.name
+  home: home
+tags:
+- known_room

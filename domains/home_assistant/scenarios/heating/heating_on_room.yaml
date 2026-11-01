@@ -1,12 +1,16 @@
 name: heating_on_room
-
 entities:
+  home:
+    type: home
   room:
-    type: room
-
+    type: indoor_room
 language_schema: heating_on_room
-
+home:
+  require:
+    room:
+    - heating
 robot_context:
-  speaker: resident
-
-tags: [heat, room]
+  home: home
+tags:
+- heat
+- room

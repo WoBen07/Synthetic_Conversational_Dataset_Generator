@@ -3,10 +3,7 @@ entity: light
 
 fields:
 
-  # The value of the light argument (main / string_lights). The light
-  # generator also sets the room and the German forms: phrase, phrase_cap,
-  # dative, pronoun_acc, color_subject, room, in_room, in_room_cap, ...
-  # (see generators/devices.py).
+  # See generators/devices.py for the fields the generator adds.
   fixture:
-    type: enum
+    type: string
     generator: light

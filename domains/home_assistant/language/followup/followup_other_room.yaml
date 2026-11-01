@@ -1,0 +1,38 @@
+variables:
+  power:
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
+  request:
+  - Mach {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Schalte {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Schalt mal {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Mach bitte {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Kannst du {{light.acc}} {{light.in_room}} {{power.word}}machen?
+  - Kannst du bitte {{light.acc}} {{light.in_room}} {{power.word}}schalten?
+  - Könntest du {{light.acc}} {{light.in_room}} {{power.word}}machen?
+  - Bitte {{light.acc}} {{light.in_room}} {{power.word}}schalten.
+  - '{{light.nom_cap}} {{light.in_room}} bitte {{power.word}}.'
+  - '{{light.in_room_cap}} bitte {{light.acc}} {{power.word}}.'
+  - Hey, mach mal {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Würdest du {{light.acc}} {{light.in_room}} {{power.word}}schalten?
+  - Schalte doch bitte {{light.acc}} {{light.in_room}} {{power.word}}.
+  confirmation:
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt {{power.word}}.'
+  - Alles klar, {{light.nom}} {{light.in_room}} ist {{power.word}}.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist {{power.word}}.
+  - Okay, ich habe {{light.acc}} {{light.in_room}} {{power.word}}geschaltet.
+  - Gemacht, {{light.nom}} {{light.in_room}} ist jetzt {{power.word}}.
+  - Schon passiert, {{light.nom}} {{light.in_room}} ist {{power.word}}.
+  followup:
+  - Und {{second.in_room}} auch.
+  - '{{second.in_room_cap}} auch, bitte.'
+  - Und {{second.in_room}}?
+  - Bitte auch {{second.in_room}}.
+  - Das Gleiche noch {{second.in_room}}.
+  second_confirmation:
+  - '{{second.in_room_cap}} ist das Licht auch {{power.word}}.'
+  - Alles klar, {{second.in_room}} auch.
+  - Erledigt, {{second.in_room}} ist es auch {{power.word}}.
+  - Okay, {{second.in_room}} ebenfalls.

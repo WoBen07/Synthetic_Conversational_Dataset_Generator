@@ -1,12 +1,11 @@
 name: vacuum_pause
-
 entities:
+  home:
+    type: home
   vacuum:
     type: vacuum
-
 language_schema: vacuum_pause
-
 robot_context:
-  speaker: resident
-
-tags: [control]
+  home: home
+tags:
+- control

@@ -1,0 +1,21 @@
+variables:
+  request:
+  - Mach {{light.acc}} {{light.in_room}} an.
+  - Schalte {{light.acc}} {{light.in_room}} an.
+  - Kannst du {{light.acc}} {{light.in_room}} anmachen?
+  - '{{light.nom_cap}} {{light.in_room}} bitte an.'
+  confirmation:
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt an.'
+  - Alles klar, {{light.nom}} {{light.in_room}} ist an.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist an.
+  correction:
+  - Nein, ich meinte {{second.accusative}}.
+  - Nein, {{second.in_room}}.
+  - Falsch, ich meinte {{second.accusative}}.
+  - Oh, ich wollte es {{second.in_room}}.
+  - Moment, {{second.in_room}} sollte es sein.
+  second_confirmation:
+  - Alles klar, {{light.in_room}} ist es wieder aus und {{second.in_room}} an.
+  - 'Korrigiert: {{second.in_room}} ist das Licht an, {{light.in_room}} wieder aus.'
+  - Okay, {{light.in_room}} aus, {{second.in_room}} an.
+  - Entschuldige, jetzt ist es {{second.in_room}} an und {{light.in_room}} wieder aus.

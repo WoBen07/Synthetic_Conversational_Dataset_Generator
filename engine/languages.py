@@ -9,6 +9,7 @@ engine itself produces or checks:
 - wording: default sentences of the opening system message;
 - name_prefixes: words a ``format: name`` tool argument must not start with;
 - allowed_doubles: words that may legitimately repeat ("die die");
+- decimal_separator: how numbers are written in text ("21,5" for 21.5);
 - english_articles: whether the a/an rules apply.
 
 A new language is one more entry here. See documentation/domains.md.
@@ -33,6 +34,7 @@ LANGUAGES = {
         },
         "name_prefixes": ["the", "a", "an"],
         "allowed_doubles": ALLOWED_DOUBLES,
+        "decimal_separator": ".",
         "english_articles": True,
     },
 
@@ -53,6 +55,7 @@ LANGUAGES = {
             "im", "in", "ins", "am", "an", "auf", "zum", "zur",
         ],
         "allowed_doubles": {"der", "die", "das", "ja", "nein", "so", "sehr"},
+        "decimal_separator": ",",
         "english_articles": False,
     },
 }

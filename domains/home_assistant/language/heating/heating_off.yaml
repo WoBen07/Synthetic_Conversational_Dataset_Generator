@@ -1,28 +1,20 @@
 variables:
-
   request:
-    - "Schalte die Heizung aus."
-    - "Schalt die Heizung aus."
-    - "Mach die Heizung aus."
-    - "Mach bitte die Heizung aus."
-    - "Heizung aus, bitte."
-    - "Kannst du die Heizung ausschalten?"
-    - "Kannst du die Heizung ausmachen?"
-    - "Stell die Heizung bitte ab."
-    - "Dreh die Heizung ab."
-    - "Bitte die Heizung ausschalten."
-    - "Die Heizung kann jetzt aus."
-    - "Wir brauchen die Heizung gerade nicht, schalt sie aus."
-    - "Heizung ausschalten, bitte."
-    - "Schalte bitte die Heizung aus."
-    - "Dreh bitte die Heizung ab."
-    - "Mir ist warm genug, mach die Heizung aus."
-
+  - Schalte die Heizung aus.
+  - Schalt die Heizung aus.
+  - Mach die Heizung aus.
+  - Mach bitte die Heizung aus.
+  - Heizung aus, bitte.
+  - Kannst du die Heizung ausschalten?
+  - Kannst du die Heizung ausmachen?
+  - Stell die Heizung bitte ab.
+  - Dreh die Heizung ab.
+  - Bitte die Heizung ausschalten.
+  - Die Heizung kann jetzt aus.
+  - Wir brauchen die Heizung gerade nicht, schalt sie aus.
   confirmation:
-    - "Die Heizung ist aus und läuft jetzt nur noch im Frostschutz."
-    - "Alles klar, die Heizung steht jetzt auf Frostschutz."
-    - "Erledigt, die Heizung ist im Frostschutz."
-    - "Okay, die ganze Wohnung ist jetzt auf Frostschutz."
-    - "Gemacht, die Heizung hält jetzt nur noch den Frostschutz."
-    - "Die Heizung ist aus, nur der Frostschutz bleibt aktiv."
-    - "In Ordnung, die Heizung läuft jetzt nur noch im Frostschutz."
+  - Die Heizung ist aus und läuft jetzt nur noch im Frostschutz.
+  - Alles klar, die Heizung steht jetzt auf Frostschutz.
+  - Erledigt, die Heizung ist im Frostschutz.
+  - Okay, das ganze Zuhause ist jetzt auf Frostschutz.
+  - Gemacht, die Heizung hält jetzt nur noch den Frostschutz.

@@ -53,10 +53,13 @@ class GroundingValidator:
     an argument in something it made up itself.
     """
 
-    def __init__(self, tools, name_prefixes=NAME_PREFIXES):
+    def __init__(self, tools, name_prefixes=NAME_PREFIXES, decimal_separator="."):
 
         # {tool name: schema} of the domain
         self.tools = tools
+
+        # The argument 21.5 is grounded by a user saying "21,5"
+        self.decimal_separator = decimal_separator
 
         # Words a format: name value must not start with, per language
         self.name_prefix = re.compile(
@@ -115,9 +118,14 @@ class GroundingValidator:
 
             source = spec.get("source")
 
+            spoken = value
+
+            if isinstance(value, float):
+                spoken = str(value).replace(".", self.decimal_separator)
+
             value = str(value)
 
-            if source == "known" and not _occurs(value, known_text):
+            if source == "known" and not _occurs(str(spoken), known_text):
 
                 errors.append(
                     f"{name} at {index} uses {key}={value!r}, "

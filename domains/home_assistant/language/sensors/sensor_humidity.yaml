@@ -1,0 +1,22 @@
+variables:
+  reading:
+  - pct: 38
+  - pct: 42
+  - pct: 47
+  - pct: 51
+  - pct: 55
+  - pct: 60
+  - pct: 64
+  - pct: 71
+  request:
+  - Wie hoch ist die Luftfeuchtigkeit {{room.in_room}}?
+  - Wie feucht ist es {{room.in_room}}?
+  - Welche Luftfeuchtigkeit haben wir {{room.in_room}}?
+  - Sag mal, wie feucht ist die Luft {{room.in_room}}?
+  - Kannst du die Luftfeuchtigkeit {{room.in_room}} nachsehen?
+  - Was sagt der Sensor {{room.in_room}} zur Luftfeuchtigkeit?
+  confirmation:
+  - '{{room.in_room_cap}} sind es {{reading.pct}} Prozent Luftfeuchtigkeit.'
+  - Die Luftfeuchtigkeit {{room.in_room}} liegt bei {{reading.pct}} Prozent.
+  - Gerade {{reading.pct}} Prozent {{room.in_room}}.
+  - Der Sensor {{room.in_room}} zeigt {{reading.pct}} Prozent.

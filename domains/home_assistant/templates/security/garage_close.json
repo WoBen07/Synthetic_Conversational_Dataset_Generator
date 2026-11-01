@@ -1,0 +1,32 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_garage_door",
+        "arguments": {
+          "action": "close"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_garage_door",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

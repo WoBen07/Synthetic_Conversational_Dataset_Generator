@@ -1,14 +1,13 @@
 name: light_brightness_set
-
 entities:
+  home:
+    type: home
   light:
     type: light
   brightness:
     type: brightness
-
 language_schema: light_brightness_set
-
 robot_context:
-  speaker: resident
-
-tags: [brightness]
+  home: home
+tags:
+- brightness

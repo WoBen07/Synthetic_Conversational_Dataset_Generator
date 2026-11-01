@@ -1,0 +1,33 @@
+tool: get_vacuum_status
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: false
+
+description: >
+  Fragt ab, was der Saugroboter gerade macht und wo er ist.
+
+
+input: {}
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  activity:
+    type: enum
+    values: [cleaning, paused, returning, docked, stuck]
+
+  room:
+    type: string
+
+  battery_pct:
+    type: integer
+    minimum: 0
+    maximum: 100

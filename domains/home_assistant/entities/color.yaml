@@ -3,7 +3,7 @@ entity: color
 
 fields:
 
-  # The value of the color argument; the generator also sets "german".
+  # See generators/devices.py for the fields the generator adds.
   name:
-    type: enum
+    type: string
     generator: light_color

@@ -33,7 +33,7 @@ class Validator:
 
             ToolSchemaValidator(tools),
 
-            GroundingValidator(tools, rules["name_prefixes"]),
+            GroundingValidator(tools, rules["name_prefixes"], rules["decimal_separator"]),
 
             LanguageValidator(
                 check_articles=rules["english_articles"],

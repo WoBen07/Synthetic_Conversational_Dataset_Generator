@@ -1,0 +1,25 @@
+variables:
+  request:
+  - Mach das Garagentor auf.
+  - Öffne das Garagentor.
+  - Garagentor auf, bitte.
+  - Kannst du das Garagentor öffnen?
+  - Bitte das Garagentor aufmachen.
+  - Fahr das Garagentor hoch.
+  ask:
+  - Soll ich das Garagentor wirklich öffnen?
+  - Bist du sicher, dass das Garagentor aufgehen soll?
+  - Dann steht die Garage offen. Wirklich öffnen?
+  - Wirklich aufmachen?
+  'yes':
+  - Ja.
+  - Ja, bitte.
+  - Ja, mach.
+  - Genau.
+  - Ja, ist okay.
+  - Mach ruhig.
+  confirmation:
+  - Das Garagentor öffnet sich.
+  - Alles klar, das Garagentor geht auf.
+  - Erledigt, das Garagentor ist offen.
+  - Okay, ich habe das Garagentor geöffnet.

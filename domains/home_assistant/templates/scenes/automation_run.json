@@ -1,0 +1,32 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "run_automation",
+        "arguments": {
+          "automation": "{{automation.name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "run_automation",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

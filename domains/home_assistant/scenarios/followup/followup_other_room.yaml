@@ -1,0 +1,22 @@
+name: followup_other_room
+entities:
+  home:
+    type: home
+  light:
+    type: generic_light
+  second:
+    type: room
+language_schema: followup_other_room
+constraints:
+- type: different
+  fields:
+  - light.room
+  - second.name
+home:
+  require:
+    second:
+    - light
+robot_context:
+  home: home
+tags:
+- followup

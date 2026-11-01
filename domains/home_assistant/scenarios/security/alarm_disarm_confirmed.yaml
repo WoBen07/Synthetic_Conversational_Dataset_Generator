@@ -1,0 +1,13 @@
+name: alarm_disarm_confirmed
+entities:
+  home:
+    type: home
+language_schema: alarm_disarm_confirmed
+home:
+  require_home:
+  - alarm
+robot_context:
+  home: home
+tags:
+- security
+- confirmed

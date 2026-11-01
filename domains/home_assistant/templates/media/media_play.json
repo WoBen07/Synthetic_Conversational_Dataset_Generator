@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "play_media",
+        "arguments": {
+          "room": "{{room.name}}",
+          "query": "{{music.query}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "play_media",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

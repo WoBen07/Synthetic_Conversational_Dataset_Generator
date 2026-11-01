@@ -1,12 +1,11 @@
 name: light_power
-
 entities:
+  home:
+    type: home
   light:
     type: light
-
 language_schema: light_power
-
 robot_context:
-  speaker: resident
-
-tags: [power]
+  home: home
+tags:
+- power

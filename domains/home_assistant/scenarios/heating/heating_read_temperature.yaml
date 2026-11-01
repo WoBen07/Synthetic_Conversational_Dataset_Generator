@@ -1,0 +1,15 @@
+name: heating_read_temperature
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: heating_read_temperature
+home:
+  require:
+    room:
+    - heating
+robot_context:
+  home: home
+tags:
+- state

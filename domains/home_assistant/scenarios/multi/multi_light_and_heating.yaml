@@ -1,0 +1,15 @@
+name: multi_light_and_heating
+entities:
+  home:
+    type: home
+  light:
+    type: generic_light
+language_schema: multi_light_and_heating
+home:
+  require:
+    light:
+    - heating
+robot_context:
+  home: home
+tags:
+- multi

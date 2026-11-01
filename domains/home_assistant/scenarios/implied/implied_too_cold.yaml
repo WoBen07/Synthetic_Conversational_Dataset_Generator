@@ -1,0 +1,17 @@
+name: implied_too_cold
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: implied_too_cold
+home:
+  require:
+    room:
+    - heating
+robot_context:
+  location: room.name
+  home: home
+tags:
+- implied
+- known_room

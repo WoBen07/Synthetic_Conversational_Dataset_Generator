@@ -1,0 +1,27 @@
+tool: set_garage_door
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Öffnet oder schließt das Garagentor. Vor dem Öffnen immer erst nachfragen.
+
+
+input:
+
+  action:
+    type: enum
+    values: [open, close]
+    required: true
+    description: open zum Öffnen, close zum Schließen.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]

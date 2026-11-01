@@ -1,0 +1,12 @@
+name: lock_open_confirmed
+entities:
+  home:
+    type: home
+  lock:
+    type: lock
+language_schema: lock_open_confirmed
+robot_context:
+  home: home
+tags:
+- security
+- confirmed

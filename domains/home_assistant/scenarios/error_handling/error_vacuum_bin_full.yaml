@@ -1,0 +1,11 @@
+name: error_vacuum_bin_full
+entities:
+  home:
+    type: home
+  vacuum:
+    type: vacuum
+language_schema: error_vacuum_bin_full
+robot_context:
+  home: home
+tags:
+- failure

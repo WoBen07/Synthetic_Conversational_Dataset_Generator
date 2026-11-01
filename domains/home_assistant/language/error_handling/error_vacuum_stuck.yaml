@@ -1,0 +1,28 @@
+variables:
+  mode:
+  - value: vacuum
+    infinitive: saugen
+    present: saugt
+    noun: Saugen
+  - value: mop
+    infinitive: wischen
+    present: wischt
+    noun: Wischen
+  - value: vacuum_and_mop
+    infinitive: saugen und wischen
+    present: saugt und wischt
+    noun: Saugen und Wischen
+  request:
+  - Lass {{vacuum.acc}} die ganze Wohnung {{mode.infinitive}}.
+  - Lass {{vacuum.acc}} das ganze Haus {{mode.infinitive}}.
+  - '{{vacuum.nom_cap}} soll die ganze Wohnung {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll das ganze Haus {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll alles {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll überall {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} kann mal alles {{mode.infinitive}}.'
+  - Lass {{vacuum.acc}} bitte alles {{mode.infinitive}}.
+  failure:
+  - '{{vacuum.reply_cap}} steckt fest und kann gerade nicht losfahren.'
+  - Das geht gerade nicht, {{vacuum.reply}} hängt fest und braucht Hilfe.
+  - '{{vacuum.reply_cap}} meldet, dass {{vacuum.reply_pronoun}} feststeckt. Kannst du nachsehen?'
+  - Leider nein, {{vacuum.reply}} steckt fest. Das {{mode.noun}} ist nicht gestartet.

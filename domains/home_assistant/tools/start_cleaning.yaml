@@ -8,7 +8,7 @@ tool: start_cleaning
 side_effects: true
 
 description: >
-  Schickt den Saugroboter Fridolin los, um die ganze Wohnung oder einen Raum zu reinigen.
+  Schickt den Saugroboter los, um das ganze Zuhause oder einen Raum zu reinigen.
 
 
 input:
@@ -23,9 +23,8 @@ input:
     type: string
     required: false
     description: >
-      Raum ohne Präposition und Artikel. Weglassen, wenn die ganze Wohnung
-      gereinigt werden soll.
-    source: mentioned
+      Raum genau so, wie er in der Geräteliste steht. Weglassen, wenn das ganze Zuhause gereinigt werden soll.
+    source: known
     format: name
 
 
@@ -33,4 +32,4 @@ output:
 
   status:
     type: enum
-    values: [ok, unavailable]
+    values: [ok, unavailable, stuck, bin_full]

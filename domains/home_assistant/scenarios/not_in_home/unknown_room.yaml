@@ -1,0 +1,14 @@
+name: unknown_room
+entities:
+  home:
+    type: home
+  light:
+    type: generic_light
+  missing:
+    type: missing_room
+language_schema: unknown_room
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

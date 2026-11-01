@@ -1,0 +1,14 @@
+variables:
+  request:
+  - Lass den Saugroboter alles saugen.
+  - Der Staubsauger soll die Küche saugen.
+  - Schick den Sauger los.
+  - Starte den Saugroboter.
+  - Der Roboter soll überall saugen.
+  - Kannst du den Saugroboter nach Hause schicken?
+  - Wo ist der Sauger?
+  refusal:
+  - Hier ist kein Saugroboter eingerichtet.
+  - Das geht leider nicht, in diesem Zuhause gibt es keinen Saugroboter.
+  - Einen Saugroboter kenne ich hier nicht.
+  - Ich finde hier keinen Saugroboter.

@@ -1,20 +1,18 @@
 variables:
-
   request:
-    - "Mache {{light.phrase}} {{light.in_room}} heller."
-    - "Mach {{light.phrase}} {{light.in_room}} bitte heller."
-    - "Mach mal {{light.phrase}} {{light.in_room}} etwas heller."
-    - "Kannst du {{light.phrase}} {{light.in_room}} heller machen?"
-    - "Stell {{light.phrase}} {{light.in_room}} heller."
-    - "{{light.phrase_cap}} {{light.in_room}} könnte heller sein."
-    - "{{light.phrase_cap}} {{light.in_room}} ist mir zu dunkel, mach {{light.pronoun_acc}} bitte heller."
-    - "Dreh {{light.phrase}} {{light.in_room}} etwas auf."
-    - "Bitte {{light.phrase}} {{light.in_room}} ein bisschen heller stellen."
-    - "Ein bisschen heller bitte, {{light.phrase}} {{light.in_room}}."
-
+  - Mache {{light.acc}} {{light.in_room}} heller.
+  - Mach {{light.acc}} {{light.in_room}} bitte heller.
+  - Mach mal {{light.acc}} {{light.in_room}} etwas heller.
+  - Kannst du {{light.acc}} {{light.in_room}} heller machen?
+  - Stell {{light.acc}} {{light.in_room}} heller.
+  - '{{light.nom_cap}} {{light.in_room}} könnte heller sein.'
+  - '{{light.nom_cap}} {{light.in_room}} ist mir zu dunkel, mach {{light.pron_acc}} bitte heller.'
+  - Dreh {{light.acc}} {{light.in_room}} etwas auf.
+  - Bitte {{light.acc}} {{light.in_room}} ein bisschen heller stellen.
+  - Ein bisschen heller bitte, {{light.nom}} {{light.in_room}}.
   confirmation:
-    - "{{light.phrase_cap}} {{light.in_room}} ist jetzt heller."
-    - "Alles klar, {{light.phrase}} {{light.in_room}} leuchtet heller."
-    - "Erledigt, {{light.phrase}} {{light.in_room}} ist etwas heller."
-    - "Okay, ich habe {{light.phrase}} {{light.in_room}} heller gestellt."
-    - "Gemacht, {{light.in_room}} ist es jetzt heller."
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt heller.'
+  - Alles klar, {{light.nom}} {{light.in_room}} leuchtet heller.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist etwas heller.
+  - Okay, ich habe {{light.acc}} {{light.in_room}} heller gestellt.
+  - Gemacht, {{light.in_room}} ist es jetzt heller.

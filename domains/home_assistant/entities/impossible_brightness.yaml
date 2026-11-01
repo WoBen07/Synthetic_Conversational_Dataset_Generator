@@ -1,0 +1,9 @@
+entity: impossible_brightness
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  pct:
+    type: string
+    generator: impossible_brightness

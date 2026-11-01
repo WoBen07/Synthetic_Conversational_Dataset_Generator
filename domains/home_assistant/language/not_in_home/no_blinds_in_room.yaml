@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Fahr die Rollläden {{room.in_room}} runter.
+  - Mach die Rollläden {{room.in_room}} hoch.
+  - Rollläden {{room.in_room}} runter, bitte.
+  - Kannst du die Rollläden {{room.in_room}} hochfahren?
+  - Die Rollos {{room.in_room}} bitte runter.
+  refusal:
+  - '{{room.in_room_cap}} gibt es keine Rollläden.'
+  - Das geht leider nicht, {{room.in_room}} sind keine Rollläden eingerichtet.
+  - Rollläden kenne ich {{room.in_room}} nicht.
+  - '{{room.in_room_cap}} habe ich keine Rollläden in der Liste.'

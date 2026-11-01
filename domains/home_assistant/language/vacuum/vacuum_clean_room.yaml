@@ -1,35 +1,32 @@
 variables:
-
   mode:
-    - value: vacuum
-      infinitive: "saugen"
-      present: "saugt"
-      noun: "Saugen"
-    - value: mop
-      infinitive: "wischen"
-      present: "wischt"
-      noun: "Wischen"
-    - value: vacuum_and_mop
-      infinitive: "saugen und wischen"
-      present: "saugt und wischt"
-      noun: "Saugen und Wischen"
-
+  - value: vacuum
+    infinitive: saugen
+    present: saugt
+    noun: Saugen
+  - value: mop
+    infinitive: wischen
+    present: wischt
+    noun: Wischen
+  - value: vacuum_and_mop
+    infinitive: saugen und wischen
+    present: saugt und wischt
+    noun: Saugen und Wischen
   request:
-    - "{{vacuum.nominative_cap}} soll {{room.accusative}} {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} soll bitte {{room.accusative}} {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} soll {{room.in_room}} {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} kann mal {{room.accusative}} {{mode.infinitive}}."
-    - "Lass {{vacuum.accusative}} {{room.accusative}} {{mode.infinitive}}."
-    - "Lass {{vacuum.accusative}} bitte {{room.in_room}} {{mode.infinitive}}."
-    - "Kannst du {{vacuum.accusative}} {{room.accusative}} {{mode.infinitive}} lassen?"
-    - "Schick {{vacuum.accusative}} {{room.into_room}} zum {{mode.noun}}."
-    - "Schick {{vacuum.accusative}} bitte zum {{mode.noun}} {{room.into_room}}."
-    - "{{room.accusative_cap}} muss mal wieder sauber werden, lass {{vacuum.accusative}} bitte {{mode.infinitive}}."
-    - "Bitte lass {{vacuum.accusative}} {{room.accusative}} {{mode.infinitive}}."
-
+  - '{{vacuum.nom_cap}} soll {{room.accusative}} {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll bitte {{room.accusative}} {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll {{room.in_room}} {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} kann mal {{room.accusative}} {{mode.infinitive}}.'
+  - Lass {{vacuum.acc}} {{room.accusative}} {{mode.infinitive}}.
+  - Lass {{vacuum.acc}} bitte {{room.in_room}} {{mode.infinitive}}.
+  - Kannst du {{vacuum.acc}} {{room.accusative}} {{mode.infinitive}} lassen?
+  - Schick {{vacuum.acc}} {{room.into_room}} zum {{mode.noun}}.
+  - Schick {{vacuum.acc}} bitte zum {{mode.noun}} {{room.into_room}}.
+  - '{{room.accusative_cap}} muss mal wieder sauber werden, lass {{vacuum.acc}} bitte {{mode.infinitive}}.'
+  - Bitte lass {{vacuum.acc}} {{room.accusative}} {{mode.infinitive}}.
   confirmation:
-    - "Fridolin {{mode.present}} jetzt {{room.accusative}}."
-    - "Alles klar, Fridolin {{mode.present}} jetzt {{room.accusative}}."
-    - "Erledigt, Fridolin ist unterwegs und {{mode.present}} {{room.accusative}}."
-    - "Okay, Fridolin fährt {{room.into_room}} zum {{mode.noun}}."
-    - "Gemacht, Fridolin {{mode.present}} {{room.accusative}}."
+  - '{{vacuum.reply_cap}} {{mode.present}} jetzt {{room.accusative}}.'
+  - Alles klar, {{vacuum.reply}} {{mode.present}} jetzt {{room.accusative}}.
+  - Erledigt, {{vacuum.reply}} ist unterwegs und {{mode.present}} {{room.accusative}}.
+  - Okay, {{vacuum.reply}} fährt {{room.into_room}} zum {{mode.noun}}.
+  - Gemacht, {{vacuum.reply}} {{mode.present}} {{room.accusative}}.

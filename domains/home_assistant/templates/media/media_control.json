@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{command.request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "control_media",
+        "arguments": {
+          "room": "{{room.name}}",
+          "action": "{{command.value}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "control_media",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{command.done}}"
+    }
+  ]
+}

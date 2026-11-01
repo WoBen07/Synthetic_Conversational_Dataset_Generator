@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_vacuum_status",
+        "arguments": {}
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_vacuum_status",
+      "content": {
+        "status": "ok",
+        "activity": "{{state.activity}}",
+        "room": "{{state.where}}",
+        "battery_pct": "{{battery.pct}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{answer}}"
+    }
+  ]
+}

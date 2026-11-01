@@ -1,0 +1,21 @@
+variables:
+  power:
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
+  request:
+  - Mach {{switch.acc}} {{power.word}}.
+  - Schalte {{switch.acc}} {{power.word}}.
+  - Schalt mal {{switch.acc}} {{power.word}}.
+  - Mach bitte {{switch.acc}} {{power.word}}.
+  - Kannst du {{switch.acc}} {{power.word}}machen?
+  - Kannst du bitte {{switch.acc}} {{power.word}}schalten?
+  - '{{switch.nom_cap}} bitte {{power.word}}.'
+  - Bitte {{switch.acc}} {{power.word}}schalten.
+  confirmation:
+  - '{{switch.nom_cap}} ist jetzt {{power.word}}.'
+  - Alles klar, {{switch.nom}} ist {{power.word}}.
+  - Erledigt, {{switch.nom}} ist {{power.word}}.
+  - Okay, ich habe {{switch.acc}} {{power.word}}geschaltet.
+  - Gemacht, {{switch.nom}} {{switch.in_room}} ist {{power.word}}.

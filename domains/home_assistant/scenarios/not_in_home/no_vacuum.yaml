@@ -1,0 +1,13 @@
+name: no_vacuum
+entities:
+  home:
+    type: home
+language_schema: no_vacuum
+home:
+  absent:
+  - vacuum
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

@@ -1,0 +1,27 @@
+tool: set_all_lights_power
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Schaltet alle Lichter im ganzen Zuhause ein oder aus.
+
+
+input:
+
+  state:
+    type: enum
+    values: ["on", "off"]
+    required: true
+    description: Der gewünschte Zustand.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]

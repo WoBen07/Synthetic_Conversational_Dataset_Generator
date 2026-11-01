@@ -1,0 +1,21 @@
+variables:
+  first_state:
+  - state: 'on'
+    word: an
+    other: 'off'
+    other_word: aus
+  - state: 'off'
+    word: aus
+    other: 'on'
+    other_word: an
+  request:
+  - Mach {{light.acc}} {{light.in_room}} {{first_state.word}} und {{second.in_room}} {{first_state.other_word}}.
+  - Schalte {{light.acc}} {{light.in_room}} {{first_state.word}} und {{second.in_room}} {{first_state.other_word}}.
+  - '{{light.in_room_cap}} {{light.acc}} {{first_state.word}}, {{second.in_room}} {{first_state.other_word}}, bitte.'
+  - Kannst du {{light.acc}} {{light.in_room}} {{first_state.word}}machen und {{second.in_room}} {{first_state.other_word}}?
+  - Bitte {{light.in_room}} {{light.acc}} {{first_state.word}} und {{second.in_room}} {{first_state.other_word}}.
+  confirmation:
+  - '{{light.in_room_cap}} ist das Licht jetzt {{first_state.word}}, {{second.in_room}} {{first_state.other_word}}.'
+  - Alles klar, {{light.in_room}} {{first_state.word}} und {{second.in_room}} {{first_state.other_word}}.
+  - Erledigt, beides ist geschaltet.
+  - Okay, {{light.in_room}} ist das Licht {{first_state.word}} und {{second.in_room}} {{first_state.other_word}}.

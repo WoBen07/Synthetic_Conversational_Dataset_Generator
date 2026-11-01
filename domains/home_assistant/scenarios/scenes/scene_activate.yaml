@@ -1,0 +1,11 @@
+name: scene_activate
+entities:
+  home:
+    type: home
+  scene:
+    type: scene
+language_schema: scene_activate
+robot_context:
+  home: home
+tags:
+- scene

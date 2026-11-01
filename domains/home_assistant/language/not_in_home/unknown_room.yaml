@@ -1,0 +1,18 @@
+variables:
+  power:
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
+  request:
+  - Mach {{light.acc}} {{missing.in_room}} {{power.word}}.
+  - Schalte {{light.acc}} {{missing.in_room}} {{power.word}}.
+  - Kannst du {{light.acc}} {{missing.in_room}} {{power.word}}machen?
+  - '{{light.nom_cap}} {{missing.in_room}} bitte {{power.word}}.'
+  - Schalt mal {{light.acc}} {{missing.in_room}} {{power.word}}.
+  - Bitte {{light.acc}} {{missing.in_room}} {{power.word}}schalten.
+  refusal:
+  - Einen Raum mit dem Namen {{missing.name}} gibt es hier nicht. Eingerichtet sind {{home.room_list}}.
+  - '{{missing.in_room_cap}} kenne ich hier kein Licht. Ich kenne {{home.room_list}}.'
+  - Den Raum kenne ich nicht, hier gibt es {{home.room_list}}.
+  - '{{missing.name}} ist hier nicht eingerichtet, nur {{home.room_list}}.'

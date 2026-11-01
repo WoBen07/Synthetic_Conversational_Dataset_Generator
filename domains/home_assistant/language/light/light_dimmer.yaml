@@ -1,20 +1,18 @@
 variables:
-
   request:
-    - "Dimme {{light.phrase}} {{light.in_room}}."
-    - "Dimm {{light.phrase}} {{light.in_room}} bitte."
-    - "Dimm mal {{light.phrase}} {{light.in_room}} etwas."
-    - "Kannst du {{light.phrase}} {{light.in_room}} dimmen?"
-    - "Mach {{light.phrase}} {{light.in_room}} dunkler."
-    - "Mach {{light.phrase}} {{light.in_room}} bitte etwas dunkler."
-    - "{{light.phrase_cap}} {{light.in_room}} ist mir zu hell, dimm {{light.pronoun_acc}} bitte."
-    - "Stell {{light.phrase}} {{light.in_room}} dunkler."
-    - "Dreh {{light.phrase}} {{light.in_room}} etwas runter."
-    - "Bitte {{light.phrase}} {{light.in_room}} ein bisschen runterdimmen."
-
+  - Dimme {{light.acc}} {{light.in_room}}.
+  - Dimm {{light.acc}} {{light.in_room}} bitte.
+  - Dimm mal {{light.acc}} {{light.in_room}} etwas.
+  - Kannst du {{light.acc}} {{light.in_room}} dimmen?
+  - Mach {{light.acc}} {{light.in_room}} dunkler.
+  - Mach {{light.acc}} {{light.in_room}} bitte etwas dunkler.
+  - '{{light.nom_cap}} {{light.in_room}} ist mir zu hell, dimm {{light.pron_acc}} bitte.'
+  - Stell {{light.acc}} {{light.in_room}} dunkler.
+  - Dreh {{light.acc}} {{light.in_room}} etwas runter.
+  - Bitte {{light.acc}} {{light.in_room}} ein bisschen runterdimmen.
   confirmation:
-    - "{{light.phrase_cap}} {{light.in_room}} ist jetzt gedimmt."
-    - "Alles klar, {{light.phrase}} {{light.in_room}} leuchtet schwächer."
-    - "Erledigt, {{light.phrase}} {{light.in_room}} ist etwas dunkler."
-    - "Okay, ich habe {{light.phrase}} {{light.in_room}} gedimmt."
-    - "Gemacht, {{light.in_room}} ist es jetzt dunkler."
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt gedimmt.'
+  - Alles klar, {{light.nom}} {{light.in_room}} leuchtet schwächer.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist etwas dunkler.
+  - Okay, ich habe {{light.acc}} {{light.in_room}} gedimmt.
+  - Gemacht, {{light.in_room}} ist es jetzt dunkler.

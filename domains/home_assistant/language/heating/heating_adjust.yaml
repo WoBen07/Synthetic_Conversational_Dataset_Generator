@@ -1,0 +1,22 @@
+variables:
+  direction:
+  - value: warmer
+    comparative: wärmer
+    verb: höher
+  - value: cooler
+    comparative: kühler
+    verb: runter
+  request:
+  - Mach es {{room.in_room}} {{direction.comparative}}.
+  - Mach es {{room.in_room}} bitte etwas {{direction.comparative}}.
+  - Dreh die Heizung {{room.in_room}} {{direction.verb}}.
+  - Dreh die Heizung {{room.in_room}} etwas {{direction.verb}}.
+  - Kannst du es {{room.in_room}} {{direction.comparative}} machen?
+  - '{{room.in_room_cap}} darf es ruhig {{direction.comparative}} sein.'
+  - '{{room.in_room_cap}} könnte es {{direction.comparative}} sein.'
+  - Stell die Heizung {{room.in_room}} etwas {{direction.verb}}.
+  confirmation:
+  - Alles klar, {{room.in_room}} wird es {{direction.comparative}}.
+  - Erledigt, die Heizung {{room.in_room}} ist etwas {{direction.verb}} gedreht.
+  - Okay, ich habe die Heizung {{room.in_room}} {{direction.verb}}gedreht.
+  - Gemacht, {{room.in_room}} wird es jetzt {{direction.comparative}}.

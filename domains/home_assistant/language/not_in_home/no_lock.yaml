@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Schließ die Haustür ab.
+  - Mach die Haustür auf.
+  - Kannst du die Hintertür abschließen?
+  - Verriegle die Haustür.
+  - Schließ das Gartentor ab.
+  refusal:
+  - Hier ist kein Schloss eingerichtet, das ich steuern kann.
+  - Das geht leider nicht, Schlösser kann ich hier nicht steuern.
+  - Ein Schloss habe ich nicht in der Geräteliste.
+  - Hier gibt es kein Schloss, das ich kenne.

@@ -1,0 +1,13 @@
+name: single_room_no_question
+entities:
+  home:
+    type: home
+  light:
+    type: indoor_light
+language_schema: single_room_no_question
+home:
+  single_room: true
+robot_context:
+  home: home
+tags:
+- counterpart_of_clarification

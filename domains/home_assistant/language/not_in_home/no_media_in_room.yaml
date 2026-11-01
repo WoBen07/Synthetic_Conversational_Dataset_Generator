@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Spiel Musik {{room.in_room}}.
+  - Mach die Musik {{room.in_room}} lauter.
+  - Spiel Jazz {{room.in_room}}.
+  - Mach {{room.in_room}} Radio an.
+  - Pausiere die Musik {{room.in_room}}.
+  refusal:
+  - '{{room.in_room_cap}} gibt es keinen Lautsprecher, den ich steuern kann.'
+  - Das geht leider nicht, {{room.in_room}} ist keine Musik eingerichtet.
+  - Musik kenne ich {{room.in_room}} nicht.
+  - '{{room.in_room_cap}} habe ich nichts für Musik in der Liste.'

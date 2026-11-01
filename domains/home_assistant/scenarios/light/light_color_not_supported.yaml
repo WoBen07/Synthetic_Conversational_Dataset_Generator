@@ -1,14 +1,14 @@
 name: light_color_not_supported
-
 entities:
+  home:
+    type: home
   light:
     type: light
   color:
     type: non_white_color
-
 language_schema: light_color_not_supported
-
 robot_context:
-  speaker: resident
-
-tags: [capability_check, not_supported]
+  home: home
+tags:
+- capability_check
+- not_supported

@@ -1,0 +1,11 @@
+name: automation_run
+entities:
+  home:
+    type: home
+  automation:
+    type: automation
+language_schema: automation_run
+robot_context:
+  home: home
+tags:
+- automation

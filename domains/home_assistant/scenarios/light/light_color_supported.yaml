@@ -1,14 +1,14 @@
 name: light_color_supported
-
 entities:
+  home:
+    type: home
   light:
     type: light
   color:
     type: color
-
 language_schema: light_color_supported
-
 robot_context:
-  speaker: resident
-
-tags: [capability_check, supported]
+  home: home
+tags:
+- capability_check
+- supported

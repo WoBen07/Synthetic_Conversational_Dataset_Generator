@@ -166,8 +166,10 @@ class DatasetGenerator:
             },
         }
 
-        return normalize_conversation(
-            rendered
+        return self.domain.postprocess(
+            normalize_conversation(
+                rendered
+            )
         ), trace
 
 
@@ -190,6 +192,11 @@ class DatasetGenerator:
             parents=True,
             exist_ok=True
         )
+
+        # Generating replaces the template's data. Files of an earlier, larger
+        # run would otherwise stay and be merged with the new ones.
+        for stale in output_path.glob("example_*.json"):
+            stale.unlink()
 
 
         index = 0

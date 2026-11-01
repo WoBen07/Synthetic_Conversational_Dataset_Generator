@@ -23,9 +23,9 @@
       "name": "get_light_capabilities",
       "content": {
         "status": "ok",
-        "supports_brightness": true,
+        "supports_brightness": "{{other.brightness}}",
         "supports_color": true,
-        "supports_color_temperature": "{{other_capability.value}}"
+        "supports_color_temperature": "{{other.color}}"
       }
     },
     {

@@ -1,0 +1,26 @@
+variables:
+  music:
+  - query: Jazz
+  - query: Rockmusik
+  - query: Klassik
+  - query: Entspannungsmusik
+  - query: Kindermusik
+  - query: Radio
+  - query: Popmusik
+  - query: Queen
+  - query: Weihnachtslieder
+  - query: Beatles
+  request:
+  - Spiel {{music.query}} {{room.in_room}}.
+  - Spiel bitte {{music.query}} {{room.in_room}}.
+  - Mach {{music.query}} {{room.in_room}} an.
+  - Ich möchte {{room.in_room}} {{music.query}} hören.
+  - Kannst du {{room.in_room}} {{music.query}} spielen?
+  - '{{room.in_room_cap}} bitte {{music.query}}.'
+  - Leg mal {{music.query}} {{room.in_room}} auf.
+  - Lass {{room.in_room}} {{music.query}} laufen.
+  confirmation:
+  - '{{room.in_room_cap}} läuft jetzt {{music.query}}.'
+  - Alles klar, {{music.query}} {{room.in_room}}.
+  - Erledigt, {{music.query}} läuft {{room.in_room}}.
+  - Okay, ich spiele {{music.query}} {{room.in_room}}.

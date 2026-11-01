@@ -1,0 +1,44 @@
+tool: get_sensor
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: false
+
+description: >
+  Liest einen Sensor eines Raums aus.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
+    format: name
+
+  sensor:
+    type: enum
+    values: [humidity, window]
+    required: true
+    description: humidity für die Luftfeuchtigkeit, window für den Fensterkontakt.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  humidity_pct:
+    type: integer
+    minimum: 0
+    maximum: 100
+
+  window_open:
+    type: boolean

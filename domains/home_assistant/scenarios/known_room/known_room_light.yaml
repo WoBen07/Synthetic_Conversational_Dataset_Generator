@@ -1,0 +1,14 @@
+name: known_room_light
+entities:
+  home:
+    type: home
+  light:
+    type: generic_light
+language_schema: known_room_light
+home:
+  min_light_rooms: 2
+robot_context:
+  location: light.room
+  home: home
+tags:
+- known_room

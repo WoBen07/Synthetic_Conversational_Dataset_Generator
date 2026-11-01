@@ -1,0 +1,9 @@
+entity: indoor_light
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  fixture:
+    type: string
+    generator: indoor_light

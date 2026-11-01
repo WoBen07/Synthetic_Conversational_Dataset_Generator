@@ -3,8 +3,7 @@ entity: vacuum
 
 fields:
 
-  # How the user calls it. The generator also sets nominative_cap and
-  # accusative.
-  name:
+  # See generators/devices.py for the fields the generator adds.
+  robot:
     type: string
-    generator: vacuum_name
+    generator: vacuum

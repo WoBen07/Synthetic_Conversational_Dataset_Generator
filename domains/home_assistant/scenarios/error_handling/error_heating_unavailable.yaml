@@ -1,14 +1,17 @@
 name: error_heating_unavailable
-
 entities:
+  home:
+    type: home
   room:
-    type: room
+    type: indoor_room
   temperature:
     type: temperature
-
 language_schema: error_heating_unavailable
-
+home:
+  require:
+    room:
+    - heating
 robot_context:
-  speaker: resident
-
-tags: [unavailable]
+  home: home
+tags:
+- unavailable

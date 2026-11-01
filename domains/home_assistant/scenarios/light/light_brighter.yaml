@@ -1,12 +1,11 @@
 name: light_brighter
-
 entities:
+  home:
+    type: home
   light:
     type: light
-
 language_schema: light_brighter
-
 robot_context:
-  speaker: resident
-
-tags: [brightness]
+  home: home
+tags:
+- brightness

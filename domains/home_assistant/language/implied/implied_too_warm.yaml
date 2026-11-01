@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Mir ist zu warm.
+  - Hier ist es zu warm.
+  - Es ist so heiß hier.
+  - Ich schwitze hier.
+  - Ganz schön warm hier.
+  - Hier ist es viel zu stickig warm.
+  confirmation:
+  - Ich drehe die Heizung {{room.in_room}} etwas runter.
+  - Dann mache ich es {{room.in_room}} etwas kühler.
+  - Alles klar, {{room.in_room}} wird es kühler.
+  - Die Heizung {{room.in_room}} läuft jetzt etwas niedriger.

@@ -1,10 +1,13 @@
 name: heating_off
-
-entities: {}
-
+entities:
+  home:
+    type: home
 language_schema: heating_off
-
+home:
+  require_some:
+  - heating
 robot_context:
-  speaker: resident
-
-tags: [frost_protection, whole_home]
+  home: home
+tags:
+- frost_protection
+- whole_home

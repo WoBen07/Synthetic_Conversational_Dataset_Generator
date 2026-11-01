@@ -1,0 +1,27 @@
+name: clarify_same_device
+entities:
+  home:
+    type: home
+  light:
+    type: named_light
+  other_light:
+    type: named_light
+language_schema: clarify_same_device
+constraints:
+- type: equal
+  fields:
+  - light.fixture
+  - other_light.fixture
+- type: equal
+  fields:
+  - light.home_light
+  - other_light.home_light
+- type: different
+  fields:
+  - light.room
+  - other_light.room
+robot_context:
+  home: home
+tags:
+- clarification
+- same_name

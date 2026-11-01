@@ -1,13 +1,14 @@
-# The home_assistant domain: a German voice assistant controlling lights,
-# heating and the vacuum robot Fridolin in a flat. See documentation/domains.md.
+# The home_assistant domain: a German voice assistant for ANY home. Every
+# conversation has a home of its own, listed in the system message, and the
+# assistant only knows what is on that list. See documentation/domains.md.
 
 name: home_assistant
 
 description: >
-  Deutschsprachiger Sprachassistent für das Zuhause, der Licht, Heizung und
-  den Saugroboter Fridolin steuert.
+  Deutschsprachiger Sprachassistent für ein beliebiges Zuhause, der die dort
+  eingerichteten Geräte steuert.
 
-# The conversations are German: no English article rules (engine/domain.py).
+# The conversations are German (engine/languages.py).
 language: de
 
 # This domain has no generated IDs.
@@ -16,8 +17,13 @@ generated_id_pattern: null
 # Wording of the opening system message (engine/robot_context.py).
 robot_context:
 
+  intro: "Du bist der Sprachassistent dieses Zuhauses und steuerst seine Geräte über die verfügbaren Tools. Du sprichst mit einer Person, die hier wohnt."
+
   # Nothing in this domain depends on the weekday.
   today: null
 
-  speakers:
-    resident: "Du bist der Sprachassistent dieses Zuhauses und steuerst Licht, Heizung und den Saugroboter Fridolin über die verfügbaren Tools. Du sprichst mit einer Person, die hier wohnt."
+  # The room of the device listening, when the home has one in every room
+  location: "Die Person spricht gerade aus diesem Raum mit dir: {location}."
+
+  records:
+    home: "Geräte im Zuhause:\n{inventory}"

@@ -1,0 +1,45 @@
+tool: HassClimateSetTemperature
+side_effects: true
+description: Stellt die Heizung eines Raums auf eine Temperatur.
+input:
+  area:
+    type: string
+    description: Raum genau so, wie er in der Geräteliste steht.
+    source: known
+    format: name
+  temperature:
+    type: number
+    required: true
+    minimum: 5
+    maximum: 30
+    description: Temperatur in Grad Celsius.
+    source: known
+output:
+  status:
+    type: enum
+    values:
+    - ok
+    - unavailable
+    - not_supported
+    - stuck
+    - bin_full
+    - not_found
+  state:
+    type: enum
+    values:
+    - 'on'
+    - 'off'
+  brightness_pct:
+    type: integer
+  color:
+    type: string
+  temperature:
+    type: number
+  current_temperature:
+    type: number
+  target_temperature:
+    type: number
+  humidity_pct:
+    type: integer
+  window_open:
+    type: boolean

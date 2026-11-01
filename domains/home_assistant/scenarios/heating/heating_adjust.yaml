@@ -1,0 +1,15 @@
+name: heating_adjust
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: heating_adjust
+home:
+  require:
+    room:
+    - heating
+robot_context:
+  home: home
+tags:
+- temperature

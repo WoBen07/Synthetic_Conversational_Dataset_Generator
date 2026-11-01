@@ -1,0 +1,9 @@
+entity: switch
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  name:
+    type: string
+    generator: switch

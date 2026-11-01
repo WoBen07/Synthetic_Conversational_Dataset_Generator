@@ -1,0 +1,36 @@
+tool: get_room_temperature
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: false
+
+description: >
+  Fragt die aktuelle und die eingestellte Temperatur eines Raums ab.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
+    format: name
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  current_temperature:
+    type: number
+
+  target_temperature:
+    type: number

@@ -1,30 +1,27 @@
 variables:
-
   power:
-    - state: "on"
-      word: "an"
-    - state: "off"
-      word: "aus"
-
+  - state: 'on'
+    word: an
+  - state: 'off'
+    word: aus
   request:
-    - "Mach {{light.phrase}} {{light.in_room}} {{power.word}}."
-    - "Schalte {{light.phrase}} {{light.in_room}} {{power.word}}."
-    - "Schalt mal {{light.phrase}} {{light.in_room}} {{power.word}}."
-    - "Mach bitte {{light.phrase}} {{light.in_room}} {{power.word}}."
-    - "Kannst du {{light.phrase}} {{light.in_room}} {{power.word}}machen?"
-    - "Kannst du bitte {{light.phrase}} {{light.in_room}} {{power.word}}schalten?"
-    - "Könntest du {{light.phrase}} {{light.in_room}} {{power.word}}machen?"
-    - "Bitte {{light.phrase}} {{light.in_room}} {{power.word}}schalten."
-    - "{{light.phrase_cap}} {{light.in_room}} bitte {{power.word}}."
-    - "{{light.in_room_cap}} bitte {{light.phrase}} {{power.word}}."
-    - "Hey, mach mal {{light.phrase}} {{light.in_room}} {{power.word}}."
-    - "Würdest du {{light.phrase}} {{light.in_room}} {{power.word}}schalten?"
-    - "Schalte doch bitte {{light.phrase}} {{light.in_room}} {{power.word}}."
-
+  - Mach {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Schalte {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Schalt mal {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Mach bitte {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Kannst du {{light.acc}} {{light.in_room}} {{power.word}}machen?
+  - Kannst du bitte {{light.acc}} {{light.in_room}} {{power.word}}schalten?
+  - Könntest du {{light.acc}} {{light.in_room}} {{power.word}}machen?
+  - Bitte {{light.acc}} {{light.in_room}} {{power.word}}schalten.
+  - '{{light.nom_cap}} {{light.in_room}} bitte {{power.word}}.'
+  - '{{light.in_room_cap}} bitte {{light.acc}} {{power.word}}.'
+  - Hey, mach mal {{light.acc}} {{light.in_room}} {{power.word}}.
+  - Würdest du {{light.acc}} {{light.in_room}} {{power.word}}schalten?
+  - Schalte doch bitte {{light.acc}} {{light.in_room}} {{power.word}}.
   confirmation:
-    - "{{light.phrase_cap}} {{light.in_room}} ist jetzt {{power.word}}."
-    - "Alles klar, {{light.phrase}} {{light.in_room}} ist {{power.word}}."
-    - "Erledigt, {{light.phrase}} {{light.in_room}} ist {{power.word}}."
-    - "Okay, ich habe {{light.phrase}} {{light.in_room}} {{power.word}}geschaltet."
-    - "Gemacht, {{light.phrase}} {{light.in_room}} ist jetzt {{power.word}}."
-    - "Schon passiert, {{light.phrase}} {{light.in_room}} ist {{power.word}}."
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt {{power.word}}.'
+  - Alles klar, {{light.nom}} {{light.in_room}} ist {{power.word}}.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist {{power.word}}.
+  - Okay, ich habe {{light.acc}} {{light.in_room}} {{power.word}}geschaltet.
+  - Gemacht, {{light.nom}} {{light.in_room}} ist jetzt {{power.word}}.
+  - Schon passiert, {{light.nom}} {{light.in_room}} ist {{power.word}}.

@@ -1,14 +1,13 @@
 name: vacuum_clean_room
-
 entities:
+  home:
+    type: home
   vacuum:
     type: vacuum
   room:
-    type: room
-
+    type: indoor_room
 language_schema: vacuum_clean_room
-
 robot_context:
-  speaker: resident
-
-tags: [room]
+  home: home
+tags:
+- room

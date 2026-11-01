@@ -8,7 +8,7 @@ tool: control_vacuum
 side_effects: true
 
 description: >
-  Steuert den Saugroboter Fridolin, ohne einen Reinigungsauftrag für einen bestimmten Bereich zu geben.
+  Steuert den Saugroboter, ohne einen Reinigungsauftrag für einen bestimmten Bereich zu geben.
 
 
 input:
@@ -26,4 +26,4 @@ output:
 
   status:
     type: enum
-    values: [ok, unavailable]
+    values: [ok, unavailable, stuck]

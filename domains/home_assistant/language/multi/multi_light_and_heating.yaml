@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Mach {{light.acc}} {{light.in_room}} aus und die Heizung auch.
+  - '{{light.in_room_cap}} bitte {{light.acc}} und die Heizung aus.'
+  - Schalte {{light.in_room}} {{light.acc}} und die Heizung aus.
+  - Kannst du {{light.in_room}} {{light.acc}} und die Heizung ausmachen?
+  - Mach {{light.in_room}} alles aus, {{light.acc}} und die Heizung.
+  confirmation:
+  - '{{light.nom_cap}} {{light.in_room}} ist aus, die Heizung läuft nur noch im Frostschutz.'
+  - Alles klar, {{light.in_room}} ist {{light.nom}} aus und die Heizung auf Frostschutz.
+  - Erledigt, {{light.in_room}} ist beides aus, die Heizung hält den Frostschutz.
+  - Okay, {{light.nom}} ist aus und die Heizung {{light.in_room}} auf Frostschutz.

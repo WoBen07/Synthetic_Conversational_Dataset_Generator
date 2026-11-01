@@ -1,0 +1,54 @@
+# The same conversations with Home Assistant's built-in intents as tools
+# (hass_mapping.py). remove_templates: what HA has no intent for.
+remove_tools:
+- activate_scene
+- adjust_light_brightness
+- adjust_light_color_temperature
+- adjust_room_temperature
+- control_media
+- control_vacuum
+- get_light_capabilities
+- get_light_state
+- get_room_temperature
+- get_sensor
+- get_vacuum_status
+- play_media
+- run_automation
+- set_alarm
+- set_all_lights_power
+- set_blinds
+- set_garage_door
+- set_heating_mode
+- set_light_brightness
+- set_light_color
+- set_light_power
+- set_lock
+- set_room_temperature
+- set_switch_power
+- start_cleaning
+remove_templates:
+- light/light_brighter
+- light/light_dimmer
+- light/light_color_not_supported
+- light/light_color_temperature_supported
+- light/light_color_temperature_not_supported
+- heating/heating_adjust
+- heating/heating_off
+- heating/heating_off_room
+- heating/heating_on
+- heating/heating_on_room
+- vacuum/vacuum_pause
+- vacuum/vacuum_status
+- blinds/blinds_stop
+- security/lock_close
+- security/lock_open_confirmed
+- security/alarm_arm
+- security/alarm_disarm_confirmed
+- security/garage_close
+- security/garage_open_confirmed
+- implied/implied_too_bright
+- implied/implied_too_cold
+- implied/implied_too_warm
+- multi/multi_light_and_heating
+- multi/multi_leaving_home
+- followup/followup_brighter

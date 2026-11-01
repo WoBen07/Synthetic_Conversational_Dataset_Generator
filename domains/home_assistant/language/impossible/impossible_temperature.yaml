@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Heize {{room.accusative}} auf {{hot.spoken}} Grad.
+  - Stelle die Heizung {{room.in_room}} auf {{hot.spoken}} Grad.
+  - Stell die Heizung {{room.in_room}} bitte auf {{hot.spoken}} Grad.
+  - Dreh die Heizung {{room.in_room}} auf {{hot.spoken}} Grad.
+  - Kannst du {{room.accusative}} auf {{hot.spoken}} Grad heizen?
+  - Ich hätte {{room.in_room}} gern {{hot.spoken}} Grad.
+  refusal:
+  - '{{hot.spoken}} Grad geht nicht, die Heizung lässt sich nur auf 5 bis 30 Grad stellen.'
+  - Das kann ich nicht einstellen, möglich sind 5 bis 30 Grad.
+  - Das geht leider nicht. Die Heizung {{room.in_room}} kann nur 5 bis 30 Grad.
+  - '{{hot.spoken}} Grad sind außerhalb des Bereichs von 5 bis 30 Grad.'

@@ -1,0 +1,22 @@
+variables:
+  request:
+  - Mach {{light.acc}} {{light.in_room}} an.
+  - Schalte {{light.acc}} {{light.in_room}} an.
+  - Kannst du {{light.acc}} {{light.in_room}} anmachen?
+  - '{{light.nom_cap}} {{light.in_room}} bitte an.'
+  - Schalt mal {{light.acc}} {{light.in_room}} an.
+  confirmation:
+  - '{{light.nom_cap}} {{light.in_room}} ist jetzt an.'
+  - Alles klar, {{light.nom}} {{light.in_room}} ist an.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist an.
+  followup:
+  - Noch heller.
+  - Noch etwas heller, bitte.
+  - Mach {{light.pron_acc}} heller.
+  - Etwas heller wäre gut.
+  - Bisschen heller noch.
+  second_confirmation:
+  - Jetzt ist {{light.nom}} heller.
+  - Alles klar, etwas heller.
+  - Erledigt, {{light.nom}} {{light.in_room}} leuchtet heller.
+  - Okay, ist heller.

@@ -1,0 +1,15 @@
+name: blinds_stop
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: blinds_stop
+home:
+  require:
+    room:
+    - blinds
+robot_context:
+  home: home
+tags:
+- blinds

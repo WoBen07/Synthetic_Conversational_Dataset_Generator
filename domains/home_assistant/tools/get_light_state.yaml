@@ -1,0 +1,48 @@
+tool: get_light_state
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: false
+
+description: >
+  Fragt ab, ob das Licht eines Raums oder eine einzelne Leuchte gerade an ist.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
+    format: name
+
+  light:
+    type: string
+    required: false
+    description: >
+      Name einer Leuchte aus der Geräteliste, z. B. eine Stehlampe.
+      Weglassen, wenn allgemein das Licht des Raums gemeint ist.
+    source: known
+    format: name
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  state:
+    type: enum
+    values: ["on", "off"]
+
+  brightness_pct:
+    type: integer
+    minimum: 1
+    maximum: 100

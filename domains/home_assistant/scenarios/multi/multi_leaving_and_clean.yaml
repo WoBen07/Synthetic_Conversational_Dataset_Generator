@@ -1,0 +1,15 @@
+name: multi_leaving_and_clean
+entities:
+  home:
+    type: home
+  vacuum:
+    type: vacuum
+language_schema: multi_leaving_and_clean
+home:
+  require_some:
+  - light
+robot_context:
+  home: home
+tags:
+- multi
+- whole_home

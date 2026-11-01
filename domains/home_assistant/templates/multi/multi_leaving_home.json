@@ -1,0 +1,49 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_all_lights_power",
+        "arguments": {
+          "state": "off"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_all_lights_power",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_heating_mode",
+        "arguments": {
+          "mode": "frost_protection"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_heating_mode",
+      "content": {
+        "status": "ok",
+        "mode": "frost_protection"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

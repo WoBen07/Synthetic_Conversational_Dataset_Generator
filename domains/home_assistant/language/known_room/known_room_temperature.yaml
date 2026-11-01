@@ -1,0 +1,15 @@
+variables:
+  request:
+  - Stelle die Heizung auf {{temperature.spoken}} Grad.
+  - Heize auf {{temperature.spoken}} Grad.
+  - Stell hier {{temperature.spoken}} Grad ein.
+  - Hier bitte {{temperature.spoken}} Grad.
+  - Dreh die Heizung auf {{temperature.spoken}} Grad.
+  - Kannst du hier auf {{temperature.spoken}} Grad heizen?
+  - Mach hier {{temperature.spoken}} Grad.
+  - Setz die Temperatur auf {{temperature.spoken}} Grad.
+  confirmation:
+  - Die Heizung {{room.in_room}} steht jetzt auf {{temperature.spoken}} Grad.
+  - Alles klar, {{room.in_room}} heize ich auf {{temperature.spoken}} Grad.
+  - Erledigt, {{temperature.spoken}} Grad {{room.in_room}}.
+  - Okay, ich habe die Heizung {{room.in_room}} auf {{temperature.spoken}} Grad gestellt.

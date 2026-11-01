@@ -1,28 +1,19 @@
 variables:
-
   request:
-    - "Schalte die Heizung an."
-    - "Schalte die Heizung ein."
-    - "Schalt die Heizung an."
-    - "Mach die Heizung an."
-    - "Mach bitte die Heizung an."
-    - "Heizung an, bitte."
-    - "Kannst du die Heizung anschalten?"
-    - "Kannst du die Heizung anmachen?"
-    - "Bitte die Heizung einschalten."
-    - "Die Heizung kann wieder an."
-    - "Mir ist kalt, mach bitte die Heizung an."
-    - "Heizung einschalten, bitte."
-    - "Schalte bitte die Heizung an."
-    - "Schalt bitte die Heizung ein."
-    - "Dreh die Heizung wieder auf."
-    - "Es ist kalt hier, schalt die Heizung ein."
-
+  - Schalte die Heizung an.
+  - Schalte die Heizung ein.
+  - Schalt die Heizung an.
+  - Mach die Heizung an.
+  - Mach bitte die Heizung an.
+  - Heizung an, bitte.
+  - Kannst du die Heizung anschalten?
+  - Kannst du die Heizung anmachen?
+  - Bitte die Heizung einschalten.
+  - Die Heizung kann wieder an.
+  - Schalt bitte die Heizung ein.
   confirmation:
-    - "Die Heizung ist jetzt an."
-    - "Alles klar, die Heizung läuft."
-    - "Erledigt, die Heizung ist wieder an."
-    - "Okay, ich habe die Heizung angeschaltet."
-    - "Gemacht, in der Wohnung wird jetzt wieder geheizt."
-    - "Die Heizung läuft wieder."
-    - "In Ordnung, ich habe die Heizung eingeschaltet."
+  - Die Heizung ist jetzt an.
+  - Alles klar, die Heizung läuft.
+  - Erledigt, die Heizung ist wieder an.
+  - Okay, ich habe die Heizung angeschaltet.
+  - Gemacht, es wird jetzt wieder geheizt.

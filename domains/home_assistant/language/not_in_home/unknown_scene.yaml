@@ -1,0 +1,12 @@
+variables:
+  request:
+  - Aktiviere die Szene {{scene.name}}.
+  - Starte die Szene {{scene.name}}.
+  - Mach mal die Szene {{scene.name}} an.
+  - Szene {{scene.name}}, bitte.
+  - Kannst du die Szene {{scene.name}} aktivieren?
+  refusal:
+  - Eine Szene {{scene.name}} ist hier nicht eingerichtet.
+  - Die Szene {{scene.name}} kenne ich nicht.
+  - Das geht leider nicht, die Szene {{scene.name}} gibt es hier nicht.
+  - '{{scene.name}} habe ich nicht in der Liste.'

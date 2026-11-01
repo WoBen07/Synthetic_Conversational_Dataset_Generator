@@ -3,7 +3,7 @@ entity: non_white_color
 
 fields:
 
-  # A color to ask a white-only light for; the generator also sets "german".
+  # See generators/devices.py for the fields the generator adds.
   name:
-    type: enum
+    type: string
     generator: non_white_light_color

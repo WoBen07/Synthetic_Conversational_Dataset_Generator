@@ -1,21 +1,18 @@
 variables:
-
   request:
-    - "Schalte die Heizung {{room.in_room}} an."
-    - "Schalte die Heizung {{room.in_room}} ein."
-    - "Schalt die Heizung {{room.in_room}} an."
-    - "Mach die Heizung {{room.in_room}} an."
-    - "Mach bitte die Heizung {{room.in_room}} an."
-    - "Kannst du die Heizung {{room.in_room}} anschalten?"
-    - "Kannst du die Heizung {{room.in_room}} anmachen?"
-    - "Bitte die Heizung {{room.in_room}} einschalten."
-    - "{{room.in_room_cap}} kann die Heizung wieder an."
-    - "Heizung {{room.in_room}} an, bitte."
-    - "{{room.in_room_cap}} ist es kalt, mach bitte die Heizung an."
-
+  - Schalte die Heizung {{room.in_room}} an.
+  - Schalte die Heizung {{room.in_room}} ein.
+  - Schalt die Heizung {{room.in_room}} an.
+  - Mach die Heizung {{room.in_room}} an.
+  - Mach bitte die Heizung {{room.in_room}} an.
+  - Kannst du die Heizung {{room.in_room}} anschalten?
+  - Kannst du die Heizung {{room.in_room}} anmachen?
+  - Bitte die Heizung {{room.in_room}} einschalten.
+  - '{{room.in_room_cap}} kann die Heizung wieder an.'
+  - Heizung {{room.in_room}} an, bitte.
   confirmation:
-    - "Die Heizung {{room.in_room}} ist jetzt an."
-    - "Alles klar, die Heizung {{room.in_room}} läuft."
-    - "Erledigt, die Heizung {{room.in_room}} ist wieder an."
-    - "Okay, ich habe die Heizung {{room.in_room}} angeschaltet."
-    - "Gemacht, {{room.in_room}} wird jetzt wieder geheizt."
+  - Die Heizung {{room.in_room}} ist jetzt an.
+  - Alles klar, die Heizung {{room.in_room}} läuft.
+  - Erledigt, die Heizung {{room.in_room}} ist wieder an.
+  - Okay, ich habe die Heizung {{room.in_room}} angeschaltet.
+  - Gemacht, {{room.in_room}} wird jetzt wieder geheizt.

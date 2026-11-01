@@ -1,0 +1,11 @@
+variables:
+  request:
+  - Schalte die Alarmanlage scharf.
+  - Mach die Alarmanlage aus.
+  - Kannst du die Alarmanlage aktivieren?
+  - Alarmanlage an, bitte.
+  refusal:
+  - Hier ist keine Alarmanlage eingerichtet.
+  - Das geht leider nicht, in diesem Zuhause gibt es keine Alarmanlage.
+  - Eine Alarmanlage kenne ich hier nicht.
+  - Eine Alarmanlage habe ich nicht in der Geräteliste.

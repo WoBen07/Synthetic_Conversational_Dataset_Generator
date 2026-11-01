@@ -1,0 +1,22 @@
+variables:
+  action:
+  - value: open
+    word: hoch
+    verb: hochgefahren
+  - value: close
+    word: runter
+    verb: runtergefahren
+  request:
+  - Fahr die Rollläden {{room.in_room}} {{action.word}}.
+  - Mach die Rollläden {{room.in_room}} {{action.word}}.
+  - Rollläden {{room.in_room}} {{action.word}}, bitte.
+  - Kannst du die Rollläden {{room.in_room}} {{action.word}}fahren?
+  - Lass die Rollläden {{room.in_room}} {{action.word}}.
+  - Fahr bitte die Rollos {{room.in_room}} {{action.word}}.
+  - Die Jalousien {{room.in_room}} bitte {{action.word}}.
+  - '{{room.in_room_cap}} bitte die Rollläden {{action.word}}.'
+  confirmation:
+  - Die Rollläden {{room.in_room}} fahren {{action.word}}.
+  - Alles klar, die Rollläden {{room.in_room}} sind {{action.verb}}.
+  - Erledigt, die Rollläden {{room.in_room}} gehen {{action.word}}.
+  - Okay, ich habe die Rollläden {{room.in_room}} {{action.verb}}.

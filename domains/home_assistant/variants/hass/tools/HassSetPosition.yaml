@@ -1,0 +1,50 @@
+tool: HassSetPosition
+side_effects: true
+description: Fährt Rollläden auf eine Position.
+input:
+  area:
+    type: string
+    description: Raum genau so, wie er in der Geräteliste steht.
+    source: known
+    format: name
+  device_class:
+    type: enum
+    values:
+    - blind
+    description: Geräteklasse.
+  position:
+    type: integer
+    required: true
+    minimum: 0
+    maximum: 100
+    description: Position in Prozent.
+    source: known
+output:
+  status:
+    type: enum
+    values:
+    - ok
+    - unavailable
+    - not_supported
+    - stuck
+    - bin_full
+    - not_found
+  state:
+    type: enum
+    values:
+    - 'on'
+    - 'off'
+  brightness_pct:
+    type: integer
+  color:
+    type: string
+  temperature:
+    type: number
+  current_temperature:
+    type: number
+  target_temperature:
+    type: number
+  humidity_pct:
+    type: integer
+  window_open:
+    type: boolean

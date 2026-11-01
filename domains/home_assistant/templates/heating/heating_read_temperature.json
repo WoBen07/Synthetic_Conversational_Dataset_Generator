@@ -1,0 +1,34 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_room_temperature",
+        "arguments": {
+          "room": "{{room.name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_room_temperature",
+      "content": {
+        "status": "ok",
+        "current_temperature": "{{reading.current}}",
+        "target_temperature": "{{reading.target}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

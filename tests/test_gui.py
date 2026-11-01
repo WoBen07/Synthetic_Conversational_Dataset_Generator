@@ -77,7 +77,8 @@ class ReadingTest(ServerTestCase):
 
         self.assertEqual(by_name["hospital"]["language"], "en")
         self.assertEqual(by_name["home_assistant"]["language"], "de")
-        self.assertEqual(by_name["home_assistant"]["tools"], 10)
+        self.assertEqual(by_name["home_assistant"]["tools"], len(gui.load_domain("home_assistant").tools))
+        self.assertEqual(by_name["home_assistant@hass"]["language"], "de")
 
     def test_broken_domain_does_not_hide_the_others(self):
 
@@ -96,14 +97,14 @@ class ReadingTest(ServerTestCase):
         by_name = {domain["name"]: domain for domain in domains}
 
         self.assertEqual(by_name["hospital"]["error"], "broken pack")
-        self.assertEqual(by_name["home_assistant"]["tools"], 10)
+        self.assertNotIn("error", by_name["home_assistant"])
 
     def test_domain_detail(self):
 
         status, detail = self.request("/api/domain?name=home_assistant")
 
         self.assertEqual(status, 200)
-        self.assertEqual(len(detail["templates"]), 24)
+        self.assertEqual(len(detail["templates"]), len(gui.load_domain("home_assistant").templates()))
 
         tools = {tool["name"]: tool for tool in detail["tools"]}
 
@@ -194,8 +195,10 @@ class PlanTest(unittest.TestCase):
 
         plan = gui.generation_plan(["home_assistant"])
 
-        self.assertEqual(plan["templates"], 24)
-        self.assertEqual(plan["planned"], 6150)
+        amounts = gui.orchestrator.plan_amounts(gui.load_domain("home_assistant"), verbose=False)
+
+        self.assertEqual(plan["templates"], len(amounts))
+        self.assertEqual(plan["planned"], sum(amounts.values()))
         self.assertEqual(plan["target"], str(Path("Datasets") / "home_assistant"))
         self.assertFalse(plan["approved"])
 
@@ -284,7 +287,7 @@ class GenerateTest(ServerTestCase):
         job = self.wait("finished")
 
         self.assertEqual((job["done"], job["skipped"], job["gave_up"], job["exit_code"]), (2, 1, 1, 0))
-        self.assertEqual(job["planned"], 6150)
+        self.assertEqual(job["planned"], gui.generation_plan(["home_assistant"])["planned"])
         self.assertEqual(job["log"], ["[x] Giving up after 2 datapoints: pool exhausted.", "Finished"])
 
     def test_failure_is_reported(self):

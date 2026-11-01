@@ -1,0 +1,11 @@
+variables:
+  request:
+  - Mach das Garagentor auf.
+  - Schließ das Garagentor.
+  - Kannst du das Garagentor öffnen?
+  - Garagentor zu, bitte.
+  refusal:
+  - Hier ist kein Garagentor eingerichtet.
+  - Das geht leider nicht, in diesem Zuhause gibt es kein Garagentor.
+  - Ein Garagentor kenne ich hier nicht.
+  - Ein Garagentor habe ich nicht in der Geräteliste.

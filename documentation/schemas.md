@@ -283,29 +283,49 @@ agrees.
 ### The tools of the home_assistant domain
 
 The conversations and tool descriptions are German; tool names, argument
-names and enum values are English.
+names and enum values are English. `room` and the names of devices are taken
+from the home's list in the system message (see
+[domains](domains.md#the-home_assistant-domain)).
 
 | tool | inputs |
 |---|---|
-| `set_light_power` | `room`, `light`, `state` (`on`/`off`) |
-| `set_light_brightness` | `room`, `light`, `brightness_pct` (1-100) |
-| `adjust_light_brightness` | `room`, `light`, `direction` (`brighter`/`dimmer`) |
-| `get_light_capabilities` | `room`, `light` |
-| `set_light_color` | `room`, `light`, `color` |
-| `adjust_light_color_temperature` | `room`, `light`, `direction` (`warmer`/`cooler`) |
-| `set_room_temperature` | `room`, `temperature` (5-30) |
+| `set_light_power` | `room`, `state` (`on`/`off`); `light` optional |
+| `set_all_lights_power` | `state` |
+| `get_light_state` | `room`; `light` optional |
+| `set_light_brightness` | `room`, `brightness_pct` (1-100); `light` optional |
+| `adjust_light_brightness` | `room`, `direction` (`brighter`/`dimmer`); `light` optional |
+| `get_light_capabilities` | `room`; `light` optional |
+| `set_light_color` | `room`, `color`; `light` optional |
+| `adjust_light_color_temperature` | `room`, `direction` (`warmer`/`cooler`); `light` optional |
+| `set_room_temperature` | `room`, `temperature` (5-30, half degrees allowed) |
+| `adjust_room_temperature` | `room`, `direction` (`warmer`/`cooler`) |
+| `get_room_temperature` | `room` |
 | `set_heating_mode` | `mode` (`heat`/`frost_protection`); `room` optional, without it the whole home |
 | `start_cleaning` | `mode` (`vacuum`/`mop`/`vacuum_and_mop`); `room` optional, without it the whole home |
 | `control_vacuum` | `action` (`start`/`pause`/`return_to_dock`) |
+| `get_vacuum_status` | none |
+| `set_blinds` | `room`, and `action` (`open`/`close`/`stop`) or `position_pct` |
+| `set_switch_power` | `room`, `switch`, `state` |
+| `activate_scene` | `scene` |
+| `run_automation` | `automation` |
+| `play_media` | `room`, `query` |
+| `control_media` | `room`, `action` (`play`/`pause`/`stop`/`next`/`volume_up`/`volume_down`) |
+| `get_sensor` | `room`, `sensor` (`humidity`/`window`) |
+| `set_lock` | `lock`, `action` (`lock`/`unlock`) |
+| `set_alarm` | `action` (`arm`/`disarm`) |
+| `set_garage_door` | `action` (`open`/`close`) |
 
-`light` is `main` or `string_lights` (die Lichterkette). The templates
-follow these rules:
+The templates follow these rules:
 
 - Colour and colour temperature are only changed after
   `get_light_capabilities` confirmed them for that light; otherwise the
   assistant explains why not (`LightCapabilityValidator`).
 - "Heizung aus" means frost protection, never fully off.
-- A light or a target temperature without a room is a question back. The
+- Unlocking, disarming and opening the garage ask first and call nothing on a
+  no (`SecurityConfirmationValidator`); locking up does not ask.
+- What the home's list does not have gets an answer and no tool call.
+- A light or a target temperature without a room is a question back, unless the
+  system message says where the user is or the home has a single room. The
   heating mode and cleaning without a room apply to the whole home.
 - "Starte Fridolin" names no area, so it is `control_vacuum` with `start`
   (starts or resumes); a named area is `start_cleaning`.

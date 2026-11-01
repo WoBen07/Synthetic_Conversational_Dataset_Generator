@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Dimme {{light.acc}} {{light.in_room}} auf {{brightness.pct}}%.
+  - Stelle {{light.acc}} {{light.in_room}} auf {{brightness.pct}} Prozent.
+  - Mach {{light.acc}} {{light.in_room}} auf {{brightness.pct}}%.
+  - Kannst du {{light.acc}} {{light.in_room}} auf {{brightness.pct}} Prozent dimmen?
+  - Setz {{light.acc}} {{light.in_room}} auf {{brightness.pct}} Prozent.
+  - '{{light.nom_cap}} {{light.in_room}} bitte auf {{brightness.pct}}%.'
+  refusal:
+  - '{{light.nom_cap}} {{light.in_room}} lässt sich leider nicht dimmen, nur an- und ausschalten.'
+  - Das geht leider nicht, {{light.nom}} {{light.in_room}} kann nur an oder aus.
+  - Dimmen geht bei {{light.dat}} {{light.in_room}} leider nicht.
+  - Leider nein, {{light.nom}} {{light.in_room}} ist nicht dimmbar.

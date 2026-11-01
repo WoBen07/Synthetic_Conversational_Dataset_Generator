@@ -1,32 +1,29 @@
 variables:
-
   mode:
-    - value: vacuum
-      infinitive: "saugen"
-      present: "saugt"
-      noun: "Saugen"
-    - value: mop
-      infinitive: "wischen"
-      present: "wischt"
-      noun: "Wischen"
-    - value: vacuum_and_mop
-      infinitive: "saugen und wischen"
-      present: "saugt und wischt"
-      noun: "Saugen und Wischen"
-
+  - value: vacuum
+    infinitive: saugen
+    present: saugt
+    noun: Saugen
+  - value: mop
+    infinitive: wischen
+    present: wischt
+    noun: Wischen
+  - value: vacuum_and_mop
+    infinitive: saugen und wischen
+    present: saugt und wischt
+    noun: Saugen und Wischen
   request:
-    - "Lass {{vacuum.accusative}} die ganze Wohnung {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} soll alles {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} soll die ganze Wohnung {{mode.infinitive}}."
-    - "{{vacuum.nominative_cap}} soll überall {{mode.infinitive}}."
-    - "Lass {{vacuum.accusative}} bitte alles {{mode.infinitive}}."
-    - "Kannst du {{vacuum.accusative}} die komplette Wohnung {{mode.infinitive}} lassen?"
-    - "Starte {{vacuum.accusative}}, er soll alles {{mode.infinitive}}."
-    - "Schick {{vacuum.accusative}} los, er soll die ganze Wohnung {{mode.infinitive}}."
-
+  - Lass {{vacuum.acc}} die ganze Wohnung {{mode.infinitive}}.
+  - Lass {{vacuum.acc}} das ganze Haus {{mode.infinitive}}.
+  - '{{vacuum.nom_cap}} soll die ganze Wohnung {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll das ganze Haus {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll alles {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} soll überall {{mode.infinitive}}.'
+  - '{{vacuum.nom_cap}} kann mal alles {{mode.infinitive}}.'
+  - Lass {{vacuum.acc}} bitte alles {{mode.infinitive}}.
   failure:
-    - "Das hat leider nicht geklappt, Fridolin ist gerade nicht erreichbar."
-    - "Fridolin reagiert gerade nicht, das {{mode.noun}} konnte ich nicht starten."
-    - "Tut mir leid, ich erreiche Fridolin gerade nicht."
-    - "Das ging leider nicht, Fridolin ist nicht erreichbar."
-    - "Fridolin ist gerade offline, das {{mode.noun}} ist also nicht gestartet."
+  - Das hat leider nicht geklappt, {{vacuum.reply}} ist gerade nicht erreichbar.
+  - '{{vacuum.reply_cap}} reagiert gerade nicht, das {{mode.noun}} konnte ich nicht starten.'
+  - Tut mir leid, ich erreiche {{vacuum.reply_acc}} gerade nicht.
+  - Das ging leider nicht, {{vacuum.reply}} ist nicht erreichbar.
+  - '{{vacuum.reply_cap}} ist gerade offline, das {{mode.noun}} ist also nicht gestartet.'

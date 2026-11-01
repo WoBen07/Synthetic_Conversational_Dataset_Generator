@@ -1,0 +1,13 @@
+variables:
+  request:
+  - Hier ist es zu hell.
+  - Das blendet ja total.
+  - Es ist so hell hier.
+  - Mir ist das Licht zu grell.
+  - Ganz schön hell hier.
+  - Das Licht ist mir zu stark.
+  confirmation:
+  - Ich habe {{light.acc}} {{light.in_room}} gedimmt.
+  - Dann dimme ich {{light.acc}} {{light.in_room}} etwas.
+  - Alles klar, {{light.nom}} {{light.in_room}} ist jetzt dunkler.
+  - '{{light.nom_cap}} {{light.in_room}} leuchtet jetzt schwächer.'

@@ -1,0 +1,16 @@
+name: no_heating_in_room
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+language_schema: no_heating_in_room
+home:
+  room_absent:
+    room:
+    - heating
+robot_context:
+  home: home
+tags:
+- not_in_home
+- no_tool

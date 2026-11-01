@@ -8,7 +8,7 @@ tool: set_light_power
 side_effects: true
 
 description: >
-  Schaltet eine Leuchte in einem Raum ein oder aus.
+  Schaltet das Licht eines Raums oder eine einzelne Leuchte ein oder aus.
 
 
 input:
@@ -17,18 +17,19 @@ input:
     type: string
     required: true
     description: >
-      Raum ohne Präposition und Artikel, so wie er genannt wurde, z. B.
-      "Wohnzimmer" oder "Küche".
-    source: mentioned
+      Raum genau so, wie er in der Geräteliste steht, ohne Präposition und
+      Artikel.
+    source: known
     format: name
 
   light:
-    type: enum
-    values: [main, string_lights]
-    required: true
+    type: string
+    required: false
     description: >
-      Welche Leuchte im Raum gemeint ist: main für das normale Licht oder
-      die Lampe, string_lights für die Lichterkette.
+      Name einer Leuchte aus der Geräteliste, z. B. eine Stehlampe.
+      Weglassen, wenn allgemein das Licht des Raums gemeint ist.
+    source: known
+    format: name
 
   state:
     type: enum

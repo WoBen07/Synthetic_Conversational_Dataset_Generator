@@ -1,12 +1,11 @@
 name: vacuum_start
-
 entities:
+  home:
+    type: home
   vacuum:
     type: vacuum
-
 language_schema: vacuum_start
-
 robot_context:
-  speaker: resident
-
-tags: [control]
+  home: home
+tags:
+- control

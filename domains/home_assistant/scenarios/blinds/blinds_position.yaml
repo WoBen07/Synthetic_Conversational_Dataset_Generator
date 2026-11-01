@@ -1,0 +1,17 @@
+name: blinds_position
+entities:
+  home:
+    type: home
+  room:
+    type: indoor_room
+  position:
+    type: brightness
+language_schema: blinds_position
+home:
+  require:
+    room:
+    - blinds
+robot_context:
+  home: home
+tags:
+- blinds

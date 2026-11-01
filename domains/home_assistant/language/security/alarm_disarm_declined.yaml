@@ -1,0 +1,25 @@
+variables:
+  request:
+  - Schalte die Alarmanlage unscharf.
+  - Mach die Alarmanlage aus.
+  - Alarmanlage aus, bitte.
+  - Kannst du die Alarmanlage ausschalten?
+  - Deaktiviere die Alarmanlage.
+  - Bitte die Alarmanlage unscharf schalten.
+  ask:
+  - Soll ich die Alarmanlage wirklich ausschalten?
+  - Bist du sicher, dass die Alarmanlage aus soll?
+  - Dann ist das Zuhause nicht mehr geschützt. Wirklich ausschalten?
+  - Wirklich unscharf schalten?
+  'no':
+  - Nein.
+  - Nein, lass mal.
+  - Doch nicht.
+  - Nein, danke.
+  - Lieber nicht.
+  - Nee, lass.
+  confirmation:
+  - Alles klar, die Alarmanlage bleibt an.
+  - Okay, ich lasse die Alarmanlage scharf.
+  - In Ordnung, die Alarmanlage bleibt aktiv.
+  - Gut, dann bleibt die Alarmanlage an.

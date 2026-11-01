@@ -1,0 +1,14 @@
+variables:
+  request:
+  - Schließ {{lock.acc}} ab.
+  - Schließ bitte {{lock.acc}} ab.
+  - Sperr {{lock.acc}} ab.
+  - Kannst du {{lock.acc}} abschließen?
+  - Mach {{lock.acc}} zu und schließ ab.
+  - '{{lock.acc_cap}} bitte abschließen.'
+  - Verriegle {{lock.acc}}.
+  confirmation:
+  - '{{lock.nom_cap}} ist abgeschlossen.'
+  - Alles klar, {{lock.nom}} ist zu.
+  - Erledigt, {{lock.nom}} ist abgeschlossen.
+  - Okay, ich habe {{lock.acc}} abgeschlossen.

@@ -1,28 +1,34 @@
 variables:
-
   direction:
-    - value: warmer
-      comparative: "wärmer"
-    - value: cooler
-      comparative: "kälter"
-    - value: cooler
-      comparative: "kühler"
-
+  - value: warmer
+    comparative: wärmer
+  - value: cooler
+    comparative: kälter
+  - value: cooler
+    comparative: kühler
+  other:
+  - color: true
+    brightness: true
+  - color: true
+    brightness: false
+  - color: false
+    brightness: true
+  - color: false
+    brightness: false
   request:
-    - "Mache {{light.phrase}} {{light.in_room}} {{direction.comparative}}."
-    - "Mach {{light.phrase}} {{light.in_room}} bitte {{direction.comparative}}."
-    - "Mach mal {{light.phrase}} {{light.in_room}} etwas {{direction.comparative}}."
-    - "Stell {{light.phrase}} {{light.in_room}} {{direction.comparative}}."
-    - "Kannst du {{light.phrase}} {{light.in_room}} {{direction.comparative}} machen?"
-    - "{{light.phrase_cap}} {{light.in_room}} soll {{direction.comparative}} sein."
-    - "{{light.phrase_cap}} {{light.in_room}} könnte {{direction.comparative}} sein."
-    - "Ich hätte {{light.phrase}} {{light.in_room}} gern etwas {{direction.comparative}}."
-    - "Bitte {{light.phrase}} {{light.in_room}} ein bisschen {{direction.comparative}} stellen."
-    - "Stelle {{light.phrase}} {{light.in_room}} etwas {{direction.comparative}}."
-
+  - Mache {{light.acc}} {{light.in_room}} {{direction.comparative}}.
+  - Mach {{light.acc}} {{light.in_room}} bitte {{direction.comparative}}.
+  - Mach mal {{light.acc}} {{light.in_room}} etwas {{direction.comparative}}.
+  - Stell {{light.acc}} {{light.in_room}} {{direction.comparative}}.
+  - Kannst du {{light.acc}} {{light.in_room}} {{direction.comparative}} machen?
+  - '{{light.nom_cap}} {{light.in_room}} soll {{direction.comparative}} sein.'
+  - '{{light.nom_cap}} {{light.in_room}} könnte {{direction.comparative}} sein.'
+  - Ich hätte {{light.acc}} {{light.in_room}} gern etwas {{direction.comparative}}.
+  - Bitte {{light.acc}} {{light.in_room}} ein bisschen {{direction.comparative}} stellen.
+  - Stelle {{light.acc}} {{light.in_room}} etwas {{direction.comparative}}.
   refusal:
-    - "{{light.phrase_cap}} {{light.in_room}} hat eine feste Lichtfarbe, {{direction.comparative}} geht dort leider nicht."
-    - "Leider geht {{direction.comparative}} nicht, die Lichtfarbe {{light.in_room}} lässt sich nicht verstellen."
-    - "Das geht leider nicht: {{light.phrase}} {{light.in_room}} kann die Farbtemperatur nicht ändern."
-    - "Leider nein, bei {{light.dative}} {{light.in_room}} lässt sich die Farbtemperatur nicht einstellen."
-    - "{{light.phrase_cap}} {{light.in_room}} kann das nicht, die Farbtemperatur ist dort fest."
+  - '{{light.nom_cap}} {{light.in_room}} hat eine feste Lichtfarbe, {{direction.comparative}} geht dort leider nicht.'
+  - Leider geht {{direction.comparative}} nicht, die Lichtfarbe {{light.in_room}} lässt sich nicht verstellen.
+  - 'Das geht leider nicht: {{light.nom}} {{light.in_room}} kann die Farbtemperatur nicht ändern.'
+  - Leider nein, bei {{light.dat}} {{light.in_room}} lässt sich die Farbtemperatur nicht einstellen.
+  - '{{light.nom_cap}} {{light.in_room}} kann das nicht, die Farbtemperatur ist dort fest.'

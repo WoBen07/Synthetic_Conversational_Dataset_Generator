@@ -1,0 +1,48 @@
+variables:
+  reading:
+  - current: 18.5
+    target: 20
+    current_spoken: 18,5
+    target_spoken: '20'
+  - current: 19
+    target: 21
+    current_spoken: '19'
+    target_spoken: '21'
+  - current: 20.5
+    target: 21
+    current_spoken: 20,5
+    target_spoken: '21'
+  - current: 21
+    target: 21
+    current_spoken: '21'
+    target_spoken: '21'
+  - current: 22
+    target: 22
+    current_spoken: '22'
+    target_spoken: '22'
+  - current: 17.5
+    target: 19
+    current_spoken: 17,5
+    target_spoken: '19'
+  - current: 23
+    target: 22
+    current_spoken: '23'
+    target_spoken: '22'
+  - current: 16
+    target: 18
+    current_spoken: '16'
+    target_spoken: '18'
+  request:
+  - Wie warm ist es {{room.in_room}}?
+  - Wie viel Grad hat es {{room.in_room}}?
+  - Welche Temperatur ist {{room.in_room}}?
+  - Wie warm ist {{room.accusative}} gerade?
+  - Sag mal, wie warm ist es {{room.in_room}}?
+  - Kannst du nachsehen, wie warm es {{room.in_room}} ist?
+  - Wie kalt ist es {{room.in_room}}?
+  - Was zeigt die Heizung {{room.in_room}} an?
+  confirmation:
+  - '{{room.in_room_cap}} sind es gerade {{reading.current_spoken}} Grad, eingestellt sind {{reading.target_spoken}} Grad.'
+  - Es sind {{reading.current_spoken}} Grad {{room.in_room}}.
+  - '{{room.in_room_cap}} hat es {{reading.current_spoken}} Grad, die Heizung steht auf {{reading.target_spoken}} Grad.'
+  - Gerade {{reading.current_spoken}} Grad {{room.in_room}}.

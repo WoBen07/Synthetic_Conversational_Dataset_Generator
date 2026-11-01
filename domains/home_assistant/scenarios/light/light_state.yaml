@@ -1,0 +1,11 @@
+name: light_state
+entities:
+  home:
+    type: home
+  light:
+    type: light
+language_schema: light_state
+robot_context:
+  home: home
+tags:
+- state

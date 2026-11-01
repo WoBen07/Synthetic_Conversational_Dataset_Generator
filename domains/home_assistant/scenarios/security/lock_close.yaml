@@ -1,0 +1,11 @@
+name: lock_close
+entities:
+  home:
+    type: home
+  lock:
+    type: lock
+language_schema: lock_close
+robot_context:
+  home: home
+tags:
+- security

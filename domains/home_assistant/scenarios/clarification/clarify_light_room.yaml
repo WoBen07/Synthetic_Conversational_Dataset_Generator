@@ -1,12 +1,13 @@
 name: clarify_light_room
-
 entities:
+  home:
+    type: home
   light:
-    type: light
-
+    type: generic_light
 language_schema: clarify_light_room
-
+home:
+  min_light_rooms: 2
 robot_context:
-  speaker: resident
-
-tags: [clarification]
+  home: home
+tags:
+- clarification

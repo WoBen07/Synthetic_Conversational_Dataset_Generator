@@ -1,0 +1,22 @@
+variables:
+  request:
+  - Es ist zu dunkel.
+  - Hier ist es zu dunkel.
+  - Ich sehe nichts.
+  - Es ist so dunkel.
+  - Ganz schön dunkel.
+  - Ich kann kaum was sehen.
+  ask_room:
+  - In welchem Raum bist du?
+  - Wo soll ich das Licht anmachen?
+  - In welchem Raum soll ich das Licht anmachen?
+  - Welchen Raum meinst du?
+  room_reply:
+  - '{{light.in_room_cap}}.'
+  - '{{light.in_room_cap}} bitte.'
+  - '{{light.room}}.'
+  - Na {{light.in_room}}.
+  confirmation:
+  - Ich habe {{light.acc}} {{light.in_room}} angemacht.
+  - Alles klar, {{light.nom}} {{light.in_room}} ist jetzt an.
+  - Erledigt, {{light.nom}} {{light.in_room}} ist an.

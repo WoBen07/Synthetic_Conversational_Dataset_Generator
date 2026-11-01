@@ -1,0 +1,18 @@
+variables:
+  reading:
+  - open: true
+    word: offen
+  - open: false
+    word: zu
+  request:
+  - Ist das Fenster {{room.in_room}} offen?
+  - Ist das Fenster {{room.in_room}} zu?
+  - Hab ich das Fenster {{room.in_room}} aufgelassen?
+  - Kannst du nachsehen, ob das Fenster {{room.in_room}} offen ist?
+  - Sag mal, ist {{room.in_room}} das Fenster noch offen?
+  - Steht das Fenster {{room.in_room}} noch offen?
+  confirmation:
+  - Das Fenster {{room.in_room}} ist {{reading.word}}.
+  - '{{room.in_room_cap}} ist das Fenster gerade {{reading.word}}.'
+  - 'Ich habe nachgesehen: Das Fenster {{room.in_room}} ist {{reading.word}}.'
+  - Laut Sensor ist das Fenster {{room.in_room}} {{reading.word}}.

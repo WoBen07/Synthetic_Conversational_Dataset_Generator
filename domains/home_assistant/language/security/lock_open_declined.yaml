@@ -1,0 +1,25 @@
+variables:
+  request:
+  - Schließ {{lock.acc}} auf.
+  - Schließ bitte {{lock.acc}} auf.
+  - Mach {{lock.acc}} auf.
+  - Kannst du {{lock.acc}} aufschließen?
+  - Entriegle {{lock.acc}}.
+  - '{{lock.acc_cap}} bitte aufschließen.'
+  ask:
+  - Soll ich {{lock.acc}} wirklich aufschließen?
+  - Bist du sicher, dass ich {{lock.acc}} aufschließen soll?
+  - Dann ist {{lock.nom}} offen. Soll ich das wirklich machen?
+  - Wirklich aufschließen?
+  'no':
+  - Nein.
+  - Nein, lass mal.
+  - Doch nicht.
+  - Nein, danke.
+  - Lieber nicht.
+  - Nee, lass.
+  confirmation:
+  - Alles klar, {{lock.nom}} bleibt zu.
+  - Okay, ich lasse {{lock.acc}} abgeschlossen.
+  - In Ordnung, {{lock.nom}} bleibt abgeschlossen.
+  - Gut, dann bleibt {{lock.nom}} zu.

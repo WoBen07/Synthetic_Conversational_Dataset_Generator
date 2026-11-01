@@ -29,11 +29,12 @@ domain.yaml, so every template of a domain shares one format::
 
 The current weekday ("today") is included so "today" in a user message
 can be checked against the data. A domain that has no use for it sets
-``today: null`` in its wording.
+``today: null`` in its wording. ``intro`` is an optional first sentence.
 """
 
 
 DEFAULT_WORDING = {
+    "intro": None,
     "today": "Today is {today}.",
     "location": "You are in {location}.",
     "numeric_location": "{value}",
@@ -70,6 +71,9 @@ def build_robot_context(context, spec, wording=None):
     wording = {**DEFAULT_WORDING, **(wording or {})}
 
     sentences = []
+
+    if wording["intro"]:
+        sentences.append(wording["intro"])
 
     if wording["today"]:
         sentences.append(wording["today"].format(today=context["today"]))

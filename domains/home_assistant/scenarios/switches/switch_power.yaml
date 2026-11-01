@@ -1,0 +1,12 @@
+name: switch_power
+entities:
+  home:
+    type: home
+  switch:
+    type: switch
+language_schema: switch_power
+robot_context:
+  home: home
+tags:
+- switch
+- room_from_list

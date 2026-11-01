@@ -1,0 +1,9 @@
+entity: home
+
+
+fields:
+
+  # See generators/devices.py for the fields the generator adds.
+  kind:
+    type: string
+    generator: home
