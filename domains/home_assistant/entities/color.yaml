@@ -1,0 +1,9 @@
+entity: color
+
+
+fields:
+
+  # The value of the color argument; the generator also sets "german".
+  name:
+    type: enum
+    generator: light_color

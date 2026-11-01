@@ -1,0 +1,31 @@
+variables:
+
+  request:
+    - "Stelle die Heizung auf {{temperature.value}} Grad."
+    - "Stell die Heizung bitte auf {{temperature.value}} Grad."
+    - "Dreh die Heizung auf {{temperature.value}} Grad."
+    - "Heize auf {{temperature.value}} Grad."
+    - "Heiz mal auf {{temperature.value}} Grad."
+    - "Kannst du die Heizung auf {{temperature.value}} Grad stellen?"
+    - "Setz die Temperatur auf {{temperature.value}} Grad."
+    - "Bitte auf {{temperature.value}} Grad heizen."
+
+  ask_room:
+    - "Für welchen Raum?"
+    - "In welchem Raum soll ich auf {{temperature.value}} Grad heizen?"
+    - "Gerne, in welchem Raum?"
+    - "Welchen Raum meinst du?"
+    - "Klar, welcher Raum soll {{temperature.value}} Grad bekommen?"
+
+  room_reply:
+    - "{{room.in_room_cap}}."
+    - "{{room.in_room_cap}} bitte."
+    - "{{room.name}}."
+    - "{{room.name}} bitte."
+    - "{{room.in_room_cap}}, danke."
+
+  confirmation:
+    - "Die Heizung {{room.in_room}} steht jetzt auf {{temperature.value}} Grad."
+    - "Alles klar, {{room.in_room}} heize ich auf {{temperature.value}} Grad."
+    - "Erledigt, {{temperature.value}} Grad {{room.in_room}}."
+    - "Okay, ich habe die Heizung {{room.in_room}} auf {{temperature.value}} Grad gestellt."

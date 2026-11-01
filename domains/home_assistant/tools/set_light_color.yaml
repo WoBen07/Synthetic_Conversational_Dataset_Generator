@@ -1,0 +1,48 @@
+tool: set_light_color
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Ändert die Farbe einer Leuchte. Nur aufrufen, wenn get_light_capabilities supports_color bestätigt hat.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum ohne Präposition und Artikel, so wie er genannt wurde, z. B.
+      "Wohnzimmer" oder "Küche".
+    source: mentioned
+    format: name
+
+  light:
+    type: enum
+    values: [main, string_lights]
+    required: true
+    description: >
+      Welche Leuchte im Raum gemeint ist: main für das normale Licht oder
+      die Lampe, string_lights für die Lichterkette.
+
+  color:
+    type: enum
+    values: [red, green, blue, yellow, orange, purple, pink, turquoise, white]
+    required: true
+    description: Die gewünschte Farbe.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  color:
+    type: enum
+    values: [red, green, blue, yellow, orange, purple, pink, turquoise, white]

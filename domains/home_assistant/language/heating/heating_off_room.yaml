@@ -1,0 +1,21 @@
+variables:
+
+  request:
+    - "Schalte die Heizung {{room.in_room}} aus."
+    - "Schalt die Heizung {{room.in_room}} aus."
+    - "Mach die Heizung {{room.in_room}} aus."
+    - "Mach bitte die Heizung {{room.in_room}} aus."
+    - "Kannst du die Heizung {{room.in_room}} ausschalten?"
+    - "Kannst du die Heizung {{room.in_room}} ausmachen?"
+    - "Stell die Heizung {{room.in_room}} bitte ab."
+    - "Dreh die Heizung {{room.in_room}} ab."
+    - "Bitte die Heizung {{room.in_room}} ausschalten."
+    - "{{room.in_room_cap}} kann die Heizung aus."
+    - "Heizung {{room.in_room}} aus, bitte."
+
+  confirmation:
+    - "Die Heizung {{room.in_room}} ist aus und läuft jetzt nur noch im Frostschutz."
+    - "Alles klar, die Heizung {{room.in_room}} steht jetzt auf Frostschutz."
+    - "Erledigt, die Heizung {{room.in_room}} ist im Frostschutz."
+    - "Okay, {{room.in_room}} ist jetzt Frostschutz eingestellt."
+    - "Gemacht, {{room.in_room}} hält die Heizung jetzt nur noch den Frostschutz."

@@ -1,0 +1,29 @@
+tool: control_vacuum
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Steuert den Saugroboter Fridolin, ohne einen Reinigungsauftrag für einen bestimmten Bereich zu geben.
+
+
+input:
+
+  action:
+    type: enum
+    values: [start, pause, return_to_dock]
+    required: true
+    description: >
+      start zum Starten oder Fortsetzen, pause zum Anhalten, return_to_dock
+      für zurück zur Ladestation.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]

@@ -1,0 +1,34 @@
+variables:
+
+  direction:
+    - value: warmer
+      comparative: "wärmer"
+    - value: cooler
+      comparative: "kälter"
+    - value: cooler
+      comparative: "kühler"
+
+  # What else the light can do varies, so the model does not tie the two
+  # capabilities together.
+  other_capability:
+    - value: true
+    - value: false
+
+  request:
+    - "Mache {{light.phrase}} {{light.in_room}} {{direction.comparative}}."
+    - "Mach {{light.phrase}} {{light.in_room}} bitte {{direction.comparative}}."
+    - "Mach mal {{light.phrase}} {{light.in_room}} etwas {{direction.comparative}}."
+    - "Stell {{light.phrase}} {{light.in_room}} {{direction.comparative}}."
+    - "Kannst du {{light.phrase}} {{light.in_room}} {{direction.comparative}} machen?"
+    - "{{light.phrase_cap}} {{light.in_room}} soll {{direction.comparative}} sein."
+    - "{{light.phrase_cap}} {{light.in_room}} könnte {{direction.comparative}} sein."
+    - "Ich hätte {{light.phrase}} {{light.in_room}} gern etwas {{direction.comparative}}."
+    - "Bitte {{light.phrase}} {{light.in_room}} ein bisschen {{direction.comparative}} stellen."
+    - "Stelle {{light.phrase}} {{light.in_room}} etwas {{direction.comparative}}."
+
+  confirmation:
+    - "{{light.phrase_cap}} {{light.in_room}} leuchtet jetzt {{direction.comparative}}."
+    - "Alles klar, {{light.phrase}} {{light.in_room}} ist jetzt {{direction.comparative}}."
+    - "Erledigt, {{light.phrase}} {{light.in_room}} ist etwas {{direction.comparative}}."
+    - "Okay, ich habe {{light.phrase}} {{light.in_room}} {{direction.comparative}} gestellt."
+    - "Gemacht, das Licht {{light.in_room}} wirkt jetzt {{direction.comparative}}."

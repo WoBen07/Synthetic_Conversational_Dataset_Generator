@@ -1,0 +1,47 @@
+tool: get_light_capabilities
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: false
+
+description: >
+  Fragt ab, was eine Leuchte kann. Vor jeder Änderung der Lichtfarbe oder der Farbtemperatur aufrufen, denn nicht jede Leuchte ist eine Farbleuchte.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum ohne Präposition und Artikel, so wie er genannt wurde, z. B.
+      "Wohnzimmer" oder "Küche".
+    source: mentioned
+    format: name
+
+  light:
+    type: enum
+    values: [main, string_lights]
+    required: true
+    description: >
+      Welche Leuchte im Raum gemeint ist: main für das normale Licht oder
+      die Lampe, string_lights für die Lichterkette.
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  supports_brightness:
+    type: boolean
+
+  supports_color:
+    type: boolean
+
+  supports_color_temperature:
+    type: boolean

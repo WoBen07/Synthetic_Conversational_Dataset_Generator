@@ -1,10 +1,11 @@
 # Synthetic Conversational Dataset Generator
 
 A generator for synthetic conversational data, built for training and
-evaluating AI models. So far the generation templates cover human-robot
+evaluating AI models. The generation templates cover human-robot
 interaction (HRI) in a medical context (a hospital service robot talking
-to patients and visitors), but the template system can easily be expanded
-to other domains.
+to patients and visitors) and a German smart-home assistant controlling
+lights, heating and a vacuum robot, and the template system can easily be
+expanded to other domains.
 
 This project was started during the work on a scientific paper (Bachelor's
 thesis) at the University of Augsburg, Germany, and will be expanded over

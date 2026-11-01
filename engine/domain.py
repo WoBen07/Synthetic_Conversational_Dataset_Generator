@@ -15,17 +15,23 @@ The engine knows nothing about hospitals. All domain content lives in
                          create_validators(), refresh_entity())
       generators/        optional, domain-specific value generators
       validators/        optional, domain-specific validators
+      variants/<variant>/  optional overlays: another language and/or
+                         another tool schema, named "<name>@<variant>"
 
 See documentation/domains.md.
 """
 
+import copy
 import importlib
+import json
+import random
 import re
-from functools import lru_cache
+from functools import cached_property, lru_cache
 from pathlib import Path
 
 import yaml
 
+from synthetic_data_generator.engine.languages import language_rules
 from synthetic_data_generator.engine.tool_registry import load_tools
 from synthetic_data_generator.generators import REGISTRY as SHARED_GENERATORS
 
@@ -39,15 +45,47 @@ GLOBAL_CONFIG_FILE = PROJECT_ROOT / "config" / "generation_config.yaml"
 # Matches nothing - for domains without generated IDs
 NO_MATCH = r"(?!)"
 
+# Separates a domain from its variant: "home_assistant@en"
+VARIANT_SEPARATOR = "@"
+
+PLACEHOLDER = re.compile(r"\{\{.*?\}\}")
+
+
+def deep_merge(base, patch):
+    """``patch`` on top of ``base``: dictionaries merge key by key, anything
+    else (lists too) is replaced. Neither input is changed."""
+
+    merged = copy.deepcopy(base)
+
+    for key, value in patch.items():
+
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = deep_merge(merged[key], value)
+        else:
+            merged[key] = copy.deepcopy(value)
+
+    return merged
+
+
+def _read_yaml(path):
+
+    return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+
 
 class Domain:
 
     def __init__(self, name, root=None):
-        """``root`` defaults to domains/<name>; tests pass another folder.
-        Python hooks are only imported for packs inside domains/."""
+        """``name`` is "<domain>" or "<domain>@<variant>". ``root`` defaults
+        to domains/<domain>; tests pass another folder. Python hooks are
+        only imported for packs inside domains/."""
 
         self.name = name
-        self.root = Path(root) if root else DOMAINS_DIR / name
+
+        self.base_name, _, variant = name.partition(VARIANT_SEPARATOR)
+
+        self.variant = variant or None
+
+        self.root = Path(root) if root else DOMAINS_DIR / self.base_name
 
         spec_file = self.root / "domain.yaml"
 
@@ -57,18 +95,47 @@ class Domain:
                 f"Available: {', '.join(list_domains()) or 'none'}"
             )
 
-        self.spec = yaml.safe_load(spec_file.read_text(encoding="utf-8")) or {}
+        self.base_spec = _read_yaml(spec_file)
+
+        self.spec = self.base_spec
+
+        # What the variant overrides, in the layout of the pack
+        self.overlay = None
+
+        if self.variant:
+
+            self.overlay = self.root / "variants" / self.variant
+
+            overlay_spec = self.overlay / "domain.yaml"
+
+            if not overlay_spec.exists():
+                raise FileNotFoundError(
+                    f"Unknown variant {name!r}: {overlay_spec} not found. "
+                    f"Available: {', '.join(list_domains()) or 'none'}"
+                )
+
+            self.spec = deep_merge(self.base_spec, _read_yaml(overlay_spec))
 
         self.description = " ".join(str(self.spec.get("description", "")).split())
 
-        self.template_dir = self.root / "templates"
-        self.scenario_dir = self.root / "scenarios"
-        self.language_dir = self.root / "language"
-        self.entity_dir = self.root / "entities"
-        self.tool_dir = self.root / "tools"
-        self.config_file = self.root / "config.yaml"
+        # Language of the conversations; engine/languages.py holds what the
+        # engine has to know about it.
+        self.language = self.spec.get("language", "en")
 
-        self.robot_context = self.spec.get("robot_context") or {}
+        self.language_rules = language_rules(self.language)
+
+        # A translated variant must not fall back to the pack's phrases: the
+        # dataset would silently mix two languages.
+        self.translated = (
+            self.language != self.base_spec.get("language", "en")
+        )
+
+        self.config_file = (self.overlay or self.root) / "config.yaml"
+
+        self.robot_context = {
+            **self.language_rules["wording"],
+            **(self.spec.get("robot_context") or {}),
+        }
 
         self.generated_id_pattern = re.compile(
             self.spec.get("generated_id_pattern") or NO_MATCH
@@ -78,6 +145,7 @@ class Domain:
 
         self.generators = {
             **SHARED_GENERATORS,
+            "weekday": self.weekday,
             **getattr(self.module, "GENERATORS", {}),
         }
 
@@ -94,31 +162,81 @@ class Domain:
             )
 
         return importlib.import_module(
-            f"synthetic_data_generator.domains.{self.name}"
+            f"synthetic_data_generator.domains.{self.base_name}"
         )
+
+
+    def _find(self, kind, relative):
+        """The variant's file if it has one, otherwise the pack's."""
+
+        if self.overlay:
+
+            own = self.overlay / kind / relative
+
+            if own.exists():
+                return own
+
+        return self.root / kind / relative
 
 
     # ---------- templates ----------
 
+    def _all_templates(self):
+        """Templates of the pack and the variant, without the removed ones."""
+
+        folders = [self.root / "templates"]
+
+        if self.overlay:
+            folders.append(self.overlay / "templates")
+
+        removed = self.spec.get("remove_templates") or []
+
+        return sorted(
+            (
+                template_id
+                for template_id in {
+                    path.relative_to(folder).with_suffix("").as_posix()
+                    for folder in folders
+                    for path in folder.rglob("*.json")
+                }
+                if not any(
+                    template_id == prefix or template_id.startswith(f"{prefix}/")
+                    for prefix in removed
+                )
+            ),
+            key=lambda template_id: template_id.split("/")
+        )
+
     def templates(self):
-        """Template ids (path below templates/ without .json), sorted."""
+        """Template ids (path below templates/ without .json), sorted. A
+        translated variant has the templates it has phrases for; see
+        translation_gaps for the others."""
 
         return [
-            path.relative_to(self.template_dir).with_suffix("").as_posix()
-            for path in sorted(self.template_dir.rglob("*.json"))
+            template_id for template_id in self._all_templates()
+            if not self.translated or self.language_path(template_id).exists()
         ]
 
     def template_path(self, template_id):
-        return self.template_dir / f"{template_id}.json"
+        return self._find("templates", f"{template_id}.json")
+
+    def template_paths(self):
+        return [self.template_path(template_id) for template_id in self.templates()]
 
     def scenario_path(self, template_id):
-        return self.scenario_dir / f"{template_id}.yaml"
+        return self._find("scenarios", f"{template_id}.yaml")
 
     def language_path(self, template_id):
-        return self.language_dir / f"{template_id}.yaml"
+
+        relative = f"{template_id}.yaml"
+
+        if self.translated:
+            return self.overlay / "language" / relative
+
+        return self._find("language", relative)
 
     def entity_path(self, entity_type):
-        return self.entity_dir / f"{entity_type}.yaml"
+        return self._find("entities", f"{entity_type}.yaml")
 
     def paths(self, template_id):
         """(scenario, template, language) arguments for generate_one."""
@@ -133,16 +251,129 @@ class Domain:
     # ---------- configuration and tools ----------
 
     def load_config(self):
-        """Read config.yaml (not cached - the optimizer rewrites it)."""
+        """Read config.yaml (not cached - the optimizer rewrites it). A
+        variant's settings go on top of the pack's, except the uniqueness
+        caps: those were measured on the pack's phrases."""
 
-        if not self.config_file.exists():
-            return {}
+        config_file = self.root / "config.yaml"
 
-        return yaml.safe_load(self.config_file.read_text(encoding="utf-8")) or {}
+        config = _read_yaml(config_file) if config_file.exists() else {}
 
-    @property
+        if self.overlay:
+
+            config.pop("uniqueness_caps", None)
+
+            if self.config_file.exists():
+                config = deep_merge(config, _read_yaml(self.config_file))
+
+        return config
+
+    @cached_property
     def tools(self):
-        return load_tools(self.tool_dir)
+        """{tool name: schema}. A file in the variant's tools/ patches the
+        pack's tool of the same name (only what differs, e.g. translated
+        descriptions; an argument set to null is removed) or adds a new
+        tool; ``remove_tools`` in its domain.yaml drops one."""
+
+        tools = load_tools(self.root / "tools")
+
+        if not self.overlay:
+            return tools
+
+        removed = self.spec.get("remove_tools") or []
+
+        merged = {
+            name: schema for name, schema in tools.items()
+            if name not in removed
+        }
+
+        for name, patch in load_tools(self.overlay / "tools").items():
+
+            schema = deep_merge(merged.get(name, {}), patch)
+
+            for section in ("input", "output"):
+
+                if schema.get(section):
+                    schema[section] = {
+                        key: spec for key, spec in schema[section].items()
+                        if spec is not None
+                    }
+
+            merged[name] = schema
+
+        return merged
+
+
+    # ---------- language ----------
+
+    def weekday(self):
+        """A weekday in the domain's language (the shared generator's
+        ``weekday`` key and ``today``)."""
+
+        return random.choice(self.language_rules["weekdays"])
+
+    def translation_gaps(self):
+        """What a translated variant still has in the pack's language: no
+        phrases for a template, text inherited from a template, a tool or
+        the system message wording. Empty for anything not translated."""
+
+        if not self.translated:
+            return []
+
+        gaps = []
+
+        for template_id in self._all_templates():
+
+            if not self.language_path(template_id).exists():
+                gaps.append(f"template {template_id}: no language file (skipped)")
+
+            elif not (self.overlay / "templates" / f"{template_id}.json").exists():
+
+                messages = json.loads(
+                    self.template_path(template_id).read_text(encoding="utf-8")
+                ).get("messages", [])
+
+                if any(
+                    isinstance(message.get("content"), str)
+                    and message.get("role") != "tool"
+                    and re.search(r"\w", PLACEHOLDER.sub("", message["content"]))
+                    for message in messages
+                ):
+                    gaps.append(f"template {template_id}: literal text in the template")
+
+        base_tools = load_tools(self.root / "tools")
+
+        for name, schema in sorted(self.tools.items()):
+
+            base = base_tools.get(name) or {}
+
+            if schema.get("description") and schema["description"] == base.get("description"):
+                gaps.append(f"tool {name}: description")
+
+            for argument, spec in (schema.get("input") or {}).items():
+
+                inherited = (base.get("input") or {}).get(argument) or {}
+
+                if spec.get("description") and spec["description"] == inherited.get("description"):
+                    gaps.append(f"tool {name}: description of {argument}")
+
+        def wording_gaps(wording, base, where):
+
+            for key, text in wording.items():
+
+                if isinstance(text, dict):
+                    wording_gaps(text, (base or {}).get(key), f"{where}.{key}")
+
+                elif text and text == (base or {}).get(key):
+                    gaps.append(f"domain.yaml: {where}.{key}")
+
+        wording_gaps(
+            self.spec.get("robot_context") or {},
+            self.base_spec.get("robot_context"),
+            "robot_context"
+        )
+
+        return gaps
 
 
     # ---------- Python hooks ----------
@@ -151,7 +382,7 @@ class Domain:
 
         factory = getattr(self.module, "create_validators", None)
 
-        return factory() if factory else []
+        return factory(self) if factory else []
 
     def refresh_entity(self, entity):
 
@@ -166,15 +397,21 @@ class Domain:
 
 
 def list_domains():
-    """Names of all domain packs (folders with a domain.yaml)."""
+    """Names of all domain packs (folders with a domain.yaml) and of their
+    variants ("<domain>@<variant>")."""
 
     if not DOMAINS_DIR.exists():
         return []
 
-    return sorted(
-        path.parent.name
-        for path in DOMAINS_DIR.glob("*/domain.yaml")
-    )
+    packs = [path.parent.name for path in DOMAINS_DIR.glob("*/domain.yaml")]
+
+    variants = [
+        f"{path.parents[2].name}{VARIANT_SEPARATOR}{path.parent.name}"
+        for pack in packs
+        for path in (DOMAINS_DIR / pack).glob("variants/*/domain.yaml")
+    ]
+
+    return sorted(packs + variants)
 
 
 @lru_cache(maxsize=None)

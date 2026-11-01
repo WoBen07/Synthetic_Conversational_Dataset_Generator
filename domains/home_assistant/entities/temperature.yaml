@@ -1,0 +1,8 @@
+entity: temperature
+
+
+fields:
+
+  value:
+    type: integer
+    generator: target_temperature

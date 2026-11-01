@@ -1,3 +1,6 @@
+from synthetic_data_generator.engine.languages import LANGUAGES
+
+
 # Helpers for phrasing ("Ms. Weber"), not part of a patient record. The
 # renderer leaves them out when a whole entity is inserted into a tool
 # result, so find_patient output keeps its format.
@@ -5,6 +8,13 @@ PHRASING_ONLY_FIELDS = {"title", "title_last_name"}
 
 
 class LinguisticResolver:
+
+
+    def __init__(self, pronouns=None):
+
+        # {gender: fields}, from engine/languages.py
+        self.pronouns = pronouns or LANGUAGES["en"]["pronouns"]
+
 
 
     def resolve(self, context):
@@ -26,31 +36,9 @@ class LinguisticResolver:
 
     def _add_pronouns(self, entity):
 
-        gender = entity["gender"]
-
-
-        if gender == "male":
-
-            entity["pronoun"] = "he"
-            entity["object_pronoun"] = "him"
-            entity["possessive_pronoun"] = "his"
-            entity["title"] = "Mr."
-
-
-        elif gender == "female":
-
-            entity["pronoun"] = "she"
-            entity["object_pronoun"] = "her"
-            entity["possessive_pronoun"] = "her"
-            entity["title"] = "Ms."
-
-
-        else:
-
-            entity["pronoun"] = "they"
-            entity["object_pronoun"] = "them"
-            entity["possessive_pronoun"] = "their"
-            entity["title"] = "Mx."
+        entity.update(
+            self.pronouns.get(entity["gender"], self.pronouns["other"])
+        )
 
 
         # "Mr. Weber" - lets a phrase name a patient without the first
@@ -58,5 +46,5 @@ class LinguisticResolver:
         if "last_name" in entity:
 
             entity["title_last_name"] = (
-                f"{entity['title']} {entity['last_name']}"
+                f"{entity['title']} {entity['last_name']}".strip()
             )

@@ -1,0 +1,21 @@
+variables:
+
+  request:
+    - "Starte {{vacuum.accusative}}."
+    - "Starte {{vacuum.accusative}} bitte."
+    - "Starte {{vacuum.accusative}} wieder."
+    - "Schick {{vacuum.accusative}} los."
+    - "Lass {{vacuum.accusative}} weitermachen."
+    - "Lass {{vacuum.accusative}} wieder loslegen."
+    - "{{vacuum.nominative_cap}} soll weitermachen."
+    - "{{vacuum.nominative_cap}} soll loslegen."
+    - "{{vacuum.nominative_cap}} kann weitermachen."
+    - "Kannst du {{vacuum.accusative}} starten?"
+    - "Mach {{vacuum.accusative}} wieder an."
+
+  confirmation:
+    - "Fridolin legt los."
+    - "Alles klar, Fridolin fährt los."
+    - "Erledigt, Fridolin ist wieder unterwegs."
+    - "Okay, Fridolin läuft."
+    - "Gemacht, Fridolin ist gestartet."

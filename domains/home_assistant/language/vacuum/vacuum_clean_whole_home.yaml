@@ -1,0 +1,35 @@
+variables:
+
+  mode:
+    - value: vacuum
+      infinitive: "saugen"
+      present: "saugt"
+      noun: "Saugen"
+    - value: mop
+      infinitive: "wischen"
+      present: "wischt"
+      noun: "Wischen"
+    - value: vacuum_and_mop
+      infinitive: "saugen und wischen"
+      present: "saugt und wischt"
+      noun: "Saugen und Wischen"
+
+  request:
+    - "Lass {{vacuum.accusative}} die ganze Wohnung {{mode.infinitive}}."
+    - "{{vacuum.nominative_cap}} soll die ganze Wohnung {{mode.infinitive}}."
+    - "{{vacuum.nominative_cap}} soll alles {{mode.infinitive}}."
+    - "{{vacuum.nominative_cap}} soll überall {{mode.infinitive}}."
+    - "{{vacuum.nominative_cap}} kann mal alles {{mode.infinitive}}."
+    - "Lass {{vacuum.accusative}} bitte alles {{mode.infinitive}}."
+    - "Kannst du {{vacuum.accusative}} die komplette Wohnung {{mode.infinitive}} lassen?"
+    - "Bitte lass {{vacuum.accusative}} die ganze Wohnung {{mode.infinitive}}."
+    - "Starte {{vacuum.accusative}}, er soll alles {{mode.infinitive}}."
+    - "Schick {{vacuum.accusative}} los, er soll die ganze Wohnung {{mode.infinitive}}."
+    - "Schick {{vacuum.accusative}} zum {{mode.noun}} durch die ganze Wohnung."
+
+  confirmation:
+    - "Fridolin {{mode.present}} jetzt die ganze Wohnung."
+    - "Alles klar, Fridolin {{mode.present}} jetzt alles."
+    - "Erledigt, Fridolin ist unterwegs und {{mode.present}} die ganze Wohnung."
+    - "Okay, Fridolin legt los und {{mode.present}} die ganze Wohnung."
+    - "Gemacht, Fridolin {{mode.present}} jetzt überall."

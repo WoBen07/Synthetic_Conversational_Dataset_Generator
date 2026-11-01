@@ -1,0 +1,30 @@
+# Generation settings of the home_assistant domain (amounts, tool shares).
+# Engine-wide settings live in config/generation_config.yaml.
+
+default_amount: 300
+
+# Per-template overrides, keyed by the template's leaf name. These have few
+# or no entities, so only a limited number of different conversations exist
+# (requests x confirmations x ways to name the vacuum); asking for more makes
+# the generator give up on a template with an exhausted pool.
+important_templates:
+  heating_off:
+    amount: 100
+  heating_on:
+    amount: 100
+  unsupported_device:
+    amount: 100
+  vacuum_start:
+    amount: 150
+  vacuum_pause:
+    amount: 150
+  vacuum_return_home:
+    amount: 150
+
+# Per-category amounts, keyed by template-path prefix
+category_amounts: {}
+
+# Minimum share of all tool calls per tool
+tool_share_targets: {}
+
+tool_share_max_scale: 2.0

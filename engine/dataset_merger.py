@@ -5,7 +5,11 @@ import random
 from pathlib import Path
 from collections import defaultdict
 
-from synthetic_data_generator.engine.tool_definitions import tool_definitions
+from synthetic_data_generator.engine.domain import resolve_domain
+from synthetic_data_generator.engine.tool_definitions import (
+    tool_definitions,
+    write_tool_schemas,
+)
 
 
 # ==========================
@@ -23,6 +27,9 @@ TRAIN_OUTPUT = "train.jsonl"
 # (engine/tool_definitions.py); the model-specific preprocessors attach
 # the list of each example's domain.
 TOOLS_OUTPUT = "tools.json"
+# The same definitions as one JSON file per tool:
+# tool_schemas/<domain>/<tool>.json
+TOOL_SCHEMAS_OUTPUT = "tool_schemas"
 VALIDATION_OUTPUT = "validation.jsonl"
 
 VALIDATION_SPLIT = 0.1
@@ -155,8 +162,6 @@ def assert_strict_role_alternation(datasets):
 
         domain, _, template_id = template.partition("/")
 
-        template_file = f"domains/{domain}/templates/{template_id}.json"
-
         for sample_index, datapoint in enumerate(samples):
 
             messages = datapoint.get("messages", [])
@@ -168,7 +173,7 @@ def assert_strict_role_alternation(datasets):
                     violations.append(
                         f"{template} (sample {sample_index}): "
                         f"consecutive '{messages[i].get('role')}' at "
-                        f"messages {i - 1}/{i} - check {template_file}"
+                        f"messages {i - 1}/{i} - check template {template_id} of {domain}"
                     )
 
     if violations:
@@ -349,9 +354,9 @@ def domains_of(datasets):
     return sorted({key.split("/")[0] for key in datasets})
 
 
-def main(domains=None):
+def main(domains=None, output_folder=None):
 
-    output_folder = Path(OUTPUT_FOLDER)
+    output_folder = Path(output_folder or OUTPUT_FOLDER)
 
     train_output = (
         output_folder / TRAIN_OUTPUT
@@ -418,10 +423,13 @@ def main(domains=None):
             ensure_ascii=False
         )
 
+    for domain in domains_of(datasets):
+        write_tool_schemas(domain, output_folder / TOOL_SCHEMAS_OUTPUT / domain)
+
     metadata = {
         "generator": "dataset_merger",
         "input_folder": str(INPUT_FOLDER),
-        "output_folder": str(OUTPUT_FOLDER),
+        "output_folder": str(output_folder),
 
         "random_seed": RANDOM_SEED,
         "shuffle": SHUFFLE,
@@ -430,7 +438,14 @@ def main(domains=None):
 
         "domains": domains_of(datasets),
 
+        "languages": {
+            domain: resolve_domain(domain).language
+            for domain in domains_of(datasets)
+        },
+
         "tools_file": TOOLS_OUTPUT,
+
+        "tool_schemas_folder": TOOL_SCHEMAS_OUTPUT,
 
         "split": "stratified by template, grouped by metadata.wording_id",
 

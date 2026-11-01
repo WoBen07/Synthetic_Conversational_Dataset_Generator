@@ -1,0 +1,14 @@
+name: heating_set_temperature
+
+entities:
+  room:
+    type: room
+  temperature:
+    type: temperature
+
+language_schema: heating_set_temperature
+
+robot_context:
+  speaker: resident
+
+tags: [temperature]

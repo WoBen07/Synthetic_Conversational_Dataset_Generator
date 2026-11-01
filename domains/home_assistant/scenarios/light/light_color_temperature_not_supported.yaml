@@ -1,0 +1,12 @@
+name: light_color_temperature_not_supported
+
+entities:
+  light:
+    type: light
+
+language_schema: light_color_temperature_not_supported
+
+robot_context:
+  speaker: resident
+
+tags: [capability_check, not_supported]

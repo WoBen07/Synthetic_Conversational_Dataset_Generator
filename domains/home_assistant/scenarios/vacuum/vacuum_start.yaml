@@ -1,0 +1,12 @@
+name: vacuum_start
+
+entities:
+  vacuum:
+    type: vacuum
+
+language_schema: vacuum_start
+
+robot_context:
+  speaker: resident
+
+tags: [control]

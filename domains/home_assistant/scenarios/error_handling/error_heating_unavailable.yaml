@@ -1,0 +1,14 @@
+name: error_heating_unavailable
+
+entities:
+  room:
+    type: room
+  temperature:
+    type: temperature
+
+language_schema: error_heating_unavailable
+
+robot_context:
+  speaker: resident
+
+tags: [unavailable]

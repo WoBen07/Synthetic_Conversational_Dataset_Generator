@@ -22,10 +22,19 @@ Loads [domain packs](domains.md). `load_domain(name)` returns a cached
 `generate_one`), its `templates()`, `tools`, `generators` (shared plus
 the domain's), `robot_context` wording, `generated_id_pattern`, its
 `config.yaml` (`load_config()`) and its Python hooks
-(`create_validators()`, `refresh_entity()`). `list_domains()`,
+(`create_validators(domain)`, `refresh_entity()`). `list_domains()`,
 `configured_domains()` (from `config/generation_config.yaml`) and
 `default_domain()` (the first configured one) select domains;
-`resolve_domain()` accepts a `Domain`, a name or `None`.
+`resolve_domain()` accepts a `Domain`, a name or `None`. A name may include a
+[variant](domains.md#variants) (`home_assistant@en`); its files, tools and
+settings then go on top of the pack's, and `translation_gaps()` lists what a
+translated variant still has in the pack's language.
+
+## `engine/languages.py`
+
+What the engine has to know about a language (weekdays, pronouns, default
+system message sentences, name prefixes, allowed repetitions, article rules);
+see [languages](domains.md#languages).
 
 ## `engine/new_domain.py`
 
@@ -34,7 +43,8 @@ Creates a new domain pack with one working example template:
 
 ## `engine/template_loader.py`
 
-Loads a template by id from the domain's `templates/<id>.json`, where
+Loads a template by id from the domain's `templates/<id>.json` (a variant's
+own file first), where
 `<id>` is the path relative to `templates/` without the extension (e.g.
 `tool_use/patient_reminder`).
 

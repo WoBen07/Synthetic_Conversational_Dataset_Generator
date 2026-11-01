@@ -51,7 +51,7 @@ class DatasetGenerator:
         # A Domain, a domain name, or None for the default domain
         self.domain = resolve_domain(domain)
 
-        self.template_loader = TemplateLoader(self.domain.template_dir)
+        self.template_loader = TemplateLoader(self.domain.template_path)
 
         self.metadata_writer = MetadataWriter()
         self.schemaloader = SchemaLoader()
@@ -131,7 +131,8 @@ class DatasetGenerator:
         #
 
         renderer = TemplateRenderer(
-            context
+            context,
+            fix_articles=self.domain.language_rules["english_articles"]
         )
 
 
@@ -356,6 +357,8 @@ class DatasetGenerator:
             "generated_at": datetime.now().isoformat(),
 
             "domain": self.domain.name,
+
+            "language": self.domain.language,
 
             "scenario": scenario,
 

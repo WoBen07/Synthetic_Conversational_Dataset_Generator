@@ -208,6 +208,11 @@ input:
     values: [low, medium, high]
     required: true
 
+  brightness_pct:             # (other tool)
+    type: integer
+    minimum: 1                # optional range, for integer and number:
+    maximum: 100              # validated and exported
+
 output:
 
   status:
@@ -231,8 +236,14 @@ Every result field must be declared under `output`; undeclared fields
 and wrong enum values are rejected. `side_effects`, `source` and
 `format` are generator-internal and are not exported.
 
+Quote `"on"` and `"off"` in enum values: unquoted, YAML reads them as
+booleans.
+
 Print the exported definitions with
-`python -m synthetic_data_generator.engine.tool_definitions`.
+`python -m synthetic_data_generator.engine.tool_definitions [domain]`. The
+merger writes them as JSON files, `tool_schemas/<domain>/<tool>.json` next
+to `tools.json`; to write them without generating anything, add a folder:
+`python -m synthetic_data_generator.engine.tool_definitions home_assistant <folder>`.
 
 The tools of the hospital domain:
 
@@ -268,3 +279,33 @@ The templates follow one rule so the model can learn the difference:
 A symptom that has passed is not escalated on the robot's own
 initiative: the robot offers, and calls staff only after the patient
 agrees.
+
+### The tools of the home_assistant domain
+
+The conversations and tool descriptions are German; tool names, argument
+names and enum values are English.
+
+| tool | inputs |
+|---|---|
+| `set_light_power` | `room`, `light`, `state` (`on`/`off`) |
+| `set_light_brightness` | `room`, `light`, `brightness_pct` (1-100) |
+| `adjust_light_brightness` | `room`, `light`, `direction` (`brighter`/`dimmer`) |
+| `get_light_capabilities` | `room`, `light` |
+| `set_light_color` | `room`, `light`, `color` |
+| `adjust_light_color_temperature` | `room`, `light`, `direction` (`warmer`/`cooler`) |
+| `set_room_temperature` | `room`, `temperature` (5-30) |
+| `set_heating_mode` | `mode` (`heat`/`frost_protection`); `room` optional, without it the whole home |
+| `start_cleaning` | `mode` (`vacuum`/`mop`/`vacuum_and_mop`); `room` optional, without it the whole home |
+| `control_vacuum` | `action` (`start`/`pause`/`return_to_dock`) |
+
+`light` is `main` or `string_lights` (die Lichterkette). The templates
+follow these rules:
+
+- Colour and colour temperature are only changed after
+  `get_light_capabilities` confirmed them for that light; otherwise the
+  assistant explains why not (`LightCapabilityValidator`).
+- "Heizung aus" means frost protection, never fully off.
+- A light or a target temperature without a room is a question back. The
+  heating mode and cleaning without a room apply to the whole home.
+- "Starte Fridolin" names no area, so it is `control_vacuum` with `start`
+  (starts or resumes); a named area is `start_cleaning`.

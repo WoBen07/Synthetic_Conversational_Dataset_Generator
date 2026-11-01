@@ -5,7 +5,6 @@ from synthetic_data_generator.engine.entity_refresh import EntityRefresher
 from synthetic_data_generator.engine.linguistic_resolver import LinguisticResolver
 from synthetic_data_generator.engine.robot_context import build_robot_context
 from synthetic_data_generator.engine.domain import resolve_domain
-from synthetic_data_generator.generators.days import weekday
 
 
 
@@ -21,7 +20,9 @@ class ScenarioBuilder:
         self.loader = SchemaLoader()
         self.constraint_resolver = ConstraintResolver()
         self.entity_refresher = EntityRefresher(self.domain.refresh_entity)
-        self.linguistic_resolver = LinguisticResolver()
+        self.linguistic_resolver = LinguisticResolver(
+            self.domain.language_rules["pronouns"]
+        )
         self.scenario = (
             self.loader.load(
                 scenario_path
@@ -37,7 +38,7 @@ class ScenarioBuilder:
         # The current weekday. Scenarios whose phrases say "today" tie
         # an appointment to it with an equal constraint
         # ([today, appointment.day]); robot_context states it.
-        context["today"] = weekday()
+        context["today"] = self.domain.weekday()
 
         #
         # Generate all entities

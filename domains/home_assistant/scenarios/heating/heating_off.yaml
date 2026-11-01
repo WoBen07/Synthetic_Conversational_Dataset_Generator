@@ -1,0 +1,10 @@
+name: heating_off
+
+entities: {}
+
+language_schema: heating_off
+
+robot_context:
+  speaker: resident
+
+tags: [frost_protection, whole_home]

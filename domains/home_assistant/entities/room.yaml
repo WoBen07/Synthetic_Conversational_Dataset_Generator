@@ -1,0 +1,10 @@
+entity: room
+
+
+fields:
+
+  # The room generator also sets the German forms: in_room, in_room_cap,
+  # accusative, accusative_cap, into_room (see generators/devices.py).
+  name:
+    type: string
+    generator: room

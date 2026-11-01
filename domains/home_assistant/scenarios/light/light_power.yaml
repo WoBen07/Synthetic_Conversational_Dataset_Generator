@@ -1,0 +1,12 @@
+name: light_power
+
+entities:
+  light:
+    type: light
+
+language_schema: light_power
+
+robot_context:
+  speaker: resident
+
+tags: [power]

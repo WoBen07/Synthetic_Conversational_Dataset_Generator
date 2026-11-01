@@ -4,7 +4,7 @@ import re
 
 WHITESPACE = re.compile(r"\s+")
 
-ARTICLE = re.compile(r"^(the|a|an)\s", re.IGNORECASE)
+NAME_PREFIXES = ["the", "a", "an"]
 
 
 def _text(content):
@@ -47,16 +47,22 @@ class GroundingValidator:
     - ``source: own_words`` - the value summarises the request and must
       not repeat a user message word for word;
     - ``format: name`` - a bare name, no leading article ("Sunroom",
-      not "the Sunroom").
+      not "the Sunroom"; which words count depends on the language).
 
     The robot's own messages never count as a source: it cannot ground
     an argument in something it made up itself.
     """
 
-    def __init__(self, tools):
+    def __init__(self, tools, name_prefixes=NAME_PREFIXES):
 
         # {tool name: schema} of the domain
         self.tools = tools
+
+        # Words a format: name value must not start with, per language
+        self.name_prefix = re.compile(
+            rf"^({'|'.join(name_prefixes)})\s",
+            re.IGNORECASE
+        )
 
 
     def validate(self, datapoint):
@@ -133,7 +139,7 @@ class GroundingValidator:
                     f"{name} at {index} copies a user message into {key}"
                 )
 
-            if spec.get("format") == "name" and ARTICLE.match(value):
+            if spec.get("format") == "name" and self.name_prefix.match(value):
 
                 errors.append(
                     f"{name} at {index} has an article in {key}={value!r}"

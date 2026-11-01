@@ -1,0 +1,9 @@
+entity: non_white_color
+
+
+fields:
+
+  # A color to ask a white-only light for; the generator also sets "german".
+  name:
+    type: enum
+    generator: non_white_light_color

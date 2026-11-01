@@ -1,4 +1,5 @@
 from synthetic_data_generator.engine.text_utils import (
+    ALLOWED_DOUBLES,
     article_mismatches,
     doubled_words,
 )
@@ -10,7 +11,14 @@ TEXT_ARGUMENTS = ("message", "reason", "note")
 
 class LanguageValidator:
     """Reject slot-filling grammar slips such as "an neurology
-    appointment appointment" or "a MRI scan"."""
+    appointment appointment" or "a MRI scan". The article check only
+    makes sense for English text; doubled words are checked always."""
+
+    def __init__(self, check_articles=True, allowed_doubles=ALLOWED_DOUBLES):
+
+        self.check_articles = check_articles
+        self.allowed_doubles = allowed_doubles
+
 
     def validate(self, datapoint):
 
@@ -20,10 +28,13 @@ class LanguageValidator:
 
             for text in self._texts(message):
 
-                for doubled in doubled_words(text):
+                for doubled in doubled_words(text, self.allowed_doubles):
                     errors.append(
                         f"Doubled word at {index}: {doubled!r}"
                     )
+
+                if not self.check_articles:
+                    continue
 
                 for mismatch in article_mismatches(text):
                     errors.append(

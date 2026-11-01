@@ -32,6 +32,12 @@ def _type_error(spec, value):
     if kind == "enum" and value not in spec.get("values", []):
         return f"{value!r} is not one of {spec.get('values')}"
 
+    if "minimum" in spec and value < spec["minimum"]:
+        return f"{value!r} is below the minimum {spec['minimum']}"
+
+    if "maximum" in spec and value > spec["maximum"]:
+        return f"{value!r} is above the maximum {spec['maximum']}"
+
     return None
 
 

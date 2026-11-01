@@ -1,0 +1,43 @@
+tool: set_room_temperature
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Stellt die Heizung eines Raums auf eine Zieltemperatur.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum ohne Präposition und Artikel, so wie er genannt wurde, z. B.
+      "Wohnzimmer" oder "Küche".
+    source: mentioned
+    format: name
+
+  temperature:
+    type: number
+    required: true
+    minimum: 5
+    maximum: 30
+    description: Zieltemperatur in Grad Celsius, so wie sie genannt wurde.
+    source: known
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  temperature:
+    type: number
+    minimum: 5
+    maximum: 30

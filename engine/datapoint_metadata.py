@@ -5,6 +5,7 @@ Every datapoint written by DatasetGenerator.generate_many carries a
 
     "metadata": {
       "domain": "hospital",
+      "language": "en",
       "template": "tool_use/patient_reminder",
       "category": "tool_use",
       "behaviour": "action",
@@ -14,6 +15,8 @@ Every datapoint written by DatasetGenerator.generate_many carries a
       "generator_version": "0.2.0"
     }
 
+- domain: the domain's name, with its variant if any
+  ("home_assistant@en"); the preprocessors look the tools up by it.
 - behaviour: "action" if a tool with side effects is called (see
   ``side_effects`` in the domain's tool schemas), "lookup_only" if only read-only
   tools are called, "no_tool" otherwise.
@@ -75,6 +78,7 @@ def build_metadata(datapoint, domain, template, choices, tags=()):
 
     return {
         "domain": domain.name,
+        "language": domain.language,
         "template": template,
         "category": template.split("/")[0],
         "behaviour": behaviour(tools, domain.tools),

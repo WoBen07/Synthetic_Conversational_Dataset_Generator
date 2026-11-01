@@ -1,0 +1,12 @@
+name: error_light_unavailable
+
+entities:
+  light:
+    type: light
+
+language_schema: error_light_unavailable
+
+robot_context:
+  speaker: resident
+
+tags: [unavailable]

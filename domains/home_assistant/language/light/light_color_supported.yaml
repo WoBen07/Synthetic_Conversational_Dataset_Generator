@@ -1,0 +1,27 @@
+variables:
+
+  # What else the light can do varies, so the model does not tie the two
+  # capabilities together.
+  other_capability:
+    - value: true
+    - value: false
+
+  request:
+    - "Ändere {{light.color_subject}} {{light.in_room}} zu {{color.german}}."
+    - "Ändere {{light.color_subject}} {{light.in_room}} auf {{color.german}}."
+    - "Stelle {{light.color_subject}} {{light.in_room}} auf {{color.german}}."
+    - "Mach {{light.phrase}} {{light.in_room}} {{color.german}}."
+    - "Mach {{light.phrase}} {{light.in_room}} bitte {{color.german}}."
+    - "Kannst du {{light.phrase}} {{light.in_room}} {{color.german}} machen?"
+    - "{{light.phrase_cap}} {{light.in_room}} soll {{color.german}} leuchten."
+    - "Lass {{light.phrase}} {{light.in_room}} {{color.german}} leuchten."
+    - "Ich hätte {{light.phrase}} {{light.in_room}} gern in {{color.german}}."
+    - "Stell {{light.phrase}} {{light.in_room}} mal auf {{color.german}}."
+    - "Kannst du {{light.color_subject}} {{light.in_room}} auf {{color.german}} stellen?"
+
+  confirmation:
+    - "{{light.phrase_cap}} {{light.in_room}} leuchtet jetzt {{color.german}}."
+    - "Alles klar, {{light.phrase}} {{light.in_room}} ist jetzt {{color.german}}."
+    - "Erledigt, {{light.phrase}} {{light.in_room}} leuchtet {{color.german}}."
+    - "Okay, ich habe {{light.phrase}} {{light.in_room}} auf {{color.german}} gestellt."
+    - "Gemacht, {{color.german}} {{light.in_room}}."

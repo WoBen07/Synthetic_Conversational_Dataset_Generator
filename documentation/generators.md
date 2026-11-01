@@ -14,7 +14,7 @@ every other key as an additional entity field.
 | `first_name` | `names.py` | first name, plus `gender` metadata |
 | `last_name` | `names.py` | last name |
 | `birthday` | `birthday.py` | date string `DD.MM.YYYY` |
-| `weekday` | `days.py` | Monday ... Sunday (also used for `today`) |
+| `weekday` | `engine/languages.py` | Monday ... Sunday in the domain's language (also used for `today`) |
 
 First names carry their gender, which drives the pronouns and titles
 added by the linguistic resolver.

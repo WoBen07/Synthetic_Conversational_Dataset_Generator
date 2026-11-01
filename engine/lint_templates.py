@@ -66,17 +66,17 @@ def find_consecutive_roles(path):
     return findings
 
 
-def lint(template_dir=None):
+def lint(paths=None):
     """Return a list of ``(path, message_index, description)`` problems,
-    for one template directory or (default) every domain's templates."""
+    for the given template files or (default) those of every domain and
+    variant."""
 
     problems = []
 
-    paths = (
-        sorted(Path(template_dir).rglob("*.json"))
-        if template_dir is not None
-        else sorted(DOMAINS_DIR.glob("*/templates/**/*.json"))
-    )
+    if paths is None:
+        paths = sorted(DOMAINS_DIR.glob("*/templates/**/*.json")) + sorted(
+            DOMAINS_DIR.glob("*/variants/*/templates/**/*.json")
+        )
 
     for path in paths:
 

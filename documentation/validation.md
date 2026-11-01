@@ -9,7 +9,7 @@ simply produces fewer valid datapoints, or none.
 ## Combined Validators
 
 `engine/validators/validator.py` runs the engine's validators plus the
-domain's own (from its `create_validators()` hook), in this order:
+domain's own (from its `create_validators(domain)` hook), in this order:
 
 | validator | rejects |
 |---|---|
@@ -18,8 +18,8 @@ domain's own (from its `create_validators()` hook), in this order:
 | `ToolValidator` | a tool call not followed by a tool response of the same name |
 | `ConversationFlowValidator` | two consecutive messages with the same role (guard behind the normaliser) |
 | `PronounValidator` | simple gender/pronoun mismatches |
-| *domain validators* | hospital: `WeatherRecommendationValidator` (clothing advice must fit the reported weather), `WeatherConsistencyValidator` (no weather claims contradicting `get_weather`), `WeatherGroundingValidator` (no weather claims without a `get_weather` call), in `domains/hospital/validators/` |
-| `ToolSchemaValidator` | tool calls and results that do not match the domain's `tools/` (unknown tool or argument, missing required argument, wrong type or enum value, undeclared result field) |
+| *domain validators* | hospital: `WeatherRecommendationValidator` (clothing advice must fit the reported weather), `WeatherConsistencyValidator` (no weather claims contradicting `get_weather`), `WeatherGroundingValidator` (no weather claims without a `get_weather` call), in `domains/hospital/validators/`; home_assistant: `LightCapabilityValidator` (no colour or colour temperature change unless `get_light_capabilities` confirmed it for that light), in `domains/home_assistant/validators/` |
+| `ToolSchemaValidator` | tool calls and results that do not match the domain's `tools/` (unknown tool or argument, missing required argument, wrong type, enum value or range, undeclared result field) |
 | `GroundingValidator` | tool arguments the robot could not know (below) |
 | `LanguageValidator` | doubled words and wrong indefinite articles (below) |
 
@@ -37,7 +37,8 @@ knows nothing about patients and works for any domain:
   that appeared before. A first and last name given in separate turns
   count, and so does a room from an earlier tool result;
 - `own_words`: `reason` and `note` must not copy a user message;
-- `format: name`: no leading article ("Sunroom", not "the Sunroom").
+- `format: name`: no leading article ("Sunroom", not "the Sunroom"; the
+  words per language are in `engine/languages.py`).
 
 The robot's own messages never count as a source: it cannot ground an
 argument in something it announced itself.
@@ -52,7 +53,10 @@ Checks user and assistant text and the free-text tool arguments
 - `a`/`an` that does not fit the next word ("a MRI scan", "an
   cardiology appointment"). The renderer already fixes articles in front
   of placeholders, so this mostly catches articles written in front of
-  literal words.
+  literal words. Both only run for domains with `language: en`.
+
+Which repetitions are allowed also depends on the language
+(`engine/languages.py`).
 
 ## What validators cannot catch
 

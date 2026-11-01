@@ -1,0 +1,12 @@
+name: vacuum_return_home
+
+entities:
+  vacuum:
+    type: vacuum
+
+language_schema: vacuum_return_home
+
+robot_context:
+  speaker: resident
+
+tags: [control]

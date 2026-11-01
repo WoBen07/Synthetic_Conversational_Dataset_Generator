@@ -1,0 +1,24 @@
+variables:
+
+  power:
+    - state: "on"
+      word: "an"
+    - state: "off"
+      word: "aus"
+
+  request:
+    - "Mach {{light.phrase}} {{light.in_room}} {{power.word}}."
+    - "Schalte {{light.phrase}} {{light.in_room}} {{power.word}}."
+    - "Schalt mal {{light.phrase}} {{light.in_room}} {{power.word}}."
+    - "Kannst du {{light.phrase}} {{light.in_room}} {{power.word}}machen?"
+    - "Kannst du bitte {{light.phrase}} {{light.in_room}} {{power.word}}schalten?"
+    - "{{light.phrase_cap}} {{light.in_room}} bitte {{power.word}}."
+    - "Bitte {{light.phrase}} {{light.in_room}} {{power.word}}schalten."
+    - "Mach bitte {{light.phrase}} {{light.in_room}} {{power.word}}."
+
+  failure:
+    - "Das hat leider nicht geklappt, {{light.phrase}} {{light.in_room}} ist gerade nicht erreichbar."
+    - "{{light.phrase_cap}} {{light.in_room}} reagiert gerade nicht, ich konnte {{light.pronoun_acc}} nicht schalten."
+    - "Tut mir leid, ich erreiche {{light.phrase}} {{light.in_room}} gerade nicht."
+    - "Das ging leider nicht, {{light.phrase}} {{light.in_room}} ist nicht erreichbar."
+    - "{{light.phrase_cap}} {{light.in_room}} ist gerade offline, schalten konnte ich {{light.pronoun_acc}} nicht."

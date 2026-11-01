@@ -1,0 +1,8 @@
+entity: brightness
+
+
+fields:
+
+  pct:
+    type: integer
+    generator: brightness_pct

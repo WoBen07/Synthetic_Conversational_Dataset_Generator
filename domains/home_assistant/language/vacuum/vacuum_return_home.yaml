@@ -1,0 +1,21 @@
+variables:
+
+  request:
+    - "Schicke {{vacuum.accusative}} nach Hause."
+    - "Schick {{vacuum.accusative}} bitte nach Hause."
+    - "Schick {{vacuum.accusative}} zurück zur Ladestation."
+    - "Schick {{vacuum.accusative}} heim."
+    - "Lass {{vacuum.accusative}} zurück zur Ladestation fahren."
+    - "{{vacuum.nominative_cap}} soll nach Hause fahren."
+    - "{{vacuum.nominative_cap}} soll zurück in die Ladestation."
+    - "{{vacuum.nominative_cap}} soll heimfahren."
+    - "Ruf {{vacuum.accusative}} zurück."
+    - "Kannst du {{vacuum.accusative}} nach Hause schicken?"
+    - "Das reicht für heute, schick {{vacuum.accusative}} nach Hause."
+
+  confirmation:
+    - "Fridolin fährt nach Hause."
+    - "Alles klar, Fridolin ist auf dem Weg zur Ladestation."
+    - "Erledigt, Fridolin fährt zurück."
+    - "Okay, Fridolin macht sich auf den Heimweg."
+    - "Gemacht, Fridolin fährt zur Ladestation."

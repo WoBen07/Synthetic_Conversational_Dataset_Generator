@@ -6,7 +6,9 @@
 
 Engine-wide settings come from config/generation_config.yaml, amounts
 and tool-share targets from each domain's config.yaml. Output goes to
-Synthetic_Data/<domain>/<template name>/.
+Synthetic_Data/<domain>/<template name>/, the merged dataset to the
+merger's configured folder or, when other domains than the configured
+ones are selected, to Datasets/<domains>/ (merged_dataset_folder).
 """
 
 import argparse
@@ -231,6 +233,18 @@ def apply_tool_share_targets(amounts, config, domain=None, verbose=True):
     return amounts
 
 
+def merged_dataset_folder(names):
+    """Where the merger writes: its configured dataset for the configured
+    domains (None), a folder named after the domains for any other
+    selection - generating one domain must not overwrite the merged
+    dataset of the others."""
+
+    if sorted(names) == sorted(configured_domains()):
+        return None
+
+    return PROJECT_ROOT / "Datasets" / "+".join(sorted(names))
+
+
 def create_seed(config):
 
     seed_range = config["random_seed_range"]
@@ -288,7 +302,8 @@ def parse_args():
         action="append",
         metavar="NAME",
         help=(
-            "Domain to generate (repeat for several). Default: the "
+            "Domain or variant (home_assistant@en) to generate, repeat "
+            "for several. Default: the "
             "domains list in config/generation_config.yaml, or all "
             "domains under domains/."
         ),
@@ -341,7 +356,7 @@ def main():
     template_problems = [
         problem
         for domain in domains
-        for problem in lint_templates.lint(domain.template_dir)
+        for problem in lint_templates.lint(domain.template_paths())
     ]
 
     if template_problems:
@@ -355,6 +370,20 @@ def main():
             print(f"  {path.relative_to(PROJECT_ROOT)}: {description}")
 
         print()
+
+    for domain in domains:
+
+        gaps = domain.translation_gaps()
+
+        if gaps:
+
+            print(
+                f"\nTranslation of {domain.name} ({domain.language}) is "
+                f"incomplete, {len(gaps)} item(s):"
+            )
+
+            for gap in gaps:
+                print(f"  {gap}")
 
     if args.optimize:
 
@@ -394,8 +423,11 @@ def main():
 
     # IMPORTANT:
     # Only called once after everything finished
+    names = [domain.name for domain in domains]
+
     dataset_merger.main(
-        domains=[domain.name for domain in domains]
+        domains=names,
+        output_folder=merged_dataset_folder(names)
     )
 
     if args.publish:

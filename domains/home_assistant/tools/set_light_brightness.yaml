@@ -1,0 +1,51 @@
+tool: set_light_brightness
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Stellt eine Leuchte auf eine genannte Helligkeit in Prozent.
+
+
+input:
+
+  room:
+    type: string
+    required: true
+    description: >
+      Raum ohne Präposition und Artikel, so wie er genannt wurde, z. B.
+      "Wohnzimmer" oder "Küche".
+    source: mentioned
+    format: name
+
+  light:
+    type: enum
+    values: [main, string_lights]
+    required: true
+    description: >
+      Welche Leuchte im Raum gemeint ist: main für das normale Licht oder
+      die Lampe, string_lights für die Lichterkette.
+
+  brightness_pct:
+    type: integer
+    required: true
+    minimum: 1
+    maximum: 100
+    description: Helligkeit in Prozent, so wie sie genannt wurde.
+    source: known
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  brightness_pct:
+    type: integer
+    minimum: 1
+    maximum: 100

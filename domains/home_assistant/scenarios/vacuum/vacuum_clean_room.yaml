@@ -1,0 +1,14 @@
+name: vacuum_clean_room
+
+entities:
+  vacuum:
+    type: vacuum
+  room:
+    type: room
+
+language_schema: vacuum_clean_room
+
+robot_context:
+  speaker: resident
+
+tags: [room]

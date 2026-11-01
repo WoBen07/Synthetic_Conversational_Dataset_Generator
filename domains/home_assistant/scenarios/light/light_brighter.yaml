@@ -1,0 +1,12 @@
+name: light_brighter
+
+entities:
+  light:
+    type: light
+
+language_schema: light_brighter
+
+robot_context:
+  speaker: resident
+
+tags: [brightness]

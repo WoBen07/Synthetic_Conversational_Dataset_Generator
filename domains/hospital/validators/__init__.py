@@ -5,7 +5,7 @@ from .weather_consistency_validator import WeatherConsistencyValidator
 from .weather_grounding_validator import WeatherGroundingValidator
 
 
-def create_validators():
+def create_validators(domain=None):
 
     return [
         WeatherRecommendationValidator(),

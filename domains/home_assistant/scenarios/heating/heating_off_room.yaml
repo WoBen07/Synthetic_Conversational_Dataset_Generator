@@ -1,0 +1,12 @@
+name: heating_off_room
+
+entities:
+  room:
+    type: room
+
+language_schema: heating_off_room
+
+robot_context:
+  speaker: resident
+
+tags: [frost_protection, room]

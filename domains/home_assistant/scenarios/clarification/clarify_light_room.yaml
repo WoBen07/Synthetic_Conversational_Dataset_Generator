@@ -1,0 +1,12 @@
+name: clarify_light_room
+
+entities:
+  light:
+    type: light
+
+language_schema: clarify_light_room
+
+robot_context:
+  speaker: resident
+
+tags: [clarification]

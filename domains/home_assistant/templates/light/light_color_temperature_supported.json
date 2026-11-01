@@ -1,0 +1,54 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_light_capabilities",
+        "arguments": {
+          "room": "{{light.room}}",
+          "light": "{{light.fixture}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_light_capabilities",
+      "content": {
+        "status": "ok",
+        "supports_brightness": true,
+        "supports_color": "{{other_capability.value}}",
+        "supports_color_temperature": true
+      }
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "adjust_light_color_temperature",
+        "arguments": {
+          "room": "{{light.room}}",
+          "light": "{{light.fixture}}",
+          "direction": "{{direction.value}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "adjust_light_color_temperature",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

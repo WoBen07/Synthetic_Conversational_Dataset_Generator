@@ -15,6 +15,8 @@ class Validator:
 
         tools = domain.tools
 
+        rules = domain.language_rules
+
         self.validators = [
 
             StructureValidator(),
@@ -31,9 +33,12 @@ class Validator:
 
             ToolSchemaValidator(tools),
 
-            GroundingValidator(tools),
+            GroundingValidator(tools, rules["name_prefixes"]),
 
-            LanguageValidator()
+            LanguageValidator(
+                check_articles=rules["english_articles"],
+                allowed_doubles=rules["allowed_doubles"]
+            )
 
         ]
 

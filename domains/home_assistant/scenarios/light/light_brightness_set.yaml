@@ -1,0 +1,14 @@
+name: light_brightness_set
+
+entities:
+  light:
+    type: light
+  brightness:
+    type: brightness
+
+language_schema: light_brightness_set
+
+robot_context:
+  speaker: resident
+
+tags: [brightness]

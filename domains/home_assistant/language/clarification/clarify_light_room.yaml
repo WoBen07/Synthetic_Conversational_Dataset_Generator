@@ -1,0 +1,37 @@
+variables:
+
+  power:
+    - state: "on"
+      word: "an"
+    - state: "off"
+      word: "aus"
+
+  request:
+    - "Mach {{light.phrase}} {{power.word}}."
+    - "Schalte {{light.phrase}} {{power.word}}."
+    - "Schalt mal {{light.phrase}} {{power.word}}."
+    - "Mach bitte {{light.phrase}} {{power.word}}."
+    - "Kannst du {{light.phrase}} {{power.word}}machen?"
+    - "Kannst du {{light.phrase}} {{power.word}}schalten?"
+    - "{{light.phrase_cap}} bitte {{power.word}}."
+    - "Bitte {{light.phrase}} {{power.word}}schalten."
+
+  ask_room:
+    - "In welchem Raum?"
+    - "In welchem Raum soll ich {{light.phrase}} {{power.word}}schalten?"
+    - "Gerne, in welchem Raum?"
+    - "Welchen Raum meinst du?"
+    - "Klar, welcher Raum denn?"
+
+  room_reply:
+    - "{{light.in_room_cap}}."
+    - "{{light.in_room_cap}} bitte."
+    - "{{light.room}}."
+    - "Na {{light.in_room}}."
+    - "{{light.in_room_cap}}, danke."
+
+  confirmation:
+    - "{{light.phrase_cap}} {{light.in_room}} ist jetzt {{power.word}}."
+    - "Alles klar, {{light.phrase}} {{light.in_room}} ist {{power.word}}."
+    - "Erledigt, {{light.phrase}} {{light.in_room}} ist {{power.word}}."
+    - "Okay, ich habe {{light.phrase}} {{light.in_room}} {{power.word}}geschaltet."

@@ -1,4 +1,5 @@
-"""Small English helpers shared by the renderer and the validators."""
+"""Small text helpers shared by the renderer and the validators. The
+article rules are English; engine/languages.py says where they apply."""
 
 import re
 
@@ -89,14 +90,14 @@ def article_mismatches(text):
 DOUBLE_WORD = re.compile(r"\b(\w+)\s+\1\b", re.IGNORECASE)
 
 # Repetitions that are fine in spoken English
-_ALLOWED_DOUBLES = {"that", "had", "very", "bye", "no", "so", "really", "now"}
+ALLOWED_DOUBLES = {"that", "had", "very", "bye", "no", "so", "really", "now"}
 
 
-def doubled_words(text):
+def doubled_words(text, allowed=ALLOWED_DOUBLES):
 
     return [
         match.group(0)
         for match in DOUBLE_WORD.finditer(text)
-        if match.group(1).lower() not in _ALLOWED_DOUBLES
+        if match.group(1).lower() not in allowed
         and not match.group(1).isdigit()
     ]

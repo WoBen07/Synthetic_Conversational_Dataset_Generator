@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "start_cleaning",
+        "arguments": {
+          "mode": "{{mode.value}}",
+          "room": "{{room.name}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "start_cleaning",
+      "content": {
+        "status": "ok"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{confirmation}}"
+    }
+  ]
+}

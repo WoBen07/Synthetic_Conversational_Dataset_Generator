@@ -1,0 +1,22 @@
+variables:
+
+  request:
+    - "Heize {{room.accusative}} auf {{temperature.value}} Grad."
+    - "Heiz {{room.accusative}} bitte auf {{temperature.value}} Grad."
+    - "Stelle die Heizung {{room.in_room}} auf {{temperature.value}} Grad."
+    - "Stell die Heizung {{room.in_room}} bitte auf {{temperature.value}} Grad."
+    - "Dreh die Heizung {{room.in_room}} auf {{temperature.value}} Grad."
+    - "Setz die Temperatur {{room.in_room}} auf {{temperature.value}} Grad."
+    - "Kannst du {{room.accusative}} auf {{temperature.value}} Grad heizen?"
+    - "Kannst du die Heizung {{room.in_room}} auf {{temperature.value}} Grad stellen?"
+    - "Ich hätte {{room.in_room}} gern {{temperature.value}} Grad."
+    - "{{room.in_room_cap}} bitte {{temperature.value}} Grad."
+    - "Mach {{room.accusative}} auf {{temperature.value}} Grad warm."
+    - "Bitte {{room.accusative}} auf {{temperature.value}} Grad aufheizen."
+
+  confirmation:
+    - "Die Heizung {{room.in_room}} steht jetzt auf {{temperature.value}} Grad."
+    - "Alles klar, {{room.in_room}} heize ich auf {{temperature.value}} Grad."
+    - "Erledigt, {{temperature.value}} Grad {{room.in_room}}."
+    - "Okay, ich habe die Heizung {{room.in_room}} auf {{temperature.value}} Grad gestellt."
+    - "Gemacht, {{room.accusative}} wird jetzt auf {{temperature.value}} Grad geheizt."

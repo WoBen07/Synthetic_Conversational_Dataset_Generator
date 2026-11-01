@@ -1,0 +1,21 @@
+variables:
+
+  request:
+    - "Pausiere {{vacuum.accusative}}."
+    - "Pausiere {{vacuum.accusative}} bitte."
+    - "Halte {{vacuum.accusative}} an."
+    - "Halt {{vacuum.accusative}} mal kurz an."
+    - "Stopp {{vacuum.accusative}} mal kurz."
+    - "Lass {{vacuum.accusative}} kurz pausieren."
+    - "{{vacuum.nominative_cap}} soll Pause machen."
+    - "{{vacuum.nominative_cap}} soll kurz anhalten."
+    - "{{vacuum.nominative_cap}} soll mal kurz aufhören."
+    - "Kannst du {{vacuum.accusative}} pausieren?"
+    - "Ich telefoniere gerade, halte bitte {{vacuum.accusative}} an."
+
+  confirmation:
+    - "Fridolin macht Pause."
+    - "Alles klar, Fridolin ist angehalten."
+    - "Erledigt, Fridolin pausiert."
+    - "Okay, Fridolin wartet jetzt."
+    - "Gemacht, Fridolin steht erst mal still."

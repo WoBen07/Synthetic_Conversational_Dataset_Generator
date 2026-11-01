@@ -13,7 +13,7 @@ or from the directory above:
 python -m unittest discover -s synthetic_data_generator/tests
 ```
 
-The whole suite takes about a second. GitHub Actions runs it on every
+The whole suite takes a few seconds. GitHub Actions runs it on every
 push and pull request (`.github/workflows/tests.yml`).
 
 ## What is covered
@@ -25,6 +25,8 @@ push and pull request (`.github/workflows/tests.yml`).
 | `test_validators.py` | grounding (IDs, search terms, copied reasons, articles in rooms), structure rules, language validator |
 | `test_dataset.py` | uniqueness optimizer maths, datapoint metadata, grouped split without overlap, `generate_many` output |
 | `test_domains.py` | domain loading, a scaffolded domain generating valid data without hospital code, merger layout per domain, per-domain tools in the preprocessors |
+| `test_variants.py` | domain variants: names, translated phrases without fallback, translation gaps, tool patches and removals, template overrides, config inheritance, per-variant tools through merger and preprocessor, language rules; every real variant is complete and generates valid data |
+| `test_home_assistant.py` | every home_assistant template produces valid data, the phrases of the initial data can be generated, capability check and frost protection rules, numeric ranges, non-English domains, tool schemas as JSON files, merge target per domain selection |
 | `test_templates.py` | every hospital template has its scenario and language file, all placeholders and tools exist, `robot_context` declared where used, no two user/tool messages in a row, every template produces a valid datapoint, fixed-seed output |
 
 ## Golden outputs

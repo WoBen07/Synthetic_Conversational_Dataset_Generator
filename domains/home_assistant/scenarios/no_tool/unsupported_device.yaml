@@ -1,0 +1,10 @@
+name: unsupported_device
+
+entities: {}
+
+language_schema: unsupported_device
+
+robot_context:
+  speaker: resident
+
+tags: [no_tool]

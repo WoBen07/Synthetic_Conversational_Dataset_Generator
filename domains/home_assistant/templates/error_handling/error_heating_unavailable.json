@@ -1,0 +1,33 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "set_room_temperature",
+        "arguments": {
+          "room": "{{room.name}}",
+          "temperature": "{{temperature.value}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "set_room_temperature",
+      "content": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{failure}}"
+    }
+  ]
+}

@@ -17,9 +17,13 @@ ARTICLE_BEFORE_PLACEHOLDER = re.compile(
 class TemplateRenderer:
 
 
-    def __init__(self, context):
+    def __init__(self, context, fix_articles=True):
 
         self.context = context
+
+        # English only: other languages have their own "an" ("Mach das
+        # Licht an {{...}}") that must not be rewritten.
+        self.fix_articles = fix_articles
 
         # Every placeholder path looked up while rendering, including
         # those nested inside language phrases.
@@ -131,7 +135,8 @@ class TemplateRenderer:
 
             parts.append(value[position:found.start()])
 
-            parts = self._fix_article(parts, replacement)
+            if self.fix_articles:
+                parts = self._fix_article(parts, replacement)
 
             parts.append(replacement)
 

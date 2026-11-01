@@ -1,0 +1,10 @@
+name: heating_on
+
+entities: {}
+
+language_schema: heating_on
+
+robot_context:
+  speaker: resident
+
+tags: [heat, whole_home]

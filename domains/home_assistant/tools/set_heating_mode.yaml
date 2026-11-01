@@ -1,0 +1,40 @@
+tool: set_heating_mode
+
+# Format: see documentation/schemas.md#tool-schemas. Argument "source" says
+# where the value must come from (known / mentioned / own_words); the
+# GroundingValidator enforces it, and engine/tool_definitions.py exports
+# everything else as the function definition the model sees.
+
+side_effects: true
+
+description: >
+  Schaltet die Heizung an oder aus. Aus bedeutet Frostschutz, die Heizung geht dabei nie ganz aus.
+
+
+input:
+
+  mode:
+    type: enum
+    values: [heat, frost_protection]
+    required: true
+    description: heat für an, frost_protection für aus.
+
+  room:
+    type: string
+    required: false
+    description: >
+      Raum ohne Präposition und Artikel. Weglassen, wenn kein Raum genannt
+      wurde; dann gilt der Modus für die ganze Wohnung.
+    source: mentioned
+    format: name
+
+
+output:
+
+  status:
+    type: enum
+    values: [ok, unavailable]
+
+  mode:
+    type: enum
+    values: [heat, frost_protection]

@@ -1,0 +1,21 @@
+variables:
+
+  request:
+    - "Dimme {{light.phrase}} {{light.in_room}} auf {{brightness.pct}}%."
+    - "Dimme {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent."
+    - "Dimm mal {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent."
+    - "Stelle {{light.phrase}} {{light.in_room}} auf {{brightness.pct}}%."
+    - "Stell {{light.phrase}} {{light.in_room}} bitte auf {{brightness.pct}} Prozent."
+    - "Setz {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent."
+    - "Mach {{light.phrase}} {{light.in_room}} auf {{brightness.pct}}%."
+    - "Kannst du {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent dimmen?"
+    - "{{light.phrase_cap}} {{light.in_room}} bitte auf {{brightness.pct}}%."
+    - "Bitte {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent stellen."
+    - "Ich hätte {{light.phrase}} {{light.in_room}} gern auf {{brightness.pct}} Prozent."
+
+  confirmation:
+    - "{{light.phrase_cap}} {{light.in_room}} ist jetzt auf {{brightness.pct}} Prozent."
+    - "Alles klar, {{light.phrase}} {{light.in_room}} steht auf {{brightness.pct}} Prozent."
+    - "Erledigt, {{brightness.pct}} Prozent {{light.in_room}}."
+    - "Okay, ich habe {{light.phrase}} {{light.in_room}} auf {{brightness.pct}} Prozent gestellt."
+    - "Gemacht, {{light.phrase}} {{light.in_room}} leuchtet jetzt mit {{brightness.pct}} Prozent."

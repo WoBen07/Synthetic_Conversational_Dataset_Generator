@@ -1,0 +1,36 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "get_light_capabilities",
+        "arguments": {
+          "room": "{{light.room}}",
+          "light": "{{light.fixture}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "get_light_capabilities",
+      "content": {
+        "status": "ok",
+        "supports_brightness": true,
+        "supports_color": false,
+        "supports_color_temperature": "{{alternative.supports_color_temperature}}"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{refusal}}{{alternative.hint}}"
+    }
+  ]
+}

@@ -12,13 +12,19 @@ preprocessors attach the list of each example's domain. Generator-
 internal keys (``source``, ``format``, ``side_effects``) are not
 exported.
 
-Run directly to print the definitions::
+The merger also writes every definition to a JSON file of its own
+(``tool_schemas/<domain>/<tool>.json``), for whatever executes the tools
+at inference.
 
-    python -m synthetic_data_generator.engine.tool_definitions [domain]
+Run directly to print the definitions, or to write the JSON files to a
+folder without generating anything::
+
+    python -m synthetic_data_generator.engine.tool_definitions [domain] [output_dir]
 """
 
 import json
 import sys
+from pathlib import Path
 
 from synthetic_data_generator.engine.domain import resolve_domain
 
@@ -47,6 +53,11 @@ def parameter(spec):
 
     if spec.get("description"):
         exported["description"] = _clean(spec["description"])
+
+    for limit in ("minimum", "maximum"):
+
+        if limit in spec:
+            exported[limit] = spec[limit]
 
     return exported
 
@@ -95,6 +106,42 @@ def tool_definitions(domain=None, names=None):
     ]
 
 
+def write_tool_schemas(domain, output_dir):
+    """Write each tool's definition to <output_dir>/<tool>.json, replacing
+    the files of an earlier run, and return the written paths."""
+
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # A tool removed from the domain must not leave a stale schema behind.
+    for stale in output_dir.glob("*.json"):
+        stale.unlink()
+
+    paths = []
+
+    for definition in tool_definitions(domain):
+
+        path = output_dir / f"{definition['function']['name']}.json"
+
+        path.write_text(
+            json.dumps(definition, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8"
+        )
+
+        paths.append(path)
+
+    return paths
+
+
 if __name__ == "__main__":
-    json.dump(tool_definitions(sys.argv[1] if len(sys.argv) > 1 else None), sys.stdout, indent=2, ensure_ascii=False)
-    print()
+
+    domain_name = sys.argv[1] if len(sys.argv) > 1 else None
+
+    if len(sys.argv) > 2:
+
+        for written in write_tool_schemas(domain_name, sys.argv[2]):
+            print(written)
+
+    else:
+        json.dump(tool_definitions(domain_name), sys.stdout, indent=2, ensure_ascii=False)
+        print()

@@ -1,18 +1,18 @@
-from pathlib import Path
 import json
 
 
 class TemplateLoader:
 
-    def __init__(self, template_dir):
+    def __init__(self, template_path):
 
-        # domains/<name>/templates/
-        self.template_dir = Path(template_dir)
+        # Template id -> file (Domain.template_path: a variant's own
+        # template if it has one, otherwise the pack's)
+        self.template_path = template_path
 
 
     def load(self, name):
 
-        path = self.template_dir / f"{name}.json"
+        path = self.template_path(name)
 
         if not path.exists():
             raise FileNotFoundError(

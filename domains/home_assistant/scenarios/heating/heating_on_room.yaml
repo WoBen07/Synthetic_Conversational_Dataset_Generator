@@ -1,0 +1,12 @@
+name: heating_on_room
+
+entities:
+  room:
+    type: room
+
+language_schema: heating_on_room
+
+robot_context:
+  speaker: resident
+
+tags: [heat, room]

@@ -1,0 +1,32 @@
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "{{robot_context}}"
+    },
+    {
+      "role": "user",
+      "content": "{{request}}"
+    },
+    {
+      "role": "assistant",
+      "tool_call": {
+        "name": "start_cleaning",
+        "arguments": {
+          "mode": "{{mode.value}}"
+        }
+      }
+    },
+    {
+      "role": "tool",
+      "name": "start_cleaning",
+      "content": {
+        "status": "unavailable"
+      }
+    },
+    {
+      "role": "assistant",
+      "content": "{{failure}}"
+    }
+  ]
+}

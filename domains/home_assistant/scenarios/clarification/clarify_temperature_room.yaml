@@ -1,0 +1,14 @@
+name: clarify_temperature_room
+
+entities:
+  room:
+    type: room
+  temperature:
+    type: temperature
+
+language_schema: clarify_temperature_room
+
+robot_context:
+  speaker: resident
+
+tags: [clarification]

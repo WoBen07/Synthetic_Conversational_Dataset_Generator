@@ -3,8 +3,8 @@
 The engine reads three optional names from a domain package:
 
 - GENERATORS: {key: function}, added to the shared generators;
-- create_validators(): validator instances run after the engine's
-  structural checks;
+- create_validators(domain): validator instances run after the engine's
+  structural checks (domain: the Domain, for what differs per variant);
 - refresh_entity(entity): called for every entity after constraints are
   resolved, to keep derived fields consistent.
 """

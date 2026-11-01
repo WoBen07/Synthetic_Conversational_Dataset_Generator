@@ -1,0 +1,18 @@
+variables:
+
+  request:
+    - "Heize {{room.accusative}} auf {{temperature.value}} Grad."
+    - "Stelle die Heizung {{room.in_room}} auf {{temperature.value}} Grad."
+    - "Stell die Heizung {{room.in_room}} bitte auf {{temperature.value}} Grad."
+    - "Dreh die Heizung {{room.in_room}} auf {{temperature.value}} Grad."
+    - "Kannst du {{room.accusative}} auf {{temperature.value}} Grad heizen?"
+    - "Setz die Temperatur {{room.in_room}} auf {{temperature.value}} Grad."
+    - "{{room.in_room_cap}} bitte {{temperature.value}} Grad."
+    - "Bitte {{room.accusative}} auf {{temperature.value}} Grad aufheizen."
+
+  failure:
+    - "Das hat leider nicht geklappt, die Heizung {{room.in_room}} ist gerade nicht erreichbar."
+    - "Die Heizung {{room.in_room}} reagiert gerade nicht, die Temperatur konnte ich nicht ändern."
+    - "Tut mir leid, ich erreiche die Heizung {{room.in_room}} gerade nicht."
+    - "Das ging leider nicht, die Heizung {{room.in_room}} ist nicht erreichbar."
+    - "Die Heizung {{room.in_room}} ist gerade offline, die {{temperature.value}} Grad konnte ich nicht einstellen."
