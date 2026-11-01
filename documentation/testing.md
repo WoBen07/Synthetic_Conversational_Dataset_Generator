@@ -25,6 +25,7 @@ push and pull request (`.github/workflows/tests.yml`).
 | `test_validators.py` | grounding (IDs, search terms, copied reasons, articles in rooms), structure rules, language validator |
 | `test_dataset.py` | uniqueness optimizer maths, datapoint metadata, grouped split without overlap, `generate_many` output |
 | `test_domains.py` | domain loading, a scaffolded domain generating valid data without hospital code, merger layout per domain, per-domain tools in the preprocessors |
+| `test_gui.py` | the GUI server: rendering through its API, known names only, requests from other sites rejected, overwrite confirmation, progress of a run with a stand-in command |
 | `test_variants.py` | domain variants: names, translated phrases without fallback, translation gaps, tool patches and removals, template overrides, config inheritance, per-variant tools through merger and preprocessor, language rules; every real variant is complete and generates valid data |
 | `test_home_assistant.py` | every home_assistant template produces valid data, the phrases of the initial data can be generated, capability check and frost protection rules, numeric ranges, non-English domains, tool schemas as JSON files, merge target per domain selection |
 | `test_templates.py` | every hospital template has its scenario and language file, all placeholders and tools exist, `robot_context` declared where used, no two user/tool messages in a row, every template produces a valid datapoint, fixed-seed output |

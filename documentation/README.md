@@ -13,6 +13,7 @@ This folder is split into smaller docs so each part stays readable.
 - [Templates](templates.md)
 - [Validation](validation.md)
 - [Uniqueness Optimizer (optional)](uniqueness.md)
+- [GUI](gui.md)
 - [Tests](testing.md)
 - [Extending the Generator](extending.md)
 - [Publishing to HuggingFace Hub](publishing.md)
