@@ -38,26 +38,26 @@ listed: their phrase pools are too small and need more phrases.
 
 ## Usage
 
-Run from the directory that contains `synthetic_data_generator/`:
+Run in the [project folder](overview.md#project-folder):
 
 ```bash
 # report only: table of planned vs. capped amounts, nothing is changed
-python -m synthetic_data_generator.engine.config_optimizer
+sdg optimize
 
 # another domain than the default one
-python -m synthetic_data_generator.engine.config_optimizer --domain hospital
+sdg optimize --domain hospital
 
 # write the caps into domains/<domain>/config.yaml
-python -m synthetic_data_generator.engine.config_optimizer --write
+sdg optimize --write
 
 # only some templates (path prefixes); caps of the others are kept
-python -m synthetic_data_generator.engine.config_optimizer --templates tool_use safety_and_refusals/consent_seeking --write
+sdg optimize --templates tool_use safety_and_refusals/consent_seeking --write
 
 # remove the caps again
-python -m synthetic_data_generator.engine.config_optimizer --clear
+sdg optimize --clear
 
 # optimise, then generate and merge as usual
-python -m synthetic_data_generator.engine.orchestrator --optimize
+sdg generate --optimize
 ```
 
 Further flags: `--samples`, `--max-duplicate-rate`, `--max-phrase-repeats`,

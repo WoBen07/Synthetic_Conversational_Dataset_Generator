@@ -1,12 +1,10 @@
 """Shared setup for the tests.
 
-Run from inside synthetic_data_generator/::
+Run from the repository root::
 
     python -m unittest discover -s tests
 
-or from the directory above it::
-
-    python -m unittest discover -s synthetic_data_generator/tests
+An installed package is tested if there is one, otherwise the code in src/.
 
 Set UPDATE_GOLDEN=1 to rewrite the expected outputs in tests/golden/
 after an intended change of the generated data.
@@ -16,11 +14,14 @@ import random
 import sys
 from pathlib import Path
 
-PACKAGE_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
-# The package imports itself as synthetic_data_generator.*, so its parent
-# directory has to be importable.
-if str(PACKAGE_ROOT.parent) not in sys.path:
+PACKAGE_ROOT = REPO_ROOT / "src" / "synthetic_data_generator"
+
+# An installed copy wins (CI tests the installed package); otherwise src/.
+try:
+    import synthetic_data_generator  # noqa: F401
+except ImportError:
     sys.path.insert(0, str(PACKAGE_ROOT.parent))
 
 from synthetic_data_generator.engine.dataset_generator import DatasetGenerator  # noqa: E402,F401

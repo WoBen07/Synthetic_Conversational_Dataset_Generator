@@ -149,7 +149,7 @@ class NamesTest(PackTestCase):
 
         add_german(self.root)
 
-        with mock.patch.object(domain_module, "DOMAINS_DIR", self.folder):
+        with mock.patch.object(domain_module, "DOMAIN_DIRS", [self.folder]):
             self.assertEqual(list_domains(), ["shop", "shop@de"])
 
 
@@ -396,7 +396,7 @@ class MergeTest(PackTestCase):
         source = self.folder / "input"
         output = self.folder / "output"
 
-        with mock.patch.object(domain_module, "DOMAINS_DIR", self.folder), \
+        with mock.patch.object(domain_module, "DOMAIN_DIRS", [self.folder]), \
                 mock.patch.object(merger, "INPUT_FOLDER", source):
 
             domain_module.load_domain.cache_clear()
@@ -449,7 +449,7 @@ class MergeTest(PackTestCase):
 
         self.assertEqual(metadata["languages"], {"shop": "en", "shop@de": "de", "shop@v2": "en"})
 
-        path = helpers.PACKAGE_ROOT / "Model_Specific_Preprocessors" / "qwen_preprossor.py"
+        path = helpers.REPO_ROOT / "scripts" / "qwen_preprossor.py"
         spec = importlib.util.spec_from_file_location("qwen_for_variants", path)
         qwen = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(qwen)

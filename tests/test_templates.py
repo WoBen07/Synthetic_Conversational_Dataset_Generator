@@ -13,7 +13,7 @@ from synthetic_data_generator.engine import lint_templates
 
 
 DOMAIN = helpers.HOSPITAL
-ROOT = helpers.PACKAGE_ROOT
+ROOT = helpers.REPO_ROOT
 PLACEHOLDER = re.compile(r"\{\{(.*?)\}\}")
 
 # Fixed-seed outputs compared with tests/golden/. A difference means the

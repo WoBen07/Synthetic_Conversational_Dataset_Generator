@@ -1,6 +1,6 @@
 All paths below are inside the domain pack, e.g. `domains/hospital/`.
 For a new application, first create a pack with
-`python -m synthetic_data_generator.engine.new_domain <name>`.
+`sdg new-domain <name>`.
 
 1. Pick a category subfolder under `templates/` (e.g. `tool_use/`,
    `safety_and_refusals/`, `conversational/`) — reuse an existing one or

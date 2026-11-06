@@ -2,8 +2,7 @@
 
 ## 1. Entry Points
 
-- **Full run:** `python -m synthetic_data_generator.engine.orchestrator`
-  (from the directory that contains `synthetic_data_generator/`) lints
+- **Full run:** `sdg generate` (in the [project folder](overview.md#project-folder)) lints
   the templates, plans the amounts, generates every template of the
   selected [domains](domains.md) (`--domain`, default from
   `config/generation_config.yaml`) and merges the result into
@@ -94,7 +93,7 @@ definitions of each domain's tools, as `{domain: [definitions]}`.
 
 ## 10. Model-Specific Preprocessing
 
-`Model_Specific_Preprocessors/qwen_preprossor.py` and
+`scripts/qwen_preprossor.py` and
 `Gemma_preprocessor.py` convert the merged files into the tool-call
 format of each model family. They keep only `messages`, so `metadata`
 never reaches training, and attach the tool definitions of each

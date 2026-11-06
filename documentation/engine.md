@@ -39,7 +39,7 @@ see [languages](domains.md#languages).
 ## `engine/new_domain.py`
 
 Creates a new domain pack with one working example template:
-`python -m synthetic_data_generator.engine.new_domain <name>`.
+`sdg new-domain <name>`.
 
 ## `engine/template_loader.py`
 
@@ -50,7 +50,7 @@ own file first), where
 
 ## `engine/orchestrator.py`
 
-Entry point for a full run (`python -m synthetic_data_generator.engine.orchestrator`).
+Entry point for a full run (`sdg generate`).
 Generates every template of the selected domains (`--domain`, repeatable;
 default: `domains` in `config/generation_config.yaml`).
 

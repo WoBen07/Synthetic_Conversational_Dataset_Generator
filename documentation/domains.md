@@ -87,7 +87,7 @@ values from its language schemas.
 ## Creating a domain
 
 ```bash
-python -m synthetic_data_generator.engine.new_domain retail_store \
+sdg new-domain retail_store \
     --description "Shop assistant robot answering customer questions."
 ```
 
@@ -97,7 +97,7 @@ entity, a `check_order_status` tool and one template
 setup, then replace the example with real templates:
 
 ```bash
-python -m synthetic_data_generator.engine.orchestrator --domain retail_store
+sdg generate --domain retail_store
 ```
 
 Everything else works per domain as well: the
@@ -113,9 +113,9 @@ layout of the pack, holds only what differs, and is addressed as
 `<name>@<variant>` wherever a domain name is accepted:
 
 ```bash
-python -m synthetic_data_generator.engine.orchestrator --domain home_assistant@en
-python -m synthetic_data_generator.engine.orchestrator --domain home_assistant --domain home_assistant@en
-python -m synthetic_data_generator.engine.config_optimizer --domain home_assistant@en
+sdg generate --domain home_assistant@en
+sdg generate --domain home_assistant --domain home_assistant@en
+sdg optimize --domain home_assistant@en
 python -m synthetic_data_generator.engine.tool_definitions home_assistant@en
 ```
 
@@ -251,8 +251,8 @@ a new language is one entry there, an unknown code is an error.
 ## Generating and merging several domains
 
 ```bash
-python -m synthetic_data_generator.engine.orchestrator                          # domains from config
-python -m synthetic_data_generator.engine.orchestrator --domain hospital --domain retail_store
+sdg generate                          # domains from config
+sdg generate --domain hospital --domain retail_store
 ```
 
 Output goes to `Synthetic_Data/<domain>/<template name>/`, replacing what a

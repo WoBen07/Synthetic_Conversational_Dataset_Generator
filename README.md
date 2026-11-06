@@ -11,6 +11,18 @@ This project was started during the work on a scientific paper (Bachelor's
 thesis) at the University of Augsburg, Germany, and will be expanded over
 time.
 
+## Quick Start
+
+```bash
+git clone https://github.com/WoBen07/Synthetic_Conversational_Dataset_Generator
+cd Synthetic_Conversational_Dataset_Generator
+pip install -e .
+
+sdg domains                         # built-in domains: hospital, home_assistant
+sdg generate --domain hospital      # writes Synthetic_Data/ and Datasets/
+sdg new-domain my_domain            # start your own domain pack
+```
+
 ## Documentation
 
 For setup, usage, and the template system, see the technical
