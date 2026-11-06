@@ -5,7 +5,7 @@
 Create a domain pack (see [domains](domains.md)):
 
 ```bash
-sdg new-domain <name> --description "..."
+dforge new-domain <name> --description "..."
 ```
 
 and replace its example template with real ones as below.

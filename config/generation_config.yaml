@@ -1,0 +1,6 @@
+# Settings of this repository's project, merged over the packaged
+# defaults in src/dataset_forge/config/generation_config.yaml.
+
+domains: [hospital]
+
+merged_dataset: Test_Dataset_9

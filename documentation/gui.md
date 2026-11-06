@@ -4,7 +4,7 @@ A local web page to look at what the generator produces and to run it:
 
 ```bash
 # in the project folder (see overview.md)
-sdg gui [--port 8765] [--no-browser]
+dforge gui [--port 8765] [--no-browser]
 ```
 
 It needs nothing beyond the project's requirements, and opens in your

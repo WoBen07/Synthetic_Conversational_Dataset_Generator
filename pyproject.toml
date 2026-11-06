@@ -3,9 +3,7 @@ requires = ["setuptools>=69"]
 build-backend = "setuptools.build_meta"
 
 [project]
-# Placeholder distribution name - pick the final one before the first
-# PyPI upload (the import name can stay synthetic_data_generator).
-name = "synthetic-data-generator"
+name = "python-dataset-forge"
 dynamic = ["version"]
 description = "Template-based generator for synthetic conversational and tool-calling datasets."
 readme = "README.md"
@@ -28,14 +26,15 @@ dependencies = ["PyYAML>=6.0"]
 hub = ["huggingface_hub>=0.24"]
 
 [project.scripts]
-sdg = "synthetic_data_generator.cli:main"
+dataset-forge = "dataset_forge.cli:main"
+dforge = "dataset_forge.cli:main"
 
 [project.urls]
 Repository = "https://github.com/WoBen07/Synthetic_Conversational_Dataset_Generator"
 Datasets = "https://huggingface.co/datasets/Verox132/Medical_Conversational_Dataset"
 
 [tool.setuptools.dynamic]
-version = { attr = "synthetic_data_generator.__version__" }
+version = { attr = "dataset_forge.__version__" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

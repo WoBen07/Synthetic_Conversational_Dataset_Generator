@@ -11,17 +11,17 @@ from unittest import mock
 import helpers
 import yaml
 
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine import domain as domain_module
-from synthetic_data_generator.engine import lint_templates, orchestrator
-from synthetic_data_generator.engine.config_optimizer import render_block, write_block
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-from synthetic_data_generator.engine.domain import Domain, deep_merge, list_domains, load_domain
-from synthetic_data_generator.engine.languages import LANGUAGES
-from synthetic_data_generator.engine.linguistic_resolver import LinguisticResolver
-from synthetic_data_generator.engine.new_domain import create_domain
-from synthetic_data_generator.engine.tool_definitions import tool_definitions
-from synthetic_data_generator.engine.validators.validator import Validator
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine import domain as domain_module
+from dataset_forge.engine import lint_templates, orchestrator
+from dataset_forge.engine.config_optimizer import render_block, write_block
+from dataset_forge.engine.dataset_generator import DatasetGenerator
+from dataset_forge.engine.domain import Domain, deep_merge, list_domains, load_domain
+from dataset_forge.engine.languages import LANGUAGES
+from dataset_forge.engine.linguistic_resolver import LinguisticResolver
+from dataset_forge.engine.new_domain import create_domain
+from dataset_forge.engine.tool_definitions import tool_definitions
+from dataset_forge.engine.validators.validator import Validator
 
 
 TEMPLATE = "orders/order_status"

@@ -90,9 +90,9 @@ answers without refusing and without a tool call.
 ## Checking a Template
 
 ```bash
-# from the directory that contains synthetic_data_generator/
+# with the package installed (pip install -e .)
 python -c "
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
+from dataset_forge.engine.dataset_generator import DatasetGenerator
 g = DatasetGenerator(1, domain='hospital'); t = 'tool_use/patient_reminder'
 dp = g.generate_one(*g.domain.paths(t))
 print(dp); print(g.validator.validate(dp))"

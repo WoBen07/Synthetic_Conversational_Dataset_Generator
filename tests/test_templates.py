@@ -9,7 +9,7 @@ import yaml
 
 import helpers
 
-from synthetic_data_generator.engine import lint_templates
+from dataset_forge.engine import lint_templates
 
 
 DOMAIN = helpers.HOSPITAL

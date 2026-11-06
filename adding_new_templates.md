@@ -1,6 +1,6 @@
 All paths below are inside the domain pack, e.g. `domains/hospital/`.
 For a new application, first create a pack with
-`sdg new-domain <name>`.
+`dforge new-domain <name>`.
 
 1. Pick a category subfolder under `templates/` (e.g. `tool_use/`,
    `safety_and_refusals/`, `conversational/`) — reuse an existing one or

@@ -1,0 +1,30 @@
+# Default engine-wide settings. A project overrides any of them in its
+# own config/generation_config.yaml, key by key. Amounts, tool-share
+# targets and uniqueness caps are set per domain in
+# domains/<name>/config.yaml.
+
+# Domains generated when no --domain is given. Empty: every domain.
+domains: []
+
+# Folder below Datasets/ that receives the merged train/validation files
+# of the domains above. Any other selection of domains is merged into
+# Datasets/<domain>+<domain>/ instead, so it never overwrites this one.
+merged_dataset: dataset
+
+# Settings for the optional engine/config_optimizer.py, which writes a
+# uniqueness_caps block at the end of each domain's config.yaml (see its docstring).
+uniqueness_optimizer:
+  samples: 200              # valid datapoints sampled per template
+  max_duplicate_rate: 0.05  # accepted share of datapoints worded like another one
+  max_phrase_repeats: 100   # how often one phrase may be used per template
+  min_amount: 100           # never cap a template below this
+  seed: 1234
+
+random_seed_range:
+  min: 1
+  max: 999999
+
+# Run seed. Set it (or pass --seed) for reproducible runs: the same seed,
+# domains, templates and generator version produce the same data. Empty:
+# a fresh seed per run, printed and stored in the merged metadata.json.
+seed:

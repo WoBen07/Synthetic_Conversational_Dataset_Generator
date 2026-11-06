@@ -4,7 +4,8 @@ This folder is split into smaller docs so each part stays readable.
 
 ## Start Here
 
-- [Overview, installation and the `sdg` command](overview.md)
+- [Overview, installation and the `dforge` command](overview.md)
+- [Python API](api.md)
 - [Domains](domains.md)
 - [Generation Flow](workflow.md)
 - [Engine Modules](engine.md)

@@ -1,6 +1,7 @@
-# Synthetic Conversational Dataset Generator
+# Dataset Forge
 
-A generator for synthetic conversational data, built for training and
+**Dataset Forge** (`pip install python-dataset-forge`) is a generator for
+synthetic conversational and tool-calling data, built for training and
 evaluating AI models. The generation templates cover human-robot
 interaction (HRI) in a medical context (a hospital service robot talking
 to patients and visitors) and a German smart-home assistant controlling
@@ -14,13 +15,21 @@ time.
 ## Quick Start
 
 ```bash
-git clone https://github.com/WoBen07/Synthetic_Conversational_Dataset_Generator
-cd Synthetic_Conversational_Dataset_Generator
-pip install -e .
+pip install -e .                       # from a clone of this repository
 
-sdg domains                         # built-in domains: hospital, home_assistant
-sdg generate --domain hospital      # writes Synthetic_Data/ and Datasets/
-sdg new-domain my_domain            # start your own domain pack
+dforge init my-project --domain shop   # project folder with a first domain pack
+cd my-project
+dforge domains                         # yours plus the built-in hospital and home_assistant
+dforge generate --domain shop --seed 1 # writes Synthetic_Data/ and Datasets/
+```
+
+Or from Python:
+
+```python
+from dataset_forge import Forge
+
+forge = Forge("hospital", seed=42)
+datapoints = list(forge.generate("tool_use/patient_reminder", n=5))
 ```
 
 ## Documentation

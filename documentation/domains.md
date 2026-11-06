@@ -69,7 +69,7 @@ the engine itself writes or checks follows it, see
 
 ## Python hooks (optional)
 
-A pack that needs code adds an `__init__.py`. The engine reads three
+A pack that needs code adds an `__init__.py`. The engine reads these
 optional names from it:
 
 | name | purpose | hospital example |
@@ -78,6 +78,7 @@ optional names from it:
 | `create_validators(domain)` | validator instances, run after the engine's structural checks; `domain` tells them the variant and language | weather advice must match the `get_weather` result |
 | `refresh_entity(entity)` | called for every entity after constraints, to keep derived fields consistent | redraw an appointment location that no longer fits its type |
 | `finish_context(context, scenario)` | called once all entities exist, before the system message is built, for what depends on several of them | home_assistant: build a home that contains the conversation's devices |
+| `reset_state()` | called before a run (and when a `Forge` is created), resets module-level state so the same seed gives the same data | reset the patient-ID counter and the weather profile |
 | `postprocess(datapoint, domain)` | the rendered conversation, before validation; may raise `ValueError` to redraw | home_assistant: drop empty arguments, speech-recognizer text, map tools to HA intents |
 
 Shared generators (`generators/`): `first_name`, `last_name`,
@@ -87,7 +88,7 @@ values from its language schemas.
 ## Creating a domain
 
 ```bash
-sdg new-domain retail_store \
+dforge new-domain retail_store \
     --description "Shop assistant robot answering customer questions."
 ```
 
@@ -97,8 +98,36 @@ entity, a `check_order_status` tool and one template
 setup, then replace the example with real templates:
 
 ```bash
-sdg generate --domain retail_store
+dforge generate --domain retail_store
 ```
+
+## Installable domain packs
+
+A domain can also be shipped as its own pip package, so others can use it
+without copying folders:
+
+```bash
+dforge new-domain retail_store --package --description "..."
+pip install -e dforge-retail-store
+dforge domains          # retail_store   installed   dforge_retail_store
+```
+
+`--package` creates `dforge-retail-store/` with a `pyproject.toml` and the
+pack as the Python package `src/dforge_retail_store/`. The pack registers
+itself through an entry point, which is all the engine looks for:
+
+```toml
+[project.entry-points."dataset_forge.domains"]
+retail_store = "dforge_retail_store"
+```
+
+The package's folder is the pack (`domain.yaml`, `templates/`, ...) and its
+`__init__.py` is where the [Python hooks](#python-hooks-optional) go;
+relative imports work as usual. Publish it to PyPI like any other
+package. A project's own `domains/<name>/` overrides an installed pack of
+the same name.
+
+## Per-domain tooling
 
 Everything else works per domain as well: the
 [validators](validation.md) read the domain's tool schemas, the
@@ -113,10 +142,10 @@ layout of the pack, holds only what differs, and is addressed as
 `<name>@<variant>` wherever a domain name is accepted:
 
 ```bash
-sdg generate --domain home_assistant@en
-sdg generate --domain home_assistant --domain home_assistant@en
-sdg optimize --domain home_assistant@en
-python -m synthetic_data_generator.engine.tool_definitions home_assistant@en
+dforge generate --domain home_assistant@en
+dforge generate --domain home_assistant --domain home_assistant@en
+dforge optimize --domain home_assistant@en
+python -m dataset_forge.engine.tool_definitions home_assistant@en
 ```
 
 The `domain.yaml` of a variant is required, may be empty, and goes on top
@@ -251,8 +280,8 @@ a new language is one entry there, an unknown code is an error.
 ## Generating and merging several domains
 
 ```bash
-sdg generate                          # domains from config
-sdg generate --domain hospital --domain retail_store
+dforge generate                          # domains from config
+dforge generate --domain hospital --domain retail_store
 ```
 
 Output goes to `Synthetic_Data/<domain>/<template name>/`, replacing what a

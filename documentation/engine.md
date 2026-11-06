@@ -39,7 +39,7 @@ see [languages](domains.md#languages).
 ## `engine/new_domain.py`
 
 Creates a new domain pack with one working example template:
-`sdg new-domain <name>`.
+`dforge new-domain <name>`.
 
 ## `engine/template_loader.py`
 
@@ -50,7 +50,7 @@ own file first), where
 
 ## `engine/orchestrator.py`
 
-Entry point for a full run (`sdg generate`).
+Entry point for a full run (`dforge generate`).
 Generates every template of the selected domains (`--domain`, repeatable;
 default: `domains` in `config/generation_config.yaml`).
 

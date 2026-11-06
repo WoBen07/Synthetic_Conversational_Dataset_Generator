@@ -6,10 +6,10 @@ from pathlib import Path
 
 import helpers
 
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-from synthetic_data_generator.engine.domain import Domain, list_domains, load_domain
-from synthetic_data_generator.engine.new_domain import create_domain
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine.dataset_generator import DatasetGenerator
+from dataset_forge.engine.domain import Domain, list_domains, load_domain
+from dataset_forge.engine.new_domain import create_domain
 
 
 def load_script(relative):

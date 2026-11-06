@@ -2,12 +2,12 @@ import unittest
 
 import helpers
 
-from synthetic_data_generator.engine.constraint_resolver import ConstraintResolver
-from synthetic_data_generator.engine.entity_refresh import EntityRefresher
-from synthetic_data_generator.engine.robot_context import build_robot_context
-from synthetic_data_generator.engine.scenario_builder import ScenarioBuilder
-from synthetic_data_generator.domains.hospital.generators.appointments import TYPE_LOCATIONS, locations_for
-from synthetic_data_generator.domains.hospital.generators.rooms import ALL_FACILITY_ROOMS, PATIENT_ROOMS
+from dataset_forge.engine.constraint_resolver import ConstraintResolver
+from dataset_forge.engine.entity_refresh import EntityRefresher
+from dataset_forge.engine.robot_context import build_robot_context
+from dataset_forge.engine.scenario_builder import ScenarioBuilder
+from dataset_forge.domains.hospital.generators.appointments import TYPE_LOCATIONS, locations_for
+from dataset_forge.domains.hospital.generators.rooms import ALL_FACILITY_ROOMS, PATIENT_ROOMS
 
 
 class ConstraintTest(unittest.TestCase):

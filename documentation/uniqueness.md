@@ -42,22 +42,22 @@ Run in the [project folder](overview.md#project-folder):
 
 ```bash
 # report only: table of planned vs. capped amounts, nothing is changed
-sdg optimize
+dforge optimize
 
 # another domain than the default one
-sdg optimize --domain hospital
+dforge optimize --domain hospital
 
 # write the caps into domains/<domain>/config.yaml
-sdg optimize --write
+dforge optimize --write
 
 # only some templates (path prefixes); caps of the others are kept
-sdg optimize --templates tool_use safety_and_refusals/consent_seeking --write
+dforge optimize --templates tool_use safety_and_refusals/consent_seeking --write
 
 # remove the caps again
-sdg optimize --clear
+dforge optimize --clear
 
 # optimise, then generate and merge as usual
-sdg generate --optimize
+dforge generate --optimize
 ```
 
 Further flags: `--samples`, `--max-duplicate-rate`, `--max-phrase-repeats`,

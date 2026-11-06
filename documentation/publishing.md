@@ -9,7 +9,7 @@ every run must find the target in `approved_datasets`.
 1. Create a HuggingFace account at https://huggingface.co if you don't have
    one.
 2. Install the `hub` extra: `pip install -e ".[hub]"` from the
-   repository root (or `pip install "synthetic-data-generator[hub]"`). If
+   repository root (or `pip install "python-dataset-forge[hub]"`). If
    your system Python is externally managed (Debian/Ubuntu), create a
    virtual environment first:
    ```
@@ -29,7 +29,8 @@ every run must find the target in `approved_datasets`.
 
 ## Approving a dataset for publishing
 
-Edit `config/publish_config.yaml`:
+Copy `config/publish_config.example.yaml` to `config/publish_config.yaml`
+(git-ignored, so your Hub target stays private) and edit it:
 
 ```yaml
 hf_repo_id: "your-username/hospital-robot-hri"
@@ -46,13 +47,13 @@ generator or merger does for you.
 
 ```
 # publish every entry in approved_datasets
-sdg publish
+dforge publish
 
 # publish just one (it must already be in approved_datasets)
-sdg publish --dataset Test_Dataset_9
+dforge publish --dataset Test_Dataset_9
 
 # see what would happen without uploading anything
-sdg publish --dry-run
+dforge publish --dry-run
 ```
 
 Each approved dataset is uploaded under its own folder in the repo

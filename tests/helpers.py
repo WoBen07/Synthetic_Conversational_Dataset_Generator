@@ -16,17 +16,17 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-PACKAGE_ROOT = REPO_ROOT / "src" / "synthetic_data_generator"
+PACKAGE_ROOT = REPO_ROOT / "src" / "dataset_forge"
 
 # An installed copy wins (CI tests the installed package); otherwise src/.
 try:
-    import synthetic_data_generator  # noqa: F401
+    import dataset_forge  # noqa: F401
 except ImportError:
     sys.path.insert(0, str(PACKAGE_ROOT.parent))
 
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator  # noqa: E402,F401
-from synthetic_data_generator.engine.domain import load_domain  # noqa: E402
-from synthetic_data_generator.domains.hospital.generators import ids, weather  # noqa: E402
+from dataset_forge.engine.dataset_generator import DatasetGenerator  # noqa: E402,F401
+from dataset_forge.engine.domain import load_domain  # noqa: E402
+from dataset_forge.domains.hospital.generators import ids, weather  # noqa: E402
 
 # The domain most tests run against
 HOSPITAL = load_domain("hospital")

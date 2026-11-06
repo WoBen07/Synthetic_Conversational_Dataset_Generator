@@ -2,9 +2,9 @@ import unittest
 
 from helpers import HOSPITAL, conversation
 
-from synthetic_data_generator.engine.tool_definitions import tool_definitions
-from synthetic_data_generator.engine.validators.grounding_validator import GroundingValidator
-from synthetic_data_generator.engine.validators.tool_schema_validator import ToolSchemaValidator
+from dataset_forge.engine.tool_definitions import tool_definitions
+from dataset_forge.engine.validators.grounding_validator import GroundingValidator
+from dataset_forge.engine.validators.tool_schema_validator import ToolSchemaValidator
 
 
 def call(tool_name, /, **arguments):

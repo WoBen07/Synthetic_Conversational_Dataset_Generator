@@ -3,13 +3,13 @@ import unittest
 
 import helpers  # noqa: F401  (sets up the import path)
 
-from synthetic_data_generator.engine.text_utils import (
+from dataset_forge.engine.text_utils import (
     article_mismatches,
     doubled_words,
     wants_an,
 )
-from synthetic_data_generator.engine.template_renderer import TemplateRenderer
-from synthetic_data_generator.engine.language_generator import LanguageGenerator
+from dataset_forge.engine.template_renderer import TemplateRenderer
+from dataset_forge.engine.language_generator import LanguageGenerator
 
 
 class ArticleTest(unittest.TestCase):
