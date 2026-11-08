@@ -18,6 +18,7 @@ This folder is split into smaller docs so each part stays readable.
 - [Tests](testing.md)
 - [Extending the Generator](extending.md)
 - [Publishing to HuggingFace Hub](publishing.md)
+- [Releasing to PyPI](releasing.md)
 
 ## Notes
 
