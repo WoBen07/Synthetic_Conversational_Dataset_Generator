@@ -6,16 +6,16 @@ from pathlib import Path
 
 import helpers
 
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-from synthetic_data_generator.engine.domain import Domain, list_domains, load_domain
-from synthetic_data_generator.engine.new_domain import create_domain
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine.dataset_generator import DatasetGenerator
+from dataset_forge.engine.domain import Domain, list_domains, load_domain
+from dataset_forge.engine.new_domain import create_domain
 
 
 def load_script(relative):
     """Import a preprocessor script (they are not part of a package)."""
 
-    path = helpers.PACKAGE_ROOT / relative
+    path = helpers.REPO_ROOT / relative
     spec = importlib.util.spec_from_file_location(path.stem, path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -120,8 +120,8 @@ class PreprocessorToolsTest(unittest.TestCase):
 
     def test_tools_follow_the_example_domain(self):
 
-        qwen = load_script("Model_Specific_Preprocessors/qwen_preprossor.py")
-        gemma = load_script("Model_Specific_Preprocessors/Gemma_preprocessor.py")
+        qwen = load_script("scripts/qwen_preprossor.py")
+        gemma = load_script("scripts/Gemma_preprocessor.py")
 
         tools = {"hospital": ["h"], "shop": ["s"]}
         example = {"messages": [], "metadata": {"domain": "shop"}}

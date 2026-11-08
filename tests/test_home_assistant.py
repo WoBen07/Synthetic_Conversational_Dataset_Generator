@@ -11,20 +11,20 @@ from unittest import mock
 
 import helpers
 
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine import orchestrator
-from synthetic_data_generator.engine.domain import configured_domains, load_domain
-from synthetic_data_generator.engine.robot_context import build_robot_context
-from synthetic_data_generator.engine.template_renderer import TemplateRenderer
-from synthetic_data_generator.engine.tool_definitions import tool_definitions, write_tool_schemas
-from synthetic_data_generator.engine.validators.grounding_validator import GroundingValidator
-from synthetic_data_generator.engine.validators.language_validator import LanguageValidator
-from synthetic_data_generator.engine.validators.tool_schema_validator import ToolSchemaValidator
-from synthetic_data_generator.domains.home_assistant import finish_context
-from synthetic_data_generator.domains.home_assistant.generators import devices
-from synthetic_data_generator.domains.home_assistant.hass_mapping import to_home_assistant_intents
-from synthetic_data_generator.domains.home_assistant.postprocess import _as_speech, postprocess
-from synthetic_data_generator.domains.home_assistant.validators import (
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine import orchestrator
+from dataset_forge.engine.domain import configured_domains, load_domain
+from dataset_forge.engine.robot_context import build_robot_context
+from dataset_forge.engine.template_renderer import TemplateRenderer
+from dataset_forge.engine.tool_definitions import tool_definitions, write_tool_schemas
+from dataset_forge.engine.validators.grounding_validator import GroundingValidator
+from dataset_forge.engine.validators.language_validator import LanguageValidator
+from dataset_forge.engine.validators.tool_schema_validator import ToolSchemaValidator
+from dataset_forge.domains.home_assistant import finish_context
+from dataset_forge.domains.home_assistant.generators import devices
+from dataset_forge.domains.home_assistant.hass_mapping import to_home_assistant_intents
+from dataset_forge.domains.home_assistant.postprocess import _as_speech, postprocess
+from dataset_forge.domains.home_assistant.validators import (
     LightCapabilityValidator,
     SecurityConfirmationValidator,
 )
@@ -545,7 +545,7 @@ class BehaviourTest(unittest.TestCase):
 
                 scenario = DOMAIN.paths(template_id)
 
-                from synthetic_data_generator.engine.scenario_builder import ScenarioBuilder
+                from dataset_forge.engine.scenario_builder import ScenarioBuilder
 
                 context = ScenarioBuilder(scenario[0], DOMAIN).generate()
 

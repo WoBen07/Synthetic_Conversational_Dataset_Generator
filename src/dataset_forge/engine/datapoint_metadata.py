@@ -1,0 +1,94 @@
+"""Describe a generated datapoint, for filtering, evaluation and splits.
+
+Every datapoint written by DatasetGenerator.generate_many carries a
+``metadata`` block next to ``messages``::
+
+    "metadata": {
+      "domain": "hospital",
+      "language": "en",
+      "template": "tool_use/patient_reminder",
+      "category": "tool_use",
+      "behaviour": "action",
+      "tools": ["find_patient", "get_patient_appointment", "remind_patient"],
+      "tags": ["clarification"],
+      "wording_id": "3f9a1c0b7d2e",
+      "template_hash": "8c41d07e95ab",
+      "generator_version": "0.2.0"
+    }
+
+- domain: the domain's name, with its variant if any
+  ("home_assistant@en"); the preprocessors look the tools up by it.
+- behaviour: "action" if a tool with side effects is called (see
+  ``side_effects`` in the domain's tool schemas), "lookup_only" if only read-only
+  tools are called, "no_tool" otherwise.
+- tags: the scenario's optional ``tags`` list.
+- wording_id: domain and template plus the language option chosen for every
+  variable it used. Datapoints with the same wording_id read the same
+  apart from names, rooms and days; the merger keeps them on one side of
+  the train/validation split.
+- template_hash: hash of the template's template, scenario and language
+  files. It changes whenever one of them is edited, so datapoints of
+  different template revisions can be told apart.
+
+The model-specific preprocessors only keep ``messages``, so metadata
+never reaches training.
+"""
+
+import hashlib
+import json
+
+from dataset_forge.engine.config import GENERATOR_VERSION
+from dataset_forge.engine.tool_registry import has_side_effects
+
+
+def tool_calls(message):
+
+    plural = message.get("tool_calls")
+
+    if plural:
+        return list(plural) if isinstance(plural, list) else [plural]
+
+    singular = message.get("tool_call")
+
+    return [singular] if singular else []
+
+
+def wording_id(template, choices, domain=""):
+
+    key = json.dumps([domain, template, sorted(choices.items())], ensure_ascii=False)
+
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
+
+
+def behaviour(tools, schemas):
+    """Label from the called ``tools`` and the domain's tool ``schemas``."""
+
+    if any(has_side_effects(tool, schemas) for tool in tools):
+        return "action"
+
+    if tools:
+        return "lookup_only"
+
+    return "no_tool"
+
+
+def build_metadata(datapoint, domain, template, choices, tags=(), template_hash=None):
+
+    tools = [
+        call["name"]
+        for message in datapoint.get("messages", [])
+        for call in tool_calls(message)
+    ]
+
+    return {
+        "domain": domain.name,
+        "language": domain.language,
+        "template": template,
+        "category": template.split("/")[0],
+        "behaviour": behaviour(tools, domain.tools),
+        "tools": tools,
+        "tags": list(tags),
+        "wording_id": wording_id(template, choices, domain.name),
+        "template_hash": template_hash,
+        "generator_version": GENERATOR_VERSION,
+    }

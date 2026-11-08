@@ -3,8 +3,8 @@
 A local web page to look at what the generator produces and to run it:
 
 ```bash
-# from the directory that contains synthetic_data_generator/
-python -m synthetic_data_generator.engine.gui [--port 8765] [--no-browser]
+# in the project folder (see overview.md)
+dforge gui [--port 8765] [--no-browser]
 ```
 
 It needs nothing beyond the project's requirements, and opens in your

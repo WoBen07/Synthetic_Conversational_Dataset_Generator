@@ -2,16 +2,33 @@
 
 ## 1. Entry Points
 
-- **Full run:** `python -m synthetic_data_generator.engine.orchestrator`
-  (from the directory that contains `synthetic_data_generator/`) lints
+- **Full run:** `dforge generate` (in the [project folder](overview.md#project-folder)) lints
   the templates, plans the amounts, generates every template of the
   selected [domains](domains.md) (`--domain`, default from
   `config/generation_config.yaml`) and merges the result into
   train/validation files. `--optimize` first runs the
-  [uniqueness optimizer](uniqueness.md).
+  [uniqueness optimizer](uniqueness.md), `--seed N` makes the run
+  [reproducible](#reproducibility).
+- **From Python:** `Forge(domain, seed).generate(template, n)` yields
+  datapoints without writing files; see the [Python API](api.md).
 - **Single template:** `engine/runner.py` instantiates `DatasetGenerator`
   and calls `generate_many(...)` for one scenario, template and language
   schema.
+
+## Reproducibility
+
+Every run has a run seed: `--seed N`, else `seed` in
+`config/generation_config.yaml`, else a fresh one. It is printed at the
+start (`Run seed: 123 (repeat this run with --seed 123)`) and stored as
+`generation_run.seed` in the merged `metadata.json`. Each template gets
+its own seed, derived from the run seed, the domain and the template id,
+so adding or removing a template leaves the other templates' seeds alone.
+
+The same run seed, domains, templates and package version produce
+byte-identical output. Each datapoint records what it was made from:
+`metadata.generator_version` and `metadata.template_hash` (a hash of
+the template, scenario and language files); each template's
+`metadata.json` records its seed.
 
 ## 2. Planning Amounts
 
@@ -64,7 +81,7 @@ Consecutive assistant messages are folded into one
 
 Valid datapoints that are not duplicates of earlier ones get a
 `metadata` block (template, category, behaviour, tools, tags, wording
-ID; see [engine](engine.md#enginedatapoint_metadatapy)) and are written as
+ID, template hash, generator version; see [engine](engine.md#enginedatapoint_metadatapy)) and are written as
 `example_00000.json`, `example_00001.json`, ... in
 `Synthetic_Data/<domain>/<template name>/`, followed by a `metadata.json`. If 5
 datapoints in a row cannot be generated, the template is stopped early
@@ -94,7 +111,7 @@ definitions of each domain's tools, as `{domain: [definitions]}`.
 
 ## 10. Model-Specific Preprocessing
 
-`Model_Specific_Preprocessors/qwen_preprossor.py` and
+`scripts/qwen_preprossor.py` and
 `Gemma_preprocessor.py` convert the merged files into the tool-call
 format of each model family. They keep only `messages`, so `metadata`
 never reaches training, and attach the tool definitions of each

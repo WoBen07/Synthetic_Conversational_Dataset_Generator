@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-dataset-forge"
+dynamic = ["version"]
+description = "Template-based generator for synthetic conversational and tool-calling datasets."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Benedict Wohlgemuth" }]
+keywords = ["synthetic data", "dataset", "llm", "tool calling", "function calling", "fine-tuning", "conversational ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+hub = ["huggingface_hub>=0.24"]
+
+[project.scripts]
+dataset-forge = "dataset_forge.cli:main"
+dforge = "dataset_forge.cli:main"
+
+[project.urls]
+Repository = "https://github.com/WoBen07/Synthetic_Conversational_Dataset_Generator"
+Datasets = "https://huggingface.co/datasets/Verox132/Medical_Conversational_Dataset"
+
+[tool.setuptools.dynamic]
+version = { attr = "dataset_forge.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# Domain packs, default config and the GUI page are data, not code.
+"*" = ["**/*.yaml", "**/*.json", "**/*.html"]

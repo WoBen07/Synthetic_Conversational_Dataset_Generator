@@ -8,14 +8,14 @@ every run must find the target in `approved_datasets`.
 
 1. Create a HuggingFace account at https://huggingface.co if you don't have
    one.
-2. Install the dependency: `pip install huggingface_hub` (or
-   `pip install -r requirements.txt` from the project root). If your system
-   Python is externally managed (Debian/Ubuntu), create a virtual
-   environment first:
+2. Install the `hub` extra: `pip install -e ".[hub]"` from the
+   repository root (or `pip install "python-dataset-forge[hub]"`). If
+   your system Python is externally managed (Debian/Ubuntu), create a
+   virtual environment first:
    ```
    python3 -m venv .venv
    source .venv/bin/activate
-   pip install -r requirements.txt
+   pip install -e ".[hub]"
    ```
 3. Create an access token at https://huggingface.co/settings/tokens (a
    "Write" token, since this pushes data) and log in once from the
@@ -29,7 +29,8 @@ every run must find the target in `approved_datasets`.
 
 ## Approving a dataset for publishing
 
-Edit `config/publish_config.yaml`:
+Copy `config/publish_config.example.yaml` to `config/publish_config.yaml`
+(git-ignored, so your Hub target stays private) and edit it:
 
 ```yaml
 hf_repo_id: "your-username/hospital-robot-hri"
@@ -46,13 +47,13 @@ generator or merger does for you.
 
 ```
 # publish every entry in approved_datasets
-python -m synthetic_data_generator.engine.publish_to_hub
+dforge publish
 
 # publish just one (it must already be in approved_datasets)
-python -m synthetic_data_generator.engine.publish_to_hub --dataset Test_Dataset_9
+dforge publish --dataset Test_Dataset_9
 
 # see what would happen without uploading anything
-python -m synthetic_data_generator.engine.publish_to_hub --dry-run
+dforge publish --dry-run
 ```
 
 Each approved dataset is uploaded under its own folder in the repo

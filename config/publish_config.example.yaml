@@ -1,0 +1,12 @@
+# Hugging Face Hub target for `dforge publish`.
+#
+# Copy this file to config/publish_config.yaml (which is git-ignored) and
+# fill it in. Nothing can be pushed until hf_repo_id is set.
+hf_repo_id:          # e.g. "your-username/your-dataset"
+private: true
+
+# Only dataset folders listed here (under Datasets/) can be published.
+# Generating and merging a dataset does NOT add it here - add a folder
+# name only once you've reviewed Datasets/<name>/ and decided it's ready
+# to share.
+approved_datasets: []

@@ -1,0 +1,498 @@
+#!/usr/bin/env python3
+
+import json
+import random
+from pathlib import Path
+from collections import defaultdict
+
+from dataset_forge.engine.domain import load_global_config, resolve_domain
+from dataset_forge.engine.config import GENERATOR_VERSION
+from dataset_forge.engine.paths import DATASETS_DIR, OUTPUT_ROOT
+from dataset_forge.engine.tool_definitions import (
+    tool_definitions,
+    write_tool_schemas,
+)
+
+
+# ==========================
+# Configuration
+# ==========================
+
+
+INPUT_FOLDER = OUTPUT_ROOT
+# Name of the merged dataset of the configured domains, below Datasets/,
+# unless generation_config.yaml sets merged_dataset.
+DEFAULT_MERGED_DATASET = "dataset"
+TRAIN_OUTPUT = "train.jsonl"
+# Function definitions per domain, {domain: [definitions]}
+# (engine/tool_definitions.py); the model-specific preprocessors attach
+# the list of each example's domain.
+TOOLS_OUTPUT = "tools.json"
+# The same definitions as one JSON file per tool:
+# tool_schemas/<domain>/<tool>.json
+TOOL_SCHEMAS_OUTPUT = "tool_schemas"
+VALIDATION_OUTPUT = "validation.jsonl"
+
+VALIDATION_SPLIT = 0.1
+
+RANDOM_SEED = 42
+
+SHUFFLE = True
+
+
+# ==========================
+# Loading
+# ==========================
+
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_dataset_by_template(input_folder, domains=None):
+    """Load Synthetic_Data/<domain>/<template>/ into {"<domain>/<template>": [...]}.
+
+    ``domains`` limits loading to those domains (default: every domain
+    folder present). Template folders directly in ``input_folder`` come
+    from the layout before domain packs; they are skipped with a warning,
+    since they would mix old data into the merge.
+    """
+
+    root = Path(input_folder)
+
+    datasets = defaultdict(list)
+
+    legacy = sorted(
+        folder.name for folder in root.iterdir()
+        if (folder / "metadata.json").exists()
+    )
+
+    if legacy:
+        print(
+            f"Skipping {len(legacy)} folder(s) in the old flat layout "
+            f"(before domain packs), e.g. {legacy[0]} - regenerate them "
+            f"or move them to {root}/<domain>/."
+        )
+
+    domain_folders = sorted(
+        folder for folder in root.iterdir()
+        if folder.is_dir()
+        and not (folder / "metadata.json").exists()
+        and (domains is None or folder.name in domains)
+    )
+
+    for domain_folder in domain_folders:
+
+        for folder in sorted(f for f in domain_folder.iterdir() if f.is_dir()):
+
+            metadata_file = folder / "metadata.json"
+
+            if not metadata_file.exists():
+                print(
+                    f"Skipping {folder}: no metadata.json"
+                )
+                continue
+
+            metadata = load_json(metadata_file)
+
+            template = metadata.get("template")
+
+            if template is None:
+                print(
+                    f"Skipping {folder}: no template field"
+                )
+                continue
+
+            key = f"{metadata.get('domain', domain_folder.name)}/{template}"
+
+            json_files = [
+                f for f in folder.glob("*.json")
+                if f.name != "metadata.json"
+            ]
+
+            for json_file in json_files:
+
+                try:
+                    datapoint = load_json(json_file)
+
+                    if "messages" not in datapoint:
+                        print(
+                            f"Skipping {json_file}: no messages"
+                        )
+                        continue
+
+                    datasets[key].append(datapoint)
+
+                except Exception as e:
+                    print(
+                        f"Failed loading {json_file}: {e}"
+                    )
+
+            expected = metadata.get("amount")
+
+            if expected is not None:
+                actual = len(datasets[key])
+
+                if actual != expected:
+                    print(
+                        f"WARNING: {key}: "
+                        f"metadata says {expected}, "
+                        f"found {actual}"
+                    )
+
+    return datasets
+
+
+
+# ==========================
+# Conversation-flow lint
+# ==========================
+
+def assert_strict_role_alternation(datasets):
+    """Fail loudly if any datapoint has two consecutive messages with the
+    same role.
+
+    Runs over the full generated corpus as a last line of defence: the
+    renderer already folds consecutive assistant turns, so a hit here means
+    that step regressed and the dataset must not be written.
+    """
+
+    violations = []
+
+    for template, samples in datasets.items():
+
+        domain, _, template_id = template.partition("/")
+
+        for sample_index, datapoint in enumerate(samples):
+
+            messages = datapoint.get("messages", [])
+
+            for i in range(1, len(messages)):
+
+                if messages[i].get("role") == messages[i - 1].get("role"):
+
+                    violations.append(
+                        f"{template} (sample {sample_index}): "
+                        f"consecutive '{messages[i].get('role')}' at "
+                        f"messages {i - 1}/{i} - check template {template_id} of {domain}"
+                    )
+
+    if violations:
+
+        preview = "\n".join(f"  - {v}" for v in violations[:20])
+
+        more = (
+            f"\n  ... and {len(violations) - 20} more"
+            if len(violations) > 20
+            else ""
+        )
+
+        raise RuntimeError(
+            f"Conversation-flow lint failed: {len(violations)} datapoint(s) "
+            f"have consecutive same-role messages.\n{preview}{more}"
+        )
+
+    print(
+        f"Conversation-flow lint OK: "
+        f"{sum(len(s) for s in datasets.values())} datapoints, "
+        f"strictly alternating roles."
+    )
+
+
+# ==========================
+# Stratified split
+# ==========================
+
+def write_metadata(path, metadata):
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            metadata,
+            f,
+            indent=2,
+            ensure_ascii=False
+        )
+
+def wording_key(datapoint, index):
+    """Group key for the split: datapoints with the same wording_id read
+    the same apart from names, rooms and days. Datapoints generated
+    before metadata existed get a key of their own."""
+
+    metadata = datapoint.get("metadata") or {}
+
+    return metadata.get("wording_id") or f"__no_wording_id_{index}"
+
+
+def split_template(samples, rng):
+    """Split one template into (train, validation) by wording.
+
+    Whole wording groups go to validation until it holds about
+    VALIDATION_SPLIT of the samples, so validation never contains a
+    datapoint whose wording was also seen in training - with a plain
+    random split most validation datapoints had a training twin that
+    differed only in the names.
+    """
+
+    target = max(1, int(len(samples) * VALIDATION_SPLIT))
+
+    groups = defaultdict(list)
+
+    for index, datapoint in enumerate(samples):
+        groups[wording_key(datapoint, index)].append(datapoint)
+
+    keys = list(groups)
+
+    if SHUFFLE:
+        rng.shuffle(keys)
+
+    train = []
+    validation = []
+
+    for key in keys:
+
+        group = groups[key]
+
+        # A group never goes to validation if that would leave training
+        # with less than the rest of the template.
+        if len(validation) < target and len(group) <= len(samples) - target:
+            validation.extend(group)
+        else:
+            train.extend(group)
+
+    return train, validation
+
+
+def stratified_split(datasets):
+    """Split every template on its own (stratified), grouped by wording.
+
+    Returns (train, validation, counts) with counts per template.
+    """
+
+    rng = random.Random(RANDOM_SEED)
+
+    train = []
+    validation = []
+    counts = {}
+
+    for template, samples in datasets.items():
+
+        train_samples, val_samples = split_template(samples, rng)
+
+        train.extend(train_samples)
+        validation.extend(val_samples)
+
+        counts[template] = {
+            "total": len(samples),
+            "train": len(train_samples),
+            "validation": len(val_samples),
+        }
+
+        print(
+            f"{template}: {len(samples)} samples, "
+            f"train={len(train_samples)}, validation={len(val_samples)}"
+        )
+
+        if not val_samples:
+            print(
+                f"  WARNING: no validation samples - the template has too "
+                f"few distinct wordings to split without overlap"
+            )
+
+    if SHUFFLE:
+        rng.shuffle(train)
+        rng.shuffle(validation)
+
+    return train, validation, counts
+
+
+def wording_overlap(train, validation):
+    """Number of validation datapoints whose wording_id is also in train."""
+
+    train_ids = {
+        (d.get("metadata") or {}).get("wording_id")
+        for d in train
+    } - {None}
+
+    return sum(
+        1 for d in validation
+        if (d.get("metadata") or {}).get("wording_id") in train_ids
+    )
+
+
+
+# ==========================
+# Writing
+# ==========================
+
+def write_jsonl(path, data):
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    with open(path, "w", encoding="utf-8") as f:
+
+        for item in data:
+
+            f.write(
+                json.dumps(
+                    item,
+                    ensure_ascii=False
+                )
+                + "\n"
+            )
+
+
+
+# ==========================
+# Main
+# ==========================
+
+def domains_of(datasets):
+    """Domains present in the loaded data ("<domain>/<template>" keys)."""
+
+    return sorted({key.split("/")[0] for key in datasets})
+
+
+def default_output_folder():
+    """Datasets/<merged_dataset from generation_config.yaml>."""
+
+    name = load_global_config().get("merged_dataset") or DEFAULT_MERGED_DATASET
+
+    return DATASETS_DIR / name
+
+
+def main(domains=None, output_folder=None, run=None):
+    """Merge Synthetic_Data/ into train/validation files. ``run`` (the
+    generation run's seed and domains) is stored in metadata.json."""
+
+
+    output_folder = Path(output_folder or default_output_folder())
+
+    train_output = (
+        output_folder / TRAIN_OUTPUT
+    )
+
+    validation_output = (
+        output_folder / VALIDATION_OUTPUT
+    )
+
+
+    print("Loading datasets...")
+    datasets = load_dataset_by_template(
+        INPUT_FOLDER,
+        domains
+    )
+
+
+    print("\nLinting conversation flow...")
+    assert_strict_role_alternation(datasets)
+
+
+    print("\nSplitting datasets...")
+    train, validation, counts = stratified_split(
+        datasets
+    )
+
+    overlap = wording_overlap(train, validation)
+
+    print(
+        f"Wording overlap between train and validation: {overlap} "
+        f"validation datapoint(s)"
+    )
+
+    without_metadata = sum(
+        1 for d in train + validation if "metadata" not in d
+    )
+
+    if without_metadata:
+        print(
+            f"WARNING: {without_metadata} datapoint(s) have no metadata "
+            f"(generated by an older version) and are split without "
+            f"wording groups - regenerate them for a leak-free split."
+        )
+
+
+    print("\nWriting files...")
+
+    write_jsonl(
+        train_output,
+        train
+    )
+
+    write_jsonl(
+        validation_output,
+        validation
+    )
+
+    # {domain: [definitions]} - each example gets its own domain's tools
+    with open(output_folder / TOOLS_OUTPUT, "w", encoding="utf-8") as f:
+        json.dump(
+            {domain: tool_definitions(domain) for domain in domains_of(datasets)},
+            f,
+            indent=2,
+            ensure_ascii=False
+        )
+
+    for domain in domains_of(datasets):
+        write_tool_schemas(domain, output_folder / TOOL_SCHEMAS_OUTPUT / domain)
+
+    metadata = {
+        "generator": "dataset_merger",
+        "input_folder": str(INPUT_FOLDER),
+        "output_folder": str(output_folder),
+
+        "generator_version": GENERATOR_VERSION,
+
+        "generation_run": run,
+
+        "random_seed": RANDOM_SEED,
+        "shuffle": SHUFFLE,
+
+        "validation_split": VALIDATION_SPLIT,
+
+        "domains": domains_of(datasets),
+
+        "languages": {
+            domain: resolve_domain(domain).language
+            for domain in domains_of(datasets)
+        },
+
+        "tools_file": TOOLS_OUTPUT,
+
+        "tool_schemas_folder": TOOL_SCHEMAS_OUTPUT,
+
+        "split": "stratified by template, grouped by metadata.wording_id",
+
+        "wording_overlap": overlap,
+
+        "templates": counts,
+
+        "total_samples": {
+            "all": len(train) + len(validation),
+            "train": len(train),
+            "validation": len(validation)
+        }
+    }
+
+
+    metadata_file = output_folder / "metadata.json"
+
+    write_metadata(
+        metadata_file,
+        metadata
+    )
+
+
+    print("\nFinished")
+    print("====================")
+    print(f"Output:     {output_folder}")
+    print(f"Total:      {len(train)+len(validation)}")
+    print(f"Train:      {len(train)}")
+    print(f"Validation: {len(validation)}")
+    print("====================")
+
+
+if __name__ == "__main__":
+    main()

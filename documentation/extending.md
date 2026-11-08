@@ -5,7 +5,7 @@
 Create a domain pack (see [domains](domains.md)):
 
 ```bash
-python -m synthetic_data_generator.engine.new_domain <name> --description "..."
+dforge new-domain <name> --description "..."
 ```
 
 and replace its example template with real ones as below.

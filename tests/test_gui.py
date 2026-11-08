@@ -14,7 +14,7 @@ from unittest import mock
 
 import helpers
 
-from synthetic_data_generator.engine import gui
+from dataset_forge.engine import gui
 
 
 class ServerTestCase(unittest.TestCase):
@@ -133,7 +133,7 @@ class ReadingTest(ServerTestCase):
 
     def test_preview_shows_why_a_template_fails(self):
 
-        with mock.patch("synthetic_data_generator.engine.validators.validator.Validator.validate", return_value=["nope"]):
+        with mock.patch("dataset_forge.engine.validators.validator.Validator.validate", return_value=["nope"]):
             status, result = self.request("/api/preview?domain=home_assistant&template=heating/heating_off")
 
         self.assertEqual(status, 200)
@@ -204,7 +204,7 @@ class PlanTest(unittest.TestCase):
 
     def test_target_of_the_configured_domains_is_the_merger_default(self):
 
-        self.assertEqual(gui.merge_target(["hospital"]), Path(gui.dataset_merger.OUTPUT_FOLDER))
+        self.assertEqual(gui.merge_target(["hospital"]), gui.dataset_merger.default_output_folder())
 
     def test_empty_selection(self):
 

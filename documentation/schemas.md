@@ -240,10 +240,10 @@ Quote `"on"` and `"off"` in enum values: unquoted, YAML reads them as
 booleans.
 
 Print the exported definitions with
-`python -m synthetic_data_generator.engine.tool_definitions [domain]`. The
+`python -m dataset_forge.engine.tool_definitions [domain]`. The
 merger writes them as JSON files, `tool_schemas/<domain>/<tool>.json` next
 to `tools.json`; to write them without generating anything, add a folder:
-`python -m synthetic_data_generator.engine.tool_definitions home_assistant <folder>`.
+`python -m dataset_forge.engine.tool_definitions home_assistant <folder>`.
 
 The tools of the hospital domain:
 

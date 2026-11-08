@@ -4,7 +4,8 @@ This folder is split into smaller docs so each part stays readable.
 
 ## Start Here
 
-- [Overview](overview.md)
+- [Overview, installation and the `dforge` command](overview.md)
+- [Python API](api.md)
 - [Domains](domains.md)
 - [Generation Flow](workflow.md)
 - [Engine Modules](engine.md)
@@ -17,6 +18,7 @@ This folder is split into smaller docs so each part stays readable.
 - [Tests](testing.md)
 - [Extending the Generator](extending.md)
 - [Publishing to HuggingFace Hub](publishing.md)
+- [Releasing to PyPI](releasing.md)
 
 ## Notes
 

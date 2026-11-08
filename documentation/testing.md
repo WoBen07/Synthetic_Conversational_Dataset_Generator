@@ -1,17 +1,15 @@
 # Tests
 
 The tests use `unittest` from the standard library (pytest runs them as
-well). Run them from inside `synthetic_data_generator/`:
+well). Run them from the repository root:
 
 ```bash
 python -m unittest discover -s tests
 ```
 
-or from the directory above:
-
-```bash
-python -m unittest discover -s synthetic_data_generator/tests
-```
+If the package is installed (`pip install -e .`), the installed copy is
+tested, otherwise the code in `src/`. CI installs the package normally,
+so a data file missing from the package makes the tests fail there.
 
 The whole suite takes about half a minute. GitHub Actions runs it on every
 push and pull request (`.github/workflows/tests.yml`).

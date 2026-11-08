@@ -1,19 +1,6 @@
-# Engine-wide settings. Amounts, tool-share targets and uniqueness caps
-# are set per domain in domains/<name>/config.yaml.
+# Settings of this repository's project, merged over the packaged
+# defaults in src/dataset_forge/config/generation_config.yaml.
 
-# Domains the orchestrator generates when no --domain is given.
-# Leave empty to generate every domain under domains/.
 domains: [hospital]
 
-# Settings for the optional engine/config_optimizer.py, which writes a
-# uniqueness_caps block at the end of each domain's config.yaml (see its docstring).
-uniqueness_optimizer:
-  samples: 200              # valid datapoints sampled per template
-  max_duplicate_rate: 0.05  # accepted share of datapoints worded like another one
-  max_phrase_repeats: 100   # how often one phrase may be used per template
-  min_amount: 100           # never cap a template below this
-  seed: 1234
-
-random_seed_range:
-  min: 1
-  max: 999999
+merged_dataset: Test_Dataset_9

@@ -1,0 +1,39 @@
+"""Python part of the hospital domain pack.
+
+The engine reads three optional names from a domain package:
+
+- GENERATORS: {key: function}, added to the shared generators;
+- create_validators(domain): validator instances run after the engine's
+  structural checks (domain: the Domain, for what differs per variant);
+- refresh_entity(entity): called for every entity after constraints are
+  resolved, to keep derived fields consistent;
+- reset_state(): called before a run, resets module-level state of the
+  generators so the same seed gives the same data.
+"""
+
+import random
+
+from .generators import GENERATORS, ids, weather  # noqa: F401
+from .generators.appointments import TYPE_LOCATIONS, locations_for
+from .validators import create_validators  # noqa: F401
+
+
+def reset_state():
+
+    ids.counter = 0
+    weather._current_profile = None
+
+
+def refresh_entity(entity):
+
+    # An "equal" constraint can copy one appointment's type onto another
+    # whose location was drawn for a different type. Draw a fitting
+    # location again so type and room never contradict.
+    appointment_type = entity.get("appointment_type")
+
+    if appointment_type in TYPE_LOCATIONS and "location" in entity:
+
+        allowed = locations_for(appointment_type)
+
+        if entity["location"] not in allowed:
+            entity["location"] = random.choice(allowed)

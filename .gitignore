@@ -4,3 +4,7 @@ Synthetic_Data
 .venv
 config/publish_config.yaml
 __pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/

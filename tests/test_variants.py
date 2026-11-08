@@ -11,17 +11,17 @@ from unittest import mock
 import helpers
 import yaml
 
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine import domain as domain_module
-from synthetic_data_generator.engine import lint_templates, orchestrator
-from synthetic_data_generator.engine.config_optimizer import render_block, write_block
-from synthetic_data_generator.engine.dataset_generator import DatasetGenerator
-from synthetic_data_generator.engine.domain import Domain, deep_merge, list_domains, load_domain
-from synthetic_data_generator.engine.languages import LANGUAGES
-from synthetic_data_generator.engine.linguistic_resolver import LinguisticResolver
-from synthetic_data_generator.engine.new_domain import create_domain
-from synthetic_data_generator.engine.tool_definitions import tool_definitions
-from synthetic_data_generator.engine.validators.validator import Validator
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine import domain as domain_module
+from dataset_forge.engine import lint_templates, orchestrator
+from dataset_forge.engine.config_optimizer import render_block, write_block
+from dataset_forge.engine.dataset_generator import DatasetGenerator
+from dataset_forge.engine.domain import Domain, deep_merge, list_domains, load_domain
+from dataset_forge.engine.languages import LANGUAGES
+from dataset_forge.engine.linguistic_resolver import LinguisticResolver
+from dataset_forge.engine.new_domain import create_domain
+from dataset_forge.engine.tool_definitions import tool_definitions
+from dataset_forge.engine.validators.validator import Validator
 
 
 TEMPLATE = "orders/order_status"
@@ -149,7 +149,7 @@ class NamesTest(PackTestCase):
 
         add_german(self.root)
 
-        with mock.patch.object(domain_module, "DOMAINS_DIR", self.folder):
+        with mock.patch.object(domain_module, "DOMAIN_DIRS", [self.folder]):
             self.assertEqual(list_domains(), ["shop", "shop@de"])
 
 
@@ -396,7 +396,7 @@ class MergeTest(PackTestCase):
         source = self.folder / "input"
         output = self.folder / "output"
 
-        with mock.patch.object(domain_module, "DOMAINS_DIR", self.folder), \
+        with mock.patch.object(domain_module, "DOMAIN_DIRS", [self.folder]), \
                 mock.patch.object(merger, "INPUT_FOLDER", source):
 
             domain_module.load_domain.cache_clear()
@@ -449,7 +449,7 @@ class MergeTest(PackTestCase):
 
         self.assertEqual(metadata["languages"], {"shop": "en", "shop@de": "de", "shop@v2": "en"})
 
-        path = helpers.PACKAGE_ROOT / "Model_Specific_Preprocessors" / "qwen_preprossor.py"
+        path = helpers.REPO_ROOT / "scripts" / "qwen_preprossor.py"
         spec = importlib.util.spec_from_file_location("qwen_for_variants", path)
         qwen = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(qwen)

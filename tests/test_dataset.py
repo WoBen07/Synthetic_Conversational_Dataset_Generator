@@ -7,9 +7,9 @@ from pathlib import Path
 
 import helpers
 
-from synthetic_data_generator.engine import config_optimizer as optimizer
-from synthetic_data_generator.engine import dataset_merger as merger
-from synthetic_data_generator.engine.datapoint_metadata import behaviour, build_metadata, wording_id
+from dataset_forge.engine import config_optimizer as optimizer
+from dataset_forge.engine import dataset_merger as merger
+from dataset_forge.engine.datapoint_metadata import behaviour, build_metadata, wording_id
 
 
 class OptimizerMathTest(unittest.TestCase):
